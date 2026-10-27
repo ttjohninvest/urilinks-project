@@ -566,7 +566,7 @@ console.log("1a LinkList.js, props.theSortBy="+props.theSortBy)
               className="button-2 ib margin-left-11"
               style={{ zIndex: 99 }}
             >
-              <span>St</span>
+              <span>Stop</span>
             </button></div>
 
             

@@ -273,6 +273,54 @@ useEffect(() => {
   };
 }, [props.databasePath]);
 
+const clearVisibilityCacheOnly = () => {
+    const prefix =
+      "urilinks|visibility|" +
+      (props.uid || "") +
+      "|" +
+      (props.databasePath || "") +
+      "|";
+
+    const keysToRemove = [];
+
+    for (let i = 0; i < sessionStorage.length; i++) {
+      const key = sessionStorage.key(i);
+
+      if (key && key.startsWith(prefix)) {
+        keysToRemove.push(key);
+      }
+    }
+
+    keysToRemove.forEach((key) => {
+      sessionStorage.removeItem(key);
+    });
+  };
+
+
+  const clearVisibilityCache = async () => {
+    clearVisibilityCacheOnly();
+
+    cursorRef.current = null;
+    pageRef.current = 0;
+
+    setLinks([]);
+    setHasMore(true);
+
+    await getTotalCount(true);
+
+    await loadLinks(true, true);
+  }; 
+
+   const removeLinkFromDisplayedList = (id) => {
+  setLinks((previousLinks) =>
+    previousLinks.filter((link) => link.id !== id)
+  );
+
+    if (props.setLinksCount) {
+    props.setLinksCount(props.linksCount - 1);
+  }
+};
+
 const removeDeletedLinkFromSessionStorage = (search, id) => {
   const baseKey = getCacheBaseKey(search);
 
@@ -383,6 +431,8 @@ const sessionRemoveLink=(id) => {
                             theSortBy={props.theSortBy}
                             // videoId={props.videoId}
                             // playInPlaceVideo={props.playInPlaceVideo}
+                            clearVisibilityCache={clearVisibilityCacheOnly}
+                            removeLinkFromDisplayedList={removeLinkFromDisplayedList}
                           />
                         </div>
                       );

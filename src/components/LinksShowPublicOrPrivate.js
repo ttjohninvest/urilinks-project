@@ -288,10 +288,13 @@ const LinksShowPublicOrPrivate = (props) => {
     }
   };
 
+
   /*
    * Called after showpublic
    * is changed in Firebase.
    */
+
+
   const clearVisibilityCache = async () => {
     clearVisibilityCacheOnly();
 

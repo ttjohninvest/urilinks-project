@@ -1,8 +1,4 @@
-import React, {
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { connect } from "react-redux";
 
@@ -11,85 +7,48 @@ import "firebase/database";
 
 import LinkListItem from "./LinkListItem";
 
-
 const PAGE_SIZE = 20;
 
+const params = new URLSearchParams(window.location.search);
 
-const params =
-  new URLSearchParams(
-    window.location.search
-  );
+const rt = params.get("x");
 
-const rt =
-  params.get("x");
+const InfiniteScrollNewNoteText = (props) => {
+  console.log("abc InfiniteScrollNewNoteText");
 
+  const [links, setLinks] = useState([]);
 
-const InfiniteScrollNewNoteText = (
-  props
-) => {
+  const [loading, setLoading] = useState(false);
 
-  console.log(
-    "abc InfiniteScrollNewNoteText"
-  );
-
-
-  const [
-    links,
-    setLinks,
-  ] = useState([]);
-
-
-  const [
-    loading,
-    setLoading,
-  ] = useState(false);
-
-
-  const [
-    hasMore,
-    setHasMore,
-  ] = useState(true);
-
+  const [hasMore, setHasMore] = useState(true);
 
   /*
    * Used specifically for hashtag
    * searches.
    */
-  const [
-    noMoreHashtags,
-    setNoMoreHashtags,
-  ] = useState(false);
-
+  const [noMoreHashtags, setNoMoreHashtags] = useState(false);
 
   /*
    * Keeps track of where the previous
    * Firebase query stopped.
    */
-  const cursorRef =
-    useRef(null);
-
+  const cursorRef = useRef(null);
 
   /*
    * Keeps track of cached page number.
    */
-  const pageRef =
-    useRef(0);
-
+  const pageRef = useRef(0);
 
   /*
    * Prevent duplicate loads before
    * React updates loading state.
    */
-  const loadingRef =
-    useRef(false);
-
+  const loadingRef = useRef(false);
 
   /*
    * IntersectionObserver watches this.
    */
-  const loaderRef =
-    useRef(null);
-
+  const loaderRef = useRef(null);
 
   /*
    * Keeps the current complete list
@@ -99,29 +58,14 @@ const InfiniteScrollNewNoteText = (
    * before checking how many links
    * have been found.
    */
-  const linksRef =
-    useRef([]);
-
+  const linksRef = useRef([]);
 
   /*
    * Normalize search text.
    */
-  const normalizeSearch = (
-    value
-  ) => {
-
-    return (
-      value || ""
-    )
-      .trim()
-      .replace(
-        /\s+/g,
-        " "
-      )
-      .toLowerCase();
-
+  const normalizeSearch = (value) => {
+    return (value || "").trim().replace(/\s+/g, " ").toLowerCase();
   };
-
 
   /*
    * Match a link against the search text.
@@ -130,45 +74,17 @@ const InfiniteScrollNewNoteText = (
    * If it is not found in the note,
    * search the description.
    */
-  const linkMatchesSearch =
-    (
-      item,
-      search
-    ) => {
+  const linkMatchesSearch = (item, search) => {
+    const note = normalizeSearch(item && item.note);
 
-      const note =
-        normalizeSearch(
-          item &&
-          item.note
-        );
+    if (note.includes(search)) {
+      return true;
+    }
 
+    const description = normalizeSearch(item && item.description);
 
-      if (
-        note.includes(
-          search
-        )
-      ) {
-
-        return true;
-
-      }
-
-
-      const description =
-        normalizeSearch(
-          item &&
-          item.description
-        );
-
-
-      return (
-        description.includes(
-          search
-        )
-      );
-
-    };
-
+    return description.includes(search);
+  };
 
   /*
    * Get the expected number of links
@@ -180,753 +96,363 @@ const InfiniteScrollNewNoteText = (
    * hashtagSearchTerm
    * hashtagExpectedCount
    */
-  const getHashtagExpectedCount =
-    () => {
+  const getHashtagExpectedCount = () => {
+    if (props.theSortBy !== "hashtag") {
+      return 0;
+    }
 
-      if (
-        props.theSortBy !==
-        "hashtag"
-      ) {
+    const currentSearch = normalizeSearch(props.searchText);
 
-        return 0;
+    const savedSearch = normalizeSearch(
+      window.sessionStorage.getItem("hashtagSearchTerm"),
+    );
 
-      }
+    /*
+     * Make sure the saved count belongs
+     * to this hashtag.
+     */
+    if (currentSearch !== savedSearch) {
+      return 0;
+    }
 
+    const count = parseInt(
+      window.sessionStorage.getItem("hashtagExpectedCount"),
+      10,
+    );
 
-      const currentSearch =
-        normalizeSearch(
-          props.searchText
-        );
+    if (Number.isNaN(count)) {
+      return 0;
+    }
 
-
-      const savedSearch =
-        normalizeSearch(
-          window.sessionStorage
-            .getItem(
-              "hashtagSearchTerm"
-            )
-        );
-
-
-      /*
-       * Make sure the saved count belongs
-       * to this hashtag.
-       */
-      if (
-        currentSearch !==
-        savedSearch
-      ) {
-
-        return 0;
-
-      }
-
-
-      const count =
-        parseInt(
-          window.sessionStorage
-            .getItem(
-              "hashtagExpectedCount"
-            ),
-          10
-        );
-
-
-      if (
-        Number.isNaN(count)
-      ) {
-
-        return 0;
-
-      }
-
-
-      return count;
-
-    };
-
+    return count;
+  };
 
   /*
    * Prevent a link from being counted
    * twice.
    */
-  const removeDuplicateLinks =
-    (
-      array
-    ) => {
+  const removeDuplicateLinks = (array) => {
+    const ids = new Set();
 
-      const ids =
-        new Set();
+    return array.filter((link) => {
+      if (!link || !link.id) {
+        return false;
+      }
 
+      if (ids.has(link.id)) {
+        return false;
+      }
 
-      return array.filter(
-        (link) => {
+      ids.add(link.id);
 
-          if (
-            !link ||
-            !link.id
-          ) {
-
-            return false;
-
-          }
-
-
-          if (
-            ids.has(
-              link.id
-            )
-          ) {
-
-            return false;
-
-          }
-
-
-          ids.add(
-            link.id
-          );
-
-
-          return true;
-
-        }
-      );
-
-    };
-
+      return true;
+    });
+  };
 
   /*
    * Check whether the hashtag search
    * has found item.count links.
    */
-  const checkHashtagComplete =
-    (
-      foundLinks
-    ) => {
-
-      if (
-        props.theSortBy !==
-        "hashtag"
-      ) {
-
-        return false;
-
-      }
-
-
-      const expectedCount =
-        getHashtagExpectedCount();
-
-
-      console.log(
-        "Hashtag expected count=",
-        expectedCount
-      );
-
-
-      console.log(
-        "Hashtag links found=",
-        foundLinks.length
-      );
-
-
-      if (
-        expectedCount > 0 &&
-        foundLinks.length >=
-          expectedCount
-      ) {
-
-        console.log(
-          "All expected hashtag links found"
-        );
-
-
-        setNoMoreHashtags(
-          true
-        );
-
-
-        setHasMore(
-          false
-        );
-
-
-        return true;
-
-      }
-
-
+  const checkHashtagComplete = (foundLinks) => {
+    if (props.theSortBy !== "hashtag") {
       return false;
+    }
 
-    };
+    const expectedCount = getHashtagExpectedCount();
 
+    console.log("Hashtag expected count=", expectedCount);
+
+    console.log("Hashtag links found=", foundLinks.length);
+
+    if (expectedCount > 0 && foundLinks.length >= expectedCount) {
+      console.log("All expected hashtag links found");
+
+      setNoMoreHashtags(true);
+
+      setHasMore(false);
+
+      return true;
+    }
+
+    return false;
+  };
 
   /*
    * Unique cache key.
    */
-  const getCacheBaseKey =
-    (
-      search
-    ) => {
-
-      return [
-        "urilinks",
-        "notetext-description-v2",
-        props.uid || "",
-        props.databasePath || "",
-        props.theSortBy || "",
-        search,
-      ].join("|");
-
-    };
-
+  const getCacheBaseKey = (search) => {
+    return [
+      "urilinks",
+      "notetext-description-v2",
+      props.uid || "",
+      props.databasePath || "",
+      props.theSortBy || "",
+      search,
+    ].join("|");
+  };
 
   /*
    * Cache key for one page.
    */
-  const getPageCacheKey =
-    (
-      search,
-      pageNumber
-    ) => {
-
-      return (
-        getCacheBaseKey(
-          search
-        ) +
-        "|page|" +
-        pageNumber
-      );
-
-    };
-
+  const getPageCacheKey = (search, pageNumber) => {
+    return getCacheBaseKey(search) + "|page|" + pageNumber;
+  };
 
   /*
    * Cache key for total count.
    */
-  const getCountCacheKey =
-    (
-      search
-    ) => {
+  const getCountCacheKey = (search) => {
+    return getCacheBaseKey(search) + "|count";
+  };
 
-      return (
-        getCacheBaseKey(
-          search
-        ) +
-        "|count"
-      );
+  const loadLinks = async (reset = false) => {
+    if (loadingRef.current) {
+      return;
+    }
 
-    };
+    if (!reset && !hasMore) {
+      return;
+    }
 
+    /*
+     * Hashtag has already reached
+     * item.count.
+     */
+    if (!reset && props.theSortBy === "hashtag" && noMoreHashtags) {
+      return;
+    }
 
-  const loadLinks =
-    async (
-      reset = false
-    ) => {
+    loadingRef.current = true;
 
-      if (
-        loadingRef.current
-      ) {
+    setLoading(true);
 
-        return;
+    try {
+      const search = normalizeSearch(props.searchText);
 
-      }
+      const pageNumber = reset ? 0 : pageRef.current;
 
-
-      if (
-        !reset &&
-        !hasMore
-      ) {
-
-        return;
-
-      }
-
+      const cacheKey = getPageCacheKey(search, pageNumber);
 
       /*
-       * Hashtag has already reached
-       * item.count.
+       * -----------------------------------------
+       * CHECK SESSION CACHE FIRST
+       * -----------------------------------------
        */
-      if (
-        !reset &&
-        props.theSortBy ===
-          "hashtag" &&
-        noMoreHashtags
-      ) {
 
-        return;
+      const cachedString = window.sessionStorage.getItem(cacheKey);
 
+      if (cachedString) {
+        try {
+          const cachedPage = JSON.parse(cachedString);
+
+          console.log(
+            "InfiniteScrollNewNoteText: using cached page " + pageNumber,
+          );
+
+          /*
+           * Restore cursor.
+           */
+          cursorRef.current = cachedPage.cursor || null;
+
+          const cachedMatches = Array.isArray(cachedPage.matches)
+            ? cachedPage.matches
+            : [];
+
+          /*
+           * Build complete list.
+           */
+          let updatedLinks;
+
+          if (reset) {
+            updatedLinks = removeDuplicateLinks(cachedMatches);
+          } else {
+            updatedLinks = removeDuplicateLinks([
+              ...linksRef.current,
+              ...cachedMatches,
+            ]);
+          }
+
+          /*
+           * Save immediately in ref.
+           */
+          linksRef.current = updatedLinks;
+
+          setLinks(updatedLinks);
+
+          /*
+           * Stop when item.count links
+           * have been found.
+           */
+          const hashtagComplete = checkHashtagComplete(updatedLinks);
+
+          if (hashtagComplete === false) {
+            setHasMore(cachedPage.hasMore);
+          }
+
+          pageRef.current = pageNumber + 1;
+
+          return;
+        } catch (error) {
+          console.log("Note text cache read error:", error);
+
+          window.sessionStorage.removeItem(cacheKey);
+        }
       }
 
+      /*
+       * -----------------------------------------
+       * NOT CACHED - GET FROM FIREBASE
+       * -----------------------------------------
+       */
 
-      loadingRef.current =
-        true;
-
-
-      setLoading(
-        true
+      console.log(
+        "InfiniteScrollNewNoteText: getting Firebase page=" + pageNumber,
       );
 
+      let query = firebase
+        .database()
+        .ref(props.databasePath)
+        .orderByChild("note");
 
-      try {
+      /*
+       * Continue from previous cursor.
+       */
+      if (!reset && cursorRef.current) {
+        query = query.startAt(
+          cursorRef.current.value,
 
-        const search =
-          normalizeSearch(
-            props.searchText
-          );
-
-
-        const pageNumber =
-          reset
-            ? 0
-            : pageRef.current;
-
-
-        const cacheKey =
-          getPageCacheKey(
-            search,
-            pageNumber
-          );
-
-
-        /*
-         * -----------------------------------------
-         * CHECK SESSION CACHE FIRST
-         * -----------------------------------------
-         */
-
-        const cachedString =
-          window.sessionStorage
-            .getItem(
-              cacheKey
-            );
-
-
-        if (
-          cachedString
-        ) {
-
-          try {
-
-            const cachedPage =
-              JSON.parse(
-                cachedString
-              );
-
-
-            console.log(
-              "InfiniteScrollNewNoteText: using cached page " +
-                pageNumber
-            );
-
-
-            /*
-             * Restore cursor.
-             */
-            cursorRef.current =
-              cachedPage.cursor ||
-              null;
-
-
-            const cachedMatches =
-              Array.isArray(
-                cachedPage.matches
-              )
-                ? cachedPage.matches
-                : [];
-
-
-            /*
-             * Build complete list.
-             */
-            let updatedLinks;
-
-
-            if (
-              reset
-            ) {
-
-              updatedLinks =
-                removeDuplicateLinks(
-                  cachedMatches
-                );
-
-            } else {
-
-              updatedLinks =
-                removeDuplicateLinks(
-                  [
-                    ...linksRef.current,
-                    ...cachedMatches,
-                  ]
-                );
-
-            }
-
-
-            /*
-             * Save immediately in ref.
-             */
-            linksRef.current =
-              updatedLinks;
-
-
-            setLinks(
-              updatedLinks
-            );
-
-
-            /*
-             * Stop when item.count links
-             * have been found.
-             */
-            const hashtagComplete =
-              checkHashtagComplete(
-                updatedLinks
-              );
-
-
-            if (
-              hashtagComplete ===
-              false
-            ) {
-
-              setHasMore(
-                cachedPage.hasMore
-              );
-
-            }
-
-
-            pageRef.current =
-              pageNumber + 1;
-
-
-            return;
-
-          } catch (
-            error
-          ) {
-
-            console.log(
-              "Note text cache read error:",
-              error
-            );
-
-
-            window.sessionStorage
-              .removeItem(
-                cacheKey
-              );
-
-          }
-
-        }
-
-
-        /*
-         * -----------------------------------------
-         * NOT CACHED - GET FROM FIREBASE
-         * -----------------------------------------
-         */
-
-        console.log(
-          "InfiniteScrollNewNoteText: getting Firebase page=" +
-            pageNumber
+          cursorRef.current.key,
         );
-
-
-        let query =
-          firebase
-            .database()
-            .ref(
-              props.databasePath
-            )
-            .orderByChild(
-              "note"
-            );
-
-
-        /*
-         * Continue from previous cursor.
-         */
-        if (
-          !reset &&
-          cursorRef.current
-        ) {
-
-          query =
-            query.startAt(
-              cursorRef.current
-                .value,
-
-              cursorRef.current
-                .key
-            );
-
-        }
-
-
-        /*
-         * Request extra records.
-         */
-        query =
-          query.limitToFirst(
-            PAGE_SIZE +
-              (
-                !reset &&
-                cursorRef.current
-                  ? 2
-                  : 1
-              )
-          );
-
-
-        const snapshot =
-          await query.once(
-            "value"
-          );
-
-
-        let allFetched =
-          [];
-
-
-        snapshot.forEach(
-          (
-            child
-          ) => {
-
-            allFetched.push({
-              id:
-                child.key,
-
-              ...child.val(),
-            });
-
-          }
-        );
-
-
-        /*
-         * startAt includes previous
-         * cursor record.
-         */
-        if (
-          !reset &&
-          cursorRef.current
-        ) {
-
-          allFetched =
-            allFetched.filter(
-              (item) =>
-                item.id !==
-                cursorRef.current
-                  .key
-            );
-
-        }
-
-
-        const moreAvailable =
-          allFetched.length >
-          PAGE_SIZE;
-
-
-        /*
-         * Actual Firebase page.
-         */
-        const fetchedPage =
-          allFetched.slice(
-            0,
-            PAGE_SIZE
-          );
-
-
-        /*
-         * Apply normalized search.
-         *
-         * Search note first.
-         * If not found there,
-         * search description.
-         */
-        const matches =
-          fetchedPage.filter(
-            (item) =>
-              linkMatchesSearch(
-                item,
-                search              )
-          );
-
-
-        /*
-         * Save cursor from final
-         * Firebase record.
-         */
-        if (
-          fetchedPage.length >
-          0
-        ) {
-
-          const lastItem =
-            fetchedPage[
-              fetchedPage.length -
-                1
-            ];
-
-
-          cursorRef.current =
-            {
-              key:
-                lastItem.id,
-
-              value:
-                lastItem.note,
-            };
-
-        } else {
-
-          cursorRef.current =
-            null;
-
-        }
-
-
-        console.log(
-          "InfiniteScrollNewNoteText, matches=" +
-            JSON.stringify(
-              matches
-            )
-        );
-
-
-        /*
-         * -----------------------------------------
-         * SAVE PAGE IN SESSION CACHE
-         * -----------------------------------------
-         */
-
-        const pageToCache =
-          {
-            matches:
-              matches,
-
-            cursor:
-              cursorRef.current,
-
-            hasMore:
-              moreAvailable,
-          };
-
-
-        window.sessionStorage
-          .setItem(
-            cacheKey,
-            JSON.stringify(
-              pageToCache
-            )
-          );
-
-
-        /*
-         * -----------------------------------------
-         * BUILD COMPLETE RESULTS LIST
-         * -----------------------------------------
-         */
-
-        let updatedLinks;
-
-
-        if (
-          reset
-        ) {
-
-          updatedLinks =
-            removeDuplicateLinks(
-              matches
-            );
-
-        } else {
-
-          updatedLinks =
-            removeDuplicateLinks(
-              [
-                ...linksRef.current,
-                ...matches,
-              ]
-            );
-
-        }
-
-
-        /*
-         * Save immediately.
-         */
-        linksRef.current =
-          updatedLinks;
-
-
-        setLinks(
-          updatedLinks
-        );
-
-
-        /*
-         * -----------------------------------------
-         * HASHTAG STOP
-         * -----------------------------------------
-         *
-         * If item.count says there are 3,
-         * stop immediately when 3 unique
-         * links have been found.
-         */
-        const hashtagComplete =
-          checkHashtagComplete(
-            updatedLinks
-          );
-
-
-        if (
-          hashtagComplete ===
-          false
-        ) {
-
-          setHasMore(
-            moreAvailable
-          );
-
-        }
-
-
-        pageRef.current =
-          pageNumber + 1;
-
-
-      } catch (
-        error
-      ) {
-
-        console.log(
-          "Firebase note text search error:",
-          error
-        );
-
-
-      } finally {
-
-        loadingRef.current =
-          false;
-
-
-        setLoading(
-          false
-        );
-
       }
 
-    };
+      /*
+       * Request extra records.
+       */
+      query = query.limitToFirst(
+        PAGE_SIZE + (!reset && cursorRef.current ? 2 : 1),
+      );
 
+      const snapshot = await query.once("value");
+
+      let allFetched = [];
+
+      snapshot.forEach((child) => {
+        allFetched.push({
+          id: child.key,
+
+          ...child.val(),
+        });
+      });
+
+      /*
+       * startAt includes previous
+       * cursor record.
+       */
+      if (!reset && cursorRef.current) {
+        allFetched = allFetched.filter(
+          (item) => item.id !== cursorRef.current.key,
+        );
+      }
+
+      const moreAvailable = allFetched.length > PAGE_SIZE;
+
+      /*
+       * Actual Firebase page.
+       */
+      const fetchedPage = allFetched.slice(0, PAGE_SIZE);
+
+      /*
+       * Apply normalized search.
+       *
+       * Search note first.
+       * If not found there,
+       * search description.
+       */
+      const matches = fetchedPage.filter((item) =>
+        linkMatchesSearch(item, search),
+      );
+
+      /*
+       * Save cursor from final
+       * Firebase record.
+       */
+      if (fetchedPage.length > 0) {
+        const lastItem = fetchedPage[fetchedPage.length - 1];
+
+        cursorRef.current = {
+          key: lastItem.id,
+
+          value: lastItem.note,
+        };
+      } else {
+        cursorRef.current = null;
+      }
+
+      console.log(
+        "InfiniteScrollNewNoteText, matches=" + JSON.stringify(matches),
+      );
+
+      /*
+       * -----------------------------------------
+       * SAVE PAGE IN SESSION CACHE
+       * -----------------------------------------
+       */
+
+      const pageToCache = {
+        matches: matches,
+
+        cursor: cursorRef.current,
+
+        hasMore: moreAvailable,
+      };
+
+      window.sessionStorage.setItem(cacheKey, JSON.stringify(pageToCache));
+
+      /*
+       * -----------------------------------------
+       * BUILD COMPLETE RESULTS LIST
+       * -----------------------------------------
+       */
+
+      let updatedLinks;
+
+      if (reset) {
+        updatedLinks = removeDuplicateLinks(matches);
+      } else {
+        updatedLinks = removeDuplicateLinks([...linksRef.current, ...matches]);
+      }
+
+      /*
+       * Save immediately.
+       */
+      linksRef.current = updatedLinks;
+
+      setLinks(updatedLinks);
+
+      /*
+       * -----------------------------------------
+       * HASHTAG STOP
+       * -----------------------------------------
+       *
+       * If item.count says there are 3,
+       * stop immediately when 3 unique
+       * links have been found.
+       */
+      const hashtagComplete = checkHashtagComplete(updatedLinks);
+
+      if (hashtagComplete === false) {
+        setHasMore(moreAvailable);
+      }
+
+      pageRef.current = pageNumber + 1;
+    } catch (error) {
+      console.log("Firebase note text search error:", error);
+    } finally {
+      loadingRef.current = false;
+
+      setLoading(false);
+    }
+  };
 
   /*
    * -----------------------------------------
@@ -934,612 +460,293 @@ const InfiniteScrollNewNoteText = (
    * -----------------------------------------
    */
 
-  const getTotalCount =
-    async () => {
+  const getTotalCount = async () => {
+    const search = normalizeSearch(props.searchText);
 
-      const search =
-        normalizeSearch(
-          props.searchText
-        );
+    /*
+     * For a hashtag search,
+     * SeeHashTagsPage has already
+     * calculated the exact count.
+     */
+    if (props.theSortBy === "hashtag") {
+      const expectedCount = getHashtagExpectedCount();
 
+      if (expectedCount > 0) {
+        console.log("Using hashtag item.count=", expectedCount);
 
-      /*
-       * For a hashtag search,
-       * SeeHashTagsPage has already
-       * calculated the exact count.
-       */
-      if (
-        props.theSortBy ===
-        "hashtag"
-      ) {
-
-        const expectedCount =
-          getHashtagExpectedCount();
-
-
-        if (
-          expectedCount > 0
-        ) {
-
-          console.log(
-            "Using hashtag item.count=",
-            expectedCount
-          );
-
-
-          if (
-            props.onLinksCountChange
-          ) {
-
-            props.onLinksCountChange(
-              expectedCount
-            );
-
-          }
-
-
-          return;
-
+        if (props.onLinksCountChange) {
+          props.onLinksCountChange(expectedCount);
         }
-
-      }
-
-
-      const countCacheKey =
-        getCountCacheKey(
-          search
-        );
-
-
-      /*
-       * Check session cache first.
-       */
-      const cachedCount =
-        window.sessionStorage
-          .getItem(
-            countCacheKey
-          );
-
-
-      if (
-        cachedCount !==
-        null
-      ) {
-
-        console.log(
-          "InfiniteScrollNewNoteText: using cached count=" +
-            cachedCount
-        );
-
-
-        if (
-          props.onLinksCountChange
-        ) {
-
-          props.onLinksCountChange(
-            parseInt(
-              cachedCount,
-              10
-            )
-          );
-
-        }
-
 
         return;
-
       }
+    }
 
+    const countCacheKey = getCountCacheKey(search);
 
-      /*
-       * Not cached.
-       */
-      const snapshot =
-        await firebase
-          .database()
-          .ref(
-            props.databasePath
-          )
-          .once(
-            "value"
-          );
+    /*
+     * Check session cache first.
+     */
+    const cachedCount = window.sessionStorage.getItem(countCacheKey);
 
-
-      let count =
-        0;
-
-
-      snapshot.forEach(
-        (
-          child
-        ) => {
-
-          const item =
-            child.val();
-
-
-          /*
-           * Same matching rule:
-           *
-           * note first,
-           * description second.
-           */
-          if (
-            linkMatchesSearch(
-              item,
-              search
-            )
-          ) {
-
-            count++;
-
-          }
-
-        }
+    if (cachedCount !== null) {
+      console.log(
+        "InfiniteScrollNewNoteText: using cached count=" + cachedCount,
       );
 
-
-      /*
-       * Cache total count.
-       */
-      window.sessionStorage
-        .setItem(
-          countCacheKey,
-          count.toString()
-        );
-
-
-      if (
-        props.onLinksCountChange
-      ) {
-
-        props.onLinksCountChange(
-          count
-        );
-
+      if (props.onLinksCountChange) {
+        props.onLinksCountChange(parseInt(cachedCount, 10));
       }
 
-    };
+      return;
+    }
 
+    /*
+     * Not cached.
+     */
+    const snapshot = await firebase
+      .database()
+      .ref(props.databasePath)
+      .once("value");
+
+    let count = 0;
+
+    snapshot.forEach((child) => {
+      const item = child.val();
+
+      /*
+       * Same matching rule:
+       *
+       * note first,
+       * description second.
+       */
+      if (linkMatchesSearch(item, search)) {
+        count++;
+      }
+    });
+
+    /*
+     * Cache total count.
+     */
+    window.sessionStorage.setItem(countCacheKey, count.toString());
+
+    if (props.onLinksCountChange) {
+      props.onLinksCountChange(count);
+    }
+  };
 
   /*
    * Start a new search.
    */
-  useEffect(
-    () => {
+  useEffect(() => {
+    cursorRef.current = null;
 
-      cursorRef.current =
-        null;
+    pageRef.current = 0;
 
+    linksRef.current = [];
 
-      pageRef.current =
-        0;
+    setLinks([]);
 
+    setHasMore(true);
 
-      linksRef.current =
-        [];
+    setNoMoreHashtags(false);
 
+    getTotalCount();
 
-      setLinks(
-        []
-      );
-
-
-      setHasMore(
-        true
-      );
-
-
-      setNoMoreHashtags(
-        false
-      );
-
-
-      getTotalCount();
-
-
-      loadLinks(
-        true
-      );
-
-    },
-    [
-      props.searchText,
-      props.uid,
-      props.theSortBy,
-    ]
-  );
-
+    loadLinks(true);
+  }, [props.searchText, props.uid, props.theSortBy]);
 
   /*
    * Infinite scroll.
    */
-  useEffect(
-    () => {
-
-      const observer =
-        new IntersectionObserver(
-          (
-            entries
-          ) => {
-
-            const firstEntry =
-              entries[0];
-
-
-            if (
-              firstEntry
-                .isIntersecting &&
-              !loadingRef.current &&
-              hasMore &&
-              !noMoreHashtags
-            ) {
-
-              loadLinks(
-                false
-              );
-
-            }
-
-          },
-          {
-            root:
-              null,
-
-            rootMargin:
-              "200px",
-
-            threshold:
-              0,
-          }
-        );
-
-
-      const loader =
-        loaderRef.current;
-
-
-      if (
-        loader
-      ) {
-
-        observer.observe(
-          loader
-        );
-
-      }
-
-
-      return () => {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const firstEntry = entries[0];
 
         if (
-          loader
+          firstEntry.isIntersecting &&
+          !loadingRef.current &&
+          hasMore &&
+          !noMoreHashtags
         ) {
+          loadLinks(false);
+        }
+      },
+      {
+        root: null,
 
-          observer.unobserve(
-            loader
-          );
+        rootMargin: "200px",
 
+        threshold: 0,
+      },
+    );
+
+    const loader = loaderRef.current;
+
+    if (loader) {
+      observer.observe(loader);
+    }
+
+    return () => {
+      if (loader) {
+        observer.unobserve(loader);
+      }
+    };
+  }, [loading, hasMore, noMoreHashtags, props.searchText]);
+
+  const removeDeletedLinkFromSessionStorage = (search, id) => {
+    const baseKey = getCacheBaseKey(search);
+
+    for (let i = 0; i < sessionStorage.length; i++) {
+      const key = sessionStorage.key(i);
+
+      if (key && key.startsWith(baseKey + "|page|")) {
+        const cachedString = sessionStorage.getItem(key);
+
+        if (!cachedString) {
+          continue;
         }
 
-      };
+        try {
+          const cachedPage = JSON.parse(cachedString);
 
-    },
-    [
-      loading,
-      hasMore,
-      noMoreHashtags,
-      props.searchText,
-    ]
-  );
-
-
-  const removeDeletedLinkFromSessionStorage =
-    (
-      search,
-      id
-    ) => {
-
-      const baseKey =
-        getCacheBaseKey(
-          search
-        );
-
-
-      for (
-        let i = 0;
-        i <
-        sessionStorage.length;
-        i++
-      ) {
-
-        const key =
-          sessionStorage.key(
-            i
-          );
-
-
-        if (
-          key &&
-          key.startsWith(
-            baseKey +
-              "|page|"
-          )
-        ) {
-
-          const cachedString =
-            sessionStorage
-              .getItem(
-                key
-              );
-
-
-          if (
-            !cachedString
-          ) {
-
-            continue;
-
-          }
-
-
-          try {
-
-            const cachedPage =
-              JSON.parse(
-                cachedString
-              );
-
-
-            if (
-              Array.isArray(
-                cachedPage.matches
-              )
-            ) {
-
-              cachedPage.matches =
-                cachedPage.matches
-                  .filter(
-                    (link) =>
-                      link.id !==
-                      id
-                  );
-
-
-              sessionStorage
-                .setItem(
-                  key,
-                  JSON.stringify(
-                    cachedPage
-                  )
-                );
-
-            }
-
-          } catch (
-            error
-          ) {
-
-            console.log(
-              "Error updating sessionStorage:",
-              error
+          if (Array.isArray(cachedPage.matches)) {
+            cachedPage.matches = cachedPage.matches.filter(
+              (link) => link.id !== id,
             );
 
+            sessionStorage.setItem(key, JSON.stringify(cachedPage));
           }
-
+        } catch (error) {
+          console.log("Error updating sessionStorage:", error);
         }
-
       }
+    }
+
+    /*
+     * Cached count is outdated.
+     */
+    const countKey = getCountCacheKey(search);
+
+    sessionStorage.removeItem(countKey);
+  };
+
+  const sessionRemoveLink = (id) => {
+    console.log("InfiniteScrollNewNoteText, sessionRemoveLink");
+
+    const search = normalizeSearch(props.searchText);
+
+    removeDeletedLinkFromSessionStorage(search, id);
+
+    props.setLinksCount(props.linksCount - 1);
+  };
+
+  const clearVisibilityCacheOnly = () => {
+    const prefix =
+      "urilinks|visibility|" +
+      (props.uid || "") +
+      "|" +
+      (props.databasePath || "") +
+      "|";
+
+    const keysToRemove = [];
+
+    for (let i = 0; i < sessionStorage.length; i++) {
+      const key = sessionStorage.key(i);
+
+      if (key && key.startsWith(prefix)) {
+        keysToRemove.push(key);
+      }
+    }
+
+    keysToRemove.forEach((key) => {
+      sessionStorage.removeItem(key);
+    });
+  };
 
 
-      /*
-       * Cached count is outdated.
-       */
-      const countKey =
-        getCountCacheKey(
-          search
-        );
+  const clearVisibilityCache = async () => {
+    clearVisibilityCacheOnly();
 
+    cursorRef.current = null;
+    pageRef.current = 0;
 
-      sessionStorage.removeItem(
-        countKey
-      );
+    setLinks([]);
+    setHasMore(true);
 
-    };
+    await getTotalCount(true);
 
+    await loadLinks(true, true);
+  }; 
 
-  const sessionRemoveLink =
-    (
-      id
-    ) => {
+   const removeLinkFromDisplayedList = (id) => {
+  setLinks((previousLinks) =>
+    previousLinks.filter((link) => link.id !== id)
+  );
 
-      console.log(
-        "InfiniteScrollNewNoteText, sessionRemoveLink"
-      );
-
-
-      const search =
-        normalizeSearch(
-          props.searchText
-        );
-
-
-      removeDeletedLinkFromSessionStorage(
-        search,
-        id
-      );
-
-
-      props.setLinksCount(
-        props.linksCount -
-          1
-      );
-
-    };
-
+    if (props.setLinksCount) {
+    props.setLinksCount(props.linksCount - 1);
+  }
+};
 
   return (
-
     <div>
-
       <div>
-
-        {links &&
-        links.length ===
-          0
+        {links && links.length === 0
           ? null
-          : links.map(
-              (
-                link,
-                index
-              ) => {
-
-                if (
-                  rt ===
-                    "readonly" &&
-                  link.showpublic ===
-                    0
-                ) {
-
-                  return null;
-
-                }
-
-
-                return (
-
-                  <div
-                    id={
-                      link.id
-                    }
-
-                    key={
-                      link.id
-                    }
-
-                    className=
-                      "border-bottom-1t padding-left-1t- padding-top-1t padding-bottom-1t"
-                  >
-
-                    <LinkListItem
-                      sessionRemoveLink={
-                        sessionRemoveLink
-                      }
-
-                      scrollContainerRef={
-                        props.scrollContainerRef
-                      }
-
-                      link={
-                        link
-                      }
-
-                      rt={
-                        rt
-                      }
-
-                      {...link}
-
-                      index={
-                        index
-                      }
-
-                      signup={
-                        props
-                          .signup
-                          .signup
-                      }
-
-                      idexists={
-                        props.idexists
-                      }
-
-                      theSortBy={
-                        props.theSortBy
-                      }
-                    />
-
-                  </div>
-
-                );
-
+          : links.map((link, index) => {
+              if (rt === "readonly" && link.showpublic === 0) {
+                return null;
               }
-            )}
 
+              return (
+                <div
+                  id={link.id}
+                  key={link.id}
+                  className="border-bottom-1t padding-left-1t- padding-top-1t padding-bottom-1t"
+                >
+                  <LinkListItem
+                    sessionRemoveLink={sessionRemoveLink}
+                    scrollContainerRef={props.scrollContainerRef}
+                    link={link}
+                    rt={rt}
+                    {...link}
+                    index={index}
+                    signup={props.signup.signup}
+                    idexists={props.idexists}
+                    theSortBy={props.theSortBy}
+                    clearVisibilityCache={clearVisibilityCacheOnly}
+                            removeLinkFromDisplayedList={removeLinkFromDisplayedList}
+                  />
+                </div>
+              );
+            })}
       </div>
 
+      {loading && <p>Loading...</p>}
 
-      {loading && (
-
-        <p>
-          Loading...
-        </p>
-
-      )}
-
-
-      {!loading &&
-        !hasMore &&
-        links.length ===
-          0 && (
-
-          <p>
-            No results found.
-          </p>
-
-        )}
-
+      {!loading && !hasMore && links.length === 0 && <p>No results found.</p>}
 
       <div
-        ref={
-          loaderRef
-        }
-
+        ref={loaderRef}
         style={{
-          height:
-            "20px",
+          height: "20px",
         }}
       />
 
-
-      {!hasMore &&
-        links.length >
-          0 && (
-
-          <p>
-            No more results.
-          </p>
-
-        )}
-
+      {!hasMore && links.length > 0 && <p>No more results.</p>}
     </div>
-
   );
-
 };
 
-
-const mapStateToProps = (
-  state
-) => {
-
+const mapStateToProps = (state) => {
   return {
-
-    signup:
-      state.signup,
-
+    signup: state.signup,
   };
-
 };
 
-
-export default connect(
-  mapStateToProps
-)(
-  InfiniteScrollNewNoteText
-);
-				
-
+export default connect(mapStateToProps)(InfiniteScrollNewNoteText);
 
 // import React, {
 //   useEffect,
@@ -1554,9 +761,7 @@ export default connect(
 
 // import LinkListItem from "./LinkListItem";
 
-
 // const PAGE_SIZE = 20;
-
 
 // const params =
 //   new URLSearchParams(
@@ -1566,7 +771,6 @@ export default connect(
 // const rt =
 //   params.get("x");
 
-
 // const InfiniteScrollNewNoteText = (
 //   props
 // ) => {
@@ -1575,24 +779,20 @@ export default connect(
 //     "abc InfiniteScrollNewNoteText"
 //   );
 
-
 //   const [
 //     links,
 //     setLinks,
 //   ] = useState([]);
-
 
 //   const [
 //     loading,
 //     setLoading,
 //   ] = useState(false);
 
-
 //   const [
 //     hasMore,
 //     setHasMore,
 //   ] = useState(true);
-
 
 //   /*
 //    * Used specifically for hashtag
@@ -1603,7 +803,6 @@ export default connect(
 //     setNoMoreHashtags,
 //   ] = useState(false);
 
-
 //   /*
 //    * Keeps track of where the previous
 //    * Firebase query stopped.
@@ -1611,13 +810,11 @@ export default connect(
 //   const cursorRef =
 //     useRef(null);
 
-
 //   /*
 //    * Keeps track of cached page number.
 //    */
 //   const pageRef =
 //     useRef(0);
-
 
 //   /*
 //    * Prevent duplicate loads before
@@ -1626,13 +823,11 @@ export default connect(
 //   const loadingRef =
 //     useRef(false);
 
-
 //   /*
 //    * IntersectionObserver watches this.
 //    */
 //   const loaderRef =
 //     useRef(null);
-
 
 //   /*
 //    * Keeps the current complete list
@@ -1644,7 +839,6 @@ export default connect(
 //    */
 //   const linksRef =
 //     useRef([]);
-
 
 //   /*
 //    * Normalize search text.
@@ -1664,7 +858,6 @@ export default connect(
 //       .toLowerCase();
 
 //   };
-
 
 //   /*
 //    * Get the expected number of links
@@ -1688,12 +881,10 @@ export default connect(
 
 //       }
 
-
 //       const currentSearch =
 //         normalizeSearch(
 //           props.searchText
 //         );
-
 
 //       const savedSearch =
 //         normalizeSearch(
@@ -1702,7 +893,6 @@ export default connect(
 //               "hashtagSearchTerm"
 //             )
 //         );
-
 
 //       /*
 //        * Make sure the saved count belongs
@@ -1717,7 +907,6 @@ export default connect(
 
 //       }
 
-
 //       const count =
 //         parseInt(
 //           window.sessionStorage
@@ -1727,7 +916,6 @@ export default connect(
 //           10
 //         );
 
-
 //       if (
 //         Number.isNaN(count)
 //       ) {
@@ -1736,11 +924,9 @@ export default connect(
 
 //       }
 
-
 //       return count;
 
 //     };
-
 
 //   /*
 //    * Prevent a link from being counted
@@ -1754,7 +940,6 @@ export default connect(
 //       const ids =
 //         new Set();
 
-
 //       return array.filter(
 //         (link) => {
 
@@ -1767,7 +952,6 @@ export default connect(
 
 //           }
 
-
 //           if (
 //             ids.has(
 //               link.id
@@ -1778,11 +962,9 @@ export default connect(
 
 //           }
 
-
 //           ids.add(
 //             link.id
 //           );
-
 
 //           return true;
 
@@ -1790,7 +972,6 @@ export default connect(
 //       );
 
 //     };
-
 
 //   /*
 //    * Check whether the hashtag search
@@ -1810,22 +991,18 @@ export default connect(
 
 //       }
 
-
 //       const expectedCount =
 //         getHashtagExpectedCount();
-
 
 //       console.log(
 //         "Hashtag expected count=",
 //         expectedCount
 //       );
 
-
 //       console.log(
 //         "Hashtag links found=",
 //         foundLinks.length
 //       );
-
 
 //       if (
 //         expectedCount > 0 &&
@@ -1837,26 +1014,21 @@ export default connect(
 //           "All expected hashtag links found"
 //         );
 
-
 //         setNoMoreHashtags(
 //           true
 //         );
-
 
 //         setHasMore(
 //           false
 //         );
 
-
 //         return true;
 
 //       }
 
-
 //       return false;
 
 //     };
-
 
 //   /*
 //    * Unique cache key.
@@ -1877,7 +1049,6 @@ export default connect(
 
 //     };
 
-
 //   /*
 //    * Cache key for one page.
 //    */
@@ -1897,7 +1068,6 @@ export default connect(
 
 //     };
 
-
 //   /*
 //    * Cache key for total count.
 //    */
@@ -1915,7 +1085,6 @@ export default connect(
 
 //     };
 
-
 //   const loadLinks =
 //     async (
 //       reset = false
@@ -1929,7 +1098,6 @@ export default connect(
 
 //       }
 
-
 //       if (
 //         !reset &&
 //         !hasMore
@@ -1938,7 +1106,6 @@ export default connect(
 //         return;
 
 //       }
-
 
 //       /*
 //        * Hashtag has already reached
@@ -1955,15 +1122,12 @@ export default connect(
 
 //       }
 
-
 //       loadingRef.current =
 //         true;
-
 
 //       setLoading(
 //         true
 //       );
-
 
 //       try {
 
@@ -1972,19 +1136,16 @@ export default connect(
 //             props.searchText
 //           );
 
-
 //         const pageNumber =
 //           reset
 //             ? 0
 //             : pageRef.current;
-
 
 //         const cacheKey =
 //           getPageCacheKey(
 //             search,
 //             pageNumber
 //           );
-
 
 //         /*
 //          * -----------------------------------------
@@ -1998,7 +1159,6 @@ export default connect(
 //               cacheKey
 //             );
 
-
 //         if (
 //           cachedString
 //         ) {
@@ -2010,12 +1170,10 @@ export default connect(
 //                 cachedString
 //               );
 
-
 //             console.log(
 //               "InfiniteScrollNewNoteText: using cached page " +
 //                 pageNumber
 //             );
-
 
 //             /*
 //              * Restore cursor.
@@ -2024,7 +1182,6 @@ export default connect(
 //               cachedPage.cursor ||
 //               null;
 
-
 //             const cachedMatches =
 //               Array.isArray(
 //                 cachedPage.matches
@@ -2032,12 +1189,10 @@ export default connect(
 //                 ? cachedPage.matches
 //                 : [];
 
-
 //             /*
 //              * Build complete list.
 //              */
 //             let updatedLinks;
-
 
 //             if (
 //               reset
@@ -2060,18 +1215,15 @@ export default connect(
 
 //             }
 
-
 //             /*
 //              * Save immediately in ref.
 //              */
 //             linksRef.current =
 //               updatedLinks;
 
-
 //             setLinks(
 //               updatedLinks
 //             );
-
 
 //             /*
 //              * NEW:
@@ -2082,7 +1234,6 @@ export default connect(
 //               checkHashtagComplete(
 //                 updatedLinks
 //               );
-
 
 //             if (
 //               hashtagComplete ===
@@ -2095,10 +1246,8 @@ export default connect(
 
 //             }
 
-
 //             pageRef.current =
 //               pageNumber + 1;
-
 
 //             return;
 
@@ -2111,7 +1260,6 @@ export default connect(
 //               error
 //             );
 
-
 //             window.sessionStorage
 //               .removeItem(
 //                 cacheKey
@@ -2120,7 +1268,6 @@ export default connect(
 //           }
 
 //         }
-
 
 //         /*
 //          * -----------------------------------------
@@ -2133,7 +1280,6 @@ export default connect(
 //             pageNumber
 //         );
 
-
 //         let query =
 //           firebase
 //             .database()
@@ -2143,7 +1289,6 @@ export default connect(
 //             .orderByChild(
 //               "note"
 //             );
-
 
 //         /*
 //          * Continue from previous cursor.
@@ -2164,7 +1309,6 @@ export default connect(
 
 //         }
 
-
 //         /*
 //          * Request extra records.
 //          */
@@ -2179,16 +1323,13 @@ export default connect(
 //               )
 //           );
 
-
 //         const snapshot =
 //           await query.once(
 //             "value"
 //           );
 
-
 //         let allFetched =
 //           [];
-
 
 //         snapshot.forEach(
 //           (
@@ -2204,7 +1345,6 @@ export default connect(
 
 //           }
 //         );
-
 
 //         /*
 //          * startAt includes previous
@@ -2225,11 +1365,9 @@ export default connect(
 
 //         }
 
-
 //         const moreAvailable =
 //           allFetched.length >
 //           PAGE_SIZE;
-
 
 //         /*
 //          * Actual Firebase page.
@@ -2239,7 +1377,6 @@ export default connect(
 //             0,
 //             PAGE_SIZE
 //           );
-
 
 //         /*
 //          * Apply normalized search.
@@ -2255,7 +1392,6 @@ export default connect(
 //                 )
 //           );
 
-
 //         /*
 //          * Save cursor from final
 //          * Firebase record.
@@ -2270,7 +1406,6 @@ export default connect(
 //               fetchedPage.length -
 //                 1
 //             ];
-
 
 //           cursorRef.current =
 //             {
@@ -2288,14 +1423,12 @@ export default connect(
 
 //         }
 
-
 //         console.log(
 //           "InfiniteScrollNewNoteText, matches=" +
 //             JSON.stringify(
 //               matches
 //             )
 //         );
-
 
 //         /*
 //          * -----------------------------------------
@@ -2315,7 +1448,6 @@ export default connect(
 //               moreAvailable,
 //           };
 
-
 //         window.sessionStorage
 //           .setItem(
 //             cacheKey,
@@ -2324,7 +1456,6 @@ export default connect(
 //             )
 //           );
 
-
 //         /*
 //          * -----------------------------------------
 //          * BUILD COMPLETE RESULTS LIST
@@ -2332,7 +1463,6 @@ export default connect(
 //          */
 
 //         let updatedLinks;
-
 
 //         if (
 //           reset
@@ -2355,18 +1485,15 @@ export default connect(
 
 //         }
 
-
 //         /*
 //          * Save immediately.
 //          */
 //         linksRef.current =
 //           updatedLinks;
 
-
 //         setLinks(
 //           updatedLinks
 //         );
-
 
 //         /*
 //          * -----------------------------------------
@@ -2382,7 +1509,6 @@ export default connect(
 //             updatedLinks
 //           );
 
-
 //         if (
 //           hashtagComplete ===
 //           false
@@ -2394,10 +1520,8 @@ export default connect(
 
 //         }
 
-
 //         pageRef.current =
 //           pageNumber + 1;
-
 
 //       } catch (
 //         error
@@ -2408,12 +1532,10 @@ export default connect(
 //           error
 //         );
 
-
 //       } finally {
 
 //         loadingRef.current =
 //           false;
-
 
 //         setLoading(
 //           false
@@ -2422,7 +1544,6 @@ export default connect(
 //       }
 
 //     };
-
 
 //   /*
 //    * -----------------------------------------
@@ -2437,7 +1558,6 @@ export default connect(
 //         normalizeSearch(
 //           props.searchText
 //         );
-
 
 //       /*
 //        * For a hashtag search,
@@ -2455,7 +1575,6 @@ export default connect(
 //         const expectedCount =
 //           getHashtagExpectedCount();
 
-
 //         if (
 //           expectedCount > 0
 //         ) {
@@ -2464,7 +1583,6 @@ export default connect(
 //             "Using hashtag item.count=",
 //             expectedCount
 //           );
-
 
 //           if (
 //             props.onLinksCountChange
@@ -2476,19 +1594,16 @@ export default connect(
 
 //           }
 
-
 //           return;
 
 //         }
 
 //       }
 
-
 //       const countCacheKey =
 //         getCountCacheKey(
 //           search
 //         );
-
 
 //       /*
 //        * Check session cache first.
@@ -2499,7 +1614,6 @@ export default connect(
 //             countCacheKey
 //           );
 
-
 //       if (
 //         cachedCount !==
 //         null
@@ -2509,7 +1623,6 @@ export default connect(
 //           "InfiniteScrollNewNoteText: using cached count=" +
 //             cachedCount
 //         );
-
 
 //         if (
 //           props.onLinksCountChange
@@ -2524,11 +1637,9 @@ export default connect(
 
 //         }
 
-
 //         return;
 
 //       }
-
 
 //       /*
 //        * Not cached.
@@ -2543,10 +1654,8 @@ export default connect(
 //             "value"
 //           );
 
-
 //       let count =
 //         0;
-
 
 //       snapshot.forEach(
 //         (
@@ -2555,7 +1664,6 @@ export default connect(
 
 //           const item =
 //             child.val();
-
 
 //           if (
 //             item.note &&
@@ -2573,7 +1681,6 @@ export default connect(
 //         }
 //       );
 
-
 //       /*
 //        * Cache total count.
 //        */
@@ -2582,7 +1689,6 @@ export default connect(
 //           countCacheKey,
 //           count.toString()
 //         );
-
 
 //       if (
 //         props.onLinksCountChange
@@ -2596,7 +1702,6 @@ export default connect(
 
 //     };
 
-
 //   /*
 //    * Start a new search.
 //    */
@@ -2606,32 +1711,25 @@ export default connect(
 //       cursorRef.current =
 //         null;
 
-
 //       pageRef.current =
 //         0;
 
-
 //       linksRef.current =
 //         [];
-
 
 //       setLinks(
 //         []
 //       );
 
-
 //       setHasMore(
 //         true
 //       );
-
 
 //       setNoMoreHashtags(
 //         false
 //       );
 
-
 //       getTotalCount();
-
 
 //       loadLinks(
 //         true
@@ -2644,7 +1742,6 @@ export default connect(
 //       props.theSortBy,
 //     ]
 //   );
-
 
 //   /*
 //    * Infinite scroll.
@@ -2660,7 +1757,6 @@ export default connect(
 
 //             const firstEntry =
 //               entries[0];
-
 
 //             if (
 //               firstEntry
@@ -2689,10 +1785,8 @@ export default connect(
 //           }
 //         );
 
-
 //       const loader =
 //         loaderRef.current;
-
 
 //       if (
 //         loader
@@ -2703,7 +1797,6 @@ export default connect(
 //         );
 
 //       }
-
 
 //       return () => {
 
@@ -2728,7 +1821,6 @@ export default connect(
 //     ]
 //   );
 
-
 //   const removeDeletedLinkFromSessionStorage =
 //     (
 //       search,
@@ -2739,7 +1831,6 @@ export default connect(
 //         getCacheBaseKey(
 //           search
 //         );
-
 
 //       for (
 //         let i = 0;
@@ -2752,7 +1843,6 @@ export default connect(
 //           sessionStorage.key(
 //             i
 //           );
-
 
 //         if (
 //           key &&
@@ -2768,7 +1858,6 @@ export default connect(
 //                 key
 //               );
 
-
 //           if (
 //             !cachedString
 //           ) {
@@ -2777,14 +1866,12 @@ export default connect(
 
 //           }
 
-
 //           try {
 
 //             const cachedPage =
 //               JSON.parse(
 //                 cachedString
 //               );
-
 
 //             if (
 //               Array.isArray(
@@ -2799,7 +1886,6 @@ export default connect(
 //                       link.id !==
 //                       id
 //                   );
-
 
 //               sessionStorage
 //                 .setItem(
@@ -2826,7 +1912,6 @@ export default connect(
 
 //       }
 
-
 //       /*
 //        * Cached count is outdated.
 //        */
@@ -2835,13 +1920,11 @@ export default connect(
 //           search
 //         );
 
-
 //       sessionStorage.removeItem(
 //         countKey
 //       );
 
 //     };
-
 
 //   const sessionRemoveLink =
 //     (
@@ -2852,18 +1935,15 @@ export default connect(
 //         "InfiniteScrollNewNoteText, sessionRemoveLink"
 //       );
 
-
 //       const search =
 //         normalizeSearch(
 //           props.searchText
 //         );
 
-
 //       removeDeletedLinkFromSessionStorage(
 //         search,
 //         id
 //       );
-
 
 //       props.setLinksCount(
 //         props.linksCount -
@@ -2871,7 +1951,6 @@ export default connect(
 //       );
 
 //     };
-
 
 //   return (
 
@@ -2899,7 +1978,6 @@ export default connect(
 //                   return null;
 
 //                 }
-
 
 //                 return (
 
@@ -2963,7 +2041,6 @@ export default connect(
 
 //       </div>
 
-
 //       {loading && (
 
 //         <p>
@@ -2971,7 +2048,6 @@ export default connect(
 //         </p>
 
 //       )}
-
 
 //       {!loading &&
 //         !hasMore &&
@@ -2984,7 +2060,6 @@ export default connect(
 
 //         )}
 
-
 //       <div
 //         ref={
 //           loaderRef
@@ -2995,7 +2070,6 @@ export default connect(
 //             "20px",
 //         }}
 //       />
-
 
 //       {!hasMore &&
 //         links.length >
@@ -3013,7 +2087,6 @@ export default connect(
 
 // };
 
-
 // const mapStateToProps = (
 //   state
 // ) => {
@@ -3027,11 +2100,8 @@ export default connect(
 
 // };
 
-
 // export default connect(
 //   mapStateToProps
 // )(
 //   InfiniteScrollNewNoteText
 // );
-
-

@@ -12,7 +12,7 @@ const params = new URLSearchParams(window.location.search);
 const rt = params.get("x");
 
 const InfiniteScrollNewHashTag = (props) => {
-   console.log("abc InfiniteScrollNewHashTag")
+  console.log("abc InfiniteScrollNewHashTag");
   const [links, setLinks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
@@ -37,10 +37,7 @@ const InfiniteScrollNewHashTag = (props) => {
    * "dog rescue"
    */
   const normalizeSearch = (value) => {
-    return (value || "")
-      .trim()
-      .replace(/\s+/g, " ")
-      .toLowerCase();
+    return (value || "").trim().replace(/\s+/g, " ").toLowerCase();
   };
 
   /*
@@ -84,10 +81,7 @@ const InfiniteScrollNewHashTag = (props) => {
 
       const pageNumber = reset ? 0 : pageRef.current;
 
-      const cacheKey = getPageCacheKey(
-        search,
-        pageNumber,
-      );
+      const cacheKey = getPageCacheKey(search, pageNumber);
 
       /*
        * -----------------------------------------
@@ -95,25 +89,21 @@ const InfiniteScrollNewHashTag = (props) => {
        * -----------------------------------------
        */
 
-      const cachedString =
-        window.sessionStorage.getItem(cacheKey);
+      const cachedString = window.sessionStorage.getItem(cacheKey);
 
       if (cachedString) {
         try {
-          const cachedPage =
-            JSON.parse(cachedString);
+          const cachedPage = JSON.parse(cachedString);
 
           console.log(
-            "InfiniteScrollNewHashTag: using cached page " +
-              pageNumber,
+            "InfiniteScrollNewHashTag: using cached page " + pageNumber,
           );
 
           /*
            * Restore cursor so the next Firebase page
            * starts in the correct place.
            */
-          cursorRef.current =
-            cachedPage.cursor || null;
+          cursorRef.current = cachedPage.cursor || null;
 
           if (reset) {
             setLinks(cachedPage.matches || []);
@@ -126,19 +116,13 @@ const InfiniteScrollNewHashTag = (props) => {
 
           setHasMore(cachedPage.hasMore);
 
-          pageRef.current =
-            pageNumber + 1;
+          pageRef.current = pageNumber + 1;
 
           return;
         } catch (error) {
-          console.log(
-            "Hashtag cache read error:",
-            error,
-          );
+          console.log("Hashtag cache read error:", error);
 
-          window.sessionStorage.removeItem(
-            cacheKey,
-          );
+          window.sessionStorage.removeItem(cacheKey);
         }
       }
 
@@ -149,8 +133,7 @@ const InfiniteScrollNewHashTag = (props) => {
        */
 
       console.log(
-        "InfiniteScrollNewHashTag: getting Firebase page=" +
-          pageNumber,
+        "InfiniteScrollNewHashTag: getting Firebase page=" + pageNumber,
       );
 
       let query = firebase
@@ -161,14 +144,8 @@ const InfiniteScrollNewHashTag = (props) => {
       /*
        * Continue from previous Firebase cursor.
        */
-      if (
-        !reset &&
-        cursorRef.current
-      ) {
-        query = query.startAt(
-          cursorRef.current.value,
-          cursorRef.current.key,
-        );
+      if (!reset && cursorRef.current) {
+        query = query.startAt(cursorRef.current.value, cursorRef.current.key);
       }
 
       /*
@@ -176,15 +153,10 @@ const InfiniteScrollNewHashTag = (props) => {
        * whether another page exists.
        */
       query = query.limitToFirst(
-        PAGE_SIZE +
-          (!reset &&
-          cursorRef.current
-            ? 2
-            : 1),
+        PAGE_SIZE + (!reset && cursorRef.current ? 2 : 1),
       );
 
-      const snapshot =
-        await query.once("value");
+      const snapshot = await query.once("value");
 
       let allFetched = [];
 
@@ -199,55 +171,33 @@ const InfiniteScrollNewHashTag = (props) => {
        * startAt includes the previous cursor record,
        * so remove that duplicate.
        */
-      if (
-        !reset &&
-        cursorRef.current
-      ) {
-        allFetched =
-          allFetched.filter(
-            (item) =>
-              item.id !==
-              cursorRef.current.key,
-          );
+      if (!reset && cursorRef.current) {
+        allFetched = allFetched.filter(
+          (item) => item.id !== cursorRef.current.key,
+        );
       }
 
-      const moreAvailable =
-        allFetched.length >
-        PAGE_SIZE;
+      const moreAvailable = allFetched.length > PAGE_SIZE;
 
       /*
        * These are the actual 20 Firebase records
        * for this page.
        */
-      const fetchedPage =
-        allFetched.slice(
-          0,
-          PAGE_SIZE,
-        );
+      const fetchedPage = allFetched.slice(0, PAGE_SIZE);
 
       /*
        * Apply the hashtag/note search.
        */
-      const matches =
-        fetchedPage.filter(
-          (item) =>
-            item.note &&
-            item.note
-              .toLowerCase()
-              .includes(search),
-        );
+      const matches = fetchedPage.filter(
+        (item) => item.note && item.note.toLowerCase().includes(search),
+      );
 
       /*
        * Save the Firebase cursor from the final
        * fetched record, not from the final match.
        */
-      if (
-        fetchedPage.length > 0
-      ) {
-        const lastItem =
-          fetchedPage[
-            fetchedPage.length - 1
-          ];
+      if (fetchedPage.length > 0) {
+        const lastItem = fetchedPage[fetchedPage.length - 1];
 
         cursorRef.current = {
           key: lastItem.id,
@@ -258,8 +208,7 @@ const InfiniteScrollNewHashTag = (props) => {
       }
 
       console.log(
-        "InfiniteScrollNewHashTag, matches=" +
-          JSON.stringify(matches),
+        "InfiniteScrollNewHashTag, matches=" + JSON.stringify(matches),
       );
 
       /*
@@ -270,16 +219,11 @@ const InfiniteScrollNewHashTag = (props) => {
 
       const pageToCache = {
         matches: matches,
-        cursor:
-          cursorRef.current,
-        hasMore:
-          moreAvailable,
+        cursor: cursorRef.current,
+        hasMore: moreAvailable,
       };
 
-      window.sessionStorage.setItem(
-        cacheKey,
-        JSON.stringify(pageToCache),
-      );
+      window.sessionStorage.setItem(cacheKey, JSON.stringify(pageToCache));
 
       /*
        * Display the page.
@@ -287,28 +231,17 @@ const InfiniteScrollNewHashTag = (props) => {
       if (reset) {
         setLinks(matches);
       } else {
-        setLinks(
-          (previousLinks) => [
-            ...previousLinks,
-            ...matches,
-          ],
-        );
+        setLinks((previousLinks) => [...previousLinks, ...matches]);
       }
 
-      setHasMore(
-        moreAvailable,
-      );
+      setHasMore(moreAvailable);
 
       /*
        * Next load will request the next page.
        */
-      pageRef.current =
-        pageNumber + 1;
+      pageRef.current = pageNumber + 1;
     } catch (error) {
-      console.log(
-        "Firebase hashtag search error:",
-        error,
-      );
+      console.log("Firebase hashtag search error:", error);
     } finally {
       loadingRef.current = false;
       setLoading(false);
@@ -322,39 +255,22 @@ const InfiniteScrollNewHashTag = (props) => {
    */
 
   const getTotalCount = async () => {
-    const search =
-      normalizeSearch(
-        props.searchText,
-      );
+    const search = normalizeSearch(props.searchText);
 
-    const countCacheKey =
-      getCountCacheKey(search);
+    const countCacheKey = getCountCacheKey(search);
 
     /*
      * Check cached count first.
      */
-    const cachedCount =
-      window.sessionStorage.getItem(
-        countCacheKey,
-      );
+    const cachedCount = window.sessionStorage.getItem(countCacheKey);
 
-    if (
-      cachedCount !== null
-    ) {
+    if (cachedCount !== null) {
       console.log(
-        "InfiniteScrollNewHashTag: using cached count=" +
-          cachedCount,
+        "InfiniteScrollNewHashTag: using cached count=" + cachedCount,
       );
 
-      if (
-        props.onLinksCountChange
-      ) {
-        props.onLinksCountChange(
-          parseInt(
-            cachedCount,
-            10,
-          ),
-        );
+      if (props.onLinksCountChange) {
+        props.onLinksCountChange(parseInt(cachedCount, 10));
       }
 
       return;
@@ -363,46 +279,28 @@ const InfiniteScrollNewHashTag = (props) => {
     /*
      * Not cached, so count from Firebase.
      */
-    const snapshot =
-      await firebase
-        .database()
-        .ref(
-          props.databasePath,
-        )
-        .once("value");
+    const snapshot = await firebase
+      .database()
+      .ref(props.databasePath)
+      .once("value");
 
     let count = 0;
 
-    snapshot.forEach(
-      (child) => {
-        const item =
-          child.val();
+    snapshot.forEach((child) => {
+      const item = child.val();
 
-        if (
-          item.note &&
-          item.note
-            .toLowerCase()
-            .includes(search)
-        ) {
-          count++;
-        }
-      },
-    );
+      if (item.note && item.note.toLowerCase().includes(search)) {
+        count++;
+      }
+    });
 
     /*
      * Save count in cache.
      */
-    window.sessionStorage.setItem(
-      countCacheKey,
-      count.toString(),
-    );
+    window.sessionStorage.setItem(countCacheKey, count.toString());
 
-    if (
-      props.onLinksCountChange
-    ) {
-      props.onLinksCountChange(
-        count,
-      );
+    if (props.onLinksCountChange) {
+      props.onLinksCountChange(count);
     }
   };
 
@@ -419,194 +317,167 @@ const InfiniteScrollNewHashTag = (props) => {
 
     getTotalCount();
     loadLinks(true);
-  }, [
-    props.searchText,
-    props.uid,
-  ]);
+  }, [props.searchText, props.uid]);
 
   /*
    * Infinite scroll.
    */
   useEffect(() => {
-    const observer =
-      new IntersectionObserver(
-        (entries) => {
-          const firstEntry =
-            entries[0];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const firstEntry = entries[0];
 
-          if (
-            firstEntry.isIntersecting &&
-            !loadingRef.current &&
-            hasMore
-          ) {
-            loadLinks(false);
-          }
-        },
-        {
-          root: null,
-          rootMargin: "200px",
-          threshold: 0,
-        },
-      );
+        if (firstEntry.isIntersecting && !loadingRef.current && hasMore) {
+          loadLinks(false);
+        }
+      },
+      {
+        root: null,
+        rootMargin: "200px",
+        threshold: 0,
+      },
+    );
 
-    const loader =
-      loaderRef.current;
+    const loader = loaderRef.current;
 
     if (loader) {
-      observer.observe(
-        loader,
-      );
+      observer.observe(loader);
     }
 
     return () => {
       if (loader) {
-        observer.unobserve(
-          loader,
-        );
+        observer.unobserve(loader);
       }
     };
-  }, [
-    loading,
-    hasMore,
-    props.searchText,
-  ]);
-const removeDeletedLinkFromSessionStorage = (search, id) => {
-  const baseKey = getCacheBaseKey(search);
+  }, [loading, hasMore, props.searchText]);
+  const removeDeletedLinkFromSessionStorage = (search, id) => {
+    const baseKey = getCacheBaseKey(search);
 
-  for (let i = 0; i < sessionStorage.length; i++) {
-    const key = sessionStorage.key(i);
+    for (let i = 0; i < sessionStorage.length; i++) {
+      const key = sessionStorage.key(i);
 
-    if (
-      key &&
-      key.startsWith(baseKey + "|page|")
-    ) {
-      const cachedString =
-        sessionStorage.getItem(key);
+      if (key && key.startsWith(baseKey + "|page|")) {
+        const cachedString = sessionStorage.getItem(key);
 
-      if (!cachedString) continue;
+        if (!cachedString) continue;
 
-      try {
-        const cachedPage =
-          JSON.parse(cachedString);
+        try {
+          const cachedPage = JSON.parse(cachedString);
 
-        if (Array.isArray(cachedPage.matches)) {
-          cachedPage.matches =
-            cachedPage.matches.filter(
-              (link) => link.id !== id
+          if (Array.isArray(cachedPage.matches)) {
+            cachedPage.matches = cachedPage.matches.filter(
+              (link) => link.id !== id,
             );
 
-          sessionStorage.setItem(
-            key,
-            JSON.stringify(cachedPage)
-          );
+            sessionStorage.setItem(key, JSON.stringify(cachedPage));
+          }
+        } catch (error) {
+          console.log("Error updating sessionStorage:", error);
         }
-      } catch (error) {
-        console.log(
-          "Error updating sessionStorage:",
-          error
-        );
       }
     }
-  }
 
-  // Remove the cached count because it is now outdated.
-  const countKey = getCountCacheKey(search);
+    // Remove the cached count because it is now outdated.
+    const countKey = getCountCacheKey(search);
 
-  sessionStorage.removeItem(countKey);
-};
+    sessionStorage.removeItem(countKey);
+  };
 
-const sessionRemoveLink=(id) => {
-  console.log("inifinteScrollNewDescription.js, sessionRemoveLink, about to call sessionStorage.clear()")
-  //normalizeSearch(props.searchText)
-  //sessionStorage.clear()
-   const search =
-      normalizeSearch(props.searchText);
-
-    removeDeletedLinkFromSessionStorage(
-      search,
-      id
+  const sessionRemoveLink = (id) => {
+    console.log(
+      "inifinteScrollNewDescription.js, sessionRemoveLink, about to call sessionStorage.clear()",
     );
+    //normalizeSearch(props.searchText)
+    //sessionStorage.clear()
+    const search = normalizeSearch(props.searchText);
 
-    props.setLinksCount(props.linksCount-1)
-}
+    removeDeletedLinkFromSessionStorage(search, id);
+
+    props.setLinksCount(props.linksCount - 1);
+  };
+
+  const clearVisibilityCacheOnly = () => {
+    const prefix =
+      "urilinks|visibility|" +
+      (props.uid || "") +
+      "|" +
+      (props.databasePath || "") +
+      "|";
+
+    const keysToRemove = [];
+
+    for (let i = 0; i < sessionStorage.length; i++) {
+      const key = sessionStorage.key(i);
+
+      if (key && key.startsWith(prefix)) {
+        keysToRemove.push(key);
+      }
+    }
+
+    keysToRemove.forEach((key) => {
+      sessionStorage.removeItem(key);
+    });
+  };
+
+  const clearVisibilityCache = async () => {
+    clearVisibilityCacheOnly();
+
+    cursorRef.current = null;
+    pageRef.current = 0;
+
+    setLinks([]);
+    setHasMore(true);
+
+    await getTotalCount(true);
+
+    await loadLinks(true, true);
+  };
+
+  const removeLinkFromDisplayedList = (id) => {
+    setLinks((previousLinks) => previousLinks.filter((link) => link.id !== id));
+
+    if (props.setLinksCount) {
+      props.setLinksCount(props.linksCount - 1);
+    }
+  };
+
   return (
     <div>
       <div>
-        {links &&
-        links.length === 0
+        {links && links.length === 0
           ? null
-          : links.map(
-              (
-                link,
-                index,
-              ) => {
-                if (
-                  rt ===
-                    "readonly" &&
-                  link.showpublic ===
-                    0
-                ) {
-                  return null;
-                } else {
-                  return (
-                    <div
-                      id={
-                        link.id
-                      }
-                      key={
-                        link.id
-                      }
-                      className="border-bottom-1t padding-left-1t- padding-top-1t padding-bottom-1t"
-                    >
-                      <LinkListItem
-                        sessionRemoveLink={sessionRemoveLink}
-                        scrollContainerRef={
-                          props.scrollContainerRef
-                        }
-                        link={
-                          link
-                        }
-                        rt={
-                          rt
-                        }
-                        {...link}
-                        index={
-                          index
-                        }
-                        signup={
-                          props
-                            .signup
-                            .signup
-                        }
-                        idexists={
-                          props.idexists
-                        }
-                        theSortBy={
-                          props.theSortBy
-                        }
-                      />
-                    </div>
-                  );
-                }
-              },
-            )}
+          : links.map((link, index) => {
+              if (rt === "readonly" && link.showpublic === 0) {
+                return null;
+              } else {
+                return (
+                  <div
+                    id={link.id}
+                    key={link.id}
+                    className="border-bottom-1t padding-left-1t- padding-top-1t padding-bottom-1t"
+                  >
+                    <LinkListItem
+                      sessionRemoveLink={sessionRemoveLink}
+                      scrollContainerRef={props.scrollContainerRef}
+                      link={link}
+                      rt={rt}
+                      {...link}
+                      index={index}
+                      signup={props.signup.signup}
+                      idexists={props.idexists}
+                      theSortBy={props.theSortBy}
+                      clearVisibilityCache={clearVisibilityCacheOnly}
+                            removeLinkFromDisplayedList={removeLinkFromDisplayedList}
+                    />
+                  </div>
+                );
+              }
+            })}
       </div>
 
-      {loading && (
-        <p>
-          Loading...
-        </p>
-      )}
+      {loading && <p>Loading...</p>}
 
-      {!loading &&
-        !hasMore &&
-        links.length ===
-          0 && (
-          <p>
-            No results
-            found.
-          </p>
-        )}
+      {!loading && !hasMore && links.length === 0 && <p>No results found.</p>}
 
       <div
         ref={loaderRef}
@@ -615,32 +486,18 @@ const sessionRemoveLink=(id) => {
         }}
       />
 
-      {!hasMore &&
-        links.length >
-          0 && (
-          <p>
-            No more
-            results.
-          </p>
-        )}
+      {!hasMore && links.length > 0 && <p>No more results.</p>}
     </div>
   );
 };
 
-const mapStateToProps = (
-  state,
-) => {
+const mapStateToProps = (state) => {
   return {
-    signup:
-      state.signup,
+    signup: state.signup,
   };
 };
 
-export default connect(
-  mapStateToProps,
-)(
-  InfiniteScrollNewHashTag,
-);
+export default connect(mapStateToProps)(InfiniteScrollNewHashTag);
 
 // import React, { useEffect, useRef, useState } from "react";
 // import { connect } from "react-redux";
@@ -685,14 +542,11 @@ export default connect(
 //       console.log("InfiniteScrollNewDescription, props.theSortBy="+props.theSortBy)
 
 //       let query
-    
-     
+
 //         query = firebase
 //         .database()
 //         .ref(props.databasePath)
 //         .orderByChild("note");
-      
-     
 
 //       // SEARCH
 //       //   if (search) {
@@ -756,9 +610,7 @@ export default connect(
 //       const fetchedPage = allFetched.slice(0, PAGE_SIZE);
 
 //       let matches
-    
 
-    
 //         matches = fetchedPage.filter(
 //            (item) => item.note && item.note.toLowerCase().includes(search))
 //             if (fetchedPage.length > 0) {
@@ -769,10 +621,6 @@ export default connect(
 //           value: lastItem.note,
 //         };
 //       }
-      
-      
-
-     
 
 //       console.log("InfiniteScrollDescription, matches=" + JSON.stringify(matches));
 
@@ -785,7 +633,6 @@ export default connect(
 //       /*
 //        * Only display PAGE_SIZE records.
 //        */
-
 
 //       if (reset) {
 //         setLinks(matches);
@@ -819,8 +666,7 @@ export default connect(
 //     const item = child.val();
 
 //     if (
-      
-     
+
 //       item.note &&
 //       item.note.toLowerCase().includes(search)
 //     ) {
@@ -830,10 +676,9 @@ export default connect(
 
 //   if (props.onLinksCountChange) {
 //    props.onLinksCountChange(count);
-  
+
 //   }
 // };
- 
 
 // useEffect(() => {
 //   cursorRef.current = null;
@@ -882,15 +727,11 @@ export default connect(
 //   return (
 //     <div>
 
-
 //       <div>
-       
-
-
 
 // {links && links.length === 0
 //                 ? null
-//                 :  
+//                 :
 //                   links.map((link, index) => {
 
 //                     if (
@@ -914,7 +755,7 @@ export default connect(
 //                             {...link}
 //                             //linkStatuses = {props.linkStatuses} //{props.linkStatues && props.linkStatuses[link.id]?props.linkStatuses[link.id].result:null}
 //                             //linkStatus={props.linkStatus}
-                            
+
 //                             index={index}
 //                             signup={props.signup.signup}
 //                             idexists={props.idexists}
@@ -925,8 +766,6 @@ export default connect(
 //                         </div>
 //                       );
 //                   })}
-
-
 
 //       </div>
 
@@ -944,16 +783,14 @@ export default connect(
 //   );
 // };
 
-
 //  const mapStateToProps = (state) => {
 
 //   return {
-   
+
 //     signup: state.signup,
-   
+
 //   };
 // };
-
 
 // export default connect(mapStateToProps)(InfiniteScrollNewHashTag);
 // //}

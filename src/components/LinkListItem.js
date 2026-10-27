@@ -474,6 +474,8 @@ https://www.youtube.com/feed/history
 
         setIsPrivate(1);
 
+        alert("Made link public")
+
         if (props.clearVisibilityCache) {
           props.clearVisibilityCache();
         }
@@ -486,7 +488,7 @@ https://www.youtube.com/feed/history
         updateCachedShowPublic(id, x - 1);
 
         setIsPrivate(0);
-
+        alert("Made link private")
         if (props.clearVisibilityCache) {
           props.clearVisibilityCache();
         }

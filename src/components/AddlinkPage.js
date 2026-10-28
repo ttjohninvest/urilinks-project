@@ -258,7 +258,8 @@ const checkLink = async (url) => {
    
     if (count < getPlanMax()) {
       
-      link.showpublic = 1;
+      //link.showpublic = 1;
+      link.showpublic = 0; //showpublic is private by default
       link.foldername = link.description;
       
       link.yturl = isityt(link.Url);

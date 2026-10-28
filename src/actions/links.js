@@ -173,7 +173,8 @@ export const startAddLink = (v, linkData = {}) => {
       likes = 0,
       frequency = 0,
       archive = 0,
-      showpublic = 1,
+      //showpublic = 1,
+      showpublic = 0, //new link is private by default
       longname = "",
       description = "",
       addescription = "",

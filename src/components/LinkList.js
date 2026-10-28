@@ -71,7 +71,8 @@ export const LinkList = (props) => {
   const [totalCount, setTotalCount] = useState(0);
   const [linksCount, setLinksCount] = useState(0);
   //const [allLinksVisibility, setAllLinksVisibility] = useState("");
-  const [allLinksVisibility, setAllLinksVisibility] = useState(props.allLinksVisibility);
+  const [allLinksVisibility, setAllLinksVisibility] = useState("");
+  console.log("top LinkList.js, LinkList(), after const [allLinksVisibility, set...,  allLinksVisibility="+allLinksVisibility)
   const [linksRefresh, setLinksRefresh] = useState(0);
 
   const linkWord = props.linkCount === 1 ? "Uri/Url Link" : "Uri/Url Links";
@@ -207,6 +208,10 @@ export const LinkList = (props) => {
   //     });
   // };
 
+  useEffect(() => {
+  setAllLinksVisibility(props.allLinksVisibility);
+}, [props.allLinksVisibility]);
+
   const getPlanMax = () => {
     let max = StorageSizes.free;
     //props.settings.plan
@@ -296,6 +301,8 @@ export const LinkList = (props) => {
     //   return;
     // }
 
+    let a = confirm("Are you sure you want to make all of your links public?")
+    if(a===true) {
     console.log("top, makeAllLinksPublicA(), refreshing links");
 
     const linksRef = firebase
@@ -332,7 +339,12 @@ export const LinkList = (props) => {
 
         console.log("bottom, makeAllLinksPublicA(), refreshing links");
         setLinksRefresh((x) => x + 1);
+        
       });
+
+    } else {
+      alert("Canceled")
+    }
   };
 
   const makeAllLinksPrivateA = () => {
@@ -342,6 +354,8 @@ export const LinkList = (props) => {
     //   return;
     // }
 
+    let a = confirm("Are you sure you want to make all of your links private?")
+    if(a===true) {
     console.log("top, makeAllLinksPrivateA(), refreshing links");
 
     const linksRef = firebase
@@ -379,6 +393,10 @@ export const LinkList = (props) => {
         console.log("bottom, makeAllLinksPrivateA(), refreshing links");
         setLinksRefresh((x) => x + 1);
       });
+
+    } else {
+      alert("Canceled")
+    }
   };
 
   const getTotalCount = async () => {
@@ -685,7 +703,7 @@ export const LinkList = (props) => {
 
   console.log("LinkList.js, rt = " + rt);
 
-  console.log("LinkList.js, allLinksVisibility=" + allLinksVisibility);
+  console.log("LinkList.js, before return ( statement, allLinksVisibility=" + allLinksVisibility);
 
 
   return (

@@ -1132,9 +1132,12 @@ function ExpandableArray(props) {
     if(e.target.value==="showpublic") {
        console.log("1 onSortChange, e.target.value=" + e.target.value);
        setAllLinksVisibility("showpublic")
+       
     } else  if (e.target.value==="showprivate") {
        console.log("1 onSortChange, e.target.value=" + e.target.value);
        setAllLinksVisibility("showprivate")
+    } else {
+      setAllLinksVisibility("")
     }
 
 
@@ -1145,6 +1148,7 @@ function ExpandableArray(props) {
       // setSortBy("description");
       props.sortByDescription();
       setSortBy("description"); //this line causes a rerender so LinkList.js run again producing the filtered links for display using selector(...)
+      
     } else if (e.target.value === "notetext") {
       window.localStorage.setItem("sortBy", "notetext");
       props.setTextFilter(val);

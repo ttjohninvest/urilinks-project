@@ -51,6 +51,7 @@ const z2 = params.get("z2");
 const linkid = params.get("p");
 
 export const LinkList = (props) => {
+  console.log("LATEST SOURCE FILE TEST");
   console.log("top LinkList.js, LinkList(), props.allLinksVisibility="+props.allLinksVisibility)
   const thelinks = [
     { id: 1, text: "hello 1" },
@@ -279,6 +280,14 @@ export const LinkList = (props) => {
     });
   };
 
+  const clearLinksCache = () => {
+  Object.keys(sessionStorage).forEach((key) => {
+    if (key.startsWith("urilinks|")) {
+      sessionStorage.removeItem(key);
+    }
+  });
+};
+
   
   const makeAllLinksPublicA = () => {
     //const user = firebase.auth().currentUser && firebase.auth().currentUser;
@@ -318,6 +327,9 @@ export const LinkList = (props) => {
         if (props.clearVisibilityCache) {
           props.clearVisibilityCache();
         }
+
+        clearLinksCache();
+
         console.log("bottom, makeAllLinksPublicA(), refreshing links");
         setLinksRefresh((x) => x + 1);
       });
@@ -361,6 +373,8 @@ export const LinkList = (props) => {
         if (props.clearVisibilityCache) {
           props.clearVisibilityCache();
         }
+
+        clearLinksCache();
 
         console.log("bottom, makeAllLinksPrivateA(), refreshing links");
         setLinksRefresh((x) => x + 1);
@@ -669,7 +683,10 @@ export const LinkList = (props) => {
 
   console.log("LinkList.js, linksRefresh=" + linksRefresh);
 
+  console.log("LinkList.js, rt = " + rt);
+
   console.log("LinkList.js, allLinksVisibility=" + allLinksVisibility);
+
 
   return (
     <div className="">
@@ -698,7 +715,9 @@ export const LinkList = (props) => {
         //||
         props.isinfinitescroll.isinfinitescroll === true && (
           <div className="margin-top-78b">
-            <div
+            
+            
+            {rt !== "readonly" && <div
               style={{
                 display: "flex",
                 gap: "20px",
@@ -736,7 +755,8 @@ export const LinkList = (props) => {
                 />
                 &nbsp;&nbsp; Make all links private
               </label>
-            </div>
+            </div>}
+
             <StickyFixed>
               <div
                 className="border-red margin-left-11 margin-top-n-1u flexrowp11"

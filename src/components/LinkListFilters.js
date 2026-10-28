@@ -135,6 +135,7 @@ function ExpandableArray(props) {
   const [resultArray3, setResultArray3] = useState([]);
   const [usersandfollowing, setUsersandfollowing] = useState(true);
   const [usersandfollowers, setUsersandfollowers] = useState(true);
+  const [allLinksVisibility, setAllLinksVisibility] = useState("")
 
   console.log("HOME RENDER", new Date().toLocaleTimeString());
 
@@ -1107,6 +1108,12 @@ function ExpandableArray(props) {
 
   const onSortChange = (e) => {
     props.stopScrolling2();
+    console.log("onSortChange called");
+  console.log("event =", e);
+  console.log(
+    "event target value =",
+    e && e.target && e.target.value
+  );
     //handleCancelScroll();
     if (
       e.target.value === "none" ||
@@ -1121,6 +1128,15 @@ function ExpandableArray(props) {
     let val = getSearchTerm();
 
     console.log("onSortChange, term=" + val);
+
+    if(e.target.value==="showpublic") {
+       console.log("1 onSortChange, e.target.value=" + e.target.value);
+       setAllLinksVisibility("showpublic")
+    } else  if (e.target.value==="showprivate") {
+       console.log("1 onSortChange, e.target.value=" + e.target.value);
+       setAllLinksVisibility("showprivate")
+    }
+
 
     if (e.target.value === "description") {
       window.localStorage.setItem("sortBy", "description");
@@ -2009,6 +2025,8 @@ function ExpandableArray(props) {
     "abc LinkListFilters.js, before call to <LinkList3, searchText=" +
       searchText,
   );
+
+  console.log("LinkListFilters.js, before return statement, allLinksVisibility="+allLinksVisibility)
 
   return (
     <div className="flexrowh-">
@@ -3159,6 +3177,8 @@ function ExpandableArray(props) {
                   startScrollToBottom2={startScrollToBottom2}
                   stopScrolling2={props.stopScrolling2}
                   scrollInterval2={props.scrollInterval2}
+                  onSortChange={onSortChange}
+                  allLinksVisibility={allLinksVisibility}
                 />
               </div>
 

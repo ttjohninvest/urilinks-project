@@ -554,7 +554,7 @@ const InfiniteScrollNewNoteText = (props) => {
     getTotalCount();
 
     loadLinks(true);
-  }, [props.searchText, props.uid, props.theSortBy]);
+  }, [props.searchText, props.uid, props.theSortBy, props.linksRefresh]);
 
   /*
    * Infinite scroll.

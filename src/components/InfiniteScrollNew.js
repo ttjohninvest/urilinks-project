@@ -160,7 +160,7 @@ const InfiniteScrollNew = (props) => {
   // Load first page
   useEffect(() => {
     loadMore();
-  }, []);
+  }, [props.linksRefresh]);
 
 
 

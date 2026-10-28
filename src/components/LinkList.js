@@ -3,19 +3,19 @@ const LIST_ALL_PUBLIC_LINKS_PEOPLE = false; //I commented the code out to fix th
 const DISPLAY_THIS_MANY_LINKS = 400;
 import React, { useState, useEffect, useRef } from "react";
 import { connect, useSelector } from "react-redux";
-import firebase from "firebase/app"
+import firebase from "firebase/app";
 import StickyFixed from "./StickyFixed";
 
 import InfiniteScrollNewDescription from "./InfiniteScrollNewDescription"; //search by link text from the whole list of links
 import InfiniteScrollNewNoteText from "./InfiniteScrollNewNoteText"; //search by link text from the whole list of links
 import InfiniteScrollNewHashTag from "./InfiniteScrollNewHashTag"; //search by link text from the whole list of links
-import InfiniteScrollNewDateandTime from "./InfiniteScrollNewDateandTime"
-import InfiniteScrollNewSortByViews from "./InfiniteScrollNewSortByViews"
-import InfiniteScrollNewSortByLikes from "./InfiniteScrollNewSortByLikes"
-import InfiniteScrollNewSortByTopTen from "./InfiniteScrollNewSortByTopTen"
-import InfiniteScrollNewSortByAdsAffiliateLinkPresent from "./InfiniteScrollNewSortByAdsAffiliateLinkPresent"
-import InfiniteScrollNewSortByAdsAlpha from "./InfiniteScrollNewSortByAdsAlpha"
-import InfiniteScrollNewSortByProductsAlpha from "./InfiniteScrollNewSortByProductsAlpha"
+import InfiniteScrollNewDateandTime from "./InfiniteScrollNewDateandTime";
+import InfiniteScrollNewSortByViews from "./InfiniteScrollNewSortByViews";
+import InfiniteScrollNewSortByLikes from "./InfiniteScrollNewSortByLikes";
+import InfiniteScrollNewSortByTopTen from "./InfiniteScrollNewSortByTopTen";
+import InfiniteScrollNewSortByAdsAffiliateLinkPresent from "./InfiniteScrollNewSortByAdsAffiliateLinkPresent";
+import InfiniteScrollNewSortByAdsAlpha from "./InfiniteScrollNewSortByAdsAlpha";
+import InfiniteScrollNewSortByProductsAlpha from "./InfiniteScrollNewSortByProductsAlpha";
 
 import InfiniteScrollNew from "./InfiniteScrollNew"; //using whole list of links
 
@@ -41,10 +41,8 @@ import printerImage from "../assets/images/printer_image.png";
 import { v4 } from "uuid";
 import LoadingPage from "./LoadingPage";
 import StorageSizes from "./StorageSizes";
-import { setIsInfinitescroll } from './../actions/isinfinitescroll';
+import { setIsInfinitescroll } from "./../actions/isinfinitescroll";
 import LinksShowPublicOrPrivate from "./LinksShowPublicOrPrivate";
-
-
 
 const params = new URLSearchParams(window.location.search);
 const rt = params.get("x");
@@ -53,6 +51,7 @@ const z2 = params.get("z2");
 const linkid = params.get("p");
 
 export const LinkList = (props) => {
+  console.log("top LinkList.js, LinkList(), props.allLinksVisibility="+props.allLinksVisibility)
   const thelinks = [
     { id: 1, text: "hello 1" },
     { id: 2, text: "hello 2" },
@@ -70,6 +69,9 @@ export const LinkList = (props) => {
   const [maximum, setMaximum] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
   const [linksCount, setLinksCount] = useState(0);
+  //const [allLinksVisibility, setAllLinksVisibility] = useState("");
+  const [allLinksVisibility, setAllLinksVisibility] = useState(props.allLinksVisibility);
+  const [linksRefresh, setLinksRefresh] = useState(0);
 
   const linkWord = props.linkCount === 1 ? "Uri/Url Link" : "Uri/Url Links";
   const formattedLinksTotal = numeral(props.linksTotal / 100).format("$0,0.00");
@@ -80,93 +82,129 @@ export const LinkList = (props) => {
   const bottomElementRef = useRef();
   const scrollContainerRef = useRef(null);
 
+  // const makeAllLinksPublicA = () => {
+  //   const user = firebase.auth().currentUser && firebase.auth().currentUser;
 
-
-
-  // const [linkStatuses, setLinkStatuses] = useState({});
-  
-  
-  //     const links = useSelector((state) => state.links); 
-  
-  // console.log("Redux links =", links);
-  // console.log("Redux links length =", links ? links.length : "undefined");
-  
-  
-  
-  
-  //      const linksKey = links
-  //         .map((link) => link.id + ":" + link.Url)
-  //         .join("|");
-  
-  // useEffect(() => {
-  
-  //            // Do nothing until Redux has links
-  //   if (!links || links.length === 0) {
+  //   if (!user) {
   //     return;
   //   }
-  
-  //   const checkDisplayedLinks = async () => {
-  
-  //     for (const link of links || []) {
-  //       const status = await checkLink(link.Url);
-  
-  //       console.log(
-  //         "checked:",
-  //         link.id,
-  //         link.Url,
-  //         status
-  //       );
-  
-  //       setLinkStatuses((prev) => ({
-  //         ...prev,
-  //         [link.id]: status
-  //       }));
-  //     }
-  //   };
-  
-  //   checkDisplayedLinks();
-  
-  // }, [linksKey]);
 
-//     const linksKey = props.links
-//     .map((link) => link.id + ":" + link.Url)
-//     .join("|");
+  //   const linksRef = firebase.database().ref("users/" + user.uid + "/links");
 
-  
+  //   linksRef
+  //     .once("value")
+  //     .then((snapshot) => {
+  //       const updates = {};
 
-// useEffect(() => {
-//   const checkDisplayedLinks = async () => {
-//     const newStatuses = {};
+  //       snapshot.forEach((childSnapshot) => {
+  //         updates[childSnapshot.key + "/showpublic"] = 1;
+  //       });
 
-//     for (const link of props.links || []) {
-//       const id = link.id;
-//       const Url = link.Url;
+  //       return linksRef.update(updates);
+  //     })
+  //     .then(() => {
+  //       setAllLinksVisibility("public");
 
-//       newStatuses[id] = {
-//         status: null,
-//         result: "checking"
-//       };
+  //       //sessionStorage.clear();
 
-//       const status = await checkLink(Url);
+  //       if (props.clearVisibilityCache) {
+  //         props.clearVisibilityCache();
+  //       }
+  //     });
+  // };
 
-//       newStatuses[id] = status;
-//       // console.log("newStatuses["+id+"].result="+newStatuses[id].result)
-//       console.log(
-//         "id=" + id,
-//         "Url=" + Url,
-//         "status=" + JSON.stringify(status)
-//       );
-//     }
+  // const makeAllLinksPrivateA = () => {
+  //   const user = firebase.auth().currentUser && firebase.auth().currentUser;
 
-//     // Update React state only once
-//     setLinkStatuses(newStatuses);
-//   };
+  //   if (!user) {
+  //     return;
+  //   }
 
-//   checkDisplayedLinks();
+  //   const linksRef = firebase.database().ref("users/" + user.uid + "/links");
 
-// }, [linksKey]);
+  //   linksRef
+  //     .once("value")
+  //     .then((snapshot) => {
+  //       const updates = {};
 
-  
+  //       snapshot.forEach((childSnapshot) => {
+  //         updates[childSnapshot.key + "/showpublic"] = 0;
+  //       });
+
+  //       return linksRef.update(updates);
+  //     })
+  //     .then(() => {
+  //       setAllLinksVisibility("private");
+
+  //       //sessionStorage.clear();
+
+  //       if (props.clearVisibilityCache) {
+  //         props.clearVisibilityCache();
+  //       }
+  //     });
+  // };
+
+  // const makeAllLinksPublic = () => {
+  //   const uid = firebase.auth().currentUser && firebase.auth().currentUser.uid;
+
+  //   if (!uid) {
+  //     return;
+  //   }
+
+  //   const linksRef = firebase.database().ref("users/" + uid + "/links");
+
+  //   linksRef
+  //     .once("value")
+  //     .then((snapshot) => {
+  //       const updates = {};
+
+  //       snapshot.forEach((childSnapshot) => {
+  //         const id = childSnapshot.key;
+
+  //         updates[id + "/showpublic"] = 1;
+  //       });
+
+  //       return linksRef.update(updates);
+  //     })
+  //     .then(() => {
+  //       setAllLinksVisibility("public");
+
+  //       if (props.clearVisibilityCache) {
+  //         props.clearVisibilityCache();
+  //       }
+  //     });
+  // };
+
+  // const makeAllLinksPrivate = () => {
+  //   const uid = firebase.auth().currentUser && firebase.auth().currentUser.uid;
+
+  //   if (!uid) {
+  //     return;
+  //   }
+
+  //   const linksRef = firebase.database().ref("users/" + uid + "/links");
+
+  //   linksRef
+  //     .once("value")
+  //     .then((snapshot) => {
+  //       const updates = {};
+
+  //       snapshot.forEach((childSnapshot) => {
+  //         const id = childSnapshot.key;
+
+  //         updates[id + "/showpublic"] = 0;
+  //       });
+
+  //       return linksRef.update(updates);
+  //     })
+  //     .then(() => {
+  //       setAllLinksVisibility("private");
+
+  //       if (props.clearVisibilityCache) {
+  //         props.clearVisibilityCache();
+  //       }
+  //     });
+  // };
 
   const getPlanMax = () => {
     let max = StorageSizes.free;
@@ -199,23 +237,152 @@ export const LinkList = (props) => {
     return max;
   };
 
+  const updateCachedShowPublic = (linkId, showpublic) => {
+    const updateValue = (value) => {
+      if (Array.isArray(value)) {
+        return value.map((item) => updateValue(item));
+      }
+
+      if (value && typeof value === "object") {
+        const updatedObject = { ...value };
+
+        if (value.id === linkId || value.linkid === linkId) {
+          console.log("Updating cached star:", linkId, showpublic);
+
+          updatedObject.showpublic = showpublic;
+        }
+
+        Object.keys(updatedObject).forEach((property) => {
+          updatedObject[property] = updateValue(updatedObject[property]);
+        });
+
+        return updatedObject;
+      }
+
+      return value;
+    };
+
+    Object.keys(sessionStorage).forEach((key) => {
+      const rawValue = sessionStorage.getItem(key);
+
+      if (!rawValue) return;
+
+      try {
+        const parsedValue = JSON.parse(rawValue);
+
+        const updatedValue = updateValue(parsedValue);
+
+        sessionStorage.setItem(key, JSON.stringify(updatedValue));
+      } catch (error) {
+        // Ignore sessionStorage values that are not JSON.
+      }
+    });
+  };
+
+  
+  const makeAllLinksPublicA = () => {
+    //const user = firebase.auth().currentUser && firebase.auth().currentUser;
+
+    // if (!user) {
+    //   return;
+    // }
+
+    console.log("top, makeAllLinksPublicA(), refreshing links");
+
+    const linksRef = firebase
+      .database()
+      .ref("users/" + props.auth.uid + "/links");
+
+    linksRef
+      .once("value")
+      .then((snapshot) => {
+        const updates = {};
+
+        snapshot.forEach((childSnapshot) => {
+          const id = childSnapshot.key;
+
+          updates[id + "/showpublic"] = 1;
+        });
+
+        return linksRef.update(updates);
+      })
+      .then(() => {
+        setAllLinksVisibility("showpublic");
+
+        props.onSortChange({
+          target: {
+            value: "showpublic",
+          },
+        });
+
+        if (props.clearVisibilityCache) {
+          props.clearVisibilityCache();
+        }
+        console.log("bottom, makeAllLinksPublicA(), refreshing links");
+        setLinksRefresh((x) => x + 1);
+      });
+  };
+
+  const makeAllLinksPrivateA = () => {
+    // const user = firebase.auth().currentUser && firebase.auth().currentUser;
+
+    // if (!user) {
+    //   return;
+    // }
+
+    console.log("top, makeAllLinksPrivateA(), refreshing links");
+
+    const linksRef = firebase
+      .database()
+      .ref("users/" + props.auth.uid + "/links");
+
+    linksRef
+      .once("value")
+      .then((snapshot) => {
+        const updates = {};
+
+        snapshot.forEach((childSnapshot) => {
+          const id = childSnapshot.key;
+
+          updates[id + "/showpublic"] = 0;
+        });
+
+        return linksRef.update(updates);
+      })
+      .then(() => {
+        setAllLinksVisibility("showprivate");
+
+        props.onSortChange({
+          target: {
+            value: "showprivate",
+          },
+        });
+
+        if (props.clearVisibilityCache) {
+          props.clearVisibilityCache();
+        }
+
+        console.log("bottom, makeAllLinksPrivateA(), refreshing links");
+        setLinksRefresh((x) => x + 1);
+      });
+  };
+
   const getTotalCount = async () => {
-  const snapshot = await firebase
-    .database()
-    .ref(`users/${props.auth.uid}/links`)
-    .once("value");
+    const snapshot = await firebase
+      .database()
+      .ref(`users/${props.auth.uid}/links`)
+      .once("value");
 
-  const count = snapshot.numChildren();
-  console.log("LinkList.js, getTotalCount(), count="+count)
-  setTotalCount(count);
+    const count = snapshot.numChildren();
+    console.log("LinkList.js, getTotalCount(), count=" + count);
+    setTotalCount(count);
 
-  return count;
-};
+    return count;
+  };
 
-
-useEffect(()=>{
-  getTotalCount()
-},[])
+  useEffect(() => {
+    getTotalCount();
+  }, []);
 
   useEffect(() => {
     let x = getPlanMax();
@@ -496,41 +663,86 @@ useEffect(()=>{
     // }
   }, []);
 
-  //console.log("LinkList.js, linkStatuses="+JSON.stringify(linkStatuses))
+  console.log("LinkList.js, props.dosearch=" + props.dosearch);
 
-  
+  console.log("LinkList.js, props.theSortBy=" + props.theSortBy);
 
-console.log("Play video in place 2")
+  console.log("LinkList.js, linksRefresh=" + linksRefresh);
 
-console.log("1a LinkList.js, props.theSortBy="+props.theSortBy)
+  console.log("LinkList.js, allLinksVisibility=" + allLinksVisibility);
 
   return (
     <div className="">
- {isMobile() === false && (<div className="">
- 
- {props.isinfinitescroll.isinfinitescroll===true?<p className="margin-left-11">Links found: {linksCount}</p>:
- <div id="linksfound" className="ib margin-left-11 margin-bottom-1vb margin-top-1tt0">
-          {/* {props.links.length===1?"1 link is displayed.":`${props.links.length} links are displayed.`} */}
-          {props.links.length === 0
-            ? totalCount + " links found."
-            : props.links.length === 1
-              ? "1 link found."
-              : totalCount + " links found."}
-        </div>}
- </div>
-  
+      {isMobile() === false && (
+        <div className="">
+          {props.isinfinitescroll.isinfinitescroll === true ? (
+            <p className="margin-left-11">Links found: {linksCount}</p>
+          ) : (
+            <div
+              id="linksfound"
+              className="ib margin-left-11 margin-bottom-1vb margin-top-1tt0"
+            >
+              {/* {props.links.length===1?"1 link is displayed.":`${props.links.length} links are displayed.`} */}
+              {props.links.length === 0
+                ? totalCount + " links found."
+                : props.links.length === 1
+                  ? "1 link found."
+                  : totalCount + " links found."}
+            </div>
+          )}
+        </div>
       )}
-     
-      {//props.links.length > 1 
-      //|| 
-      props.isinfinitescroll.isinfinitescroll === true && (
-        <div className="margin-top-78b">
-        <StickyFixed>
-          <div
-            className="border-red margin-left-11 margin-top-n-1u flexrowp11"
-            style={{ zIndex: 99 }}
-          >
-            {/* <div><button
+
+      {
+        //props.links.length > 1
+        //||
+        props.isinfinitescroll.isinfinitescroll === true && (
+          <div className="margin-top-78b">
+            <div
+              style={{
+                display: "flex",
+                gap: "20px",
+                alignItems: "center",
+                marginLeft: "1.35rem",
+                marginBottom: "1.65rem",
+              }}
+            >
+              <label>
+                <input
+                  type="radio"
+                  name="allLinksVisibility"
+                  value="public"
+                  //checked={props.allLinksVisibility === "showpublic" || allLinksVisibility === "showpublic"}
+                  checked={allLinksVisibility === "showpublic"}
+                  onChange={() =>
+                    //setAllLinksVisibilityPart("public")
+                    makeAllLinksPublicA()
+                  }
+                />
+                &nbsp;&nbsp; Make all links public
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  name="allLinksVisibility"
+                  value="private"
+                  //checked={props.allLinksVisibility === "showprivate" || allLinksVisibility === "showprivate"}
+                  checked={allLinksVisibility === "showprivate"}
+                  onChange={() =>
+                    //setAllLinksVisibilityPart("private")
+                    makeAllLinksPrivateA()
+                  }
+                />
+                &nbsp;&nbsp; Make all links private
+              </label>
+            </div>
+            <StickyFixed>
+              <div
+                className="border-red margin-left-11 margin-top-n-1u flexrowp11"
+                style={{ zIndex: 99 }}
+              >
+                {/* <div><button
               id="linkid"
               //ref={props.scrollupref}
               title="Return to link."
@@ -540,92 +752,97 @@ console.log("1a LinkList.js, props.theSortBy="+props.theSortBy)
             >
               <span>Scroll To Top</span>
             </button></div> */}
-            <div><button
-              id="scrollup1"
-              ref={props.scrollupref}
-              title="Scroll Up"
-              onClick={props.startScrollingUp2}
-              className="ib button-2 widthxpx1- margin-left-11-"
-              style={{ zIndex: 99 }}
-            >
-              <span>Up</span>
-            </button></div>
-            <div><button
-              ref={props.scrolldownref}
-              title="Scroll Down"
-              onClick={props.startScrollingDown2}
-              className="button-2 ib margin-left-11 widthxpx1-"
-              style={{ zIndex: 99 }}
-            >
-              <span>Dn</span>
-            </button></div>
-            <div><button
-              ref={props.buttonRef2}
-              title="Stop Scroll"
-              onClick={props.stopScrolling2}
-              className="button-2 ib margin-left-11"
-              style={{ zIndex: 99 }}
-            >
-              <span>Stop</span>
-            </button></div>
+                <div>
+                  <button
+                    id="scrollup1"
+                    ref={props.scrollupref}
+                    title="Scroll Up"
+                    onClick={props.startScrollingUp2}
+                    className="ib button-2 widthxpx1- margin-left-11-"
+                    style={{ zIndex: 99 }}
+                  >
+                    <span>Up</span>
+                  </button>
+                </div>
+                <div>
+                  <button
+                    ref={props.scrolldownref}
+                    title="Scroll Down"
+                    onClick={props.startScrollingDown2}
+                    className="button-2 ib margin-left-11 widthxpx1-"
+                    style={{ zIndex: 99 }}
+                  >
+                    <span>Dn</span>
+                  </button>
+                </div>
+                <div>
+                  <button
+                    ref={props.buttonRef2}
+                    title="Stop Scroll"
+                    onClick={props.stopScrolling2}
+                    className="button-2 ib margin-left-11"
+                    style={{ zIndex: 99 }}
+                  >
+                    <span>Stop</span>
+                  </button>
+                </div>
 
-            
-            {isMobile() === true ? (<div></div>
-              // <div className="displaynone margin-top-1 margin-left-n-1 margin-bottom-1">
-              //   <div><button
-              //     ref={props.scrolltotopref}
-              //     title="Click the button to begin auto scroll."
-              //     onClick={props.startScrollToTop2}
-              //     className="button-2 ib margin-left-11- widthxpx1"
-              //     style={{ zIndex: 99 }}
-              //   >
-              //     <span>ScrollToTop</span>
-              //   </button></div>
-              //   <div><button
-              //     ref={props.scrolltobottomref}
-              //     title="Click the button to begin auto scroll."
-              //     onClick={props.startScrollToBottom2}
-              //     className="button-2 ib margin-left-11- widthxpx1"
-              //     style={{ zIndex: 99 }}
-              //   >
-              //     <span>ScrollToEnd</span>
-              //   </button></div>
-              // </div>
-            ) : (<div></div>
-              // <div>
-              //   <div><button
-              //     ref={props.scrolltotopref}
-              //     title="Click the button to begin auto scroll."
-              //     onClick={props.startScrollToTop2}
-              //     className="button-2 ib margin-left-11- widthxpx1"
-              //     style={{ zIndex: 99 }}
-              //   >
-              //     <span>ScrollToTop</span>
-              //   </button></div>
-              //   <div><button
-              //     ref={props.scrolltobottomref}
-              //     title="Click the button to begin auto scroll."
-              //     onClick={props.startScrollToBottom2}
-              //     className="button-2 ib margin-left-11- widthxpx1"
-              //     style={{ zIndex: 99 }}
-              //   >
-              //     <span>ScrollToEnd</span>
-              //   </button></div>
-              // </div>
-            )}
-          </div>
-        </StickyFixed>
-        {/* <div 
+                {isMobile() === true ? (
+                  <div></div>
+                ) : (
+                  // <div className="displaynone margin-top-1 margin-left-n-1 margin-bottom-1">
+                  //   <div><button
+                  //     ref={props.scrolltotopref}
+                  //     title="Click the button to begin auto scroll."
+                  //     onClick={props.startScrollToTop2}
+                  //     className="button-2 ib margin-left-11- widthxpx1"
+                  //     style={{ zIndex: 99 }}
+                  //   >
+                  //     <span>ScrollToTop</span>
+                  //   </button></div>
+                  //   <div><button
+                  //     ref={props.scrolltobottomref}
+                  //     title="Click the button to begin auto scroll."
+                  //     onClick={props.startScrollToBottom2}
+                  //     className="button-2 ib margin-left-11- widthxpx1"
+                  //     style={{ zIndex: 99 }}
+                  //   >
+                  //     <span>ScrollToEnd</span>
+                  //   </button></div>
+                  // </div>
+                  <div></div>
+                  // <div>
+                  //   <div><button
+                  //     ref={props.scrolltotopref}
+                  //     title="Click the button to begin auto scroll."
+                  //     onClick={props.startScrollToTop2}
+                  //     className="button-2 ib margin-left-11- widthxpx1"
+                  //     style={{ zIndex: 99 }}
+                  //   >
+                  //     <span>ScrollToTop</span>
+                  //   </button></div>
+                  //   <div><button
+                  //     ref={props.scrolltobottomref}
+                  //     title="Click the button to begin auto scroll."
+                  //     onClick={props.startScrollToBottom2}
+                  //     className="button-2 ib margin-left-11- widthxpx1"
+                  //     style={{ zIndex: 99 }}
+                  //   >
+                  //     <span>ScrollToEnd</span>
+                  //   </button></div>
+                  // </div>
+                )}
+              </div>
+            </StickyFixed>
+            {/* <div 
         id="belowbuttonsid2"
         className="heightbelowbuttons"
         ></div> */}
-        </div>
-        
-      )
-     
-      
+          </div>
+        )
       }
       <div id="forvideo"></div>
+
       <div className="border-left-5">
         <div id="before-link-summary-id" className="margin-bottom-5a"></div>
 
@@ -639,274 +856,252 @@ console.log("1a LinkList.js, props.theSortBy="+props.theSortBy)
               className={`${isMobile() === true ? "scrollable-div2content" : "scrollable-div1c"}`}
               //onClick={()=>stopScrolling2()}
             >
-              {props.isinfinitescroll.isinfinitescroll === true 
-              && props.dosearch === 1
-              && props.theSortBy === "description"
-              //&& props.theSortBy === "description"
-              
-              ?
-              
-              <InfiniteScrollNewDescription 
-              setLinksCount={setLinksCount}
-              linksCount={linksCount}
-              scrollContainerRef={scrollContainerRef}
-              databasePath={`users/${props.auth.uid}/links`} 
-              //searchText={ props.filters.text}
-              searchText={ props.searchText}  
-              theSortBy = {props.theSortBy} 
-              //theSortBy = "description"
-               onLinksCountChange={setLinksCount}
-              />:
+              {
+                props.isinfinitescroll.isinfinitescroll === true &&
+                props.dosearch === 1 &&
+                props.theSortBy === "description" ? (
+                  //&& props.theSortBy === "description"
 
+                  <InfiniteScrollNewDescription
+                    setLinksCount={setLinksCount}
+                    linksCount={linksCount}
+                    scrollContainerRef={scrollContainerRef}
+                    databasePath={`users/${props.auth.uid}/links`}
+                    //searchText={ props.filters.text}
+                    searchText={props.searchText}
+                    theSortBy={props.theSortBy}
+                    //theSortBy = "description"
+                    onLinksCountChange={setLinksCount}
+                    linksRefresh={linksRefresh}
+                  />
+                ) : props.isinfinitescroll.isinfinitescroll === true &&
+                  props.dosearch === 1 &&
+                  props.theSortBy === "notetext" ? (
+                  <InfiniteScrollNewNoteText
+                    setLinksCount={setLinksCount}
+                    linksCount={linksCount}
+                    scrollContainerRef={scrollContainerRef}
+                    databasePath={`users/${props.auth.uid}/links`}
+                    //searchText={ props.filters.text}
+                    searchText={props.searchText}
+                    theSortBy={props.theSortBy}
+                    //theSortBy = "description"
+                    onLinksCountChange={setLinksCount}
+                    linksRefresh={linksRefresh}
+                  />
+                ) : props.isinfinitescroll.isinfinitescroll === true &&
+                  props.dosearch === 1 &&
+                  props.theSortBy === "hashtag" ? (
+                  <InfiniteScrollNewNoteText
+                    setLinksCount={setLinksCount}
+                    linksCount={linksCount}
+                    scrollContainerRef={scrollContainerRef}
+                    databasePath={`users/${props.auth.uid}/links`}
+                    //searchText={ props.filters.text}
+                    searchText={props.searchText}
+                    theSortBy={props.theSortBy}
+                    //theSortBy = "description"
+                    onLinksCountChange={setLinksCount}
+                    linksRefresh={linksRefresh}
+                  />
+                ) : //  <InfiniteScrollNewHashTag
+                // databasePath={`users/${props.auth.uid}/links`}
+                // //searchText={ props.filters.text}
+                // searchText={ props.searchText}
+                // theSortBy = {props.theSortBy}
+                // //theSortBy = "description"
 
-              props.isinfinitescroll.isinfinitescroll === true
-              && props.dosearch===1
-              && props.theSortBy === "notetext"
-              ?
+                // />
 
+                props.isinfinitescroll.isinfinitescroll === true &&
+                  props.dosearch === 1 &&
+                  props.theSortBy === "date" ? (
+                  <InfiniteScrollNewDateandTime
+                    setLinksCount={setLinksCount}
+                    linksCount={linksCount}
+                    scrollContainerRef={scrollContainerRef}
+                    databasePath={`users/${props.auth.uid}/links`}
+                    //searchText={ props.filters.text}
+                    searchText={props.searchText}
+                    theSortBy={props.theSortBy}
+                    //theSortBy = "description"
+                    onLinksCountChange={setLinksCount}
+                    linksRefresh={linksRefresh}
+                  />
+                ) : props.isinfinitescroll.isinfinitescroll === true &&
+                  props.dosearch === 1 &&
+                  props.theSortBy === "views" ? (
+                  <InfiniteScrollNewSortByViews
+                    setLinksCount={setLinksCount}
+                    linksCount={linksCount}
+                    scrollContainerRef={scrollContainerRef}
+                    databasePath={`users/${props.auth.uid}/links`}
+                    //searchText={ props.filters.text}
+                    searchText={props.searchText}
+                    theSortBy={props.theSortBy}
+                    //theSortBy = "description"
+                    onLinksCountChange={setLinksCount}
+                    linksRefresh={linksRefresh}
+                  />
+                ) : props.isinfinitescroll.isinfinitescroll === true &&
+                  props.dosearch === 1 &&
+                  props.theSortBy === "likes" ? (
+                  <InfiniteScrollNewSortByLikes
+                    setLinksCount={setLinksCount}
+                    linksCount={linksCount}
+                    scrollContainerRef={scrollContainerRef}
+                    databasePath={`users/${props.auth.uid}/links`}
+                    //searchText={ props.filters.text}
+                    searchText={props.searchText}
+                    theSortBy={props.theSortBy}
+                    //theSortBy = "description"
+                    onLinksCountChange={setLinksCount}
+                    linksRefresh={linksRefresh}
+                  />
+                ) : props.isinfinitescroll.isinfinitescroll === true &&
+                  props.dosearch === 1 &&
+                  props.theSortBy === "star" ? (
+                  <InfiniteScrollNewSortByTopTen
+                    setLinksCount={setLinksCount}
+                    linksCount={linksCount}
+                    scrollContainerRef={scrollContainerRef}
+                    databasePath={`users/${props.auth.uid}/links`}
+                    //searchText={ props.filters.text}
+                    searchText={props.searchText}
+                    theSortBy={props.theSortBy}
+                    //theSortBy = "description"
+                    onLinksCountChange={setLinksCount}
+                    linksRefresh={linksRefresh}
+                  />
+                ) : props.isinfinitescroll.isinfinitescroll === true &&
+                  props.dosearch === 1 &&
+                  props.theSortBy === "ads" ? (
+                  <InfiniteScrollNewSortByAdsAffiliateLinkPresent
+                    setLinksCount={setLinksCount}
+                    linksCount={linksCount}
+                    scrollContainerRef={scrollContainerRef}
+                    databasePath={`users/${props.auth.uid}/links`}
+                    //searchText={ props.filters.text}
+                    searchText={props.searchText}
+                    theSortBy={props.theSortBy}
+                    //theSortBy = "description"
+                    onLinksCountChange={setLinksCount}
+                    linksRefresh={linksRefresh}
+                  />
+                ) : props.isinfinitescroll.isinfinitescroll === true &&
+                  props.dosearch === 1 &&
+                  props.theSortBy === "adsalpha" ? (
+                  <InfiniteScrollNewSortByAdsAlpha
+                    setLinksCount={setLinksCount}
+                    linksCount={linksCount}
+                    scrollContainerRef={scrollContainerRef}
+                    databasePath={`users/${props.auth.uid}/links`}
+                    //searchText={ props.filters.text}
+                    searchText={props.searchText}
+                    theSortBy={props.theSortBy}
+                    //theSortBy = "description"
+                    onLinksCountChange={setLinksCount}
+                    linksRefresh={linksRefresh}
+                  />
+                ) : props.isinfinitescroll.isinfinitescroll === true &&
+                  props.dosearch === 1 &&
+                  props.theSortBy === "productsalpha" ? (
+                  <InfiniteScrollNewSortByProductsAlpha
+                    setLinksCount={setLinksCount}
+                    linksCount={linksCount}
+                    scrollContainerRef={scrollContainerRef}
+                    databasePath={`users/${props.auth.uid}/links`}
+                    //searchText={ props.filters.text}
+                    searchText={props.searchText}
+                    theSortBy={props.theSortBy}
+                    //theSortBy = "description"
+                    onLinksCountChange={setLinksCount}
+                    linksRefresh={linksRefresh}
+                  />
+                ) : props.isinfinitescroll.isinfinitescroll === true &&
+                  props.dosearch === 1 &&
+                  props.theSortBy === "showpublic" ? (
+                  <LinksShowPublicOrPrivate
+                    setLinksCount={setLinksCount}
+                    linksCount={linksCount}
+                    scrollContainerRef={scrollContainerRef}
+                    databasePath={`users/${props.auth.uid}/links`}
+                    //searchText={ props.filters.text}
+                    searchText={props.searchText}
+                    theSortBy={props.theSortBy}
+                    //theSortBy = "description"
+                    onLinksCountChange={setLinksCount}
+                    visibility={1}
+                    linksRefresh={linksRefresh}
+                  />
+                ) : props.isinfinitescroll.isinfinitescroll === true &&
+                  props.dosearch === 1 &&
+                  props.theSortBy === "showprivate" ? (
+                  <LinksShowPublicOrPrivate
+                    setLinksCount={setLinksCount}
+                    linksCount={linksCount}
+                    scrollContainerRef={scrollContainerRef}
+                    databasePath={`users/${props.auth.uid}/links`}
+                    //searchText={ props.filters.text}
+                    searchText={props.searchText}
+                    theSortBy={props.theSortBy}
+                    //theSortBy = "description"
+                    onLinksCountChange={setLinksCount}
+                    visibility={0}
+                    linksRefresh={linksRefresh}
+                    
+                  />
+                ) : props.isinfinitescroll.isinfinitescroll === true ? ( //not the search one, infinite scrolls the whole list
+                  <InfiniteScrollNew
+                    setLinksCount={setLinksCount}
+                    linksCount={linksCount}
+                    scrollContainerRef={scrollContainerRef}
+                    databasePath={`users/${props.auth.uid}/links`}
+                    theSortBy={props.theSortBy}
+                    onLinksCountChange={setLinksCount}
+                    linksRefresh={linksRefresh}
+                  />
+                ) : null
 
-               <InfiniteScrollNewNoteText 
-                setLinksCount={setLinksCount}
-                 linksCount={linksCount}
-               scrollContainerRef={scrollContainerRef}
-              databasePath={`users/${props.auth.uid}/links`} 
-              //searchText={ props.filters.text}
-              searchText={ props.searchText}  
-              theSortBy = {props.theSortBy} 
-              //theSortBy = "description"
-               onLinksCountChange={setLinksCount}
-              />
-              
-              :  props.isinfinitescroll.isinfinitescroll === true
-              && props.dosearch===1
-              && props.theSortBy === "hashtag"
-              ?
+                // props.links.length === 0
+                //   ? null
+                //   :
+                //     props.links.slice(0, themax).map((link, index) => {
 
-               <InfiniteScrollNewNoteText 
-                setLinksCount={setLinksCount}
-                 linksCount={linksCount}
-               scrollContainerRef={scrollContainerRef}
-              databasePath={`users/${props.auth.uid}/links`} 
-              //searchText={ props.filters.text}
-              searchText={ props.searchText}  
-              theSortBy = {props.theSortBy} 
-              //theSortBy = "description"
-               onLinksCountChange={setLinksCount}
-              />
+                //       if (
+                //         rt === "readonly" &&
+                //         link.showpublic === 0
+                //         //|| link.archive === 1
+                //       )
+                //         return null; //<div key={link.id + "1"}></div>;
+                //       else
+                //         return (
+                //           <div
+                //             id={link.id}
+                //             key={link.id}
+                //             className="border-bottom-1t padding-left-1t- padding-top-1t padding-bottom-1t"
+                //           >
+                //             <LinkListItem
 
-              //  <InfiniteScrollNewHashTag 
-              // databasePath={`users/${props.auth.uid}/links`} 
-              // //searchText={ props.filters.text}
-              // searchText={ props.searchText}  
-              // theSortBy = {props.theSortBy} 
-              // //theSortBy = "description"
-              
-              // />
-              
-              : props.isinfinitescroll.isinfinitescroll === true
-              && props.dosearch===1
-              && props.theSortBy === "date"
-              ?
-              
-               <InfiniteScrollNewDateandTime 
-                setLinksCount={setLinksCount}
-                 linksCount={linksCount}
-               scrollContainerRef={scrollContainerRef}
-              databasePath={`users/${props.auth.uid}/links`} 
-              //searchText={ props.filters.text}
-              searchText={ props.searchText}  
-              theSortBy = {props.theSortBy} 
-              //theSortBy = "description"
-               onLinksCountChange={setLinksCount}
-              />
+                //               link={link}
+                //               rt={rt}
+                //               key={link.id}
+                //               {...link}
+                //               //linkStatuses = {props.linkStatuses} //{props.linkStatues && props.linkStatuses[link.id]?props.linkStatuses[link.id].result:null}
+                //               //linkStatus={props.linkStatus}
 
-              : props.isinfinitescroll.isinfinitescroll === true
-              && props.dosearch===1
-              && props.theSortBy === "views"
-              ?
+                //               index={index}
+                //               signup={props.signup.signup}
+                //               idexists={props.idexists}
+                //               theSortBy={props.theSortBy}
+                //               // videoId={props.videoId}
+                //               // playInPlaceVideo={props.playInPlaceVideo}
+                //             />
+                //           </div>
 
-                <InfiniteScrollNewSortByViews 
-                 setLinksCount={setLinksCount}
-                  linksCount={linksCount}
-                scrollContainerRef={scrollContainerRef}
-              databasePath={`users/${props.auth.uid}/links`} 
-              //searchText={ props.filters.text}
-              searchText={ props.searchText}  
-              theSortBy = {props.theSortBy} 
-              //theSortBy = "description"
-               onLinksCountChange={setLinksCount}
-              />
-
-               :props.isinfinitescroll.isinfinitescroll === true
-              && props.dosearch===1
-              && props.theSortBy === "likes"
-              ?
-               <InfiniteScrollNewSortByLikes 
-                setLinksCount={setLinksCount}
-                 linksCount={linksCount}
-               scrollContainerRef={scrollContainerRef}
-              databasePath={`users/${props.auth.uid}/links`} 
-              //searchText={ props.filters.text}
-              searchText={ props.searchText}  
-              theSortBy = {props.theSortBy} 
-              //theSortBy = "description"
-               onLinksCountChange={setLinksCount}
-              />
-
-              :props.isinfinitescroll.isinfinitescroll === true
-              && props.dosearch===1
-              && props.theSortBy === "star"
-              ?
-               <InfiniteScrollNewSortByTopTen
-                setLinksCount={setLinksCount} 
-                 linksCount={linksCount}
-               scrollContainerRef={scrollContainerRef}
-              databasePath={`users/${props.auth.uid}/links`} 
-              //searchText={ props.filters.text}
-              searchText={ props.searchText}  
-              theSortBy = {props.theSortBy} 
-              //theSortBy = "description"
-               onLinksCountChange={setLinksCount}
-              />
-
-              :props.isinfinitescroll.isinfinitescroll === true
-              && props.dosearch===1
-              && props.theSortBy === "ads"
-              ?
-               <InfiniteScrollNewSortByAdsAffiliateLinkPresent
-                setLinksCount={setLinksCount}
-                 linksCount={linksCount}
-               scrollContainerRef={scrollContainerRef}
-              databasePath={`users/${props.auth.uid}/links`} 
-              //searchText={ props.filters.text}
-              searchText={ props.searchText}  
-              theSortBy = {props.theSortBy} 
-              //theSortBy = "description"
-               onLinksCountChange={setLinksCount}
-              />
-          
-              :props.isinfinitescroll.isinfinitescroll === true
-              && props.dosearch===1
-              && props.theSortBy === "adsalpha"
-              ?
-               <InfiniteScrollNewSortByAdsAlpha
-                setLinksCount={setLinksCount}
-                 linksCount={linksCount}
-               scrollContainerRef={scrollContainerRef}
-              databasePath={`users/${props.auth.uid}/links`} 
-              //searchText={ props.filters.text}
-              searchText={ props.searchText}  
-              theSortBy = {props.theSortBy} 
-              //theSortBy = "description"
-              onLinksCountChange={setLinksCount}
-              />
-          
-              :props.isinfinitescroll.isinfinitescroll === true
-              && props.dosearch===1
-              && props.theSortBy === "productsalpha"
-              ?
-               <InfiniteScrollNewSortByProductsAlpha 
-                setLinksCount={setLinksCount}
-                 linksCount={linksCount}
-               scrollContainerRef={scrollContainerRef}
-              databasePath={`users/${props.auth.uid}/links`} 
-              //searchText={ props.filters.text}
-              searchText={ props.searchText}  
-              theSortBy = {props.theSortBy} 
-              //theSortBy = "description"
-               onLinksCountChange={setLinksCount}
-              />
-          
-               :props.isinfinitescroll.isinfinitescroll === true
-              && props.dosearch===1
-              && props.theSortBy === "showpublic"
-              ?
-               <LinksShowPublicOrPrivate 
-                setLinksCount={setLinksCount}
-                 linksCount={linksCount}
-               scrollContainerRef={scrollContainerRef}
-              databasePath={`users/${props.auth.uid}/links`} 
-              //searchText={ props.filters.text}
-              searchText={ props.searchText}  
-              theSortBy = {props.theSortBy} 
-              //theSortBy = "description"
-               onLinksCountChange={setLinksCount}
-               visibility={1}
-              />
-              
-               :props.isinfinitescroll.isinfinitescroll === true
-              && props.dosearch===1
-              && props.theSortBy === "showprivate"
-              ?
-               <LinksShowPublicOrPrivate 
-                setLinksCount={setLinksCount}
-                 linksCount={linksCount}
-               scrollContainerRef={scrollContainerRef}
-              databasePath={`users/${props.auth.uid}/links`} 
-              //searchText={ props.filters.text}
-              searchText={ props.searchText}  
-              theSortBy = {props.theSortBy} 
-              //theSortBy = "description"
-               onLinksCountChange={setLinksCount}
-               visibility={0}
-              />
-          
-              : props.isinfinitescroll.isinfinitescroll === true //not the search one, infinite scrolls the whole list
-             
-              ?
-              
-              <InfiniteScrollNew 
-               setLinksCount={setLinksCount}
-                linksCount={linksCount}
-              scrollContainerRef={scrollContainerRef}
-              databasePath={`users/${props.auth.uid}/links`}
-              theSortBy = {props.theSortBy} 
-              onLinksCountChange={setLinksCount}
-              />
-              
-              
-              : null
-
-              // props.links.length === 0
-              //   ? null
-              //   :  
-              //     props.links.slice(0, themax).map((link, index) => {
-
-              //       if (
-              //         rt === "readonly" &&
-              //         link.showpublic === 0
-              //         //|| link.archive === 1
-              //       )
-              //         return null; //<div key={link.id + "1"}></div>;
-              //       else
-              //         return (
-              //           <div
-              //             id={link.id}
-              //             key={link.id}
-              //             className="border-bottom-1t padding-left-1t- padding-top-1t padding-bottom-1t"
-              //           >
-              //             <LinkListItem
-                          
-              //               link={link}
-              //               rt={rt}
-              //               key={link.id}
-              //               {...link}
-              //               //linkStatuses = {props.linkStatuses} //{props.linkStatues && props.linkStatuses[link.id]?props.linkStatuses[link.id].result:null}
-              //               //linkStatus={props.linkStatus}
-                            
-              //               index={index}
-              //               signup={props.signup.signup}
-              //               idexists={props.idexists}
-              //               theSortBy={props.theSortBy}
-              //               // videoId={props.videoId}
-              //               // playInPlaceVideo={props.playInPlaceVideo}
-              //             />
-              //           </div>
-                        
-              //         );
-                  //})
-
-               }
+                //         );
+                //})
+              }
               <div ref={bottomElementRef} />
             </div>
           )}

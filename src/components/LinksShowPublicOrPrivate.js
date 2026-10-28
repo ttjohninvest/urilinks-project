@@ -14,6 +14,8 @@ const params = new URLSearchParams(window.location.search);
 const rt = params.get("x");
 
 const LinksShowPublicOrPrivate = (props) => {
+  console.log("abc LinksShowPublicOrPrivate");
+
   const [links, setLinks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
@@ -22,6 +24,8 @@ const LinksShowPublicOrPrivate = (props) => {
   const pageRef = useRef(0);
   const loadingRef = useRef(false);
   const loaderRef = useRef(null);
+
+  const lastLinksRefreshRef = useRef(props.linksRefresh);
 
   const normalizeSearch = (value) => {
     return (value || "").trim().replace(/\s+/g, " ").toLowerCase();
@@ -55,30 +59,6 @@ const LinksShowPublicOrPrivate = (props) => {
    * Remove all cached public/private
    * results for this user and path.
    */
-
-// const clearVisibilityCacheOnly = () => {
-//   const prefix =
-//     "urilinks|visibility|" +
-//     (props.uid || "") +
-//     "|" +
-//     (props.databasePath || "") +
-//     "|";
-
-//   const keysToRemove = [];
-
-//   for (let i = 0; i < sessionStorage.length; i++) {
-//     const key = sessionStorage.key(i);
-
-//     if (key && key.startsWith(prefix)) {
-//       keysToRemove.push(key);
-//     }
-//   }
-
-//   keysToRemove.forEach((key) => {
-//     sessionStorage.removeItem(key);
-//   });
-// };
-
   const clearVisibilityCacheOnly = () => {
     const prefix =
       "urilinks|visibility|" +
@@ -235,7 +215,6 @@ const LinksShowPublicOrPrivate = (props) => {
           (item) => item.id !== cursorRef.current.key,
         );
       }
-
       const moreAvailable = allFetched.length > PAGE_SIZE;
 
       const fetchedPage = allFetched.slice(0, PAGE_SIZE);
@@ -284,17 +263,15 @@ const LinksShowPublicOrPrivate = (props) => {
       console.log("Firebase visibility search error:", error);
     } finally {
       loadingRef.current = false;
+
       setLoading(false);
     }
   };
-
 
   /*
    * Called after showpublic
    * is changed in Firebase.
    */
-
-
   const clearVisibilityCache = async () => {
     clearVisibilityCacheOnly();
 
@@ -307,35 +284,52 @@ const LinksShowPublicOrPrivate = (props) => {
     await getTotalCount(true);
 
     await loadLinks(true, true);
-  }; 
-  
-  
+  };
+
   const removeLinkFromDisplayedList = (id) => {
-  setLinks((previousLinks) =>
-    previousLinks.filter((link) => link.id !== id)
-  );
+    setLinks((previousLinks) => previousLinks.filter((link) => link.id !== id));
 
     if (props.setLinksCount) {
-    props.setLinksCount(props.linksCount - 1);
-  }
-};
-  
-  
-  
+      props.setLinksCount(props.linksCount - 1);
+    }
+  };
+
   /*
    * Start over when the selected
    * public/private view changes.
    */
   useEffect(() => {
+    const forceRefresh = lastLinksRefreshRef.current !== props.linksRefresh;
+
+    lastLinksRefreshRef.current = props.linksRefresh;
+
+    console.log(
+      "REFRESH EFFECT FIRED, props.linksRefresh=",
+      props.linksRefresh,
+      "forceRefresh=",
+      forceRefresh,
+    );
+
     cursorRef.current = null;
     pageRef.current = 0;
 
     setLinks([]);
     setHasMore(true);
 
-    getTotalCount();
-    loadLinks(true);
-  }, [props.searchText, props.uid, props.visibility, props.databasePath]);
+    if (forceRefresh) {
+      clearVisibilityCacheOnly();
+    }
+
+    getTotalCount(forceRefresh);
+
+    loadLinks(true, forceRefresh);
+  }, [
+    props.searchText,
+    props.uid,
+    props.visibility,
+    props.databasePath,
+    props.linksRefresh,
+  ]);
 
   /*
    * Infinite scroll.

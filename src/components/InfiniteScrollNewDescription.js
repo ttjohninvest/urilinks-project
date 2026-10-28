@@ -497,7 +497,7 @@ console.log(
 
     getTotalCount();
     loadLinks(true);
-  }, [props.searchText, props.uid]);
+  }, [props.searchText, props.uid, props.linksRefresh]);
 
   /*
    * Infinite scroll.

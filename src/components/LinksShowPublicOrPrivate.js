@@ -25,6 +25,16 @@ const LinksShowPublicOrPrivate = (props) => {
   const loadingRef = useRef(false);
   const loaderRef = useRef(null);
 
+  /*
+   * Number of links we expect to find.
+   */
+  const expectedCountRef = useRef(null);
+
+  /*
+   * Number of matching links loaded so far.
+   */
+  const loadedCountRef = useRef(0);
+
   const lastLinksRefreshRef = useRef(props.linksRefresh);
 
   const normalizeSearch = (value) => {
@@ -93,11 +103,15 @@ const LinksShowPublicOrPrivate = (props) => {
       const cachedCount = window.sessionStorage.getItem(countCacheKey);
 
       if (cachedCount !== null) {
+        const count = parseInt(cachedCount, 10);
+
+        expectedCountRef.current = count;
+
         if (props.onLinksCountChange) {
-          props.onLinksCountChange(parseInt(cachedCount, 10));
+          props.onLinksCountChange(count);
         }
 
-        return;
+        return count;
       }
     }
 
@@ -123,13 +137,40 @@ const LinksShowPublicOrPrivate = (props) => {
 
     window.sessionStorage.setItem(countCacheKey, count.toString());
 
+    expectedCountRef.current = count;
+
     if (props.onLinksCountChange) {
       props.onLinksCountChange(count);
     }
+
+    return count;
   };
 
   const loadLinks = async (reset = false, ignoreCache = false) => {
     if (loadingRef.current) {
+      return;
+    }
+
+    /*
+     * If the count is zero,
+     * there is nothing to load.
+     */
+    if (expectedCountRef.current === 0) {
+      setHasMore(false);
+      setLoading(false);
+      return;
+    }
+
+    /*
+     * Stop if all expected links
+     * have already been found.
+     */
+    if (
+      expectedCountRef.current !== null &&
+      loadedCountRef.current >= expectedCountRef.current
+    ) {
+      setHasMore(false);
+      setLoading(false);
       return;
     }
 
@@ -162,18 +203,40 @@ const LinksShowPublicOrPrivate = (props) => {
           try {
             const cachedPage = JSON.parse(cachedString);
 
+            const cachedMatches = cachedPage.matches || [];
+
             cursorRef.current = cachedPage.cursor || null;
 
+            let newLoadedCount;
+
             if (reset) {
-              setLinks(cachedPage.matches || []);
+              setLinks(cachedMatches);
+
+              newLoadedCount = cachedMatches.length;
             } else {
               setLinks((previousLinks) => [
                 ...previousLinks,
-                ...(cachedPage.matches || []),
+                ...cachedMatches,
               ]);
+
+              newLoadedCount =
+                loadedCountRef.current + cachedMatches.length;
             }
 
-            setHasMore(cachedPage.hasMore);
+            loadedCountRef.current = newLoadedCount;
+
+            /*
+             * Stop as soon as all expected
+             * matching links have been found.
+             */
+            if (
+              expectedCountRef.current !== null &&
+              newLoadedCount >= expectedCountRef.current
+            ) {
+              setHasMore(false);
+            } else {
+              setHasMore(cachedPage.hasMore);
+            }
 
             pageRef.current = pageNumber + 1;
 
@@ -192,7 +255,10 @@ const LinksShowPublicOrPrivate = (props) => {
         .orderByChild("description");
 
       if (!reset && cursorRef.current) {
-        query = query.startAt(cursorRef.current.value, cursorRef.current.key);
+        query = query.startAt(
+          cursorRef.current.value,
+          cursorRef.current.key,
+        );
       }
 
       query = query.limitToFirst(
@@ -215,6 +281,7 @@ const LinksShowPublicOrPrivate = (props) => {
           (item) => item.id !== cursorRef.current.key,
         );
       }
+
       const moreAvailable = allFetched.length > PAGE_SIZE;
 
       const fetchedPage = allFetched.slice(0, PAGE_SIZE);
@@ -227,7 +294,8 @@ const LinksShowPublicOrPrivate = (props) => {
         const description = (item.description || "").toLowerCase();
 
         return (
-          Number(item.showpublic) === visibility && description.includes(search)
+          Number(item.showpublic) === visibility &&
+          description.includes(search)
         );
       });
 
@@ -242,25 +310,58 @@ const LinksShowPublicOrPrivate = (props) => {
         cursorRef.current = null;
       }
 
+      let newLoadedCount;
+
+      if (reset) {
+        newLoadedCount = matches.length;
+      } else {
+        newLoadedCount =
+          loadedCountRef.current + matches.length;
+      }
+
+      loadedCountRef.current = newLoadedCount;
+
+      /*
+       * Stop when all matching links
+       * have been found.
+       */
+      let shouldContinue = moreAvailable;
+
+      if (
+        expectedCountRef.current !== null &&
+        newLoadedCount >= expectedCountRef.current
+      ) {
+        shouldContinue = false;
+      }
+
       const pageToCache = {
         matches: matches,
         cursor: cursorRef.current,
-        hasMore: moreAvailable,
+        hasMore: shouldContinue,
       };
 
-      window.sessionStorage.setItem(cacheKey, JSON.stringify(pageToCache));
+      window.sessionStorage.setItem(
+        cacheKey,
+        JSON.stringify(pageToCache),
+      );
 
       if (reset) {
         setLinks(matches);
       } else {
-        setLinks((previousLinks) => [...previousLinks, ...matches]);
+        setLinks((previousLinks) => [
+          ...previousLinks,
+          ...matches,
+        ]);
       }
 
-      setHasMore(moreAvailable);
+      setHasMore(shouldContinue);
 
       pageRef.current = pageNumber + 1;
     } catch (error) {
-      console.log("Firebase visibility search error:", error);
+      console.log(
+        "Firebase visibility search error:",
+        error,
+      );
     } finally {
       loadingRef.current = false;
 
@@ -277,17 +378,35 @@ const LinksShowPublicOrPrivate = (props) => {
 
     cursorRef.current = null;
     pageRef.current = 0;
+    loadedCountRef.current = 0;
+    expectedCountRef.current = null;
 
     setLinks([]);
     setHasMore(true);
 
-    await getTotalCount(true);
+    const count = await getTotalCount(true);
+
+    /*
+     * Nothing matches this view.
+     */
+    if (count === 0) {
+      setHasMore(false);
+      setLoading(false);
+      return;
+    }
 
     await loadLinks(true, true);
   };
 
   const removeLinkFromDisplayedList = (id) => {
-    setLinks((previousLinks) => previousLinks.filter((link) => link.id !== id));
+    setLinks((previousLinks) =>
+      previousLinks.filter((link) => link.id !== id),
+    );
+
+    if (loadedCountRef.current > 0) {
+      loadedCountRef.current =
+        loadedCountRef.current - 1;
+    }
 
     if (props.setLinksCount) {
       props.setLinksCount(props.linksCount - 1);
@@ -299,7 +418,8 @@ const LinksShowPublicOrPrivate = (props) => {
    * public/private view changes.
    */
   useEffect(() => {
-    const forceRefresh = lastLinksRefreshRef.current !== props.linksRefresh;
+    const forceRefresh =
+      lastLinksRefreshRef.current !== props.linksRefresh;
 
     lastLinksRefreshRef.current = props.linksRefresh;
 
@@ -312,6 +432,8 @@ const LinksShowPublicOrPrivate = (props) => {
 
     cursorRef.current = null;
     pageRef.current = 0;
+    loadedCountRef.current = 0;
+    expectedCountRef.current = null;
 
     setLinks([]);
     setHasMore(true);
@@ -320,9 +442,27 @@ const LinksShowPublicOrPrivate = (props) => {
       clearVisibilityCacheOnly();
     }
 
-    getTotalCount(forceRefresh);
+    const refreshLinks = async () => {
+      const count = await getTotalCount(forceRefresh);
 
-    loadLinks(true, forceRefresh);
+      /*
+       * For example:
+       *
+       * All links are public and the user
+       * selects Show Private Links.
+       *
+       * Count = 0, so stop here.
+       */
+      if (count === 0) {
+        setHasMore(false);
+        setLoading(false);
+        return;
+      }
+
+      await loadLinks(true, forceRefresh);
+    };
+
+    refreshLinks();
   }, [
     props.searchText,
     props.uid,
@@ -339,7 +479,13 @@ const LinksShowPublicOrPrivate = (props) => {
       (entries) => {
         const firstEntry = entries[0];
 
-        if (firstEntry.isIntersecting && !loadingRef.current && hasMore) {
+        if (
+          firstEntry.isIntersecting &&
+          !loadingRef.current &&
+          hasMore &&
+          expectedCountRef.current !== 0 &&
+          loadedCountRef.current < expectedCountRef.current
+        ) {
           loadLinks(false);
         }
       },
@@ -361,37 +507,61 @@ const LinksShowPublicOrPrivate = (props) => {
         observer.unobserve(loader);
       }
     };
-  }, [loading, hasMore, props.searchText, props.visibility]);
+  }, [
+    loading,
+    hasMore,
+    props.searchText,
+    props.visibility,
+  ]);
 
   /*
    * Remove deleted links
    * from sessionStorage.
    */
-  const removeDeletedLinkFromSessionStorage = (search, id) => {
+  const removeDeletedLinkFromSessionStorage = (
+    search,
+    id,
+  ) => {
     const baseKey = getCacheBaseKey(search);
 
-    for (let i = 0; i < sessionStorage.length; i++) {
+    for (
+      let i = 0;
+      i < sessionStorage.length;
+      i++
+    ) {
       const key = sessionStorage.key(i);
 
-      if (key && key.startsWith(baseKey + "|page|")) {
-        const cachedString = sessionStorage.getItem(key);
+      if (
+        key &&
+        key.startsWith(baseKey + "|page|")
+      ) {
+        const cachedString =
+          sessionStorage.getItem(key);
 
         if (!cachedString) {
           continue;
         }
 
         try {
-          const cachedPage = JSON.parse(cachedString);
+          const cachedPage =
+            JSON.parse(cachedString);
 
           if (Array.isArray(cachedPage.matches)) {
-            cachedPage.matches = cachedPage.matches.filter(
-              (link) => link.id !== id,
-            );
+            cachedPage.matches =
+              cachedPage.matches.filter(
+                (link) => link.id !== id,
+              );
 
-            sessionStorage.setItem(key, JSON.stringify(cachedPage));
+            sessionStorage.setItem(
+              key,
+              JSON.stringify(cachedPage),
+            );
           }
         } catch (error) {
-          console.log("Error updating sessionStorage:", error);
+          console.log(
+            "Error updating sessionStorage:",
+            error,
+          );
         }
       }
     }
@@ -402,15 +572,30 @@ const LinksShowPublicOrPrivate = (props) => {
   };
 
   const sessionRemoveLink = (id) => {
-    const search = normalizeSearch(props.searchText);
+    const search =
+      normalizeSearch(props.searchText);
 
-    removeDeletedLinkFromSessionStorage(search, id);
+    removeDeletedLinkFromSessionStorage(
+      search,
+      id,
+    );
 
-    if (props.setLinksCount) {
-      props.setLinksCount(props.linksCount - 1);
+    if (loadedCountRef.current > 0) {
+      loadedCountRef.current =
+        loadedCountRef.current - 1;
     }
 
-    setLinks((previousLinks) => previousLinks.filter((link) => link.id !== id));
+    if (props.setLinksCount) {
+      props.setLinksCount(
+        props.linksCount - 1,
+      );
+    }
+
+    setLinks((previousLinks) =>
+      previousLinks.filter(
+        (link) => link.id !== id,
+      ),
+    );
   };
 
   return (
@@ -426,17 +611,31 @@ const LinksShowPublicOrPrivate = (props) => {
                   className="border-bottom-1t padding-left-1t- padding-top-1t padding-bottom-1t"
                 >
                   <LinkListItem
-                    sessionRemoveLink={sessionRemoveLink}
-                    clearVisibilityCache={clearVisibilityCacheOnly}
-                    removeLinkFromDisplayedList={removeLinkFromDisplayedList}
-                    scrollContainerRef={props.scrollContainerRef}
+                    sessionRemoveLink={
+                      sessionRemoveLink
+                    }
+                    clearVisibilityCache={
+                      clearVisibilityCacheOnly
+                    }
+                    removeLinkFromDisplayedList={
+                      removeLinkFromDisplayedList
+                    }
+                    scrollContainerRef={
+                      props.scrollContainerRef
+                    }
                     link={link}
                     rt={rt}
                     {...link}
                     index={index}
-                    signup={props.signup.signup}
-                    idexists={props.idexists}
-                    theSortBy={props.theSortBy}
+                    signup={
+                      props.signup.signup
+                    }
+                    idexists={
+                      props.idexists
+                    }
+                    theSortBy={
+                      props.theSortBy
+                    }
                   />
                 </div>
               );
@@ -445,7 +644,11 @@ const LinksShowPublicOrPrivate = (props) => {
 
       {loading && <p>Loading...</p>}
 
-      {!loading && !hasMore && links.length === 0 && <p>No results found.</p>}
+      {!loading &&
+        !hasMore &&
+        links.length === 0 && (
+          <p>No results found.</p>
+        )}
 
       <div
         ref={loaderRef}
@@ -454,7 +657,10 @@ const LinksShowPublicOrPrivate = (props) => {
         }}
       />
 
-      {!hasMore && links.length > 0 && <p>No more results.</p>}
+      {!hasMore &&
+        links.length > 0 && (
+          <p>No more results.</p>
+        )}
     </div>
   );
 };
@@ -465,4 +671,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(LinksShowPublicOrPrivate);
+export default connect(mapStateToProps)(
+  LinksShowPublicOrPrivate,
+);

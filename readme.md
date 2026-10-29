@@ -1,6 +1,7 @@
 ====================================
 maybe do, to do, agenda
 
+the latest working code is on github.com pushed on 10-29-2026, can not push to heroku.com until i get my phone
 english language to japanese language chat page
 saving profile images to storage for more reliable access during chat session
 enhancing urilinks with with ai

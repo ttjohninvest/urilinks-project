@@ -2,7 +2,7 @@ const DISPLAY_THIS_MANY_LINKS = 100;
 import Constants from "./Constants";
 import React, { useState, useRef, useEffect } from "react";
 import OnlineStatus from "./OnlineStatus";
-import LinksShowPublicOrPrivate from "./LinksShowPublicOrPrivate"
+import InfiniteScrollNewLinksShowPublicOrPrivate from "./InfiniteScrollNewLinksShowPublicOrPrivate"
 import ErrorBoundry from "./ErrorBoundry";
 import { useSelector } from "react-redux";
 import {
@@ -136,6 +136,8 @@ function ExpandableArray(props) {
   const [usersandfollowing, setUsersandfollowing] = useState(true);
   const [usersandfollowers, setUsersandfollowers] = useState(true);
   const [allLinksVisibility, setAllLinksVisibility] = useState("")
+  //const [linkTextRefresh, setLinkTextRefresh] = useState(0);
+  const [descriptionRefresh, setDescriptionRefresh] = useState(0);
 
   console.log("HOME RENDER", new Date().toLocaleTimeString());
 
@@ -186,6 +188,9 @@ function ExpandableArray(props) {
 
   const dn2 = params.get("dn2");
   const dn = params.get("dn"); //this value is sometimes John
+  //const bookmarks = params.get("bookmarks");
+
+  console.log("props.bookmarks="+props.bookmarks)
 
   console.log("LinkListFilters.js, dn2=" + dn2);
   console.log("LinkListFilters.js, dn=" + dn);
@@ -228,6 +233,20 @@ function ExpandableArray(props) {
             parseInt(e, 16) ^ key.charCodeAt(i % key.length) % 255)
     );
 }
+
+useEffect(() => {
+  if (props.bookmarks === "refreshed") {
+    console.log("reload link text search");
+
+    // call the function that reloads your link text search here
+    //search()
+     onSortChange({
+          target: {
+            value: "description",
+          },
+        });
+  }
+}, [props.bookmarks]);
 
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
@@ -485,6 +504,7 @@ function ExpandableArray(props) {
     console.log("setIt2, 3333333333333333333333333 product=" + product);
 
     window.document.getElementById("termid").value = product;
+    console.log("LinkListilters.js, in setit2(), setSearchText, product="+product)
     setSearchText(product);
     setMode("productsalpha");
     setDosearch(1);
@@ -525,9 +545,9 @@ function ExpandableArray(props) {
 
     if (id !== null && id !== undefined) {
       if (thelink !== null && thelink !== undefined)
-        //props.setit(thelink, undefined);
+      
         setSearchText(product);
-      //props.setit2(thelink, product);
+       console.log("LinkListilters.js, useEffect call, setSearchText, product="+product)
       setit2(thelink, product);
     }
 
@@ -1013,6 +1033,11 @@ function ExpandableArray(props) {
 
     console.log("selectElement.value=" + selectElement.value);
 
+    console.log(
+    "search selectedValue=",
+    selectedValue
+  );
+
     selectElement.value = "hashtag";
 
     selectElement.dispatchEvent(
@@ -1031,11 +1056,49 @@ function ExpandableArray(props) {
 
     window.localStorage.setItem("sortBy", selectedValue);
 
+    console.log(
+  "termid raw value=",
+  window.document.getElementById("termid").value
+);
+
     let term = window.document.getElementById("termid").value.trim();
+
+    console.log(
+    "search term before setSearchText=",
+    term
+  );
+
+  if (selectedValue === "productsalpha") {
+  console.log(
+    "1 productsalpha search term=",
+    term
+  );
+
+  window.localStorage.setItem(
+    "sortBy",
+    "productsalpha"
+  );
+
+  window.localStorage.setItem(
+    "termid",
+    term
+  );
+
+  setSearchText(term);
+  setMode("productsalpha");
+  setDosearch(1);
+
+  return;
+}
 
     window.localStorage.setItem("termid", term);
 
     if (props.isinfinitescroll.isinfinitescroll === true) {
+      //alert("setSearchText 1")
+        console.log(
+      "ABOUT TO setSearchText=",
+      term
+    );
       setSearchText(term);
 
       setMode(selectedValue);
@@ -1142,13 +1205,14 @@ function ExpandableArray(props) {
 
 
     if (e.target.value === "description") {
+      console.log("doing description code")
       window.localStorage.setItem("sortBy", "description");
       props.setTextFilter(val);
       if (myRef.current) myRef.current.focus();
       // setSortBy("description");
       props.sortByDescription();
       setSortBy("description"); //this line causes a rerender so LinkList.js run again producing the filtered links for display using selector(...)
-      
+      setDescriptionRefresh((x) => x + 1);
     } else if (e.target.value === "notetext") {
       window.localStorage.setItem("sortBy", "notetext");
       props.setTextFilter(val);
@@ -1249,7 +1313,7 @@ function ExpandableArray(props) {
       if (myRef.current) myRef.current.focus();
       //this.props.setTextFilter("");
       props.setTextFilter("");
-      document.querySelector("#termid").value = "";
+      //document.querySelector("#termid").value = "";
       //window.localStorage.setItem("sortBy", "notetext");
       //this.setState({ sortBy: "notetext" });
       // setSortBy("productsalpha");
@@ -2805,6 +2869,7 @@ function ExpandableArray(props) {
                       <button
                         id="buttonid"
                         className={`ib ${isMobile() === true ? "width325" : ""} button-2 color-white-1 cursor-pointer font-weight-bold borderRadius55`}
+                        style={{outline:"none"}}
                         //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
 
                         //onClick={this.search}
@@ -2822,7 +2887,7 @@ function ExpandableArray(props) {
                       <button
                         id="buttonid2"
                         className={`${isMobile() === true ? "width325" : ""} button-2 color-white-1 cursor-pointer font-weight-bold borderRadius55`}
-                        style={{ visibility: "hidden" }}
+                        style={{ visibility: "hidden", outline:"none" }}
                         //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
 
                         //onClick={this.search}
@@ -2903,7 +2968,7 @@ function ExpandableArray(props) {
                             Star (My Top Twenty)
                           </option>
                         </optgroup>
-                        <optgroup label="Ads">
+                        {/* <optgroup label="Ads">
                           <option value="ads" title="show ads that exist">
                             Ads (Affiliate Link is Present)
                           </option>
@@ -2913,7 +2978,7 @@ function ExpandableArray(props) {
                           >
                             Ads (Alphabetical Order)
                           </option>
-                        </optgroup>
+                        </optgroup> */}
                         <optgroup label="Show products for Sale">
                           <option
                             value="productsalpha"
@@ -2970,6 +3035,7 @@ function ExpandableArray(props) {
                             id="buttonid"
                             //className="button-3- button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
                             className={`ib ${isMobile() === true ? "width325" : ""} button-2 color-white-1 cursor-pointer font-weight-bold borderRadius55`}
+                             style={{outline:"none"}}
                             //onClick={this.search}
                             onClick={() => search()}
                             //title="Searches to find entered term through the previously selected list which will appear in copper color."
@@ -3050,7 +3116,7 @@ function ExpandableArray(props) {
                             Star (My Top Twenty)
                           </option>
                         </optgroup>
-                        <optgroup label="Ads">
+                        {/* <optgroup label="Ads">
                           <option value="ads" title="show ads that exist">
                             Ads (Affiliate Link is Present)
                           </option>
@@ -3060,7 +3126,7 @@ function ExpandableArray(props) {
                           >
                             Ads (Alphabetical Order)
                           </option>
-                        </optgroup>
+                        </optgroup> */}
                         <optgroup label="Show products for Sale">
                           <option
                             value="productsalpha"
@@ -3183,6 +3249,7 @@ function ExpandableArray(props) {
                   scrollInterval2={props.scrollInterval2}
                   onSortChange={onSortChange}
                   allLinksVisibility={allLinksVisibility}
+                  descriptionRefresh={descriptionRefresh}
                 />
               </div>
 
@@ -3841,6 +3908,7 @@ export class LinkListFilters extends React.Component {
             following={this.props.following}
             follower={this.props.follower}
             newfollowinglinks={this.props.newfollowinglinks}
+            bookmarks={this.props.bookmarks}
           />
         </ErrorBoundry>
       </div>

@@ -102,6 +102,90 @@ const Channel = (props) => {
     //,
     photoUrl,
   } = props.user; // || {};
+
+  // useEffect(() => {
+
+  //    let stoppedUserId=""
+  //    const stoppedName=""
+  //   //const user = firebase.auth().currentUser;
+  //   const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+  //     stoppedName =
+  //       user && user.email ? user.email.split("@")[0] : "User";
+  //     //if (!props.uid || !props.channelId) {
+
+  //     stoppedUserId = user && user.uid;
+
+  //     if (!user.uid || !theurl) {
+  //       return;
+  //     }
+
+  //     const handleBeforeUnload = () => {
+  //       const messageRef = firebase.database().ref(theurl).push();
+
+  //       messageRef.set({
+  //         uid: stoppedUserId,
+  //         name: stoppedName,
+  //         text: stoppedName + " stopped the chat session.",
+  //         createdAt: firebase.database.ServerValue.TIMESTAMP,
+  //         systemMessage: true,
+  //       });
+
+  //       messageRef.onDisconnect().set({
+  //         text: stoppedName + " stopped the chat session.",
+  //         uid: stoppedUserId,
+  //         createdAt: firebase.database.ServerValue.TIMESTAMP,
+  //         systemMessage: true,
+  //       });
+  //     };
+  //   }); //end of get user code
+
+  //   window.addEventListener("beforeunload", handleBeforeUnload);
+
+  //   return () => {
+  //     window.removeEventListener("beforeunload", handleBeforeUnload);
+
+  //     unsubscribe();
+  //   };
+  // }, [stoppedUserId, theurl, stoppedName]);
+
+  useEffect(() => {
+  let disconnectRef = null;
+
+  const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+    if (!user || !theurl) {
+      return;
+    }
+
+    const stoppedUserId = user.uid;
+
+    const stoppedName =
+      user.email
+        ? user.email.split("@")[0]
+        : "User";
+
+    disconnectRef = firebase
+      .database()
+      .ref(theurl)
+      .push();
+
+    disconnectRef.onDisconnect().set({
+      uid: stoppedUserId,
+      name: stoppedName,
+      text: stoppedName + " stopped the chat session.",
+      createdAt: firebase.database.ServerValue.TIMESTAMP,
+      systemMessage: true
+    });
+  });
+
+  return () => {
+    if (disconnectRef) {
+      disconnectRef.onDisconnect().cancel();
+    }
+
+    unsubscribe();
+  };
+}, [theurl]);
+
   useEffect(() => {
     console.log(
       "firebase.auth().currentUser.photoURL=" +
@@ -184,7 +268,7 @@ const Channel = (props) => {
         //displayName2: firebase.auth().currentUser.displayName, //props.name2,
         displayName2: props.name2,
         uid1: props.id,
-        displayName1: props.name1, //name1 is wrong, but not every time, it is saying John
+        displayName1: props.name1,
         photoURL: photourl, //,
         //t:t
       };
@@ -218,8 +302,8 @@ const Channel = (props) => {
             <div className="font-bold text-3xl text-center fixed-element">
               {/*<p className="mb-1 margin-left-11">{`${chatsetting === "2" ? welcomemessage2 : welcomemessage1}`}</p>*/}
 
-               {chatsetting === "2" ?
-               <p className="mb-1 margin-left-11">
+              {chatsetting === "2" ? (
+                <p className="mb-1 margin-left-11">
                   <span>
                     {t.titlepart1}{" "}
                     <span style={{ color: "green" }}>{props.name1}</span>{" "}
@@ -229,14 +313,9 @@ const Channel = (props) => {
                     <span style={{ color: "green" }}>{props.name2}</span>{" "}
                     {t.titlepart4}
                   </span>
-                 
-              </p>
-
-              :
-
-               <p className="mb-1 margin-left-11">
-                
-                
+                </p>
+              ) : (
+                <p className="mb-1 margin-left-11">
                   <span>
                     {t.titlepart1}{" "}
                     <span style={{ color: "green" }}>{props.name2}</span>{" "}
@@ -246,9 +325,8 @@ const Channel = (props) => {
                     <span style={{ color: "green" }}>{props.name1} </span>
                     {t.titlepart4}
                   </span>
-               
-               
-              </p>}
+                </p>
+              )}
 
               <p className="padding-left-1 bg-color-yellow margin-bottom-1 language-dropdown">
                 <select
@@ -283,27 +361,28 @@ const Channel = (props) => {
           onSubmit={handleOnSubmit}
           className="flex flex-row bg-gray-200 dark:bg-coolDark-400 rounded-md px-4 py-3 z-10 max-w-screen-lg mx-auto dark:text-white shadow-md"
         >
-          {chatsetting === "2" ? <input
-            ref={inputRef}
-            type="text"
-            value={newMessage}
-            onChange={handleOnChange}
-            placeholder="Type your message here..."
-            className="ib flex-1- bg-transparent- outline-none channel-input margin-top-1"
-            maxLength={1000}
-          />
-          :
+          {chatsetting === "2" ? (
+            <input
+              ref={inputRef}
+              type="text"
+              value={newMessage}
+              onChange={handleOnChange}
+              placeholder="Type your message here..."
+              className="ib flex-1- bg-transparent- outline-none channel-input margin-top-1"
+              maxLength={1000}
+            />
+          ) : (
+            <input
+              ref={inputRef}
+              type="text"
+              value={newMessage}
+              onChange={handleOnChange}
+              placeholder="Type your message here..."
+              className="ib flex-1- bg-transparent- outline-none channel-input"
+              maxLength={1000}
+            />
+          )}
 
-          <input
-            ref={inputRef}
-            type="text"
-            value={newMessage}
-            onChange={handleOnChange}
-            placeholder="Type your message here..."
-            className="ib flex-1- bg-transparent- outline-none channel-input"
-            maxLength={1000}
-          />}
-          
           <button
             type="submit"
             disabled={!newMessage}

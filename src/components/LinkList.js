@@ -42,7 +42,7 @@ import { v4 } from "uuid";
 import LoadingPage from "./LoadingPage";
 import StorageSizes from "./StorageSizes";
 import { setIsInfinitescroll } from "./../actions/isinfinitescroll";
-import LinksShowPublicOrPrivate from "./LinksShowPublicOrPrivate";
+import InfiniteScrollNewLinksShowPublicOrPrivate from "./InfiniteScrollNewLinksShowPublicOrPrivate";
 
 const params = new URLSearchParams(window.location.search);
 const rt = params.get("x");
@@ -207,6 +207,31 @@ export const LinkList = (props) => {
   //       }
   //     });
   // };
+
+  //const [linksCount, setLinksCount] = useState(0);
+
+
+  //this code updates linksCount everytime a new link is added to firebase realtime database
+useEffect(() => {
+  if (!props.auth.uid) {
+    setLinksCount(0);
+    return;
+  }
+
+  const linksRef = firebase
+    .database()
+    .ref("users/" + props.auth.uid + "/links");
+
+  const handleValue = (snapshot) => {
+    setLinksCount(snapshot.numChildren());
+  };
+
+  linksRef.on("value", handleValue);
+
+  return () => {
+    linksRef.off("value", handleValue);
+  };
+}, [props.auth.uid]);
 
   useEffect(() => {
   setAllLinksVisibility(props.allLinksVisibility);
@@ -710,20 +735,8 @@ export const LinkList = (props) => {
     <div className="">
       {isMobile() === false && (
         <div className="">
-          {props.isinfinitescroll.isinfinitescroll === true ? (
+          {props.isinfinitescroll.isinfinitescroll === true && (
             <p className="margin-left-11">Links found: {linksCount}</p>
-          ) : (
-            <div
-              id="linksfound"
-              className="ib margin-left-11 margin-bottom-1vb margin-top-1tt0"
-            >
-              {/* {props.links.length===1?"1 link is displayed.":`${props.links.length} links are displayed.`} */}
-              {props.links.length === 0
-                ? totalCount + " links found."
-                : props.links.length === 1
-                  ? "1 link found."
-                  : totalCount + " links found."}
-            </div>
           )}
         </div>
       )}
@@ -898,9 +911,9 @@ export const LinkList = (props) => {
                 props.isinfinitescroll.isinfinitescroll === true &&
                 props.dosearch === 1 &&
                 props.theSortBy === "description" ? (
-                  //&& props.theSortBy === "description"
+                 
 
-                  <InfiniteScrollNewDescription
+                   <InfiniteScrollNewDescription
                     setLinksCount={setLinksCount}
                     linksCount={linksCount}
                     scrollContainerRef={scrollContainerRef}
@@ -911,7 +924,10 @@ export const LinkList = (props) => {
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
+                    descriptionRefresh={props.descriptionRefresh}
                   />
+
+                 
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
                   props.theSortBy === "notetext" ? (
@@ -930,7 +946,7 @@ export const LinkList = (props) => {
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
                   props.theSortBy === "hashtag" ? (
-                  <InfiniteScrollNewNoteText
+                  <InfiniteScrollNewHashTag
                     setLinksCount={setLinksCount}
                     linksCount={linksCount}
                     scrollContainerRef={scrollContainerRef}
@@ -942,14 +958,7 @@ export const LinkList = (props) => {
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
                   />
-                ) : //  <InfiniteScrollNewHashTag
-                // databasePath={`users/${props.auth.uid}/links`}
-                // //searchText={ props.filters.text}
-                // searchText={ props.searchText}
-                // theSortBy = {props.theSortBy}
-                // //theSortBy = "description"
-
-                // />
+                ) : 
 
                 props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1059,7 +1068,7 @@ export const LinkList = (props) => {
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
                   props.theSortBy === "showpublic" ? (
-                  <LinksShowPublicOrPrivate
+                  <InfiniteScrollNewLinksShowPublicOrPrivate
                     setLinksCount={setLinksCount}
                     linksCount={linksCount}
                     scrollContainerRef={scrollContainerRef}
@@ -1075,7 +1084,7 @@ export const LinkList = (props) => {
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
                   props.theSortBy === "showprivate" ? (
-                  <LinksShowPublicOrPrivate
+                  <InfiniteScrollNewLinksShowPublicOrPrivate
                     setLinksCount={setLinksCount}
                     linksCount={linksCount}
                     scrollContainerRef={scrollContainerRef}

@@ -4,7 +4,6 @@ import { v4 } from "uuid";
 import database from "../firebase/firebase";
 //import setHashTags from "./hashtags";
 
-
 export const setHashTags = (hashtags) => ({
   type: "SET_HASHTAGS",
   hashtags,
@@ -161,20 +160,128 @@ export const emailSharableLink = (linkData = {}) => {
   };
 };
 
+// export const startAddLink = (v, linkData = {}) => {
+
+//   console.log("link.js, startAddLink(v, linkData = {}), v="+JSON.stringify(v))
+//   return (dispatch, getState) => {
+//     const uid = getState().auth.uid;
+//     console.log("link.js, startAddLink(v, linkData = {}), uid="+uid)
+//     const {
+//       show = 0,
+//       star = 0,
+//       likes = 0,
+//       frequency = 0,
+//       archive = 0,
+//       //showpublic = 1,
+//       showpublic = 0, //new link is private by default
+//       longname = "",
+//       description = "",
+//       addescription = "",
+//       Url = "",
+//       adUrl = "",
+//       buyerdiscountcode = "",
+//       yturl = "",
+//       note = "",
+//       foldername = "",
+//       amount = 0,
+//       createdAt = 0,
+//       faviconURL = "",
+//     } = linkData;
+//     const link = {
+//       show,
+//       star,
+//       likes,
+//       frequency,
+//       archive,
+//       showpublic,
+//       longname,
+//       description,
+//       addescription,
+//       Url,
+//       adUrl,
+//       buyerdiscountcode,
+//       yturl,
+//       note,
+//       foldername,
+//       amount,
+//       createdAt,
+//       faviconURL,
+//     };
+
+//     //////
+//     //return false;
+//     const promises = [];
+//     console.log("1startAddLink, link=" + JSON.stringify(link));
+//     if (link !== null && link !== undefined && link !== "") {
+//       //return
+//     promises.push(database
+//         .ref(`users/${uid}/links`)
+//         .push(link)
+//         .then((ref) => {
+//             dispatch(
+//             addLink({
+//               id: ref.key,
+//               ...link,
+//             }),
+//           );
+//             v.forEach((u) => { //v is the followers array that was passed in
+//               console.log("uid="+uid)
+
+//               console.log("u.uid="+u.uid)
+//               promises.push(database
+//                 .ref(`users/${u.uid}/following/${uid}/newlinks`) //.ref(`users/${uid}/${id}/newlinks) in the loop ${id} changes each time
+//                 .set({ newlinks: "yes" })
+//                 .then((ref) => {})
+//                 .catch((error) => {
+//                   console.log(
+//                     "error adding link data in firebase, error=" + error,
+//                   );
+//                   return false;
+//                 }))
+//               })
+//          //return
+
+//         })
+//         .catch((error) => {
+//           console.log("error adding link data in firebase, error=" + error);
+//           return false;
+//         }))
+//   promises.push(database
+//         //.ref(`users/all/links`)
+//         .ref("all/links")
+//         .push(link)
+//         .then((ref) => {
+
+//           console.log("pushed the link to users/uid/links and users/all/links")
+
+//         })
+//         .catch((error) => {
+//           console.log("error adding link data in firebase, error=" + error);
+//           return false;
+//         }))
+//       }
+
+//     return Promise.all(promises).then(() => {});
+//   };
+// };
+
 export const startAddLink = (v, linkData = {}) => {
-  
-  console.log("link.js, startAddLink(v, linkData = {}), v="+JSON.stringify(v))
-  return (dispatch, getState) => {
+  console.log(
+    "link.js, startAddLink(v, linkData = {}), v=" + JSON.stringify(v),
+  );
+
+  return async (dispatch, getState) => {
     const uid = getState().auth.uid;
-    console.log("link.js, startAddLink(v, linkData = {}), uid="+uid)
+
+    console.log("link.js, startAddLink(v, linkData = {}), uid=" + uid);
+
     const {
       show = 0,
       star = 0,
       likes = 0,
       frequency = 0,
       archive = 0,
-      //showpublic = 1,
-      showpublic = 0, //new link is private by default
+      showpublic = 0,
       longname = "",
       description = "",
       addescription = "",
@@ -188,6 +295,7 @@ export const startAddLink = (v, linkData = {}) => {
       createdAt = 0,
       faviconURL = "",
     } = linkData;
+
     const link = {
       show,
       star,
@@ -209,66 +317,66 @@ export const startAddLink = (v, linkData = {}) => {
       faviconURL,
     };
 
-    //////
-    //return false;
-    const promises = [];
     console.log("1startAddLink, link=" + JSON.stringify(link));
-    if (link !== null && link !== undefined && link !== "") {
-      //return 
-    promises.push(database
-        .ref(`users/${uid}/links`)
-        .push(link)
-        .then((ref) => {
-            dispatch(
-            addLink({
-              id: ref.key,
-              ...link,
+
+    if (link === null || link === undefined || link === "") {
+      return false;
+    }
+
+    try {
+      /*
+       * First add the link to this user's links.
+       */
+      const ref = await database.ref(`users/${uid}/links`).push(link);
+
+      dispatch(
+        addLink({
+          id: ref.key,
+          ...link,
+        }),
+      );
+
+      /*
+       * Notify every follower.
+       */
+      const followerPromises = [];
+
+      if (v && Array.isArray(v)) {
+        v.forEach((u) => {
+          console.log("uid=" + uid);
+          console.log("u.uid=" + u.uid);
+
+          followerPromises.push(
+            database.ref(`users/${u.uid}/following/${uid}/newlinks`).set({
+              newlinks: "yes",
             }),
           );
-            v.forEach((u) => { //v is the followers array that was passed in
-              console.log("uid="+uid)
-             
-              console.log("u.uid="+u.uid)
-              promises.push(database
-                .ref(`users/${u.uid}/following/${uid}/newlinks`) //.ref(`users/${uid}/${id}/newlinks) in the loop ${id} changes each time
-                .set({ newlinks: "yes" })
-                .then((ref) => {})
-                .catch((error) => {
-                  console.log(
-                    "error adding link data in firebase, error=" + error,
-                  );
-                  return false;
-                }))
-              })
-         //return 
-       
-        })
-        .catch((error) => {
-          console.log("error adding link data in firebase, error=" + error);
-          return false;
-        }))
-  promises.push(database
-        //.ref(`users/all/links`)
-        .ref("all/links")
-        .push(link)
-        .then((ref) => {
-        
-
-          console.log("pushed the link to users/uid/links and users/all/links")
-
-        
-        })
-        .catch((error) => {
-          console.log("error adding link data in firebase, error=" + error);
-          return false;
-        }))
+        });
       }
 
-    return Promise.all(promises).then(() => {});
+      /*
+       * Add the link to all/links.
+       */
+      const allLinksPromise = database.ref("all/links").push(link);
+
+      /*
+       * Wait for all follower writes
+       * and the all/links write.
+       */
+      await Promise.all([...followerPromises, allLinksPromise]);
+
+      console.log("pushed the link to users/uid/links and all/links");
+
+      return true;
+    } catch (error) {
+      console.log("error adding link data in firebase, error=" + error);
+
+      return false;
+    }
   };
 };
 
-export const setitbacktono = (uid2,uid) => {
+export const setitbacktono = (uid2, uid) => {
   return (
     database
       .ref(`users/${uid2}/following/${uid}/newlinks`)
@@ -432,16 +540,18 @@ export const archiveLink2 = (id, updates) => ({
 });
 
 export const startRemoveLink = ({ id } = {}) => {
-  console.log("startRemoveLink(), id="+id)
+  console.log("startRemoveLink(), id=" + id);
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-     console.log("startRemoveLink(), uid="+uid)
+    console.log("startRemoveLink(), uid=" + uid);
     if (id !== null && id !== undefined && id !== "")
       return database
         .ref(`users/${uid}/links/${id}`)
         .remove()
         .then(() => {
-           console.log("startRemoveLink(), about to call dispatch to remove the link from redux")
+          console.log(
+            "startRemoveLink(), about to call dispatch to remove the link from redux",
+          );
           dispatch(removeLink({ id }));
         })
         .catch((error) => {
@@ -450,34 +560,40 @@ export const startRemoveLink = ({ id } = {}) => {
   };
 };
 
-
-
 export const incrementLinkClickCount = ({ id, frequency } = {}) => {
-     console.log("incrementLinkClickCount, link id="+id)
-     console.log("incrementLinkClickCount, frequency="+frequency)
-     if(!!frequency===false) frequency = 1
+  console.log("incrementLinkClickCount, link id=" + id);
+  console.log("incrementLinkClickCount, frequency=" + frequency);
+  if (!!frequency === false) frequency = 1;
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });
     if (id !== null && id !== undefined && id !== "")
-      return database
-        .ref(`users/${uid}/links/${id}`)
-        .update({ frequency: frequency + 1 }) //{showpublic:0}
-        //.set({ frequency: parseInt(frequency) + 1 })
-         //.set(frequency + 1)
-        .then(() => {
-          console.log("incrementLinkClickCount, success, link id="+id)
-           console.log("incrementLinkClickCount, success, {frequency: frequency+1}="+JSON.stringify({frequency:frequency+1}))
-          //alert("success")
-          //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-          dispatch(
-            incrementLinkClickCount2(id, { frequency: frequency + 1 }));
-        })
-        .catch((error) => {
-             console.log("incrementLinkClickCount, failed, link id="+id)
-           console.log("incrementLinkClickCount, failed, frequency="+frequency)
-          console.log("incrementLinkClickCount, error=" + error);
-        });
+      return (
+        database
+          .ref(`users/${uid}/links/${id}`)
+          .update({ frequency: frequency + 1 }) //{showpublic:0}
+          //.set({ frequency: parseInt(frequency) + 1 })
+          //.set(frequency + 1)
+          .then(() => {
+            console.log("incrementLinkClickCount, success, link id=" + id);
+            console.log(
+              "incrementLinkClickCount, success, {frequency: frequency+1}=" +
+                JSON.stringify({ frequency: frequency + 1 }),
+            );
+            //alert("success")
+            //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
+            dispatch(
+              incrementLinkClickCount2(id, { frequency: frequency + 1 }),
+            );
+          })
+          .catch((error) => {
+            console.log("incrementLinkClickCount, failed, link id=" + id);
+            console.log(
+              "incrementLinkClickCount, failed, frequency=" + frequency,
+            );
+            console.log("incrementLinkClickCount, error=" + error);
+          })
+      );
   };
 };
 
@@ -567,7 +683,7 @@ export const decrementLinkStarClickCount = ({ id, star } = {}) => {
   };
 };
 
- export const startPrivateLink2 = ({ id } = {}) => {
+export const startPrivateLink2 = ({ id } = {}) => {
   //console.log("startPrivateLink2(), id="+id)
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
@@ -576,14 +692,13 @@ export const decrementLinkStarClickCount = ({ id, star } = {}) => {
         .ref(`users/${uid}/links/${id}`)
         .update({ showpublic: 1 })
         .then(() => {
-          
           dispatch(privateLink2(id, { showpublic: 1 }));
           //alert("startPrivateLink2(), success in setting to public, 1")
         })
         .catch((error) => {
           //alert("startPrivateLink2(), failed in setting to public, 1")
           console.log("error changing link data in firebase, error=" + error);
-          throw error
+          throw error;
         });
   };
 };
@@ -600,7 +715,7 @@ export const startPrivateLink = ({ id } = {}) => {
         })
         .catch((error) => {
           console.log("error removing link data in firebase, error=" + error);
-          throw error
+          throw error;
         });
   };
 };
@@ -645,8 +760,8 @@ export const editLink = (id, updates) => ({
 });
 
 export const startEditLink = (id, updates) => {
-  console.log("startEditLink, id="+id)
-  console.log("startEditLink, updates="+JSON.stringify(updates))
+  console.log("startEditLink, id=" + id);
+  console.log("startEditLink, updates=" + JSON.stringify(updates));
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     if (id !== null && id !== undefined && id !== "")
@@ -773,7 +888,6 @@ const isInOkArray = (uid) => {
   return val;
 };
 
-
 export const startSetLinks = (uid) => {
   console.log("startSetLinks");
   return (dispatch) => {
@@ -783,10 +897,13 @@ export const startSetLinks = (uid) => {
 
   return (dispatch, getState) => {
     const isinfinitescroll = getState().isinfinitescroll;
-    console.log("actions/links.js, startSetLinks, isinfinitescroll="+isinfinitescroll.isinfinitescroll)
-     if(isinfinitescroll.isinfinitescroll===true) {
-       return Promise.resolve([]);
-     }
+    console.log(
+      "actions/links.js, startSetLinks, isinfinitescroll=" +
+        isinfinitescroll.isinfinitescroll,
+    );
+    if (isinfinitescroll.isinfinitescroll === true) {
+      return Promise.resolve([]);
+    }
     const hashtags = [];
 
     return database
@@ -888,7 +1005,6 @@ export const startSetLinks = (uid) => {
 
 // export const startSetLinks = (uid) => {
 //   console.log("startSetLinks");
- 
 
 //   return (dispatch, getState) => {
 //     const isinfinitescroll = getState().isinfinitescroll;
@@ -1085,7 +1201,7 @@ export const startSetLinks = (uid) => {
 
 export const startSetLinksNew = (uid) => {
   console.log("startSetLinksNew");
-   return (dispatch) => {
+  return (dispatch) => {
     //dispatch(setUsers([]));
     return Promise.resolve([]);
   };

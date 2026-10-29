@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import { Route, Redirect, withRouter } from "react-router-dom";
 import Header from "../components/Header";
 
-const params = new URLSearchParams(window.location.search);
-const z10 = params.get("z10"); //recipent email
-//const z12 = params.get("z12"); //sender email
+//const params = new URLSearchParams(window.location.search);
+//const z10 = params.get("z10"); //recipent email
+
 
  function decrypt(text, key) {
     if(text === null) return null
@@ -15,12 +15,16 @@ const z10 = params.get("z10"); //recipent email
     );
 }
 
-const recipientemail = decrypt(z10, "125434") 
-//const senderemail = decrypt(z12, "125434") 
-//const recipientemail = "johmcg64@gmail.com"
 
-console.log("PrivateRoute, z10="+z10)
-console.log("PrivateRoute, recipientemail="+recipientemail)
+//const recipientemail = decrypt(z10, "125434") 
+
+
+
+
+
+//const params = new URLSearchParams(window.location.search);
+
+
 
 export const PrivateRoute = ({
   signup,
@@ -32,6 +36,11 @@ export const PrivateRoute = ({
   // const abc = (x) => {
   //   console.log("PrivateRoute, abc, x=" + x);
   // };
+
+  const params = new URLSearchParams(window.location.search);
+const z10 = params.get("z10"); //recipent email
+const recipientemail = decrypt(z10, "125434") 
+const bookmarks = params.get("bookmarks");
 
   const scrollInterval2 = useRef(null);
   const stopScrolling2 = () => {
@@ -51,6 +60,7 @@ export const PrivateRoute = ({
             // abcref={abcref} 
             stopScrolling2={stopScrolling2} scrollInterval2={scrollInterval2} />
             <Component {...props} isFormOpen={true} isreadonly={false} 
+            bookmarks={bookmarks}
             //senderemail={senderemail} 
             recipientemail={recipientemail}
             //abc={abc} 

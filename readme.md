@@ -4,6 +4,7 @@ maybe do, to do, agenda
 english language to japanese language chat page
 saving profile images to storage for more reliable access during chat session
 enhancing urilinks with with ai
+promotion and marketing
 Make the select dropdown longer by 100px
 first user source
 steps to upgrade from webpack 3 to webpack 5
@@ -30,6 +31,13 @@ update the three environment variables in vercel.com with new SK_LIVE key from s
 ====================================================
 making money
 promotion and marketing:
+Yes. Here are some public newsroom/journalist contacts in the Reno area:
+- Rebecca Kitchen — KOLO 8, Good Morning Reno anchor: Rebecca.Kitchen@kolotv.com. KOLO says she welcomes story ideas. https://www.wkyt.com
+- KOLO 8 Newsroom: news@kolotv.com, (775) 858-8880. Carson City Chamber of Commerce
+- Kris Vagner — Reno News & Review, managing editor: krisv@renonr.com. Reno News & Review
+- Jimmy Boegle — Reno News & Review, publisher/executive editor: jimmyb@renonr.com. Reno News & Review
+- KUNR News: news@kunr.org, (775) 682-6300. They accept story suggestions and press releases. KUNR Public Radio
+- Carson Now editor: editor@carsonnow.org, (775) 434-8877.
 tell homeless families about it so they can be helped
 they won't help single homeless men
 

@@ -60,9 +60,11 @@ const ImportedBookmarks = (props) => {
   }, []);
 
   const returnAndRefresh = () => {
-    props.history.push("/"); //0000010
+    //props.history.push("/"); //0000010
     //window.location.reload();
-    window.location.href = baseUrl + "?signup=signup";
+    //window.location.href = baseUrl + "?signup=signup";
+     window.location.href =
+  baseUrl + "/dashboard?signup=signup&bookmarks=refreshed";
   };
 
   const printIt = () => {

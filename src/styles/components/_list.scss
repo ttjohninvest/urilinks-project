@@ -264,6 +264,13 @@ background-color: #0000FF;
   outline: none;
 }
 
+button,
+button:focus,
+button:active {
+  outline: none !important;
+
+}
+
 .custom-select2 {
   appearance: none;
   -webkit-appearance: none;

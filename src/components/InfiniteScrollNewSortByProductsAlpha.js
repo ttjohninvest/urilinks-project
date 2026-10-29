@@ -1,12 +1,9 @@
-
-
 import React, { useEffect, useRef, useState } from "react";
 import { connect } from "react-redux";
 import firebase from "firebase/app";
 import "firebase/database";
 
-import LinkListItem from "./LinkListItem"
-
+import LinkListItem from "./LinkListItem";
 
 const PAGE_SIZE = 20;
 
@@ -14,70 +11,200 @@ const params = new URLSearchParams(window.location.search);
 const rt = params.get("x");
 
 const InfiniteScrollNewSortByProductsAlpha = (props) => {
-  console.log("abc InfiniteScrollNewSortByProductsAlpha")
-  console.log("abc InfiniteScrollNewSortByProductsAlpha, props.theSortBy="+props.theSortBy)
-  console.log("abc InfiniteScrollNewSortByProductsAlpha, props.searchText="+props.searchText)
-  console.log("abc InfiniteScrollNewSortByProductsAlpha")
+  console.log("abc InfiniteScrollNewSortByProductsAlpha");
+  console.log(
+  "ProductsAlpha props.searchText=",
+  props.searchText
+);
+
   const [links, setLinks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
 
-  // Keeps track of where the previous Firebase query stopped.
   const cursorRef = useRef(null);
-
-  // This element will be watched by IntersectionObserver.
+  const pageRef = useRef(0);
+  const loadingRef = useRef(false);
   const loaderRef = useRef(null);
 
+  /*
+   * Keep the complete current list available immediately.
+   */
+  const linksRef = useRef([]);
+
+  const normalizeSearch = (value) => {
+    return (value || "").trim().replace(/\s+/g, " ").toLowerCase();
+  };
+
+  /*
+   * addescription search only.
+   */
+//   const linkMatchesSearch = (item, search) => {
+//     const addescription = normalizeSearch(item && item.addescription);
+
+//     return addescription.includes(search);
+//   };
+
+const linkMatchesSearch = (item, search) => {
+  const addescription = normalizeSearch(
+    item && item.addescription
+  );
+
+  // Products Alpha should only include links
+  // that actually have an addescription.
+  if (!addescription) {
+    return false;
+  }
+
+  // If no search text was entered,
+  // include every product.
+  if (!search) {
+    return true;
+  }
+
+  return addescription.includes(search);
+};
+
+  /*
+   * Prevent the same Firebase link from being added twice.
+   */
+  const removeDuplicateLinks = (array) => {
+    const ids = new Set();
+
+    return array.filter((link) => {
+      if (!link || !link.id) {
+        return false;
+      }
+
+      if (ids.has(link.id)) {
+        return false;
+      }
+
+      ids.add(link.id);
+
+      return true;
+    });
+  };
+
+  /*
+   * Unique cache key for productsalpha searches.
+   */
+  const getCacheBaseKey = (search) => {
+    return [
+      "urilinks",
+      "productsalpha-v3",
+      props.uid || "",
+      props.databasePath || "",
+      props.theSortBy || "",
+      search,
+      props.productsalphaRefresh || 0,
+    ].join("|");
+  };
+
+  const getPageCacheKey = (search, pageNumber) => {
+    return getCacheBaseKey(search) + "|page|" + pageNumber;
+  };
+
+  const getCountCacheKey = (search) => {
+    return getCacheBaseKey(search) + "|count";
+  };
+
   const loadLinks = async (reset = false) => {
-    if (loading) return;
+    if (loadingRef.current) {
+      return;
+    }
 
-    if (!reset && !hasMore) return;
+    if (!reset && !hasMore) {
+      return;
+    }
 
+    loadingRef.current = true;
     setLoading(true);
 
     try {
-      //const search = props.searchText.trim().toLowerCase();
-      //const search = "Da"; //.toLocaleLowerCase();
-      //const search = "e"; //this worked
-      const search = props.searchText.trim().toLowerCase();
+      const search = normalizeSearch(props.searchText);
 
-      //       .startAt("res")
-      // .endAt("res" + "\uf8ff")
+      const pageNumber = reset ? 0 : pageRef.current;
 
-      console.log("InfiniteScrollNewDescription, props.theSortBy="+props.theSortBy)
+      const cacheKey = getPageCacheKey(search, pageNumber);
 
-      let query
-      
-        query = firebase
+      /*
+       * -----------------------------------------
+       * CHECK SESSION CACHE FIRST
+       * -----------------------------------------
+       */
+      const cachedString = window.sessionStorage.getItem(cacheKey);
+
+      if (cachedString) {
+        try {
+          const cachedPage = JSON.parse(cachedString);
+
+          console.log(
+            "InfiniteScrollNewSortByProductsAlpha: using cached page " +
+              pageNumber,
+          );
+
+          cursorRef.current = cachedPage.cursor || null;
+
+          const cachedMatches = Array.isArray(cachedPage.matches)
+            ? cachedPage.matches
+            : [];
+
+          let updatedLinks;
+
+          if (reset) {
+            updatedLinks = removeDuplicateLinks(cachedMatches);
+          } else {
+            updatedLinks = removeDuplicateLinks([
+              ...linksRef.current,
+              ...cachedMatches,
+            ]);
+          }
+
+          linksRef.current = updatedLinks;
+
+          setLinks(updatedLinks);
+
+          setHasMore(cachedPage.hasMore);
+
+          pageRef.current = pageNumber + 1;
+
+          return;
+        } catch (error) {
+          console.log("Products Alpha cache read error:", error);
+
+          window.sessionStorage.removeItem(cacheKey);
+        }
+      }
+
+      /*
+       * -----------------------------------------
+       * NOT CACHED - GET FROM FIREBASE
+       * -----------------------------------------
+       */
+      console.log(
+        "InfiniteScrollNewSortByProductsAlpha: getting Firebase page=" +
+          pageNumber,
+      );
+
+      let query = firebase
         .database()
         .ref(props.databasePath)
         .orderByChild("addescription");
-       
-     
-
-      // SEARCH
-      //   if (search) {
-      //     query = query.startAt(search).endAt(search + "\uf8ff");
-      //   }
 
       /*
-       * If this is another page,
-       * begin where the previous page stopped.
+       * Continue from previous cursor.
        */
       if (!reset && cursorRef.current) {
         query = query.startAt(cursorRef.current.value, cursorRef.current.key);
       }
 
       /*
-       * We request one extra item.
-       *
-       * The extra item helps determine whether
-       * another page may exist.
+       * Ask for one extra item so we know
+       * whether another page exists.
        */
-      //query = query.limitToFirst(PAGE_SIZE + 1);
       query = query.limitToFirst(
-  PAGE_SIZE + (!reset && cursorRef.current ? 2 : 1)
-);
+        PAGE_SIZE + (!reset && cursorRef.current ? 2 : 1),
+      );
 
       const snapshot = await query.once("value");
 
@@ -90,6 +217,10 @@ const InfiniteScrollNewSortByProductsAlpha = (props) => {
         });
       });
 
+      /*
+       * startAt includes the previous cursor item.
+       * Remove that duplicate.
+       */
       if (!reset && cursorRef.current) {
         allFetched = allFetched.filter(
           (item) => item.id !== cursorRef.current.key,
@@ -100,115 +231,145 @@ const InfiniteScrollNewSortByProductsAlpha = (props) => {
 
       const fetchedPage = allFetched.slice(0, PAGE_SIZE);
 
-      let matches
-     
-matches = fetchedPage.filter(
-  (item) =>
-    // item.addescription &&
-    // item.addescription.trim() !== "" &&
-    item.addescription &&
-    item.addescription.toLowerCase().includes(search)
-);
+      /*
+       * addescription contains search.
+       */
+      const matches = fetchedPage.filter((item) =>
+        linkMatchesSearch(item, search),
+      );
 
-if (fetchedPage.length > 0) {
-  const lastItem = fetchedPage[fetchedPage.length - 1];
+      /*
+       * Save cursor from the last Firebase
+       * record, not the last match.
+       */
+      if (fetchedPage.length > 0) {
+        const lastItem = fetchedPage[fetchedPage.length - 1];
 
-  cursorRef.current = {
-    key: lastItem.id,
-    value: lastItem.addescription,
-  };
-}
+        cursorRef.current = {
+          key: lastItem.id,
+          value: lastItem.addescription || "",
+        };
+      } else {
+        cursorRef.current = null;
+      }
 
-if (reset) {
-  setLinks(
-    [...matches].sort((a, b) =>
-      a.addescription.localeCompare(
-        b.addescription,
-        undefined,
-        { sensitivity: "base" }
-      )
-    )
-  );
-} else {
-  setLinks((previousLinks) =>
-    [...previousLinks, ...matches].sort((a, b) =>
-      a.addescription.localeCompare(
-        b.addescription,
-        undefined,
-        { sensitivity: "base" }
-      )
-    )
-  );
-}
+      /*
+       * Cache this page.
+       */
+      const pageToCache = {
+        matches: matches,
+        cursor: cursorRef.current,
+        hasMore: moreAvailable,
+      };
 
+      window.sessionStorage.setItem(cacheKey, JSON.stringify(pageToCache));
 
+      /*
+       * Build the complete result list.
+       */
+      let updatedLinks;
 
-    
+      if (reset) {
+        updatedLinks = removeDuplicateLinks(matches);
+      } else {
+        updatedLinks = removeDuplicateLinks([...linksRef.current, ...matches]);
+      }
+
+      linksRef.current = updatedLinks;
+
+      setLinks(updatedLinks);
 
       setHasMore(moreAvailable);
 
+      pageRef.current = pageNumber + 1;
     } catch (error) {
-      console.log("Firebase search error:", error);
+      console.log("Firebase addescription search error:", error);
+    } finally {
+      loadingRef.current = false;
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   /*
-   * Run a new search whenever searchText changes.
+   * -----------------------------------------
+   * GET TOTAL COUNT
+   * -----------------------------------------
    */
-   const getTotalCount = async () => {
-   const search = props.searchText.trim().toLowerCase();
- 
-   const snapshot = await firebase
-     .database()
-     .ref(props.databasePath)
-     .once("value");
- 
-   let count = 0;
- 
-   snapshot.forEach((child) => {
-     const item = child.val();
- 
-     if (
-       
-      //  item.addescription &&
-      //  item.addescription.trim() !== "" &&
-       item.addescription &&
-       item.addescription.toLowerCase().includes(search)
-     ) {
-       count++;
-     }
-   });
- 
-   if (props.onLinksCountChange) {
-    props.onLinksCountChange(count);
-   
-   }
- };
-  
- 
- useEffect(() => {
-   cursorRef.current = null;
-   setLinks([]);
-   setHasMore(true);
- 
-   getTotalCount();
-   loadLinks(true);
- }, [props.searchText, props.uid, props.linksRefresh]);
+  const getTotalCount = async () => {
+    const search = normalizeSearch(props.searchText);
+
+    const countCacheKey = getCountCacheKey(search);
+
+    const cachedCount = window.sessionStorage.getItem(countCacheKey);
+
+    if (cachedCount !== null) {
+      console.log(
+        "InfiniteScrollNewSortByProductsAlpha: using cached count=" +
+          cachedCount,
+      );
+
+      if (props.onLinksCountChange) {
+        props.onLinksCountChange(parseInt(cachedCount, 10));
+      }
+
+      return;
+    }
+
+    const snapshot = await firebase
+      .database()
+      .ref(props.databasePath)
+      .once("value");
+
+    let count = 0;
+
+    snapshot.forEach((child) => {
+      const item = child.val();
+
+      if (linkMatchesSearch(item, search)) {
+        count++;
+      }
+    });
+
+    window.sessionStorage.setItem(countCacheKey, count.toString());
+
+    if (props.onLinksCountChange) {
+      props.onLinksCountChange(count);
+    }
+  }; /*
+   * Start a new search.
+   *
+   * productsalphaRefresh allows selecting
+   * Products Alpha again to force this
+   * component to reload even when
+   * "productsalpha" is already selected.
+   */
+  useEffect(() => {
+    cursorRef.current = null;
+    pageRef.current = 0;
+    linksRef.current = [];
+
+    setLinks([]);
+    setHasMore(true);
+
+    getTotalCount();
+    loadLinks(true);
+  }, [
+    props.searchText,
+    props.uid,
+    props.theSortBy,
+    props.linksRefresh,
+    props.productsalphaRefresh,
+  ]);
 
   /*
    * Infinite scroll.
-   *
-   * When loaderRef becomes visible,
-   * load the next page.
    */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         const firstEntry = entries[0];
 
-        if (firstEntry.isIntersecting && !loading && hasMore) {
+        if (firstEntry.isIntersecting && !loadingRef.current && hasMore) {
           loadLinks(false);
         }
       },
@@ -232,205 +393,102 @@ if (reset) {
     };
   }, [loading, hasMore, props.searchText]);
 
- 
- 
- 
   const removeDeletedLinkFromSessionStorage = (search, id) => {
-  const baseKey = getCacheBaseKey(search);
-
-  for (let i = 0; i < sessionStorage.length; i++) {
-    const key = sessionStorage.key(i);
-
-    if (
-      key &&
-      key.startsWith(baseKey + "|page|")
-    ) {
-      const cachedString =
-        sessionStorage.getItem(key);
-
-      if (!cachedString) continue;
-
-      try {
-        const cachedPage =
-          JSON.parse(cachedString);
-
-        if (Array.isArray(cachedPage.matches)) {
-          cachedPage.matches =
-            cachedPage.matches.filter(
-              (link) => link.id !== id
-            );
-
-          sessionStorage.setItem(
-            key,
-            JSON.stringify(cachedPage)
-          );
-        }
-      } catch (error) {
-        console.log(
-          "Error updating sessionStorage:",
-          error
-        );
-      }
-    }
-  }
-
-  // Remove the cached count because it is now outdated.
-  const countKey = getCountCacheKey(search);
-
-  sessionStorage.removeItem(countKey);
-};
-
-const sessionRemoveLink=(id) => {
-  console.log("inifinteScrollNewDescription.js, sessionRemoveLink, about to call sessionStorage.clear()")
-  //normalizeSearch(props.searchText)
-  //sessionStorage.clear()
-   const search =
-      normalizeSearch(props.searchText);
-
-    removeDeletedLinkFromSessionStorage(
-      search,
-      id
-    );
-
-    props.setLinksCount(props.linksCount-1)
-}
-
-const clearVisibilityCacheOnly = () => {
-    const prefix =
-      "urilinks|visibility|" +
-      (props.uid || "") +
-      "|" +
-      (props.databasePath || "") +
-      "|";
-
-    const keysToRemove = [];
+    const baseKey = getCacheBaseKey(search);
 
     for (let i = 0; i < sessionStorage.length; i++) {
       const key = sessionStorage.key(i);
 
-      if (key && key.startsWith(prefix)) {
-        keysToRemove.push(key);
+      if (key && key.startsWith(baseKey + "|page|")) {
+        const cachedString = sessionStorage.getItem(key);
+
+        if (!cachedString) {
+          continue;
+        }
+
+        try {
+          const cachedPage = JSON.parse(cachedString);
+
+          if (Array.isArray(cachedPage.matches)) {
+            cachedPage.matches = cachedPage.matches.filter(
+              (link) => link.id !== id,
+            );
+
+            sessionStorage.setItem(key, JSON.stringify(cachedPage));
+          }
+        } catch (error) {
+          console.log("Error updating sessionStorage:", error);
+        }
       }
     }
 
-    keysToRemove.forEach((key) => {
-      sessionStorage.removeItem(key);
-    });
+    const countKey = getCountCacheKey(search);
+
+    sessionStorage.removeItem(countKey);
   };
 
+  const sessionRemoveLink = (id) => {
+    console.log("InfiniteScrollNewSortByProductsAlpha, sessionRemoveLink");
 
-  const clearVisibilityCache = async () => {
-    clearVisibilityCacheOnly();
+    const search = normalizeSearch(props.searchText);
 
-    cursorRef.current = null;
-    pageRef.current = 0;
+    removeDeletedLinkFromSessionStorage(search, id);
 
-    setLinks([]);
-    setHasMore(true);
-
-    await getTotalCount(true);
-
-    await loadLinks(true, true);
-  }; 
-
-   const removeLinkFromDisplayedList = (id) => {
-  setLinks((previousLinks) =>
-    previousLinks.filter((link) => link.id !== id)
-  );
-
-    if (props.setLinksCount) {
     props.setLinksCount(props.linksCount - 1);
-  }
-};
+  };
 
   return (
     <div>
-
-
       <div>
-        {/* {links.map((link) => (
-          <div key={link.id}>
-            <h3>{link.description}</h3>
+        {links && links.length === 0
+          ? null
+          : links.map((link, index) => {
+              if (rt === "readonly" && link.showpublic === 0) {
+                return null;
+              }
 
-            <a href={link.url} target="_blank" rel="noopener noreferrer">
-              {link.url}
-            </a>
-          </div>
-        ))} */}
-
-
-
-{links && links.length === 0
-                ? null
-                :  
-                  links.map((link, index) => {
-
-                    if (
-                      rt === "readonly" &&
-                      link.showpublic === 0
-                      //|| link.archive === 1
-                    )
-                      return null; //<div key={link.id + "1"}></div>;
-                    else
-                      return (
-                        <div
-                          id={link.id}
-                          key={link.id}
-                          className="border-bottom-1t padding-left-1t- padding-top-1t padding-bottom-1t"
-                        >
-                          <LinkListItem
-                            sessionRemoveLink={sessionRemoveLink}
-                            scrollContainerRef={props.scrollContainerRef}
-                            link={link}
-                            rt={rt}
-                            key={link.id}
-                            {...link}
-                            //linkStatuses = {props.linkStatuses} //{props.linkStatues && props.linkStatuses[link.id]?props.linkStatuses[link.id].result:null}
-                            //linkStatus={props.linkStatus}
-                            
-                            index={index}
-                            signup={props.signup.signup}
-                            idexists={props.idexists}
-                            theSortBy={props.theSortBy}
-                            // videoId={props.videoId}
-                            // playInPlaceVideo={props.playInPlaceVideo}
-                            clearVisibilityCache={clearVisibilityCacheOnly}
-                            removeLinkFromDisplayedList={removeLinkFromDisplayedList}
-                          />
-                        </div>
-                      );
-                  })}
-
-
-
+              return (
+                <div
+                  id={link.id}
+                  key={link.id}
+                  className="border-bottom-1t padding-left-1t- padding-top-1t padding-bottom-1t"
+                >
+                  <LinkListItem
+                    sessionRemoveLink={sessionRemoveLink}
+                    scrollContainerRef={props.scrollContainerRef}
+                    link={link}
+                    rt={rt}
+                    {...link}
+                    index={index}
+                    signup={props.signup.signup}
+                    idexists={props.idexists}
+                    theSortBy={props.theSortBy}
+                  />
+                </div>
+              );
+            })}
       </div>
 
       {loading && <p>Loading...</p>}
 
-      {/* {!loading && links.length === 0 && <p>No results found.</p>} */}
-      {!loading && !hasMore && links.length === 0 && (
-  <p>No results found.</p>
-)}
+      {!loading && !hasMore && links.length === 0 && <p>No results found.</p>}
 
-      <div ref={loaderRef} style={{ height: "20px" }} />
+      <div
+        ref={loaderRef}
+        style={{
+          height: "20px",
+        }}
+      />
 
       {!hasMore && links.length > 0 && <p>No more results.</p>}
     </div>
   );
 };
 
-
-
-
- const mapStateToProps = (state) => {
-
+const mapStateToProps = (state) => {
   return {
-   
     signup: state.signup,
-   
   };
 };
 
-
 export default connect(mapStateToProps)(InfiniteScrollNewSortByProductsAlpha);
-

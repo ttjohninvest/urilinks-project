@@ -113,6 +113,7 @@ export const LinkList3 = React.forwardRef((props, ref) => {
       scrollInterval2={props.scrollInterval2}
       onSortChange={props.onSortChange}
       allLinksVisibility={props.allLinksVisibility}
+      descriptionRefresh={props.descriptionRefresh}
       />
      </ErrorBoundary>
     </div>

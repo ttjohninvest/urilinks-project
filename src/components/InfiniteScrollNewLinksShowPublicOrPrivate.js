@@ -13,8 +13,8 @@ const params = new URLSearchParams(window.location.search);
 
 const rt = params.get("x");
 
-const LinksShowPublicOrPrivate = (props) => {
-  console.log("abc LinksShowPublicOrPrivate");
+const InfiniteScrollNewLinksShowPublicOrPrivate = (props) => {
+  console.log("abc InfiniteScrollNewLinksShowPublicOrPrivate");
 
   const [links, setLinks] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -24,6 +24,16 @@ const LinksShowPublicOrPrivate = (props) => {
   const pageRef = useRef(0);
   const loadingRef = useRef(false);
   const loaderRef = useRef(null);
+
+  /*
+   * Number of links we expect to find.
+   */
+  const expectedCountRef = useRef(null);
+
+  /*
+   * Number of matching links loaded so far.
+   */
+  const loadedCountRef = useRef(0);
 
   const lastLinksRefreshRef = useRef(props.linksRefresh);
 
@@ -44,6 +54,7 @@ const LinksShowPublicOrPrivate = (props) => {
       props.theSortBy || "",
       getVisibility(),
       search,
+      props.descriptionRefresh || 0,
     ].join("|");
   };
 
@@ -93,11 +104,15 @@ const LinksShowPublicOrPrivate = (props) => {
       const cachedCount = window.sessionStorage.getItem(countCacheKey);
 
       if (cachedCount !== null) {
+        const count = parseInt(cachedCount, 10);
+
+        expectedCountRef.current = count;
+
         if (props.onLinksCountChange) {
-          props.onLinksCountChange(parseInt(cachedCount, 10));
+          props.onLinksCountChange(count);
         }
 
-        return;
+        return count;
       }
     }
 
@@ -123,13 +138,40 @@ const LinksShowPublicOrPrivate = (props) => {
 
     window.sessionStorage.setItem(countCacheKey, count.toString());
 
+    expectedCountRef.current = count;
+
     if (props.onLinksCountChange) {
       props.onLinksCountChange(count);
     }
+
+    return count;
   };
 
   const loadLinks = async (reset = false, ignoreCache = false) => {
     if (loadingRef.current) {
+      return;
+    }
+
+    /*
+     * If the count is zero,
+     * there is nothing to load.
+     */
+    if (expectedCountRef.current === 0) {
+      setHasMore(false);
+      setLoading(false);
+      return;
+    }
+
+    /*
+     * Stop if all expected links
+     * have already been found.
+     */
+    if (
+      expectedCountRef.current !== null &&
+      loadedCountRef.current >= expectedCountRef.current
+    ) {
+      setHasMore(false);
+      setLoading(false);
       return;
     }
 
@@ -162,18 +204,36 @@ const LinksShowPublicOrPrivate = (props) => {
           try {
             const cachedPage = JSON.parse(cachedString);
 
+            const cachedMatches = cachedPage.matches || [];
+
             cursorRef.current = cachedPage.cursor || null;
 
+            let newLoadedCount;
+
             if (reset) {
-              setLinks(cachedPage.matches || []);
+              setLinks(cachedMatches);
+
+              newLoadedCount = cachedMatches.length;
             } else {
-              setLinks((previousLinks) => [
-                ...previousLinks,
-                ...(cachedPage.matches || []),
-              ]);
+              setLinks((previousLinks) => [...previousLinks, ...cachedMatches]);
+
+              newLoadedCount = loadedCountRef.current + cachedMatches.length;
             }
 
-            setHasMore(cachedPage.hasMore);
+            loadedCountRef.current = newLoadedCount;
+
+            /*
+             * Stop as soon as all expected
+             * matching links have been found.
+             */
+            if (
+              expectedCountRef.current !== null &&
+              newLoadedCount >= expectedCountRef.current
+            ) {
+              setHasMore(false);
+            } else {
+              setHasMore(cachedPage.hasMore);
+            }
 
             pageRef.current = pageNumber + 1;
 
@@ -215,6 +275,7 @@ const LinksShowPublicOrPrivate = (props) => {
           (item) => item.id !== cursorRef.current.key,
         );
       }
+
       const moreAvailable = allFetched.length > PAGE_SIZE;
 
       const fetchedPage = allFetched.slice(0, PAGE_SIZE);
@@ -242,10 +303,33 @@ const LinksShowPublicOrPrivate = (props) => {
         cursorRef.current = null;
       }
 
+      let newLoadedCount;
+
+      if (reset) {
+        newLoadedCount = matches.length;
+      } else {
+        newLoadedCount = loadedCountRef.current + matches.length;
+      }
+
+      loadedCountRef.current = newLoadedCount;
+
+      /*
+       * Stop when all matching links
+       * have been found.
+       */
+      let shouldContinue = moreAvailable;
+
+      if (
+        expectedCountRef.current !== null &&
+        newLoadedCount >= expectedCountRef.current
+      ) {
+        shouldContinue = false;
+      }
+
       const pageToCache = {
         matches: matches,
         cursor: cursorRef.current,
-        hasMore: moreAvailable,
+        hasMore: shouldContinue,
       };
 
       window.sessionStorage.setItem(cacheKey, JSON.stringify(pageToCache));
@@ -256,7 +340,7 @@ const LinksShowPublicOrPrivate = (props) => {
         setLinks((previousLinks) => [...previousLinks, ...matches]);
       }
 
-      setHasMore(moreAvailable);
+      setHasMore(shouldContinue);
 
       pageRef.current = pageNumber + 1;
     } catch (error) {
@@ -277,17 +361,32 @@ const LinksShowPublicOrPrivate = (props) => {
 
     cursorRef.current = null;
     pageRef.current = 0;
+    loadedCountRef.current = 0;
+    expectedCountRef.current = null;
 
     setLinks([]);
     setHasMore(true);
 
-    await getTotalCount(true);
+    const count = await getTotalCount(true);
+
+    /*
+     * Nothing matches this view.
+     */
+    if (count === 0) {
+      setHasMore(false);
+      setLoading(false);
+      return;
+    }
 
     await loadLinks(true, true);
   };
 
   const removeLinkFromDisplayedList = (id) => {
     setLinks((previousLinks) => previousLinks.filter((link) => link.id !== id));
+
+    if (loadedCountRef.current > 0) {
+      loadedCountRef.current = loadedCountRef.current - 1;
+    }
 
     if (props.setLinksCount) {
       props.setLinksCount(props.linksCount - 1);
@@ -312,6 +411,8 @@ const LinksShowPublicOrPrivate = (props) => {
 
     cursorRef.current = null;
     pageRef.current = 0;
+    loadedCountRef.current = 0;
+    expectedCountRef.current = null;
 
     setLinks([]);
     setHasMore(true);
@@ -320,9 +421,27 @@ const LinksShowPublicOrPrivate = (props) => {
       clearVisibilityCacheOnly();
     }
 
-    getTotalCount(forceRefresh);
+    const refreshLinks = async () => {
+      const count = await getTotalCount(forceRefresh);
 
-    loadLinks(true, forceRefresh);
+      /*
+       * For example:
+       *
+       * All links are public and the user
+       * selects Show Private Links.
+       *
+       * Count = 0, so stop here.
+       */
+      if (count === 0) {
+        setHasMore(false);
+        setLoading(false);
+        return;
+      }
+
+      await loadLinks(true, forceRefresh);
+    };
+
+    refreshLinks();
   }, [
     props.searchText,
     props.uid,
@@ -339,7 +458,13 @@ const LinksShowPublicOrPrivate = (props) => {
       (entries) => {
         const firstEntry = entries[0];
 
-        if (firstEntry.isIntersecting && !loadingRef.current && hasMore) {
+        if (
+          firstEntry.isIntersecting &&
+          !loadingRef.current &&
+          hasMore &&
+          expectedCountRef.current !== 0 &&
+          loadedCountRef.current < expectedCountRef.current
+        ) {
           loadLinks(false);
         }
       },
@@ -406,6 +531,10 @@ const LinksShowPublicOrPrivate = (props) => {
 
     removeDeletedLinkFromSessionStorage(search, id);
 
+    if (loadedCountRef.current > 0) {
+      loadedCountRef.current = loadedCountRef.current - 1;
+    }
+
     if (props.setLinksCount) {
       props.setLinksCount(props.linksCount - 1);
     }
@@ -465,4 +594,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(LinksShowPublicOrPrivate);
+export default connect(mapStateToProps)(
+  InfiniteScrollNewLinksShowPublicOrPrivate,
+);

@@ -3623,14 +3623,24 @@ linkStatuses["https://google.com"]'s value is working
                   "JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ, htmllinksarray=" +
                     JSON.stringify(htmllinksarray),
                 );
-                console.log("JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ");
 
-                //throw new Error("ERROR ERROR ERROR")
-                // let result = B.filter(
-                //   (b) => !A.some((a) => a.description.replace(/-/g, ' ') === b.description.replace(/-/g, ' '))
-                // ); //I am having a problem with the hyphen
-                //
-                let A = props.links;
+                //let A = props.links;
+
+                let A = [];
+
+                const snapshot = await firebase
+                  .database()
+                  .ref("users/" + props.auth.uid + "/links")
+                  .once("value");
+
+                snapshot.forEach((childSnapshot) => {
+                  const link = childSnapshot.val();
+
+                  if (link) {
+                    A.push(link);
+                  }
+                });
+
                 let B = htmllinksarray;
                 let result = B.filter(
                   //(b) => !A.some((a) => (a.description === b.description) && (a.note === b.note)),
@@ -3640,7 +3650,7 @@ linkStatuses["https://google.com"]'s value is working
                 console.log("result.length=" + result.length);
                 //let ok = false;
                 //500
-                let ll = props.links.length;
+                let ll = A.length;
                 let rl = result.length;
 
                 let max = 0;
@@ -3666,7 +3676,7 @@ linkStatuses["https://google.com"]'s value is working
                     console.log(
                       "1 result[" + i + "].foldername=" + result[i].foldername,
                     );
-                    r = props.startAddLink(props.follower, {
+                    r = await props.startAddLink(props.follower, {
                       description: result[i].description,
                       Url: result[i].Url, //, //href,
                       yturl: result[i].yturl,
@@ -3733,7 +3743,7 @@ linkStatuses["https://google.com"]'s value is working
                     console.log(
                       "1 result[" + i + "].foldername=" + result[i].foldername,
                     );
-                    r = props.startAddLink(props.follower, {
+                    r = await props.startAddLink(props.follower, {
                       description: truncateString(
                         result[i].description,
                         StorageSizes.description,

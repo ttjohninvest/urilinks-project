@@ -29,6 +29,10 @@ import ErrorBoundary from "./ErrorBoundry";
 //     };
 
 const LinkDashboardPage = (props) => {
+  console.log(
+  "LinkDashboardPage, props.bookmarks=",
+  props.bookmarks
+);
   //const elementRef = useRef()
   const scrollableDiv = React.useRef();
   const [heightofdiv, setHeightOfDiv] = useState(0);
@@ -314,6 +318,7 @@ left column
               b={b}
               av={av}
               rerenderit={rerenderit}
+              bookmarks={props.bookmarks}
             />
 
             {/* <TestToast /> */}

@@ -50,6 +50,7 @@ import { setGoogleUserData } from "../actions/googleuserdata";
 import { setPhotourl } from "../actions/photourl";
 import setSignup from "../actions/signup";
 import Header2 from "./Header2";
+import HeaderAccountMenu from "./HeaderAccountMenu";
 //import ReactSpeechKit from "ReactSpeechKit"
 import {
   incrementTotalLoggedOutClickCount,
@@ -106,7 +107,6 @@ const Dropdown = ({ trigger, children }) => {
 };
 
 export const Header = (props) => {
-
   const [deleteAccountError, setDeleteAccountError] = useState(false);
   const [photoURL, setPhotoURL] = useState("");
   const [inviewport, setInviewport] = useState(false);
@@ -120,7 +120,7 @@ export const Header = (props) => {
   const [profileImage, setProfileImage] = useState(
     "/images/default-profile.png",
   );
-    const [language, setLanguage] = useState(ConstantsLanguage.en);
+  const [language, setLanguage] = useState(ConstantsLanguage.en);
 
   //  const [searchParams, setSearchParams] = useSearchParams({
 
@@ -137,7 +137,6 @@ export const Header = (props) => {
 
   const [lengthOf2, setLengthOf2] = useState(0);
   const [resultArray2, setResultArray2] = useState([]);
-
 
   const ideas = () => {};
 
@@ -319,7 +318,9 @@ export const Header = (props) => {
   const setGoogleUserDatadb = (gud) => {
     //console.log("setGoogleUserDatadb, Header.js, gud=" + gud);
     ////put the photoURL in the database
-    console.log("before calling props.startAddGoogleUserData, gud="+JSON.stringify(gud))
+    console.log(
+      "before calling props.startAddGoogleUserData, gud=" + JSON.stringify(gud),
+    );
     props.startAddGoogleUserData({ gud: gud });
     //props.startAddGoogleUserData(gud);
     console.log("Header.js, done calling startGoogleUserData");
@@ -332,7 +333,7 @@ export const Header = (props) => {
   //   console.log("Header.js, done calling startAddEmail");
   // };
 
-    const getNewLinksNumber = (ra) => {
+  const getNewLinksNumber = (ra) => {
     let i = 0;
     ra.forEach((e) => {
       if (e.isMatch === "is following " && e.newlinks === "yes") i++;
@@ -376,8 +377,6 @@ export const Header = (props) => {
   };
 
   useEffect(() => {
-   
-
     //whichone === 1
     const ra2 = annotatearray2(
       props.users,
@@ -385,7 +384,7 @@ export const Header = (props) => {
       props.newfollowinglinks,
     );
 
-      let array1 = ra2; //annotatearray(props.users, props.following); //has is following information and newlinks:yes information
+    let array1 = ra2; //annotatearray(props.users, props.following); //has is following information and newlinks:yes information
 
     let array3 = [];
     if (array1.length > 1) {
@@ -404,10 +403,7 @@ export const Header = (props) => {
 
     setLengthOf2(getNewLinksNumber(ra2));
 
-    
     //whichone === 1
-
-   
   }, []);
 
   useEffect(() => {
@@ -682,24 +678,19 @@ const handleClick = useCallback(() => {
 
       props.stopScrolling2();
 
+      const user = firebase.auth().currentUser;
 
-       const user = firebase.auth().currentUser;
+      if (user) {
+        const userStatusRef = firebase
+          .database()
+          .ref(`users/${user.uid}/online`);
 
-  if (user) {
-    const userStatusRef = firebase
-      .database()
-      .ref(`users/${user.uid}/online`);
+        console.log("SETTING OFFLINE BEFORE LOGOUT");
 
-    console.log("SETTING OFFLINE BEFORE LOGOUT");
+        await userStatusRef.set(false);
 
-    await userStatusRef.set(false);
-
-    console.log("OFFLINE WRITE FINISHED");
-  }
-
-
-
-
+        console.log("OFFLINE WRITE FINISHED");
+      }
 
       props.startLogout();
     } catch (e) {
@@ -902,8 +893,6 @@ const handleClick = useCallback(() => {
                                 <span>🌺 urilinks</span>
                               </h3>
 
-                          
-
                               {/* <ClickableList /> */}
                               {props.signup.signup === true &&
                                 x !== "readonly" &&
@@ -943,10 +932,10 @@ const handleClick = useCallback(() => {
                                   {`${!!props.theupdatedate.updatedate === true ? "Link(s) updated on " : ""}`}
                                   <span id="linksupdate">
                                     {/* {props.links.length > 0 ? ( */}
-                                      <span>
-                                        {linksUpdateDateTime}
-                                        <span></span>
-                                      </span>
+                                    <span>
+                                      {linksUpdateDateTime}
+                                      <span></span>
+                                    </span>
                                     {/*  ) : (
                                        ""
                                      )} */}
@@ -956,16 +945,13 @@ const handleClick = useCallback(() => {
 
                               {ni === "3" ? (
                                 <div></div>
-                              ) : 
-                              
-                              props.signup.signup === true ?
-                              
-                              
-                              (
+                              ) : props.signup.signup === true ? (
                                 <div>
                                   <ChatNotifications chatsetting={1} />
                                 </div>
-                              ):<div></div>}
+                              ) : (
+                                <div></div>
+                              )}
 
                               <span>{dn !== null ? "," : ""}</span>
 
@@ -1177,8 +1163,7 @@ const handleClick = useCallback(() => {
                     </div>} */}
 
                     {ni !== "1" && ni !== "2" && ni !== "3" && (
-                      
-                       <div>
+                      <div>
                         <Link
                           id="manual"
                           className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
@@ -1193,13 +1178,18 @@ const handleClick = useCallback(() => {
                           </span>
                         </Link>
                       </div>
-
-                      
                     )}
 
-  {ni !== "1" && ni !== "2" && ni !== "3" && (
-                     
-                     <div>
+                    {ni !== "1" && ni !== "2" && ni !== "3" && (
+                      <div>
+                        <HeaderAccountMenu
+                          onDeleteAccount={cancelsubscription}
+                        />
+                      </div>
+                    )}
+
+                    {ni !== "1" && ni !== "2" && ni !== "3" && (
+                      <div>
                         <Link
                           id="termsandprivacy"
                           className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
@@ -1214,11 +1204,7 @@ const handleClick = useCallback(() => {
                           </span>
                         </Link>
                       </div>
-                      
-
-                      
                     )}
-
 
                     {!!props.theplan.plan &&
                       props.theplan.plan.replace(/"/g, "") !== "premium" &&
@@ -1356,8 +1342,6 @@ const handleClick = useCallback(() => {
                     ) : ni === "1" || ni === "2" || ni === "3" ? (
                       <div></div>
                     ) : (
-                    
-                    
                       <div className="pointereventsnone margin-right-1 hide-">
                         <Link
                           id="uploadbookmarksfile"

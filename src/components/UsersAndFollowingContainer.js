@@ -1,9 +1,4 @@
-import React, {
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import OnlineStatus2 from "./OnlineStatus2";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -17,6 +12,7 @@ const UsersAndFollowingContainer = (props) => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
+  const [currentUser, setCurrentUser] = useState(null);
 
   const loaderRef = useRef(null);
   const scrollRef = useRef(null);
@@ -38,7 +34,7 @@ const UsersAndFollowingContainer = (props) => {
     return new Set(
       (props.following || []).map((following) => {
         return following.uid;
-      })
+      }),
     );
   }, [props.following]);
 
@@ -59,10 +55,7 @@ const UsersAndFollowingContainer = (props) => {
         query = query.limitToFirst(PAGE_SIZE + 1);
       } else {
         query = query
-          .startAt(
-            lastDisplayNameRef.current,
-            lastUidRef.current
-          )
+          .startAt(lastDisplayNameRef.current, lastUidRef.current)
           .limitToFirst(PAGE_SIZE + 1);
       }
 
@@ -78,10 +71,7 @@ const UsersAndFollowingContainer = (props) => {
           startAt() includes the previous
           last record again.
         */
-        if (
-          lastUidRef.current !== null &&
-          uid === lastUidRef.current
-        ) {
+        if (lastUidRef.current !== null && uid === lastUidRef.current) {
           return;
         }
 
@@ -91,11 +81,9 @@ const UsersAndFollowingContainer = (props) => {
         });
       });
 
-      const moreAvailable =
-        rawUsers.length > PAGE_SIZE;
+      const moreAvailable = rawUsers.length > PAGE_SIZE;
 
-      const pageRecords =
-        rawUsers.slice(0, PAGE_SIZE);
+      const pageRecords = rawUsers.slice(0, PAGE_SIZE);
 
       const pageUsers = [];
 
@@ -124,18 +112,13 @@ const UsersAndFollowingContainer = (props) => {
           return;
         }
 
-        const isFollowing =
-          followingUidSet.has(uid);
+        const isFollowing = followingUidSet.has(uid);
 
-        const displayName =
-          gud.displayname || "";
+        const displayName = gud.displayname || "";
 
-        const photoUrl =
-          gud.photourl ||
-          "/default-profile.png";
+        const photoUrl = gud.photourl || "/default-profile.png";
 
-        const email =
-          gud.email || "";
+        const email = gud.email || "";
 
         pageUsers.push({
           gud: {
@@ -149,9 +132,7 @@ const UsersAndFollowingContainer = (props) => {
 
           isFollowing: isFollowing,
 
-          isMatch: isFollowing
-            ? "is following "
-            : "is not following",
+          isMatch: isFollowing ? "is following " : "is not following",
         });
       });
 
@@ -159,44 +140,30 @@ const UsersAndFollowingContainer = (props) => {
         Save cursor for next Firebase page.
       */
       if (pageRecords.length > 0) {
-        const lastRecord =
-          pageRecords[
-            pageRecords.length - 1
-          ];
+        const lastRecord = pageRecords[pageRecords.length - 1];
 
-        const lastUserData =
-          lastRecord.userData || {};
+        const lastUserData = lastRecord.userData || {};
 
         const lastGud =
-          lastUserData.gud &&
-          lastUserData.gud.gud
+          lastUserData.gud && lastUserData.gud.gud
             ? lastUserData.gud.gud
             : lastUserData.gud || {};
 
-        lastDisplayNameRef.current =
-          lastGud.displayname || "";
+        lastDisplayNameRef.current = lastGud.displayname || "";
 
-        lastUidRef.current =
-          lastRecord.uid;
+        lastUidRef.current = lastRecord.uid;
       }
 
       setUsers((previousUsers) => {
-        return [
-          ...previousUsers,
-          ...pageUsers,
-        ];
+        return [...previousUsers, ...pageUsers];
       });
 
       setHasMore(moreAvailable);
     } catch (error) {
-      console.log(
-        "Error loading users:",
-        error
-      );
+      console.log("Error loading users:", error);
     } finally {
       setLoading(false);
-      
-      
+
       // if (users.length > 1) {
       //     //array3 = users.sort((a, b) => {
       //       setUsers(users.sort((a, b) => {
@@ -206,14 +173,22 @@ const UsersAndFollowingContainer = (props) => {
       //     if (valA > valB) return 1;
       //     return 0;
       //       }))
-          
-       
+
       // } else {
       //   //array3=[]
       // }
-
     }
   };
+
+  useEffect(() => {
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+      setCurrentUser(user);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   /*
     Load first page.
@@ -234,30 +209,24 @@ const UsersAndFollowingContainer = (props) => {
   */
   useEffect(() => {
     const loader = loaderRef.current;
-    const scrollContainer =
-      scrollRef.current;
+    const scrollContainer = scrollRef.current;
 
     if (!loader || !scrollContainer) {
       return;
     }
 
-    const observer =
-      new IntersectionObserver(
-        (entries) => {
-          if (
-            entries[0].isIntersecting &&
-            !loading &&
-            hasMore
-          ) {
-            loadUsers();
-          }
-        },
-        {
-          root: scrollContainer,
-          rootMargin: "100px",
-          threshold: 0,
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !loading && hasMore) {
+          loadUsers();
         }
-      );
+      },
+      {
+        root: scrollContainer,
+        rootMargin: "100px",
+        threshold: 0,
+      },
+    );
 
     observer.observe(loader);
 
@@ -272,93 +241,81 @@ const UsersAndFollowingContainer = (props) => {
         Users
       </div> */}
 
-      <div
-        ref={scrollRef}
-        className="scrollable-div3"
-       
-      >
+      <div ref={scrollRef} className="scrollable-div3">
         <div className="liststylenone- cursor-pointer interline padding-top-z6">
-
           {users.map((item) => {
             if (props.auth.uid !== item.gud.uid) {
-            return (
-              <div
-                key={item.gud.uid}
-                onClick={(event) =>
-                  props.handleClick2(
-                    2,
-                    event
-                  )
-                }
-                className={`${
-                  item.isFollowing
-                    ? "bg-color-1 color-white-1"
-                    : "bg-color-1w color-black-3"
-                }
+              return (
+                <div
+                  key={item.gud.uid}
+                  onClick={(event) => props.handleClick2(2, event)}
+                  className={`${
+                    item.isFollowing
+                      ? "bg-color-1 color-white-1"
+                      : "bg-color-1w color-black-3"
+                  }
                 flexrowzv
                 padding-left-11
                 margin-bottom-1vv
                 padding-tb`}
-                data-item-id={
-                  props.uid +
-                  ";" +
-                  item.gud.uid +
-                  ";" +
-                  firebase.auth().currentUser.email.split("@")[0] +
-                  // (props.theuser
-                  //   ? props.theuser.displayName
-                  //   : "name") +
-                  ";" +
-                  //item.displayName +
-                  item.email.split("@")[0] +
-                  ";" +
-                  item.photoUrl +
-                  ";" +
-                  item.email +
-                  ";" +
-                  (props.theuser
-                    ? props.theuser.email
-                    : "ph@ph.com") +
-                  ";" +
-                  item.isMatch
-                }
-              >
-                <img
-                  src={item.photoUrl}
-                  width="42"
-                  height="42"
-                  className="borderRadius50- circular-img-"
-                  style={{
-                    borderRadius: "50%",
-                  }}
-                  onError={(e) => {
-                    e.currentTarget.onerror =
-                      null;
-
-                    e.currentTarget.src =
-                      "/default-profile.png";
-                  }}
-                />
-
-                <span className="margin-left-11 ip- flexrowtt0-"
-                title="Open his or her page and see links or request chat with the person that I am following."
+                  data-item-id={
+                    props.uid +
+                      ";" +
+                      item.gud.uid +
+                      ";" +
+                      //firebase.auth().currentUser.email.split("@")[0] +
+                      // (props.theuser
+                      //   ? props.theuser.displayName
+                      //   : "name") +
+                      currentUser && currentUser.email
+                      ? currentUser.email.split("@")[0]
+                      : "" +
+                        ";" +
+                        //item.displayName +
+                        item.email.split("@")[0] +
+                        ";" +
+                        item.photoUrl +
+                        ";" +
+                        item.email +
+                        ";" +
+                        (props.theuser ? props.theuser.email : "ph@ph.com") +
+                        ";" +
+                        item.isMatch
+                  }
                 >
-                  {/* {item.displayName} */}
-                  {item.email.split("@")[0]}
+                  <img
+                    src={item.photoUrl}
+                    width="42"
+                    height="42"
+                    className="borderRadius50- circular-img-"
+                    style={{
+                      borderRadius: "50%",
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
 
-                  {item.isFollowing && (
-                    <span><br />
-                    <span className="ib-">
-                      {" "} - Following 
-                    </span>
-                      <span className="ib- ">
-                        <OnlineStatus2 userId={item.gud.uid} />
+                      e.currentTarget.src = "/default-profile.png";
+                    }}
+                  />
+
+                  <span
+                    className="margin-left-11 ip- flexrowtt0-"
+                    title="Open his or her page and see links or request chat with the person that I am following."
+                  >
+                    {/* {item.displayName} */}
+                    {item.email.split("@")[0]}
+
+                    {item.isFollowing && (
+                      <span>
+                        <br />
+                        <span className="ib-"> - Following</span>
+                        <span className="ib- ">
+                          <OnlineStatus2 userId={item.gud.uid} />
+                        </span>
                       </span>
-                    </span>
-                  )}
+                    )}
 
-
-    {/* props.theuser?<span>props.theuser.displayName</span>:"John"
+                    {/* props.theuser?<span>props.theuser.displayName</span>:"John"
                  
                  
   {item.isMatch}{" "}
@@ -367,17 +324,14 @@ const UsersAndFollowingContainer = (props) => {
 
   <OnlineStatus userId={item.gud.uid} displaName={item.gud.displayname} /> */}
 
-  {/* {", "}
+                    {/* {", "}
   {item.gud.theatname} */}
-
-
-
-                </span>
-              </div>
-            );
-          }else {
-            return null
-          }
+                  </span>
+                </div>
+              );
+            } else {
+              return null;
+            }
           })}
 
           {hasMore && (
@@ -389,12 +343,7 @@ const UsersAndFollowingContainer = (props) => {
             />
           )}
 
-          {loading && (
-            <div className="padding-tb">
-              Loading...
-            </div>
-          )}
-
+          {loading && <div className="padding-tb">Loading...</div>}
         </div>
       </div>
     </div>
@@ -404,12 +353,8 @@ const UsersAndFollowingContainer = (props) => {
 //export default UsersAndFollowingContainer;
 
 const mapStateToProps = (state) => ({
- 
-  
   auth: state.auth,
-  
 });
-
 
 export default withRouter(
   connect(mapStateToProps, undefined)(UsersAndFollowingContainer),

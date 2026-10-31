@@ -256,10 +256,10 @@ const UsersAndFollowersContainer = (props) => {
                       // (props.theuser
                       //   ? props.theuser.displayName
                       //   : "name") +
-                      // ";"
-                      currentUser && currentUser.email
+                      // ";" +
+                      (currentUser && currentUser.email
                       ? currentUser.email.split("@")[0]
-                      : "" +
+                      : "") + ";" +
                         //item.displayName +
                         item.email.split("@")[0] +
                         ";" +
@@ -267,8 +267,11 @@ const UsersAndFollowersContainer = (props) => {
                         ";" +
                         item.email +
                         ";" +
-                        (props.theuser ? props.theuser.email : "ph@ph.com") +
-                        ";" +
+                        //(props.theuser ? props.theuser.email : "ph@ph.com") +
+                        //";" +
+                         (currentUser && currentUser.email
+                      ? currentUser.email
+                      : "") + ";" +
                         item.isMatch +
                         ";" +
                         //to be able to follow back and unfollow from the 3rd column followers list put replace the following "" with item.isMatch2

@@ -267,9 +267,9 @@ const UsersAndFollowingContainer = (props) => {
                       // (props.theuser
                       //   ? props.theuser.displayName
                       //   : "name") +
-                      currentUser && currentUser.email
+                      (currentUser && currentUser.email
                       ? currentUser.email.split("@")[0]
-                      : "" +
+                      : "") +
                         ";" +
                         //item.displayName +
                         item.email.split("@")[0] +
@@ -278,7 +278,11 @@ const UsersAndFollowingContainer = (props) => {
                         ";" +
                         item.email +
                         ";" +
-                        (props.theuser ? props.theuser.email : "ph@ph.com") +
+                        // (props.theuser ? props.theuser.email : "ph@ph.com") +
+                        // ";" +
+                          (currentUser && currentUser.email
+                      ? currentUser.email
+                      : "") +
                         ";" +
                         item.isMatch
                   }

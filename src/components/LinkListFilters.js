@@ -1899,6 +1899,11 @@ useEffect(() => {
 
       const array3 = itemId.split(";");
 
+      const v1 = encrypt(array3[5], "125434")
+      const v2 = encrypt(array3[6], "125434")
+
+      console.log("handleClick2(), v1="+v1)
+      console.log("handleClick2(), v1="+v1)
       setitbacktono(array3[0], array3[1])
         .then(() => {
           if (array3[0]) {
@@ -1908,9 +1913,11 @@ useEffect(() => {
               array3[2],
               array3[3],
               array3[4],
-              encrypt(array3[5], "125434"),
-              encrypt(array3[6], "125434"),
+              v1,
+              v2,
               array3[7],
+              "no"
+              
             );
           }
         })
@@ -1918,6 +1925,7 @@ useEffect(() => {
           alert("SeeFollowingPage.js, setitbacktono(), something went wrong");
         });
     } else if (v === 2) {
+      alert("in handleClick2(), v===2")
       const clickedElement = event.currentTarget;
 
       const itemId = clickedElement.dataset.itemId;
@@ -1928,9 +1936,17 @@ useEffect(() => {
 
       const array3 = itemId.split(";");
 
+      console.log("handleClick2(), array3="+JSON.stringify(array3))
+      alert("stopit")
       console.log("handleClick, itemId=" + itemId);
       // array3[5],
       //     array3[6],
+
+       const v1 = encrypt(array3[5], "125434")
+      const v2 = encrypt(array3[6], "125434")
+
+      console.log("handleClick2(), v1="+v1)
+      console.log("handleClick2(), v1="+v1)
 
       if (array3[0]) {
         otherPage(
@@ -1939,9 +1955,10 @@ useEffect(() => {
           array3[2],
           array3[3],
           array3[4],
-          encrypt(array3[5], "125434"),
-          encrypt(array3[6], "125434"),
+          v1,
+          v2,
           array3[7]
+          
         );
       }
     } else {

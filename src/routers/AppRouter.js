@@ -36,7 +36,7 @@ import Simple from "../components/Simple";
 import BookmarksManager from "../components/BookmarksManager";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
-import FetchBookmarks from "../components/FetchBookmarks";
+import FetchBookmarks from "../components/FetchBookmarks-1";
 import AddLinkPageFileDate from "../components/AddLinkPageFileDate";
 
 

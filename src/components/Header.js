@@ -186,6 +186,178 @@ export const Header = (props) => {
     );
   }
 
+  const downloadLinksHTML = () => {
+  const user = firebase.auth().currentUser;
+
+  if (!user) {
+    return;
+  }
+
+  firebase
+    .database()
+    .ref("users/" + user.uid + "/links")
+    .once("value")
+    .then((snapshot) => {
+      const linksObject = snapshot.val();
+
+      if (!linksObject) {
+        return;
+      }
+
+      let html = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>urilinks Links</title>
+</head>
+<body>
+
+<h1>urilinks Links</h1>
+`;
+
+      Object.keys(linksObject).forEach((id) => {
+        const link = linksObject[id];
+
+        const description = link.description || "";
+        const url = link.Url || "";
+        const note = link.note || "";
+
+        html += `
+<div>
+  <p>
+    <a href="${url}" target="_blank">
+      ${description}
+    </a>
+  </p>
+
+  <p>${note}</p>
+</div>
+
+<hr>
+`;
+      });
+
+      html += `
+</body>
+</html>
+`;
+
+      const blob = new Blob([html], {
+        type: "text/html;charset=utf-8;"
+      });
+
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+
+      a.href = url;
+      a.download = "urilinks-links.html";
+
+      document.body.appendChild(a);
+
+      a.click();
+
+      document.body.removeChild(a);
+
+      URL.revokeObjectURL(url);
+    })
+    .catch((error) => {
+      console.log(
+        "Error downloading links:",
+        error
+      );
+    });
+};
+
+  const downloadLinksCSV = () => {
+  const user = firebase.auth().currentUser;
+
+  if (!user) {
+    return;
+  }
+
+  firebase
+    .database()
+    .ref("users/" + user.uid + "/links")
+    .once("value")
+    .then((snapshot) => {
+      const linksObject = snapshot.val();
+
+      if (!linksObject) {
+        return;
+      }
+
+      const rows = [];
+
+      // CSV header
+      rows.push([
+        "description",
+        "Url",
+        "note",
+        "foldername",
+        "addescription",
+        "adUrl",
+        "showpublic",
+        "frequency",
+        "createdAt"
+      ]);
+
+      Object.keys(linksObject).forEach((id) => {
+        const link = linksObject[id];
+
+        rows.push([
+          link.description || "",
+          link.Url || "",
+          link.note || "",
+          link.foldername || "",
+          link.addescription || "",
+          link.adUrl || "",
+          link.showpublic || 0,
+          link.frequency || 0,
+          link.createdAt || ""
+        ]);
+      });
+
+      const escapeCSV = (value) => {
+        const text = String(value);
+
+        return '"' + text.replace(/"/g, '""') + '"';
+      };
+
+      const csv = rows
+        .map((row) =>
+          row.map((value) => escapeCSV(value)).join(",")
+        )
+        .join("\r\n");
+
+      const blob = new Blob([csv], {
+        type: "text/csv;charset=utf-8;"
+      });
+
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+
+      a.href = url;
+      a.download = "urilinks-links.csv";
+
+      document.body.appendChild(a);
+
+      a.click();
+
+      document.body.removeChild(a);
+
+      URL.revokeObjectURL(url);
+    })
+    .catch((error) => {
+      console.log(
+        "Error downloading links:",
+        error
+      );
+    });
+};
+
   const z11 = decrypt(z10, "125434"); //process.env.REACT_APP_EKEY)
   //const follower = useSelector(state => state.follower);
 
@@ -1184,6 +1356,8 @@ const handleClick = useCallback(() => {
                       <div>
                         <HeaderAccountMenu
                           onDeleteAccount={cancelsubscription}
+                          downloadLinksCSV={downloadLinksCSV}
+                          downloadLinksHTML={downloadLinksHTML}
                         />
                       </div>
                     )}

@@ -89,6 +89,36 @@ const HeaderAccountMenu = (props) => {
           >
             Delete Account
           </button>
+           <button
+            type="button"
+            onClick={props.downloadLinksCSV}
+            style={{
+              width: "100%",
+              padding: "10px 12px",
+              border: "none",
+              background: "white",
+              textAlign: "left",
+              cursor: "pointer",
+              fontSize: "14px"
+            }}
+          >
+            downloadLinksCSV
+          </button>
+           <button
+            type="button"
+            onClick={props.downloadLinksHTML}
+            style={{
+              width: "100%",
+              padding: "10px 12px",
+              border: "none",
+              background: "white",
+              textAlign: "left",
+              cursor: "pointer",
+              fontSize: "14px"
+            }}
+          >
+            DownloadLinksHTML
+          </button>
         </div>
       )}
     </div>

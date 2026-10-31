@@ -1841,6 +1841,19 @@ data-value={props.id}
                     />
                   )}
                 </div>
+                {/* <div>
+                
+                  <input
+  type="checkbox"
+  checked={props.selectedLinkIds.includes(props.id)}
+  onChange={(event) =>
+    props.handleSelectLink(
+      props.id,
+      event.target.checked
+    )
+  }
+/>
+                </div> */}
                 <a
                   ref={myRef4}
                   className="ib"
@@ -1886,7 +1899,20 @@ data-value={props.id}
             display: "inline-block",
           }}
         >
-          <a
+            <div>
+                
+                  <input
+  type="checkbox"
+  checked={props.selectedLinkIds.includes(props.id)}
+  onChange={(event) =>
+    props.handleSelectLink(
+      props.id,
+      event.target.checked
+    )
+  }
+/>&nbsp;&nbsp;Check to include in batch delete
+                </div>
+         <div> <a
             ref={myRef}
             className={`ib text-size-16 font-weight-900 margin-right-1 textWrap ${isMobile() === true ? "width325" : ""}`}
             href={props.Url}
@@ -1900,6 +1926,7 @@ data-value={props.id}
           >
             {props.description}
           </a>
+</div>
 
           {showStatus && linkStatus && (
             <div

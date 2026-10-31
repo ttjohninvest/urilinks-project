@@ -3292,6 +3292,7 @@ useEffect(() => {
                   onSortChange={onSortChange}
                   allLinksVisibility={allLinksVisibility}
                   descriptionRefresh={descriptionRefresh}
+                  
                 />
               </div>
 

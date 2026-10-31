@@ -413,6 +413,8 @@ const clearVisibilityCacheOnly = () => {
                             clearVisibilityCache={clearVisibilityCacheOnly}
                             removeLinkFromDisplayedList={removeLinkFromDisplayedList}
                              stopScrolling3={props.stopScrolling3}
+                             selectedLinkIds={props.selectedLinkIds}
+                             handleSelectLink={props.handleSelectLink}
                           />
                         </div>
                       );

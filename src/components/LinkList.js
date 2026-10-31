@@ -52,7 +52,10 @@ const linkid = params.get("p");
 
 export const LinkList = (props) => {
   console.log("LATEST SOURCE FILE TEST");
-  console.log("top LinkList.js, LinkList(), props.allLinksVisibility="+props.allLinksVisibility)
+  console.log(
+    "top LinkList.js, LinkList(), props.allLinksVisibility=" +
+      props.allLinksVisibility,
+  );
   const thelinks = [
     { id: 1, text: "hello 1" },
     { id: 2, text: "hello 2" },
@@ -70,10 +73,15 @@ export const LinkList = (props) => {
   const [maximum, setMaximum] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
   const [linksCount, setLinksCount] = useState(0);
+  const [links, setLinks] = useState([]);
   //const [allLinksVisibility, setAllLinksVisibility] = useState("");
   const [allLinksVisibility, setAllLinksVisibility] = useState("");
-  console.log("top LinkList.js, LinkList(), after const [allLinksVisibility, set...,  allLinksVisibility="+allLinksVisibility)
+  console.log(
+    "top LinkList.js, LinkList(), after const [allLinksVisibility, set...,  allLinksVisibility=" +
+      allLinksVisibility,
+  );
   const [linksRefresh, setLinksRefresh] = useState(0);
+  const [selectedLinkIds, setSelectedLinkIds] = useState([]);
 
   const linkWord = props.linkCount === 1 ? "Uri/Url Link" : "Uri/Url Links";
   const formattedLinksTotal = numeral(props.linksTotal / 100).format("$0,0.00");
@@ -210,32 +218,42 @@ export const LinkList = (props) => {
 
   //const [linksCount, setLinksCount] = useState(0);
 
+  const handleSelectLink = (id, checked) => {
+    //alert("handleSelectedLink, id="+id)
+    //alert("handleSelectedLink, checked="+checked)
+    if (checked) {
+      setSelectedLinkIds((oldIds) => [...oldIds, id]);
+    } else {
+      setSelectedLinkIds((oldIds) => oldIds.filter((linkId) => linkId !== id));
+    }
+  };
 
   //this code updates linksCount everytime a new link is added to firebase realtime database
-useEffect(() => {
-  if (!props.auth.uid) {
-    setLinksCount(0);
-    return;
-  }
-
-  const linksRef = firebase
-    .database()
-    .ref("users/" + props.auth.uid + "/links");
-
-  const handleValue = (snapshot) => {
-    setLinksCount(snapshot.numChildren());
-  };
-
-  linksRef.on("value", handleValue);
-
-  return () => {
-    linksRef.off("value", handleValue);
-  };
-}, [props.auth.uid]);
 
   useEffect(() => {
-  setAllLinksVisibility(props.allLinksVisibility);
-}, [props.allLinksVisibility]);
+    if (!props.auth.uid) {
+      setLinksCount(0);
+      return;
+    }
+
+    const linksRef = firebase
+      .database()
+      .ref("users/" + props.auth.uid + "/links");
+
+    const handleValue = (snapshot) => {
+      setLinksCount(snapshot.numChildren());
+    };
+
+    linksRef.on("value", handleValue);
+
+    return () => {
+      linksRef.off("value", handleValue);
+    };
+  }, [props.auth.uid]);
+
+  useEffect(() => {
+    setAllLinksVisibility(props.allLinksVisibility);
+  }, [props.allLinksVisibility]);
 
   const getPlanMax = () => {
     let max = StorageSizes.free;
@@ -311,14 +329,13 @@ useEffect(() => {
   };
 
   const clearLinksCache = () => {
-  Object.keys(sessionStorage).forEach((key) => {
-    if (key.startsWith("urilinks|")) {
-      sessionStorage.removeItem(key);
-    }
-  });
-};
+    Object.keys(sessionStorage).forEach((key) => {
+      if (key.startsWith("urilinks|")) {
+        sessionStorage.removeItem(key);
+      }
+    });
+  };
 
-  
   const makeAllLinksPublicA = () => {
     //const user = firebase.auth().currentUser && firebase.auth().currentUser;
 
@@ -326,49 +343,47 @@ useEffect(() => {
     //   return;
     // }
 
-    let a = confirm("Are you sure you want to make all of your links public?")
-    if(a===true) {
-    console.log("top, makeAllLinksPublicA(), refreshing links");
+    let a = confirm("Are you sure you want to make all of your links public?");
+    if (a === true) {
+      console.log("top, makeAllLinksPublicA(), refreshing links");
 
-    const linksRef = firebase
-      .database()
-      .ref("users/" + props.auth.uid + "/links");
+      const linksRef = firebase
+        .database()
+        .ref("users/" + props.auth.uid + "/links");
 
-    linksRef
-      .once("value")
-      .then((snapshot) => {
-        const updates = {};
+      linksRef
+        .once("value")
+        .then((snapshot) => {
+          const updates = {};
 
-        snapshot.forEach((childSnapshot) => {
-          const id = childSnapshot.key;
+          snapshot.forEach((childSnapshot) => {
+            const id = childSnapshot.key;
 
-          updates[id + "/showpublic"] = 1;
+            updates[id + "/showpublic"] = 1;
+          });
+
+          return linksRef.update(updates);
+        })
+        .then(() => {
+          setAllLinksVisibility("showpublic");
+
+          props.onSortChange({
+            target: {
+              value: "showpublic",
+            },
+          });
+
+          if (props.clearVisibilityCache) {
+            props.clearVisibilityCache();
+          }
+
+          clearLinksCache();
+
+          console.log("bottom, makeAllLinksPublicA(), refreshing links");
+          setLinksRefresh((x) => x + 1);
         });
-
-        return linksRef.update(updates);
-      })
-      .then(() => {
-        setAllLinksVisibility("showpublic");
-
-        props.onSortChange({
-          target: {
-            value: "showpublic",
-          },
-        });
-
-        if (props.clearVisibilityCache) {
-          props.clearVisibilityCache();
-        }
-
-        clearLinksCache();
-
-        console.log("bottom, makeAllLinksPublicA(), refreshing links");
-        setLinksRefresh((x) => x + 1);
-        
-      });
-
     } else {
-      alert("Canceled")
+      alert("Canceled");
     }
   };
 
@@ -379,48 +394,47 @@ useEffect(() => {
     //   return;
     // }
 
-    let a = confirm("Are you sure you want to make all of your links private?")
-    if(a===true) {
-    console.log("top, makeAllLinksPrivateA(), refreshing links");
+    let a = confirm("Are you sure you want to make all of your links private?");
+    if (a === true) {
+      console.log("top, makeAllLinksPrivateA(), refreshing links");
 
-    const linksRef = firebase
-      .database()
-      .ref("users/" + props.auth.uid + "/links");
+      const linksRef = firebase
+        .database()
+        .ref("users/" + props.auth.uid + "/links");
 
-    linksRef
-      .once("value")
-      .then((snapshot) => {
-        const updates = {};
+      linksRef
+        .once("value")
+        .then((snapshot) => {
+          const updates = {};
 
-        snapshot.forEach((childSnapshot) => {
-          const id = childSnapshot.key;
+          snapshot.forEach((childSnapshot) => {
+            const id = childSnapshot.key;
 
-          updates[id + "/showpublic"] = 0;
+            updates[id + "/showpublic"] = 0;
+          });
+
+          return linksRef.update(updates);
+        })
+        .then(() => {
+          setAllLinksVisibility("showprivate");
+
+          props.onSortChange({
+            target: {
+              value: "showprivate",
+            },
+          });
+
+          if (props.clearVisibilityCache) {
+            props.clearVisibilityCache();
+          }
+
+          clearLinksCache();
+
+          console.log("bottom, makeAllLinksPrivateA(), refreshing links");
+          setLinksRefresh((x) => x + 1);
         });
-
-        return linksRef.update(updates);
-      })
-      .then(() => {
-        setAllLinksVisibility("showprivate");
-
-        props.onSortChange({
-          target: {
-            value: "showprivate",
-          },
-        });
-
-        if (props.clearVisibilityCache) {
-          props.clearVisibilityCache();
-        }
-
-        clearLinksCache();
-
-        console.log("bottom, makeAllLinksPrivateA(), refreshing links");
-        setLinksRefresh((x) => x + 1);
-      });
-
     } else {
-      alert("Canceled")
+      alert("Canceled");
     }
   };
 
@@ -720,6 +734,99 @@ useEffect(() => {
     // }
   }, []);
 
+  // const deleteSelectedLinks = () => {
+  //    console.log("deleteSelectedLinks(), selectedLinkIds=", JSON.stringify(selectedLinkIds));
+  //    console.log("deleteSelectedLinks(), props.auth.uid="+props.auth.uid)
+  //   //alert("in deleteSelectedLinks");
+  //   //const user = firebase.auth().currentUser;
+
+  //   if(selectedLinkIds.length > 0) {
+  //   const v = confirm("Is it ok to delete the selected links?")
+  //   if(v===true) {
+  //   if (!props.auth.uid) {
+  //     return;
+  //   }
+
+  //   const updates = {};
+
+  //   selectedLinkIds.forEach((id) => {
+  //     updates[id] = null;
+  //   });
+
+  //   firebase
+  //     .database()
+  //     .ref("users/" + props.auth.uid + "/links")
+  //     .update(updates)
+  //     .then(() => {
+  //       setSelectedLinkIds([]);
+
+  //       setLinks((oldLinks) =>
+  //         oldLinks.filter((item) => !selectedLinkIds.includes(item.id)),
+  //       );
+  //       alert("deleted the selected links")
+  //     })
+  //     .catch((error) => {
+  //       console.log("Error deleting selected links:", error);
+  //       alert("did not delete the selected links")
+  //     });
+  //   }
+  //   } else {
+  //     alert("no links selected to delete")
+  //   }
+  // };
+
+  const deleteSelectedLinks = () => {
+    console.log(
+      "deleteSelectedLinks(), selectedLinkIds=",
+      JSON.stringify(selectedLinkIds),
+    );
+
+    console.log("deleteSelectedLinks(), props.auth.uid=" + props.auth.uid);
+
+    if (selectedLinkIds.length > 0) {
+      const v = confirm("Is it ok to delete the selected links?");
+
+      if (v === true) {
+        if (!props.auth.uid) {
+          return;
+        }
+
+        const updates = {};
+
+        selectedLinkIds.forEach((id) => {
+          updates[id] = null;
+        });
+
+        firebase
+          .database()
+          .ref("users/" + props.auth.uid + "/links")
+          .update(updates)
+          .then(() => {
+            console.log("deleted selected links from Firebase");
+
+            sessionStorage.clear();
+
+            setSelectedLinkIds([]);
+
+            setLinks((oldLinks) =>
+              oldLinks.filter((item) => !selectedLinkIds.includes(item.id)),
+            );
+
+            setLinksRefresh((oldValue) => oldValue + 1);
+
+            alert("deleted the selected links");
+          })
+          .catch((error) => {
+            console.log("Error deleting selected links:", error);
+
+            alert("did not delete the selected links");
+          });
+      }
+    } else {
+      alert("no links selected to delete");
+    }
+  };
+
   console.log("LinkList.js, props.dosearch=" + props.dosearch);
 
   console.log("LinkList.js, props.theSortBy=" + props.theSortBy);
@@ -728,8 +835,10 @@ useEffect(() => {
 
   console.log("LinkList.js, rt = " + rt);
 
-  console.log("LinkList.js, before return ( statement, allLinksVisibility=" + allLinksVisibility);
-
+  console.log(
+    "LinkList.js, before return ( statement, allLinksVisibility=" +
+      allLinksVisibility,
+  );
 
   return (
     <div className="">
@@ -746,47 +855,47 @@ useEffect(() => {
         //||
         props.isinfinitescroll.isinfinitescroll === true && (
           <div className="margin-top-78b">
-            
-            
-            {rt !== "readonly" && <div
-              style={{
-                display: "flex",
-                gap: "20px",
-                alignItems: "center",
-                marginLeft: "1.35rem",
-                marginBottom: "1.65rem",
-              }}
-            >
-              <label>
-                <input
-                  type="radio"
-                  name="allLinksVisibility"
-                  value="public"
-                  //checked={props.allLinksVisibility === "showpublic" || allLinksVisibility === "showpublic"}
-                  checked={allLinksVisibility === "showpublic"}
-                  onChange={() =>
-                    //setAllLinksVisibilityPart("public")
-                    makeAllLinksPublicA()
-                  }
-                />
-                &nbsp;&nbsp; Make all links public
-              </label>
+            {rt !== "readonly" && (
+              <div
+                style={{
+                  display: "flex",
+                  gap: "20px",
+                  alignItems: "center",
+                  marginLeft: "1.35rem",
+                  marginBottom: "1.65rem",
+                }}
+              >
+                <label>
+                  <input
+                    type="radio"
+                    name="allLinksVisibility"
+                    value="public"
+                    //checked={props.allLinksVisibility === "showpublic" || allLinksVisibility === "showpublic"}
+                    checked={allLinksVisibility === "showpublic"}
+                    onChange={() =>
+                      //setAllLinksVisibilityPart("public")
+                      makeAllLinksPublicA()
+                    }
+                  />
+                  &nbsp;&nbsp; Make all links public
+                </label>
 
-              <label>
-                <input
-                  type="radio"
-                  name="allLinksVisibility"
-                  value="private"
-                  //checked={props.allLinksVisibility === "showprivate" || allLinksVisibility === "showprivate"}
-                  checked={allLinksVisibility === "showprivate"}
-                  onChange={() =>
-                    //setAllLinksVisibilityPart("private")
-                    makeAllLinksPrivateA()
-                  }
-                />
-                &nbsp;&nbsp; Make all links private
-              </label>
-            </div>}
+                <label>
+                  <input
+                    type="radio"
+                    name="allLinksVisibility"
+                    value="private"
+                    //checked={props.allLinksVisibility === "showprivate" || allLinksVisibility === "showprivate"}
+                    checked={allLinksVisibility === "showprivate"}
+                    onChange={() =>
+                      //setAllLinksVisibilityPart("private")
+                      makeAllLinksPrivateA()
+                    }
+                  />
+                  &nbsp;&nbsp; Make all links private
+                </label>
+              </div>
+            )}
 
             <StickyFixed>
               <div
@@ -835,6 +944,15 @@ useEffect(() => {
                     style={{ zIndex: 99 }}
                   >
                     <span>Stop</span>
+                  </button>
+                </div>
+                <div>
+                  <button
+                    className="margin-left-11 button-2"
+                    onClick={deleteSelectedLinks}
+                    //disabled={selectedLinkIds.length === 0}
+                  >
+                    Batch delete Selected
                   </button>
                 </div>
 
@@ -911,9 +1029,7 @@ useEffect(() => {
                 props.isinfinitescroll.isinfinitescroll === true &&
                 props.dosearch === 1 &&
                 props.theSortBy === "description" ? (
-                 
-
-                   <InfiniteScrollNewDescription
+                  <InfiniteScrollNewDescription
                     setLinksCount={setLinksCount}
                     linksCount={linksCount}
                     scrollContainerRef={scrollContainerRef}
@@ -926,9 +1042,9 @@ useEffect(() => {
                     linksRefresh={linksRefresh}
                     descriptionRefresh={props.descriptionRefresh}
                     stopScrolling3={props.stopScrolling3}
+                    selectedLinkIds={selectedLinkIds}
+                    handleSelectLink={handleSelectLink}
                   />
-
-                 
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
                   props.theSortBy === "notetext" ? (
@@ -944,6 +1060,8 @@ useEffect(() => {
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
                     stopScrolling3={props.stopScrolling3}
+                    selectedLinkIds={selectedLinkIds}
+                    handleSelectLink={handleSelectLink}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -959,11 +1077,11 @@ useEffect(() => {
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
-                     stopScrolling3={props.stopScrolling3}
+                    stopScrolling3={props.stopScrolling3}
+                    selectedLinkIds={selectedLinkIds}
+                    handleSelectLink={handleSelectLink}
                   />
-                ) : 
-
-                props.isinfinitescroll.isinfinitescroll === true &&
+                ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
                   props.theSortBy === "date" ? (
                   <InfiniteScrollNewDateandTime
@@ -977,7 +1095,9 @@ useEffect(() => {
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
-                     stopScrolling3={props.stopScrolling3}
+                    stopScrolling3={props.stopScrolling3}
+                    selectedLinkIds={selectedLinkIds}
+                    handleSelectLink={handleSelectLink}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -993,7 +1113,9 @@ useEffect(() => {
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
-                     stopScrolling3={props.stopScrolling3}
+                    stopScrolling3={props.stopScrolling3}
+                    selectedLinkIds={selectedLinkIds}
+                    handleSelectLink={handleSelectLink}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1009,7 +1131,9 @@ useEffect(() => {
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
-                     stopScrolling3={props.stopScrolling3}
+                    stopScrolling3={props.stopScrolling3}
+                    selectedLinkIds={selectedLinkIds}
+                    handleSelectLink={handleSelectLink}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1025,7 +1149,9 @@ useEffect(() => {
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
-                     stopScrolling3={props.stopScrolling3}
+                    stopScrolling3={props.stopScrolling3}
+                    selectedLinkIds={selectedLinkIds}
+                    handleSelectLink={handleSelectLink}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1041,7 +1167,9 @@ useEffect(() => {
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
-                     stopScrolling3={props.stopScrolling3}
+                    stopScrolling3={props.stopScrolling3}
+                    selectedLinkIds={selectedLinkIds}
+                    handleSelectLink={handleSelectLink}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1058,6 +1186,8 @@ useEffect(() => {
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
                     stopScrolling3={props.stopScrolling3}
+                    selectedLinkIds={selectedLinkIds}
+                    handleSelectLink={handleSelectLink}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1073,7 +1203,9 @@ useEffect(() => {
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
-                     stopScrolling3={props.stopScrolling3}
+                    stopScrolling3={props.stopScrolling3}
+                    selectedLinkIds={selectedLinkIds}
+                    handleSelectLink={handleSelectLink}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1090,7 +1222,9 @@ useEffect(() => {
                     onLinksCountChange={setLinksCount}
                     visibility={1}
                     linksRefresh={linksRefresh}
-                     stopScrolling3={props.stopScrolling3}
+                    stopScrolling3={props.stopScrolling3}
+                    selectedLinkIds={selectedLinkIds}
+                    handleSelectLink={handleSelectLink}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1108,6 +1242,8 @@ useEffect(() => {
                     visibility={0}
                     linksRefresh={linksRefresh}
                     stopScrolling3={props.stopScrolling3}
+                    selectedLinkIds={selectedLinkIds}
+                    handleSelectLink={handleSelectLink}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true ? ( //not the search one, infinite scrolls the whole list
                   <InfiniteScrollNew
@@ -1118,7 +1254,9 @@ useEffect(() => {
                     theSortBy={props.theSortBy}
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
-                     stopScrolling3={props.stopScrolling3}
+                    stopScrolling3={props.stopScrolling3}
+                    selectedLinkIds={selectedLinkIds}
+                    handleSelectLink={handleSelectLink}
                   />
                 ) : null
 

@@ -376,6 +376,8 @@ const InfiniteScrollNewDescription = (props) => {
                     idexists={props.idexists}
                     theSortBy={props.theSortBy}
                      stopScrolling3={props.stopScrolling3}
+                     selectedLinkIds={props.selectedLinkIds}
+                             handleSelectLink={props.handleSelectLink}
                   />
                 </div>
               );

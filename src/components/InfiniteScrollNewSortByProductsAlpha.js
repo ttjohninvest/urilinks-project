@@ -463,6 +463,7 @@ const linkMatchesSearch = (item, search) => {
                     signup={props.signup.signup}
                     idexists={props.idexists}
                     theSortBy={props.theSortBy}
+                     stopScrolling3={props.stopScrolling3}
                   />
                 </div>
               );

@@ -458,7 +458,7 @@ export const SeeHashTagsPage = (props) => {
               onClick={stopScrolling4}
               className="button-2 ib margin-left-11"
             >
-              <span>St</span>
+              <span>Stop</span>
             </button>
 
             <button
@@ -468,7 +468,7 @@ export const SeeHashTagsPage = (props) => {
               onClick={props.handleClose3}
               title="Close"
             >
-              Cl
+              Close
             </button>
           </div>
         </div>

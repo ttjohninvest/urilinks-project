@@ -1348,7 +1348,7 @@ const handleClick = useCallback(() => {
                               ////className={`ib- color-white-1 cursor-pointer ${isInMeArray(uid)===true?"pointereventsauto":"pointereventsnone"}`}
                               title="uploads bookmarks file that was previously exported from the browser. It must be less the 100kb in size."
                             >
-                              🎺 bookmarks upload
+                              🎺 upload bookmarks
                             </span>
                           </Link>
                         </div>
@@ -1356,6 +1356,8 @@ const handleClick = useCallback(() => {
                     ) : ni === "1" || ni === "2" || ni === "3" ? (
                       <div></div>
                     ) : (
+                    
+                    
                       <div className="pointereventsnone margin-right-1 hide-">
                         <Link
                           id="uploadbookmarksfile"
@@ -1373,7 +1375,7 @@ const handleClick = useCallback(() => {
 
                             title="currently unavailable, please use Add Link."
                           >
-                            🎺 bookmarks upload
+                            🎺 upload bookmarks
                           </span>
                         </Link>
                       </div>

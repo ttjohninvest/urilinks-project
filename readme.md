@@ -1,6 +1,8 @@
 ====================================
 maybe do, to do, agenda
 
+https://www.fiverr.com/facebooksetup_?source=inbox, Angela S patron setup
+@facebooksetup_ $100 to start
 the latest working code is on github.com pushed on 10-29-2026, can not push to heroku.com until i get my phone
 english language to japanese language chat page
 saving profile images to storage for more reliable access during chat session
@@ -766,6 +768,8 @@ vercel.com (stripe cloud functions)
 ttjohninvest@gmail.com (google login)
 github.com (code repository)
 ttjohninvest@gmail.com
+bitbucket.com
+ttjohninvest via google login
 cloudflare.com (statistics)
 ttjohninvest@gmail.com
 firebase.google.com (stores data)
@@ -3808,4 +3812,38 @@ Vite: Prefix with VITE_.
 const apiKey = import.meta.env.VITE_YOUR_API_KEY;
 
 ===============
+heroku.com/account-lockout
+heroku.com information I gave on 10/30/2026 to access my account:
+two apps deployed on heroku:
+see-my-index-project-7
+travel-planner-main-2
 
+git sha for app see-my-index-project-7:
+6d67b8eed5f95e01d489d7afb108111542e137a6
+
+git sha for app travel-planner-main-2
+3b6c1ca537c0385f891bc12a1c2db46245672329
+
+heroku.com emailed me; Welcome to Heroku! Get more from the platform on:
+Wed, Dec 23, 2020, 10:05 AM
+
+The last four digits of card connected to heroku.com account:
+8757
+
+Billing ZIP or postal code:
+89503
+
+[billing] Heroku Invoice for September 2026 (Invoice #114064525)
+=====================
+heroku.com recovery codes, obtained on 10/30/2026
+74RMOBGNXB
+LHNNK3RSN0
+V7JU09CJ8K
+O5T274L4KG
+3IDCHGGFH2
+CN66XDEPNE
+MU3H73AUF6
+YOXDG8A30B
+EIRQHQFLPY
+WM0VKWDHSE
+=====================

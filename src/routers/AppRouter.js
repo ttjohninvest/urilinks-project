@@ -17,6 +17,7 @@ import EditLinkPage from "../components/EditLinkPage";
 import Signup from "../components/Signup";
 //import TermsAndPrivacy from "../components/TermsAndPrivacy";
 import TermsAndPrivacyPolicy from "../components/TermsAndPrivacyPolicy";
+import UriLinksLegal from "../components/UriLinksLegal";
 //
 import Benefits from "../components/Benefits";
 //import LinkSettingsPage from "../components/LinkSettingsPage";
@@ -115,7 +116,8 @@ const AppRouter = (props) => (
           path="/termsandprivacy"
           signup={props.signup}
           //component={TermsAndPrivacy}
-          component={TermsAndPrivacyPolicy}
+          //component={TermsAndPrivacyPolicy}
+          component={UriLinksLegal}
         />
 
           <PrivateRoute 

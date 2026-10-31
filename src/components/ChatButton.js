@@ -13,6 +13,9 @@ function decrypt(text, key) {
 }
 
 const ChatButton = (props) => {
+
+
+    const [showDeleteChatButton,setShowDeleteChatButton] = useState(true)
     const params = new URLSearchParams(window.location.search);
     const id2 = props.id2 //params.get("id2");
     const id = props.id //params.get("id");
@@ -25,8 +28,10 @@ const ChatButton = (props) => {
     //  alert("ChatButton, id2="+id2)
     //  alert("ChatButton, id="+id)
 
-    //  alert("ChatButton, name2="+id2)
-    //  alert("ChatButton, name="+id)
+     console.log("ChatButton(), id2="+id2)
+     console.log("ChatButton(), name2="+name2)
+     console.log("ChatButton(), id="+id)
+     console.log("ChatButton(), name1="+name1)
 
 
     const isMobile = () => {
@@ -45,6 +50,18 @@ const ChatButton = (props) => {
   // return unsubscribe;
 //}, []);
 
+useEffect(() => {
+checkForChatMessages()
+  .then((hasMessages) => {
+    if (hasMessages) {
+      console.log("There are chat messages");
+      setShowDeleteChatButton(true)
+    } else {
+      console.log("There are no chat messages");
+      setShowDeleteChatButton(false)
+    }
+  });
+}, []);
 
 const openNewTabWithCustomTitleType = (url, type, customTitle) => {
   const newWindow = window.open(url, type);
@@ -63,6 +80,64 @@ const openNewTabWithCustomTitleType = (url, type, customTitle) => {
     // }, 500); 
   }
 };
+
+
+const checkForChatMessages = () => {
+  return firebase.database()
+    .ref(`chat/messages/${id2}/${name2}/${id}/${name1}`)
+    .once("value")
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        console.log("Chat messages exist");
+        return true;
+      } else {
+        console.log("No chat messages");
+        return false;
+      }
+    })
+    .catch((error) => {
+      console.log("Error checking chat messages:", error);
+      return false;
+    });
+};
+
+const handleChatDelete = () => {
+  //alert("handleChatDelete")
+  console.log("handleChatDelete(), id2="+id2)
+  console.log("handleChatDelete(), name2="+name2)
+  console.log("handleChatDelete(), id="+id)
+  console.log("handleChatDelete(), name1="+name1)
+
+   try {
+    const confirmation = window.prompt(
+      "To delete this chat with "+name2+", type exactly: delete chat",
+    );
+
+    if (confirmation !== "delete chat") {
+      alert("Chat was not deleted.");
+      return;
+    }
+
+    // Put your Firebase deletion code here
+    console.log("calling the database to delete the chat from the firebase realtime database");
+    firebase.database().ref(`chat/messages/${id2}/${name2}/${id}/${name1}`)
+      .remove()
+      .then(() => {
+        alert("The chat with "+name2+" is removed.")
+        window.location.reload();
+        console.log("Chat removed");
+      })
+      .catch((error) => {
+        alert("The chat with "+name2+" was not removed.")
+        
+        console.log("Error removing chat:", error);
+      });
+   } catch(error) {
+    console.log("handleChatDelete error. error="+error)
+   }
+
+}
+
 
   const handleChat = (props) => {
     try {
@@ -86,8 +161,17 @@ const openNewTabWithCustomTitleType = (url, type, customTitle) => {
     className={`ib pointereventsnone- button-2b padding-top-and-bottom ${isMobile() === false ? "" : "width295 margin-top-1"}`}
     title="Press to 'Start Chat.'"
     onClick={handleChat}>
-    Start Chat with {props.name1}
+    Start Chat with {name1}
     </button>
+    {showDeleteChatButton && 
+     <button 
+    className={`ib margin-left-11 pointereventsnone- button-2b padding-top-and-bottom ${isMobile() === false ? "" : "width295 margin-top-1"}`}
+    title={`Delete Chat with ${name1}`}
+    
+    onClick={()=>handleChatDelete()}>
+    Delete Chat with {name1}
+    </button>
+}
     </div>
   );
 };

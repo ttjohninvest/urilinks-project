@@ -1410,6 +1410,8 @@ useEffect(() => {
   };
 
   const startScrollingUp2 = () => {
+     console.log("STARTING startScrollingUp2");
+  console.trace();
     try {
       if (!!buttonRef2 === true && !!buttonRef2.current === true)
         buttonRef2.current.click();
@@ -1512,6 +1514,28 @@ useEffect(() => {
   //   clearInterval(scrollInterval2.current);
   //   scrollInterval2.current = null;
   // };
+
+  const stopScrolling3 = () => {
+
+  console.log("STOPPING CENTER AUTO SCROLL");
+
+   console.log(
+    "STOPPING CENTER SCROLL. interval before=",
+    props.scrollInterval2.current
+  );
+
+  clearInterval(props.scrollInterval2.current);
+  props.scrollInterval2.current = null;
+
+    console.log(
+    "interval after=",
+    props.scrollInterval2.current
+  );
+
+   if (childRef.current) {
+    childRef.current.cancelScroll();
+  }
+}
 
   const startScrollingDown2 = () => {
     try {
@@ -1764,10 +1788,10 @@ useEffect(() => {
   }
 
   const otherPage = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
-    console.log("otherPage(), id2=" + id2);
-    console.log("otherPage(), id=" + id);
-    console.log("otherPage(), dn2=" + dn2);
-    console.log("otherPage(), dn=" + dn);
+    console.log("LinkListFilters.js, otherPage(), id2=" + id2);
+    console.log("LinkListFilters.js, otherPage(), id=" + id);
+    console.log("LinkListFilters.js, otherPage(), dn2=" + dn2);
+    console.log("LinkListFilters.js, otherPage(), dn=" + dn);
     //alert("firebase.auth().currentUser.email="+firebase.auth().currentUser.email)
     //const z12 = encrypt(props.gud.gud.email,"125434")
     //const z12 = props.email
@@ -1830,10 +1854,10 @@ useEffect(() => {
     isMatch,
     newlinks,
   ) => {
-    console.log("otherPage(), id2=" + id2);
-    console.log("otherPage(), id=" + id);
-    console.log("otherPage(), dn2=" + dn2);
-    console.log("otherPage(), dn=" + dn);
+    console.log("otherPage2(), id2=" + id2);
+    console.log("otherPage2(), id=" + id);
+    console.log("otherPage2(), dn2=" + dn2);
+    console.log("otherPage2(), dn=" + dn);
     //alert("firebase.auth().currentUser.email="+firebase.auth().currentUser.email)
     //const z12 = encrypt(props.gud.gud.email,"125434")
     //const z12 = props.email
@@ -1925,10 +1949,10 @@ useEffect(() => {
   };
 
   const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch, isMatch2) => {
-    console.log("otherPage(), id2=" + id2);
-    console.log("otherPage(), id=" + id);
-    console.log("otherPage(), dn2=" + dn2);
-    console.log("otherPage(), dn=" + dn);
+    console.log("otherPagea(), id2=" + id2);
+    console.log("otherPagea(), id=" + id);
+    console.log("otherPagea(), dn2=" + dn2);
+    console.log("otherPagea(), dn=" + dn);
     //alert("firebase.auth().currentUser.email="+firebase.auth().currentUser.email)
     //const z12 = encrypt(props.gud.gud.email,"125434")
     //const z12 = props.email
@@ -1991,10 +2015,10 @@ useEffect(() => {
     isMatch,
     newlinks,
   ) => {
-    console.log("otherPage(), id2=" + id2);
-    console.log("otherPage(), id=" + id);
-    console.log("otherPage(), dn2=" + dn2);
-    console.log("otherPage(), dn=" + dn);
+    console.log("otherPage2a(), id2=" + id2);
+    console.log("otherPage2a(), id=" + id);
+    console.log("otherPage2a(), dn2=" + dn2);
+    console.log("otherPage2a(), dn=" + dn);
     //alert("firebase.auth().currentUser.email="+firebase.auth().currentUser.email)
     //const z12 = encrypt(props.gud.gud.email,"125434")
     //const z12 = props.email
@@ -3246,6 +3270,7 @@ useEffect(() => {
                   startScrollToTop2={startScrollToTop2}
                   startScrollToBottom2={startScrollToBottom2}
                   stopScrolling2={props.stopScrolling2}
+                  stopScrolling3={stopScrolling3}
                   scrollInterval2={props.scrollInterval2}
                   onSortChange={onSortChange}
                   allLinksVisibility={allLinksVisibility}

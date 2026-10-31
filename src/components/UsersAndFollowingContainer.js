@@ -304,9 +304,10 @@ const UsersAndFollowingContainer = (props) => {
                   ";" +
                   item.gud.uid +
                   ";" +
-                  (props.theuser
-                    ? props.theuser.displayName
-                    : "name") +
+                  firebase.auth().currentUser.email.split("@")[0] +
+                  // (props.theuser
+                  //   ? props.theuser.displayName
+                  //   : "name") +
                   ";" +
                   //item.displayName +
                   item.email.split("@")[0] +

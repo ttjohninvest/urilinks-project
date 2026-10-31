@@ -81,14 +81,19 @@ export const AddLinkPage = (props) => {
       try {
         //XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
         if (props.signup.signup === true) {
-          const user = firebase.auth().currentUser;
-          if (user) {
+          firebase.auth().onAuthStateChanged(async (user) => {
+ if (user) {
             const uid = user.uid;
             setUserId(uid);
             console.log("User ID:", uid);
           } else {
             console.log("No user is currently logged in.");
           }
+});
+
+
+         
+         
         } else {
           setUserId("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2");
         }
@@ -97,8 +102,11 @@ export const AddLinkPage = (props) => {
         ////try {//XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
         let snapshot;
         if (props.signup.signup === true) {
-          const user = firebase.auth().currentUser;
+          firebase.auth().onAuthStateChanged(async (user) => {
+
           snapshot = await db.ref(`/users/${user.uid}/links`).once("value");
+})
+          
         } else {
           snapshot = await db
             .ref(`/users/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2/links`)
@@ -253,8 +261,6 @@ const checkLink = async (url) => {
     console.log("AddlinkPage.js, in onSubmit");
     console.log("AddlinkPage.js, link.addescription = " + link.addescription);
     console.log("AddlinkPage.js, link.adUrl = " + link.adUrl);
-   
-    const user = firebase.auth().currentUser;
    
     if (count < getPlanMax()) {
       

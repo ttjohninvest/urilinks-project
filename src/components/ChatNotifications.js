@@ -127,7 +127,7 @@ const openNewTabWithCustomTitleType = (url, type, customTitle) => {
                   removeChatNotification(n.uid2, n.dn2, n.uid1, n.dn);
                 }}
               >
-                x
+                X
               </button>
             </div>
           ))}

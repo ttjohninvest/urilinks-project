@@ -1646,6 +1646,8 @@ data-value={props.id}
   */
 
   const playInPlaceVideo = (id, Url, frequency, event) => {
+    //alert("about to call to stop scroll")
+    props.stopScrolling3()
     let newStr = Url;
 
     if (Url.includes("shorts")) {
@@ -1662,30 +1664,7 @@ data-value={props.id}
       console.log("Play video in place");
       storeScrollPosition0(id, frequency);
       window.document.getElementById("ipvideo" + id).style.marginTop = "35px";
-      // const el = document.getElementById("belowbuttonsid2");
-
-      // console.log(
-      //   "before display change to block =",
-      //   window.getComputedStyle(el).display,
-      // );
-      // //window.document.getElementById("belowbuttonsid").style.display = "block";
-
-      // console.log("el =", el);
-
-      // console.log("before display =", window.getComputedStyle(el).display);
-      // console.log("before height =", el.getBoundingClientRect().height);
-      // console.log("before width =", el.getBoundingClientRect().width);
-
-      // el.style.display = "block";
-      // el.style.backgroundColor = "red";
-      // el.style.border = "3px solid blue";
-      // console.log("after display =", window.getComputedStyle(el).display);
-      // console.log("after height =", el.getBoundingClientRect().height);
-      // console.log("afterv width =", el.getBoundingClientRect().width);
-      // console.log(
-      //   "after display change to block=",
-      //   window.getComputedStyle(el).display,
-      // );
+     
       console.log("Play video in place, display set to block");
       const iframe = document.querySelector("#ipvideo" + id + " iframe");
 
@@ -1718,6 +1697,9 @@ data-value={props.id}
           behavior: "auto",
         });
       }, 500);
+
+     
+
     } else {
       // console.log("Play video in place, about to set display to none");
       // window.document.getElementById("belowbuttonsid2").style.display = "none";

@@ -396,6 +396,7 @@ const clearVisibilityCacheOnly = () => {
                             // playInPlaceVideo={props.playInPlaceVideo}
                             clearVisibilityCache={clearVisibilityCacheOnly}
                             removeLinkFromDisplayedList={removeLinkFromDisplayedList}
+                            stopScrolling2={props.stopScrolling2}
                           />
                         </div>
                       );

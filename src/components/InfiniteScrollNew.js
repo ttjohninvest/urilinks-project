@@ -433,6 +433,7 @@ const sessionRemoveLink=(id) => {
                             // playInPlaceVideo={props.playInPlaceVideo}
                             clearVisibilityCache={clearVisibilityCacheOnly}
                             removeLinkFromDisplayedList={removeLinkFromDisplayedList}
+                             stopScrolling3={props.stopScrolling3}
                           />
                         </div>
                       );

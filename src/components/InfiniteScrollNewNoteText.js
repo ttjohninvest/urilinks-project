@@ -728,6 +728,7 @@ const InfiniteScrollNewNoteText = (props) => {
                     theSortBy={props.theSortBy}
                     clearVisibilityCache={clearVisibilityCacheOnly}
                             removeLinkFromDisplayedList={removeLinkFromDisplayedList}
+                             stopScrolling3={props.stopScrolling3}
                   />
                 </div>
               );

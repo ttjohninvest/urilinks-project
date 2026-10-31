@@ -925,6 +925,7 @@ useEffect(() => {
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
                     descriptionRefresh={props.descriptionRefresh}
+                    stopScrolling3={props.stopScrolling3}
                   />
 
                  
@@ -942,6 +943,7 @@ useEffect(() => {
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
+                    stopScrolling3={props.stopScrolling3}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -957,6 +959,7 @@ useEffect(() => {
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
+                     stopScrolling3={props.stopScrolling3}
                   />
                 ) : 
 
@@ -974,6 +977,7 @@ useEffect(() => {
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
+                     stopScrolling3={props.stopScrolling3}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -989,6 +993,7 @@ useEffect(() => {
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
+                     stopScrolling3={props.stopScrolling3}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1004,6 +1009,7 @@ useEffect(() => {
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
+                     stopScrolling3={props.stopScrolling3}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1019,6 +1025,7 @@ useEffect(() => {
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
+                     stopScrolling3={props.stopScrolling3}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1034,6 +1041,7 @@ useEffect(() => {
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
+                     stopScrolling3={props.stopScrolling3}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1049,6 +1057,7 @@ useEffect(() => {
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
+                    stopScrolling3={props.stopScrolling3}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1064,6 +1073,7 @@ useEffect(() => {
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
+                     stopScrolling3={props.stopScrolling3}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1080,6 +1090,7 @@ useEffect(() => {
                     onLinksCountChange={setLinksCount}
                     visibility={1}
                     linksRefresh={linksRefresh}
+                     stopScrolling3={props.stopScrolling3}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1096,7 +1107,7 @@ useEffect(() => {
                     onLinksCountChange={setLinksCount}
                     visibility={0}
                     linksRefresh={linksRefresh}
-                    
+                    stopScrolling3={props.stopScrolling3}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true ? ( //not the search one, infinite scrolls the whole list
                   <InfiniteScrollNew
@@ -1107,6 +1118,7 @@ useEffect(() => {
                     theSortBy={props.theSortBy}
                     onLinksCountChange={setLinksCount}
                     linksRefresh={linksRefresh}
+                     stopScrolling3={props.stopScrolling3}
                   />
                 ) : null
 

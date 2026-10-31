@@ -339,33 +339,33 @@ linkStatuses["https://google.com"]'s value is working
             let r2 = true;
             let htmllinksarray = [];
 
-       fetch("https://urilinks-project-vercel-api-5.vercel.app", {
-  method: "POST",
-  headers: {
-    "Content-Type": "text/plain; charset=UTF-8",
-  },
-  body: htmlContent,
-})
-  .then(async (response) => {
-    console.log("Vercel status =", response.status);
-    console.log("Vercel ok =", response.ok);
+            fetch("https://urilinks-project-vercel-api-5.vercel.app", {
+              method: "POST",
+              headers: {
+                "Content-Type": "text/plain; charset=UTF-8",
+              },
+              body: htmlContent,
+            })
+              .then(async (response) => {
+                console.log("Vercel status =", response.status);
+                console.log("Vercel ok =", response.ok);
 
-    const responseText = await response.text();
+                const responseText = await response.text();
 
-    console.log("Vercel response =", responseText);
+                console.log("Vercel response =", responseText);
 
-    if (!response.ok) {
-      throw new Error(
-        "Vercel returned status " +
-          response.status +
-          ": " +
-          responseText
-      );
-    }
+                if (!response.ok) {
+                  throw new Error(
+                    "Vercel returned status " +
+                      response.status +
+                      ": " +
+                      responseText,
+                  );
+                }
 
-    return JSON.parse(responseText);
-  })
-  .then(async (data) => {
+                return JSON.parse(responseText);
+              })
+              .then(async (data) => {
                 //json
                 console.log("Success:");
                 console.log(data);
@@ -3634,8 +3634,6 @@ linkStatuses["https://google.com"]'s value is working
                 kht2 = undefined;
                 kht3 = undefined;
 
-                setDone(true);
-
                 console.log("three loops ended");
                 console.log("JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ");
                 console.log(
@@ -3662,41 +3660,31 @@ linkStatuses["https://google.com"]'s value is working
 
                 let B = htmllinksarray;
 
-
-
-
-
                 let result = B.filter(
                   //(b) => !A.some((a) => (a.description === b.description) && (a.note === b.note)),
                   (b) => !A.some((a) => a.description === b.description), //if the link texts are the same don't put it in
                 );
 
-//                 console.log("existing links A.length =", A.length);
-// console.log("imported links B.length =", B.length);
+                //                 console.log("existing links A.length =", A.length);
+                // console.log("imported links B.length =", B.length);
 
-// let result = B.filter((b) => {
-//   const alreadyExists = A.some((a) => {
-//     return a.Url === b.Url;
-//   });
+                // let result = B.filter((b) => {
+                //   const alreadyExists = A.some((a) => {
+                //     return a.Url === b.Url;
+                //   });
 
-//   if (alreadyExists) {
-//     console.log(
-//       "Already exists:",
-//       b.description,
-//       b.Url
-//     );
-//   }
+                //   if (alreadyExists) {
+                //     console.log(
+                //       "Already exists:",
+                //       b.description,
+                //       b.Url
+                //     );
+                //   }
 
-//   return !alreadyExists;
-// });
+                //   return !alreadyExists;
+                // });
 
-console.log("new links result.length =", result.length);
-
-
-
-
-
-
+                console.log("new links result.length =", result.length);
 
                 console.log("result.length=" + result.length);
                 //let ok = false;
@@ -3835,18 +3823,23 @@ console.log("new links result.length =", result.length);
                     setResult(result);
                   }
                 }
+
+                // All duplicate checking and bookmark uploads have finished.
+                setDone(true);
               })
               .catch((error) => {
+                // The import did not finish successfully.
+                setDone(false);
                 //console.log("caught error = " + error);
                 console.log("caught error =", error);
 
-if (error && error.message) {
-  console.log("error.message =", error.message);
-}
+                if (error && error.message) {
+                  console.log("error.message =", error.message);
+                }
 
-if (error && error.stack) {
-  console.log("error.stack =", error.stack);
-}
+                if (error && error.stack) {
+                  console.log("error.stack =", error.stack);
+                }
                 if (error === "THIS BOOKMARRKS FILE IS NOT SUPPORTED")
                   setError4(true);
                 else if (error === "THE BROWSER IS NOT SUPPORTED")
@@ -3892,9 +3885,9 @@ if (error && error.stack) {
         <div>
           {error ? <div>Error: Unable to read from firebase storage</div> : ""}
           {error2 ? (
-           <div>
-  Error importing bookmarks. Please check the console for the error.
-</div>
+            <div>
+              Error importing bookmarks. Please check the console for the error.
+            </div>
           ) : (
             ""
           )}

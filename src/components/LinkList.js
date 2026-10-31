@@ -775,6 +775,8 @@ export const LinkList = (props) => {
   //   }
   // };
 
+  
+
   const deleteSelectedLinks = () => {
     console.log(
       "deleteSelectedLinks(), selectedLinkIds=",
@@ -787,7 +789,7 @@ export const LinkList = (props) => {
       const v = confirm("Is it ok to delete the selected links?");
 
       if (v === true) {
-        if (!props.auth.uid) {
+        if (!props.auth) {
           return;
         }
 
@@ -804,7 +806,8 @@ export const LinkList = (props) => {
           .then(() => {
             console.log("deleted selected links from Firebase");
 
-            sessionStorage.clear();
+            //sessionStorage.clear();
+            clearLinksCache()
 
             setSelectedLinkIds([]);
 
@@ -826,6 +829,37 @@ export const LinkList = (props) => {
       alert("no links selected to delete");
     }
   };
+
+
+
+
+  const deleteAllLinks = () => {
+  //const user = firebase.auth().currentUser;
+
+  if (!props.auth) {
+    return;
+  }
+
+  const v = confirm("Is it ok to delete all links?");
+
+  if (v === true) {
+    firebase
+      .database()
+      .ref("users/" + props.auth.uid + "/links")
+      .remove()
+      .then(() => {
+        //sessionStorage.clear()
+        clearLinksCache()
+        setSelectedLinkIds([]);
+        setLinksRefresh((oldValue) => oldValue + 1);
+        //alert("All links deleted.");
+       
+      })
+      .catch((error) => {
+        console.log("Error deleting links:", error);
+      });
+  }
+};
 
   console.log("LinkList.js, props.dosearch=" + props.dosearch);
 
@@ -952,7 +986,14 @@ export const LinkList = (props) => {
                     onClick={deleteSelectedLinks}
                     //disabled={selectedLinkIds.length === 0}
                   >
-                    Batch delete Selected
+                    Batch delete selected links
+                  </button>
+                   <button
+                    className="margin-left-11 button-2"
+                    onClick={deleteAllLinks}
+                    //disabled={selectedLinkIds.length === 0}
+                  >
+                    Delete all links
                   </button>
                 </div>
 

@@ -60,10 +60,19 @@ const ImportedBookmarks2 = (props) => {
     document.title = oldTitle;
   };
 
+   const clearLinksCache = () => {
+  Object.keys(sessionStorage).forEach((key) => {
+    if (key.indexOf("urilinks|") === 0) {
+      sessionStorage.removeItem(key);
+    }
+  });
+};
+
   const returnAndRefresh = () => {
     //props.history.push("/");
     //window.location.reload();
     //window.location.href = baseUrl + "?signup=signup";
+    clearLinksCache();
     window.location.href =
   baseUrl + "/dashboard?signup=signup&bookmarks=refreshed";
   };

@@ -12,7 +12,7 @@ import LinkHashtagsPage from "../components/LinkHashtagsPage";
 import AddSettingsPage from "../components/AddSettingsPage";
 //import AddLinkPage from "../components/AddLinkPage";
 import AddLinkPage from "../components/AddlinkPage";
-import ShortCuts from "../components/ShortCuts"
+import ShortCuts from "../components/ShortCuts";
 import EditLinkPage from "../components/EditLinkPage";
 import Signup from "../components/Signup";
 //import TermsAndPrivacy from "../components/TermsAndPrivacy";
@@ -39,8 +39,6 @@ import PublicRoute from "./PublicRoute";
 import FetchBookmarks from "../components/FetchBookmarks";
 import AddLinkPageFileDate from "../components/AddLinkPageFileDate";
 
-
-
 export const history = createHistory();
 
 const AppRouter = (props) => (
@@ -60,7 +58,7 @@ const AppRouter = (props) => (
           componentProps={{ theValue: true }}
         />
 
-         <PrivateRoute
+        <PrivateRoute
           path="/displayhashtags"
           signup={props.signup}
           component={LinkHashtagsPage}
@@ -81,7 +79,7 @@ const AppRouter = (props) => (
           component={Simple}
         />
 
-          {/* <PrivateRoute
+        {/* <PrivateRoute
           path="/basicplan"
           //path="/simple"
           signup={props.signup}
@@ -105,8 +103,6 @@ const AppRouter = (props) => (
           component={PremiumPlan}
         /> */}
 
-
-
         <PrivateRoute
           path="/settings"
           signup={props.signup}
@@ -120,51 +116,56 @@ const AppRouter = (props) => (
           component={UriLinksLegal}
         />
 
-          <PrivateRoute 
-        path="/manual" 
-        signup={props.signup} 
-        x1="usage"
-        component={Manual} />
+        <PrivateRoute
+          path="/manual"
+          signup={props.signup}
+          x1="usage"
+          component={Manual}
+        />
 
-        <PrivateRoute 
-        path="/use" 
-        signup={props.signup} 
-        x1="usage"
-        component={Benefits} />
+        <PrivateRoute
+          path="/use"
+          signup={props.signup}
+          x1="usage"
+          component={Benefits}
+        />
 
-        <PrivateRoute 
-        path="/cats/:a" 
-        signup={props.signup} 
-        x1="usage"
-        component={CatFetcher} />
+        <PrivateRoute
+          path="/cats/:a"
+          signup={props.signup}
+          x1="usage"
+          component={CatFetcher}
+        />
 
-         <PrivateRoute 
-        path="/dogs" 
-        signup={props.signup} 
-        x1="usage"
-        component={DogFetcher} />
+        <PrivateRoute
+          path="/dogs"
+          signup={props.signup}
+          x1="usage"
+          component={DogFetcher}
+        />
 
-          <PrivateRoute 
-        //path="/chat/:id2/:name2/:id/:name1/:ni" 
-        path="/chat/:id2/:name2/:id/:name1"
-        //path="/chat/:id2/:id" 
-        signup={props.signup} 
-        x1="usage"
-        component={ChatComponent} />
+        <PrivateRoute
+          //path="/chat/:id2/:name2/:id/:name1/:ni"
+          path="/chat/:id2/:name2/:id/:name1"
+          //path="/chat/:id2/:id"
+          signup={props.signup}
+          x1="usage"
+          component={ChatComponent}
+        />
 
+        <PrivateRoute
+          path="/openemailform"
+          signup={props.signup}
+          x1="usage"
+          component={SendEmailPage2}
+        />
 
-        <PrivateRoute 
-        path="/openemailform" 
-        signup={props.signup} 
-        x1="usage"
-        component={SendEmailPage2} />
-
-         <PrivateRoute 
-        path="/shortcuts" 
-        signup={props.signup} 
-        x1="usage"
-        component={ShortCuts} />
-
+        <PrivateRoute
+          path="/shortcuts"
+          signup={props.signup}
+          x1="usage"
+          component={ShortCuts}
+        />
 
         {/* <PrivateRoute path="/settings" component={LinkSettingsPage} /> */}
         <PrivateRoute
@@ -183,8 +184,8 @@ const AppRouter = (props) => (
           signup={props.signup}
           component={EditLinkPage}
         />
-       
-         {/* <PrivateRoute
+
+        {/* <PrivateRoute
           path="/other2/:id"
           signup={props.signup}
           component={LinkDashboardPage}
@@ -195,7 +196,7 @@ const AppRouter = (props) => (
           signup={props.signup}
           component={IdeasPage}
         />
-      
+
         <PrivateRoute
           path="/fetchbookmarks/:option"
           signup={props.signup}

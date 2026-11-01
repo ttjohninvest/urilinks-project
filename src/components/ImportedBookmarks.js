@@ -1,4 +1,4 @@
-import Constants from "./Constants"
+import Constants from "./Constants";
 import React, { useState, useEffect } from "react";
 //import { history } from "../routers/AppRouter";
 import { connect } from "react-redux";
@@ -17,14 +17,13 @@ const ImportedBookmarks = (props) => {
   //   ? "http://localhost:3000"
   //   : "https://urilinks.com";
 
-  let baseUrl = ""
-  
-  if(Constants.NODE_DEV === "development") {
-    baseUrl = "http://localhost:3000"
-  } else {
-    baseUrl = "https://urilinks.com"
-  }
+  let baseUrl = "";
 
+  if (Constants.NODE_DEV === "development") {
+    baseUrl = "http://localhost:3000";
+  } else {
+    baseUrl = "https://urilinks.com";
+  }
 
   const getPlanMax = () => {
     let max = StorageSizes.free;
@@ -60,12 +59,12 @@ const ImportedBookmarks = (props) => {
   }, []);
 
   const clearLinksCache = () => {
-  Object.keys(sessionStorage).forEach((key) => {
-    if (key.indexOf("urilinks|") === 0) {
-      sessionStorage.removeItem(key);
-    }
-  });
-};
+    Object.keys(sessionStorage).forEach((key) => {
+      if (key.indexOf("urilinks|") === 0) {
+        sessionStorage.removeItem(key);
+      }
+    });
+  };
 
   const returnAndRefresh = () => {
     //props.history.push("/"); //0000010
@@ -74,8 +73,8 @@ const ImportedBookmarks = (props) => {
 
     clearLinksCache();
 
-     window.location.href =
-  baseUrl + "/dashboard?signup=signup&bookmarks=refreshed";
+    window.location.href =
+      baseUrl + "/dashboard?signup=signup&bookmarks=refreshed";
   };
 
   const printIt = () => {
@@ -88,7 +87,16 @@ const ImportedBookmarks = (props) => {
   return (
     <div className="container2 positionit">
       <div className="flexcol">
-        {props.rl === 0 ? (
+        {/* {props.rl === 0 ? (
+          <div className="margin-top-1111c">
+            Bookmarks were not uploaded because they may have been already
+            uploaded.
+          </div>
+        ) : props.max === props.rl ? ( */}
+
+        {props.processingDone === false ? (
+          <div className="margin-top-1111c">Processing bookmarks...</div>
+        ) : props.rl === 0 ? (
           <div className="margin-top-1111c">
             Bookmarks were not uploaded because they may have been already
             uploaded.
@@ -109,7 +117,7 @@ const ImportedBookmarks = (props) => {
         {/* {props.max===props.rl?<div>Successfully imported all of the bookmarks. {`${props.rl} of ${props.max}`}</div>
 : <div>Imported {`${props.rl} of ${props.max}`}` bookmarks. The limit is 500 bookmarks</div>} */}
         <div className="flexrowtfw">
-          {props.max === props.rl ? (
+          {props.max === props.rl && props.processingDone === true ? (
             <div className="rectangle-1">
               <div className="margin-top-2">
                 <button
@@ -131,16 +139,16 @@ const ImportedBookmarks = (props) => {
             </div>
           ) : (
             <div className="margin-top-2">
-              <button
+              {props.processingDone === true && <button
                 className="button-style-1- button-2w"
                 onClick={goToHomePage}
               >
                 Return
-              </button>
+              </button>}
             </div>
           )}
 
-          {props.max === props.rl && (
+          {props.max === props.rl && props.processingDone === true && (
             <div className="rectangle-2 margin-top-1111b">
               {/* {(props.rl>0) &&<div onClick={printIt} className="margin-top-1111b cursor-pointer" title="You may print this list to the printer."><img src={printerImage} width="32" height="32" style={{borderRadius:'50%'}}/></div>} */}
               {props.rl > 0 && (

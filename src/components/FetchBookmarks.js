@@ -48,6 +48,8 @@ const FetchBookmarks = (props) => {
     const [oo, setOo] = useState(props.match.params.option);
     const [user, setUser] = useState(null);
     const [linkStatuses, setLinkStatuses] = useState({});
+    const [processingDone, setProcessingDone] = useState(false)
+
     //const [processing, setProcessing] = useState(false);
 
     /*
@@ -301,6 +303,7 @@ const FetchBookmarks = (props) => {
             //
             const now = new Date();
             console.log("FetchBookmarks, props.url=" + props.url);
+            setProcessingDone(false);
             //fetch("https://firebasestorage.googleapis.com/v0/b/see-my-index-project-7.firebasestorage.app/o/files%2Fbookmarks_6_9_25.html?alt=media&token=6fc9650d-d319-43ab-b2ed-529b3bfcec8b")
             fetch(props.url + "&nocache=" + Date.now())
                 .then((response) => response.text())
@@ -3820,6 +3823,7 @@ const FetchBookmarks = (props) => {
                                         }
                                     }
                                     //throw new Error("ERROR ERROR ERROR")
+                                    setProcessingDone(true);
                                     if (r === false) {
                                         // setErrorDialog(true);
                                         console.log("ERROR, VVVVVVVVVVVVV returned false");
@@ -3892,6 +3896,7 @@ const FetchBookmarks = (props) => {
                                             break;
                                         }
                                     }
+                                    setProcessingDone(true);
                                     //throw new Error("ERROR ERROR ERROR")
                                     if (r === false) {
                                         // setErrorDialog(true);
@@ -3983,7 +3988,7 @@ const FetchBookmarks = (props) => {
                     {importingError === true ? (
                         "Error importing bookmarks"
                     ) : !error && !error2 && done ? (
-                        <ImportedBookmarks result={result} rl={loopmax} max={rl} />
+                        <ImportedBookmarks result={result} rl={loopmax} max={rl} processingDone={processingDone} />
                     ) : (
                         <LoadingPage />
                     )}

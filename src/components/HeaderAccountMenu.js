@@ -102,7 +102,7 @@ const HeaderAccountMenu = (props) => {
               fontSize: "14px"
             }}
           >
-            downloadLinksCSV
+            DownloadLinksCSV
           </button>
            <button
             type="button"

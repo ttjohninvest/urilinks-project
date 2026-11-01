@@ -980,7 +980,7 @@ export const LinkList = (props) => {
                     <span>Stop</span>
                   </button>
                 </div>
-                <div>
+                {props.signup.signup === true ?<div>
                   <button
                     className="margin-left-11 button-2"
                     onClick={deleteSelectedLinks}
@@ -995,7 +995,22 @@ export const LinkList = (props) => {
                   >
                     Delete all links
                   </button>
-                </div>
+                </div>:<div>
+                  <button
+                    className="margin-left-11 button-2 pointereventsnone"
+                    onClick={deleteSelectedLinks}
+                    //disabled={selectedLinkIds.length === 0}
+                  >
+                    Batch delete selected links
+                  </button>
+                   <button
+                    className="margin-left-11 button-2 pointereventsnone"
+                    onClick={deleteAllLinks}
+                    //disabled={selectedLinkIds.length === 0}
+                  >
+                    Delete all links
+                  </button>
+                </div>}
 
                 {isMobile() === true ? (
                   <div></div>

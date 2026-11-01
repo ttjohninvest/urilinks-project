@@ -1450,6 +1450,7 @@ const handleClick = useCallback(() => {
 
                   {ni !== "1" && ni !== "2" && ni !== "3" && (
                     <HeaderAccountMenu
+                      signup = {props.signup.signup}
                       onDeleteAccount={cancelsubscription}
                       downloadLinksCSV={downloadLinksCSV}
                       downloadLinksHTML={downloadLinksHTML}
@@ -1524,7 +1525,7 @@ const handleClick = useCallback(() => {
                     </button>
                   )}
 
-                  {props.signup.signup === true && (
+                  {/* {props.signup.signup === true && (
                     <button
                       id="deleteaccount"
                       title="delete account"
@@ -1533,7 +1534,7 @@ const handleClick = useCallback(() => {
                     >
                       ◢◤ delete acct
                     </button>
-                  )}
+                  )} */}
                 </div>
               </div>
             </header>

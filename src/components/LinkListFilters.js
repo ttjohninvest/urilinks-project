@@ -206,6 +206,7 @@ function ExpandableArray(props) {
   const childRef = useRef(null);
   const z10 = params.get("z10");
   const z12 = params.get("z12")
+  const demonstration = params.get("demonstration")
   const isFollower = decodeURIComponent(params.get("isFollower"));
   console.log("ExpanableArray, isFollower = " + isFollower);
   const isFollowing = decodeURIComponent(params.get("isFollowing"));
@@ -1787,7 +1788,7 @@ useEffect(() => {
       .join("");
   }
 
-  const otherPage = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
+  const otherPage = (id2, id, dn2, dn, purl, email, theemail2, isMatch, demonstration) => {
     console.log("LinkListFilters.js, otherPage(), id2=" + id2);
     console.log("LinkListFilters.js, otherPage(), id=" + id);
     console.log("LinkListFilters.js, otherPage(), dn2=" + dn2);
@@ -1817,7 +1818,9 @@ useEffect(() => {
       "&isFollowing=" +
       isMatch.trim() +
       "&isFollower=" +
-      "";
+      ""+
+      "&demonstration=" +
+      demonstration;
 
     // window.open(
     //   //"https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
@@ -1925,7 +1928,7 @@ useEffect(() => {
           alert("SeeFollowingPage.js, setitbacktono(), something went wrong");
         });
     } else if (v === 2) {
-      alert("in handleClick2(), v===2")
+      //alert("in handleClick2(), v===2")
       const clickedElement = event.currentTarget;
 
       const itemId = clickedElement.dataset.itemId;
@@ -1937,7 +1940,7 @@ useEffect(() => {
       const array3 = itemId.split(";");
 
       console.log("handleClick2(), array3="+JSON.stringify(array3))
-      alert("stopit")
+      //alert("stopit")
       console.log("handleClick, itemId=" + itemId);
       // array3[5],
       //     array3[6],
@@ -1957,7 +1960,8 @@ useEffect(() => {
           array3[4],
           v1,
           v2,
-          array3[7]
+          array3[7],
+          array3[8]
           
         );
       }
@@ -1965,7 +1969,7 @@ useEffect(() => {
     }
   };
 
-  const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch, isMatch2) => {
+  const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch, isMatch2, demonstration) => {
     console.log("otherPagea(), id2=" + id2);
     console.log("otherPagea(), id=" + id);
     console.log("otherPagea(), dn2=" + dn2);
@@ -1995,7 +1999,9 @@ useEffect(() => {
       "&isFollower=" +
       isMatch +
       "&isFollowing=" +
-      isMatch2;
+      isMatch2 +
+      "&demonstration=" +
+      demonstration
 
     // window.open(
     //   //"https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
@@ -2120,7 +2126,8 @@ useEffect(() => {
           encrypt(array3[5], "125434"),
           encrypt(array3[6], "125434"),
           array3[7],
-          array3[8]
+          array3[8],
+          array3[9]
         );
       }
     } else {
@@ -2332,7 +2339,7 @@ useEffect(() => {
                         theuser={theuser}
                         uid={props.uid}
                         handleClick2={handleClick2}
-                        signup={props.signup}
+                        readonly={props.signup}
                       />
                     )}
                   </div>
@@ -2345,7 +2352,7 @@ useEffect(() => {
                         theuser={theuser}
                         uid={props.uid}
                         handleClick2={handleClick2}
-                        signup={props.signup}
+                        readonly={props.signup}
                       />
                     )}
                   </div>}
@@ -3197,12 +3204,18 @@ useEffect(() => {
                           {((!!isFollowing === true &&
                           isFollowing === "is not following")) ? ( //was isFollowing !== "is following" 
                             <div className="flexrowz">
-                              <FollowButton displayName={dn} />
+                              <FollowButton displayName={dn} 
+                              signup = {props.signup}
+                              demonstration = {demonstration}
+                              />
                             </div>
                           ) : ((!!isFollowing === true &&
                             isFollowing === "is following")) ? (
                             <div className="flexrowz">
-                              <UnFollowButton displayName={dn} />
+                              <UnFollowButton displayName={dn} 
+                              signup = {props.signup}
+                              demonstration = {demonstration}
+                              />
                               {/* <ChatButton id2={id2} id={id} name2={dn2} name1={dn} chatsetting={2} /> */}
                               {/* <ChatButton
                                 id2={id2}
@@ -3227,6 +3240,8 @@ useEffect(() => {
                                     name2={decrypt(z12,"125434").split("@")[0]}
                                     name1={dn}
                                     chatsetting={2}
+                                    signup = {props.signup}
+                                    demonstration = {demonstration}
                                   />
                                 </span>
                                   <span className="ib">
@@ -3467,7 +3482,7 @@ useEffect(() => {
                         theuser={theuser}
                         uid={props.uid}
                         handleClick3={handleClick3}
-                        signup={props.signup}
+                        readonly={props.signup}
                       />
                     )}
                   </div>}

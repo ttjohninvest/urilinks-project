@@ -37,7 +37,8 @@ const HeaderAccountMenu = (props) => {
       ref={menuRef}
       style={{
         position: "relative",
-        display: "inline-block"
+        display: "inline-block",
+        zIndex: "1000"
       }}
     >
       <button
@@ -59,7 +60,8 @@ const HeaderAccountMenu = (props) => {
       </button>
 
       {open && (
-        <div
+        <div>
+        {props.signup === true ? <div
           style={{
             position: "absolute",
             right: 0,
@@ -119,6 +121,78 @@ const HeaderAccountMenu = (props) => {
           >
             DownloadLinksHTML
           </button>
+        </div>
+        :
+        <div
+          style={{
+            position: "absolute",
+            right: 0,
+            top: "100%",
+            marginTop: "4px",
+            minWidth: "170px",
+            background: "white",
+            border: "1px solid #ccc",
+            borderRadius: "5px",
+            boxShadow: "0 3px 8px rgba(0,0,0,0.18)",
+            zIndex: 1000,
+            overflow: "hidden"
+          }}
+          className=""
+           
+        >
+          <button
+            type="button"
+            onClick={handleDeleteAccount}
+            style={{
+              width: "100%",
+              padding: "10px 12px",
+              border: "none",
+              background: "white",
+              textAlign: "left",
+              cursor: "pointer",
+              fontSize: "14px"
+            }}
+            className=""
+            disabled={true}
+          >
+            Delete Account
+          </button>
+           <button
+            type="button"
+            onClick={props.downloadLinksCSV}
+            style={{
+              width: "100%",
+              padding: "10px 12px",
+              border: "none",
+              background: "white",
+              textAlign: "left",
+              cursor: "pointer",
+              fontSize: "14px"
+            }}
+            className=""
+             disabled={true}
+          >
+            DownloadLinksCSV
+          </button>
+           <button
+            type="button"
+            onClick={props.downloadLinksHTML}
+            style={{
+              width: "100%",
+              padding: "10px 12px",
+              border: "none",
+              background: "white",
+              textAlign: "left",
+              cursor: "pointer",
+              fontSize: "14px"
+            }}
+            className=""
+             disabled={true}
+          >
+            DownloadLinksHTML
+          </button>
+        </div>
+        }
         </div>
       )}
     </div>

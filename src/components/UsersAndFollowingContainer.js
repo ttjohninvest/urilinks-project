@@ -235,6 +235,8 @@ const UsersAndFollowingContainer = (props) => {
     };
   }, [loading, hasMore]);
 
+  console.log("UsersAndFollowingContainer.js, currentUser="+(currentUser?currentUser.email:"no current user"))
+
   return (
     <div>
       {/* <div className="padding-tb">
@@ -245,6 +247,8 @@ const UsersAndFollowingContainer = (props) => {
         <div className="liststylenone- cursor-pointer interline padding-top-z6">
           {users.map((item) => {
             if (props.auth.uid !== item.gud.uid) {
+
+              
               return (
                 <div
                   key={item.gud.uid}
@@ -269,7 +273,7 @@ const UsersAndFollowingContainer = (props) => {
                       //   : "name") +
                       (currentUser && currentUser.email
                       ? currentUser.email.split("@")[0]
-                      : "") +
+                      : "ttjohninvest4") +
                         ";" +
                         //item.displayName +
                         item.email.split("@")[0] +
@@ -282,9 +286,14 @@ const UsersAndFollowingContainer = (props) => {
                         // ";" +
                           (currentUser && currentUser.email
                       ? currentUser.email
-                      : "") +
+                      : "ttjohninvest4@gmail.com") +
                         ";" +
-                        item.isMatch
+                        item.isMatch +
+                        ";" +
+                        (currentUser
+                      ? "no"
+                      : "yes")
+
                   }
                 >
                   <img

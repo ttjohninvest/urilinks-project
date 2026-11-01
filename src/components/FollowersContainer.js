@@ -25,6 +25,8 @@ const FollowersContainer = (props) => {
   const lastDisplayNameRef = useRef(null);
   const lastUidRef = useRef(null);
 
+  const [currentUser, setCurrentUser] = useState(null);
+
   /*
     Build a Set containing only
     the UIDs of people following me.
@@ -260,6 +262,17 @@ const FollowersContainer = (props) => {
     }
   };
 
+  useEffect(() => {
+        const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+          setCurrentUser(user);
+        });
+    
+        return () => {
+          unsubscribe();
+        };
+      }, []);
+  
+
 
   /*
     Reload when the follower list
@@ -361,7 +374,7 @@ const FollowersContainer = (props) => {
               item.gud.uid
             ) {
 
-              return (
+            return (
 
                 <div
                   key={item.gud.uid}
@@ -387,27 +400,37 @@ const FollowersContainer = (props) => {
                     ";" +
                     item.gud.uid +
                     ";" +
-                    (
-                      props.theuser
-                        ? props.theuser.displayName
-                        : "name"
-                    ) +
-                    ";" +
+                    // (
+                    //   props.theuser
+                    //     ? props.theuser.displayName
+                    //     : "name"
+                    // ) +
+                    // ";" +
+                     (currentUser && currentUser.email
+                      ? currentUser.email.split("@")[0]
+                      : "ttjohninvest4") +
+                        ";" +
                     item.displayName +
                     ";" +
                     item.photoUrl +
                     ";" +
                     item.email +
                     ";" +
-                    (
-                      props.theuser
-                        ? props.theuser.email
-                        : "ph@ph.com"
-                    ) +
-                    ";" +
+                    // (
+                    //   props.theuser
+                    //     ? props.theuser.email
+                    //     : "ph@ph.com"
+                    // ) +
+                    // ";" +
+                     (currentUser && currentUser.email
+                      ? currentUser.email
+                      : "ttjohninvest@gmail.com") +
+                        ";" +
                     item.isMatch +
                     ";" +
-                    ""
+                    "" +
+                    ";" +
+                    (!currentUser?"yes":"no")
                   }
                 >
 
@@ -482,7 +505,7 @@ const FollowersContainer = (props) => {
 
                 </div>
 
-              );
+              )
 
             } else {
 

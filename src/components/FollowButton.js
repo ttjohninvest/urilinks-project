@@ -70,6 +70,7 @@ const FollowButton = (props) => {
     <button 
     className={`ib pointereventsnone- height48- margin-top-and-bottom button-2w ${isMobile() === false ? "" : "width295 margin-top-1"}`}
     title="Press to follow."
+    disabled={props.demonstration?props.demonstration==="yes"?true:false:false}
     onClick={handleFollow}>
       {/* {isCopied ? 'URL Copied' : 'Copy Sharable URL to Your Page.'} */}
       {/* {`${isCopied?"URL Copied":"Copy Sharable Url for "+props.accountpagename+"'s Page"}`} */}

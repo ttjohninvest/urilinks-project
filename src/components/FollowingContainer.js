@@ -28,6 +28,8 @@ const FollowingContainer = (props) => {
   const lastDisplayNameRef = useRef(null);
   const lastUidRef = useRef(null);
 
+  const [currentUser, setCurrentUser] = useState(null);
+
 
   /*
     props.following example:
@@ -281,6 +283,16 @@ const FollowingContainer = (props) => {
 
   };
 
+  useEffect(() => {
+      const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+        setCurrentUser(user);
+      });
+  
+      return () => {
+        unsubscribe();
+      };
+    }, []);
+
 
   /*
     Load first page.
@@ -383,7 +395,7 @@ const FollowingContainer = (props) => {
               item.gud.uid
             ) {
 
-              return (
+             return (
 
                 <div
                   key={item.gud.uid}
@@ -409,25 +421,35 @@ const FollowingContainer = (props) => {
                     ";" +
                     item.gud.uid +
                     ";" +
-                    (
-                      props.theuser
-                        ? props.theuser.displayName
-                        : "name"
-                    ) +
-                    ";" +
+                    // (
+                    //   props.theuser
+                    //     ? props.theuser.displayName
+                    //     : "name"
+                    // ) +
+                    // ";" +
+                     (currentUser && currentUser.email
+                      ? currentUser.email.split("@")[0]
+                      : "ttjohninvest4") +
+                        ";" +
                     item.displayName +
                     ";" +
                     item.photoUrl +
                     ";" +
                     item.email +
                     ";" +
-                    (
-                      props.theuser
-                        ? props.theuser.email
-                        : "ph@ph.com"
-                    ) +
+                    // (
+                    //   props.theuser
+                    //     ? props.theuser.email
+                    //     : "ph@ph.com"
+                    // ) +
+                    // ";" +
+                      (currentUser && currentUser.email
+                      ? currentUser.email
+                      : "ttjohninvest4@gmail.com") +
+                        ";" +
+                    item.isMatch +
                     ";" +
-                    item.isMatch
+                    (!currentUser?"yes":"no")
                   }
                 >
 
@@ -502,7 +524,7 @@ const FollowingContainer = (props) => {
 
                 </div>
 
-              );
+              )
 
             } else {
 

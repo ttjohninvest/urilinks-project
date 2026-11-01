@@ -259,7 +259,7 @@ const UsersAndFollowersContainer = (props) => {
                       // ";" +
                       (currentUser && currentUser.email
                       ? currentUser.email.split("@")[0]
-                      : "") + ";" +
+                      : "ttjohninvest4") + ";" +
                         //item.displayName +
                         item.email.split("@")[0] +
                         ";" +
@@ -271,11 +271,14 @@ const UsersAndFollowersContainer = (props) => {
                         //";" +
                          (currentUser && currentUser.email
                       ? currentUser.email
-                      : "") + ";" +
+                      : "ttjohninvest@gmail.com") + ";" +
                         item.isMatch +
                         ";" +
                         //to be able to follow back and unfollow from the 3rd column followers list put replace the following "" with item.isMatch2
                         "" //item.isMatch2
+                        +
+                        ";" +
+                        (!currentUser ? "yes": "no")
                   }
                 >
                   <img

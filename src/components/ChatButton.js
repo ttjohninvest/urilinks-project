@@ -160,7 +160,10 @@ const handleChatDelete = () => {
     <button 
     className={`ib pointereventsnone- button-2b padding-top-and-bottom ${isMobile() === false ? "" : "width295 margin-top-1"}`}
     title="Press to 'Start Chat.'"
-    onClick={handleChat}>
+    onClick={handleChat}
+    disabled={props.demonstration?props.demonstration==="yes"?true:false:false}
+    >
+    
     Start Chat with {name1}
     </button>
     {showDeleteChatButton && 

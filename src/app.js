@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-//import { useSelector } from "react-redux";
+//import { useSelector, useDispatch } from "react-redux";
 import { Provider } from "react-redux";
 import AppRouter, { history } from "./routers/AppRouter";
 

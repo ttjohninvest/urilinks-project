@@ -16,6 +16,10 @@ export const LinkList3 = React.forwardRef((props, ref) => {
     },
 
     startAutoScroll: (v) => {
+        if (props.linksCount <= 20) {
+    console.log("No links. Auto-scroll not started.");
+    return;
+  }
       // Clear any existing timeout before starting a new one
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current);
@@ -63,6 +67,7 @@ export const LinkList3 = React.forwardRef((props, ref) => {
           onSortChange={props.onSortChange}
           allLinksVisibility={props.allLinksVisibility}
           descriptionRefresh={props.descriptionRefresh}
+          onLinksCountChange={props.onLinksCountChange}
         />
       </ErrorBoundary>
     </div>

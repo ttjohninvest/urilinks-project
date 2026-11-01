@@ -1,6 +1,7 @@
 import Constants from "./Constants";
 import ConstantsLanguage from "./ConstantsLanguage";
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import { useDispatch } from "react-redux";
 import database from "../firebase/firebase";
 import ClickableList from "./ClickableList";
 import OthersButton from "./OthersButton";
@@ -158,6 +159,8 @@ export const Header = (props) => {
   // alert(process.env.NODE_ENV)
 
   let baseUrl = "";
+
+  const dispatch = useDispatch()
 
   if (Constants.NODE_DEV === "development") {
     baseUrl = "http://localhost:3000";
@@ -1072,6 +1075,9 @@ const handleClick = useCallback(() => {
       setSignup(false);
 
       setLinks([]);
+      dispatch({ type: "CLEAR_USERS" });
+      dispatch({ type: "CLEAR_FOLLOWING" });
+      dispatch({ type: "CLEAR_FOLLOWER" });
 
       props.stopScrolling2();
 

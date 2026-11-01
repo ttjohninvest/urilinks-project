@@ -237,6 +237,14 @@ const UsersAndFollowingContainer = (props) => {
 
   console.log("UsersAndFollowingContainer.js, currentUser="+(currentUser?currentUser.email:"no current user"))
 
+  console.log("COLUMN 1 users=", JSON.stringify(props.users));
+console.log("COLUMN 1 following=", JSON.stringify(props.following));
+//console.log("COLUMN 1 follower=", props.follower);
+console.log()
+console.log()
+console.log("COLUMN 1 users=", JSON.stringify(users));
+
+
   return (
     <div>
       {/* <div className="padding-tb">

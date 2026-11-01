@@ -138,6 +138,7 @@ function ExpandableArray(props) {
   const [allLinksVisibility, setAllLinksVisibility] = useState("")
   //const [linkTextRefresh, setLinkTextRefresh] = useState(0);
   const [descriptionRefresh, setDescriptionRefresh] = useState(0);
+  const [linksCount, setLinksCount] = useState(0);
 
   console.log("HOME RENDER", new Date().toLocaleTimeString());
 
@@ -427,7 +428,7 @@ useEffect(() => {
     setUniqueData3(array3);
 
     //whichone === 2 for follower array
-  }, []);
+  }, [props.following, props.users]);
 
   const handleStartScroll = (v) => {
     if (childRef.current) {
@@ -3307,7 +3308,8 @@ useEffect(() => {
                   onSortChange={onSortChange}
                   allLinksVisibility={allLinksVisibility}
                   descriptionRefresh={descriptionRefresh}
-                  
+                  linksCount={linksCount}
+                  onLinksCountChange={setLinksCount}
                 />
               </div>
 

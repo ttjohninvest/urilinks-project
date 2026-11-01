@@ -5,6 +5,8 @@ const usersReducerDefaultState = [];
 export default (state = usersReducerDefaultState, action) => {
   switch (action.type) {
 
+      case "CLEAR_USERS":
+        return []
       case "INCREMENT_UPDATE_USERS_SHOW" :
        
       return state.map((user) => {

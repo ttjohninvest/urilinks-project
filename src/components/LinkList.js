@@ -1087,6 +1087,7 @@ export const LinkList = (props) => {
                 props.theSortBy === "description" ? (
                   <InfiniteScrollNewDescription
                     setLinksCount={setLinksCount}
+                    onLinksCountChange2={props.onLinksCountChange}
                     linksCount={linksCount}
                     scrollContainerRef={scrollContainerRef}
                     databasePath={`users/${props.auth.uid}/links`}
@@ -1106,6 +1107,7 @@ export const LinkList = (props) => {
                   props.theSortBy === "notetext" ? (
                   <InfiniteScrollNewNoteText
                     setLinksCount={setLinksCount}
+                    onLinksCountChange2={props.onLinksCountChange}
                     linksCount={linksCount}
                     scrollContainerRef={scrollContainerRef}
                     databasePath={`users/${props.auth.uid}/links`}
@@ -1124,6 +1126,7 @@ export const LinkList = (props) => {
                   props.theSortBy === "hashtag" ? (
                   <InfiniteScrollNewHashTag
                     setLinksCount={setLinksCount}
+                    onLinksCountChange2={props.onLinksCountChange}
                     linksCount={linksCount}
                     scrollContainerRef={scrollContainerRef}
                     databasePath={`users/${props.auth.uid}/links`}
@@ -1142,6 +1145,7 @@ export const LinkList = (props) => {
                   props.theSortBy === "date" ? (
                   <InfiniteScrollNewDateandTime
                     setLinksCount={setLinksCount}
+                    onLinksCountChange2={props.onLinksCountChange}
                     linksCount={linksCount}
                     scrollContainerRef={scrollContainerRef}
                     databasePath={`users/${props.auth.uid}/links`}
@@ -1160,6 +1164,7 @@ export const LinkList = (props) => {
                   props.theSortBy === "views" ? (
                   <InfiniteScrollNewSortByViews
                     setLinksCount={setLinksCount}
+                    onLinksCountChange2={props.onLinksCountChange}
                     linksCount={linksCount}
                     scrollContainerRef={scrollContainerRef}
                     databasePath={`users/${props.auth.uid}/links`}
@@ -1178,6 +1183,7 @@ export const LinkList = (props) => {
                   props.theSortBy === "likes" ? (
                   <InfiniteScrollNewSortByLikes
                     setLinksCount={setLinksCount}
+                    onLinksCountChange2={props.onLinksCountChange}
                     linksCount={linksCount}
                     scrollContainerRef={scrollContainerRef}
                     databasePath={`users/${props.auth.uid}/links`}
@@ -1196,6 +1202,7 @@ export const LinkList = (props) => {
                   props.theSortBy === "star" ? (
                   <InfiniteScrollNewSortByTopTen
                     setLinksCount={setLinksCount}
+                    onLinksCountChange2={props.onLinksCountChange}
                     linksCount={linksCount}
                     scrollContainerRef={scrollContainerRef}
                     databasePath={`users/${props.auth.uid}/links`}
@@ -1214,6 +1221,7 @@ export const LinkList = (props) => {
                   props.theSortBy === "ads" ? (
                   <InfiniteScrollNewSortByAdsAffiliateLinkPresent
                     setLinksCount={setLinksCount}
+                    onLinksCountChange2={props.onLinksCountChange}
                     linksCount={linksCount}
                     scrollContainerRef={scrollContainerRef}
                     databasePath={`users/${props.auth.uid}/links`}
@@ -1232,6 +1240,7 @@ export const LinkList = (props) => {
                   props.theSortBy === "adsalpha" ? (
                   <InfiniteScrollNewSortByAdsAlpha
                     setLinksCount={setLinksCount}
+                    onLinksCountChange2={props.onLinksCountChange}
                     linksCount={linksCount}
                     scrollContainerRef={scrollContainerRef}
                     databasePath={`users/${props.auth.uid}/links`}
@@ -1250,6 +1259,7 @@ export const LinkList = (props) => {
                   props.theSortBy === "productsalpha" ? (
                   <InfiniteScrollNewSortByProductsAlpha
                     setLinksCount={setLinksCount}
+                    onLinksCountChange2={props.onLinksCountChange}
                     linksCount={linksCount}
                     scrollContainerRef={scrollContainerRef}
                     databasePath={`users/${props.auth.uid}/links`}
@@ -1268,6 +1278,7 @@ export const LinkList = (props) => {
                   props.theSortBy === "showpublic" ? (
                   <InfiniteScrollNewLinksShowPublicOrPrivate
                     setLinksCount={setLinksCount}
+                    onLinksCountChange2={props.onLinksCountChange}
                     linksCount={linksCount}
                     scrollContainerRef={scrollContainerRef}
                     databasePath={`users/${props.auth.uid}/links`}
@@ -1287,6 +1298,7 @@ export const LinkList = (props) => {
                   props.theSortBy === "showprivate" ? (
                   <InfiniteScrollNewLinksShowPublicOrPrivate
                     setLinksCount={setLinksCount}
+                    onLinksCountChange2={props.onLinksCountChange}
                     linksCount={linksCount}
                     scrollContainerRef={scrollContainerRef}
                     databasePath={`users/${props.auth.uid}/links`}
@@ -1304,6 +1316,7 @@ export const LinkList = (props) => {
                 ) : props.isinfinitescroll.isinfinitescroll === true ? ( //not the search one, infinite scrolls the whole list
                   <InfiniteScrollNew
                     setLinksCount={setLinksCount}
+                    onLinksCountChange2={props.onLinksCountChange}
                     linksCount={linksCount}
                     scrollContainerRef={scrollContainerRef}
                     databasePath={`users/${props.auth.uid}/links`}

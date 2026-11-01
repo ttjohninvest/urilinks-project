@@ -152,6 +152,13 @@ const InfiniteScrollNewDescription = (props) => {
       );
 
       const snapshot = await query.once("value");
+      if (!snapshot.exists()) {
+  setLinks([]);
+  setHasMore(false);
+  setLoading(false);
+  props.onLinksCountChange2(0)
+  return;
+}
 
       let allFetched = [];
 
@@ -217,6 +224,8 @@ const InfiniteScrollNewDescription = (props) => {
       setLoading(false);
     }
   };
+
+
   const getTotalCount = async () => {
     const search = normalizeSearch(props.searchText);
 
@@ -256,7 +265,75 @@ const InfiniteScrollNewDescription = (props) => {
     if (props.onLinksCountChange) {
       props.onLinksCountChange(count);
     }
+
+      if (count === 0) {
+    setLinks([]);
+    setHasMore(false);
+    setLoading(false);
+    props.onLinksCountChange2(0)
+  } else props.onLinksCountChange2(count)
+   
   };
+
+//   const getTotalCount = async () => {
+//   const search = normalizeSearch(props.searchText);
+
+//   const countCacheKey = getCountCacheKey(search);
+
+//   const cachedCount = window.sessionStorage.getItem(countCacheKey);
+
+//   if (cachedCount !== null) {
+//     console.log(
+//       "InfiniteScrollNewDescription: using cached count=" + cachedCount
+//     );
+
+//     let count = parseInt(cachedCount, 10);
+
+//     if (props.onLinksCountChange) {
+//       props.onLinksCountChange(count);
+//     }
+
+//   //   if (count === 0) {
+//   //     setLinks([]);
+//   //     setHasMore(false);
+//   //     setLoading(false);
+//   //     props.onLinksCountChange2(0)
+//   //   } else
+    
+//   //   props.onLinksCountChange2(count)
+//   //   return count;
+//   // }
+
+//   const snapshot = await firebase
+//     .database()
+//     .ref(props.databasePath)
+//     .once("value");
+
+//   count = 0;
+
+//   snapshot.forEach((child) => {
+//     const item = child.val();
+
+//     if (linkMatchesSearch(item, search)) {
+//       count++;
+//     }
+//   });
+
+//   window.sessionStorage.setItem(countCacheKey, count.toString());
+
+//   if (props.onLinksCountChange) {
+//     props.onLinksCountChange(count);
+//   }
+
+//   if (count === 0) {
+//     setLinks([]);
+//     setHasMore(false);
+//     setLoading(false);
+//     props.onLinksCountChange2(0)
+//   } else props.onLinksCountChange2(count)
+
+//   return count;
+// };
 
   useEffect(() => {
     cursorRef.current = null;

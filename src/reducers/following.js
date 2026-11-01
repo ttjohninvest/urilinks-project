@@ -5,6 +5,8 @@ const followingReducerDefaultState = [];
 export default (state = followingReducerDefaultState, action) => {
   switch (action.type) {
 
+    case "CLEAR_FOLLOWING":
+      return [];
     case "SET_NEW_FOLLOWING":
       return action.following;
     

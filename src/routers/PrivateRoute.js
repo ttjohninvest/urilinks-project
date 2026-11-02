@@ -29,9 +29,41 @@ import Header from "../components/Header";
 export const PrivateRoute = ({
   signup,
   isAuthenticated,
+  auth,
   component: Component,
   ...rest
 }) => {
+
+
+
+
+const privateRouteInstanceId = React.useRef(
+  Math.random().toString(36).substring(2, 8)
+);
+
+console.log(
+  "PrivateRoute INSTANCE =",
+  privateRouteInstanceId.current
+);
+
+React.useEffect(() => {
+  console.log(
+    "MOUNT PrivateRoute INSTANCE =",
+    privateRouteInstanceId.current
+  );
+
+  return () => {
+    console.log(
+      "UNMOUNT PrivateRoute INSTANCE =",
+      privateRouteInstanceId.current
+    );
+  };
+}, []);
+
+
+
+
+
   //const abcref = useRef("abcref");
   // const abc = (x) => {
   //   console.log("PrivateRoute, abc, x=" + x);
@@ -49,10 +81,21 @@ const bookmarks = params.get("bookmarks");
     scrollInterval2.current = null;
   };
 
+//   console.log(
+//   "PrivateRoute auth.uid =",
+//   props.auth && props.auth.uid
+// );
+
+// console.log(
+//   "PrivateRoute signup =",
+//   props.signup
+// );
+
   return (
     <Route
       {...rest}
-      component={(props) =>
+      render={(props) =>
+      //component={(props) =>
         isAuthenticated ? (
           <div>
             <Header signup={signup} 
@@ -75,8 +118,13 @@ const bookmarks = params.get("bookmarks");
   );
 };
 
+
+
 const mapStateToProps = (state) => ({
   isAuthenticated: !!state.auth.uid,
+  //  signup: state.signup,
+  
+  auth: state.auth,
 });
 
 export default withRouter(connect(mapStateToProps)(PrivateRoute));

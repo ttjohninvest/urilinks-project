@@ -234,6 +234,38 @@ function ExpandableArray(props) {
 
   //   const isMountedRef = useRef(true);
 
+
+
+
+const filtersInstanceId = React.useRef(
+  Math.random().toString(36).substring(2, 8)
+);
+
+console.log(
+  "LinkListFilters INSTANCE =",
+  filtersInstanceId.current
+);
+
+React.useEffect(() => {
+  console.log(
+    "MOUNT LinkListFilters INSTANCE =",
+    filtersInstanceId.current
+  );
+
+  return () => {
+    console.log(
+      "UNMOUNT LinkListFilters INSTANCE =",
+      filtersInstanceId.current
+    );
+  };
+}, []);
+
+
+
+
+
+
+
   const decrypt=(text, key)=>{
     if(text === null) return null
     return String.fromCharCode(...text.match(/.{1,2}/g)
@@ -2187,6 +2219,18 @@ useEffect(() => {
   );
 
   console.log("LinkListFilters.js, before return statement, allLinksVisibility="+allLinksVisibility)
+
+
+
+
+console.log(
+  "LinkListFilters ABOUT TO RENDER UsersAndFollowingContainer",
+  "filters instance =",
+  filtersInstanceId.current
+);
+
+
+
 
   return (
     <div className="flexrowh-">

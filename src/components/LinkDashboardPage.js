@@ -56,6 +56,35 @@ const LinkDashboardPage = (props) => {
     return regex.test(navigator.userAgent);
   };
 
+
+
+const dashboardInstanceId = React.useRef(
+  Math.random().toString(36).substring(2, 8)
+);
+
+console.log(
+  "LinkDashboardPage INSTANCE =",
+  dashboardInstanceId.current
+);
+
+React.useEffect(() => {
+  console.log(
+    "MOUNT LinkDashboardPage INSTANCE =",
+    dashboardInstanceId.current
+  );
+
+  return () => {
+    console.log(
+      "UNMOUNT LinkDashboardPage INSTANCE =",
+      dashboardInstanceId.current
+    );
+  };
+}, []);
+
+
+
+
+
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
       if (!user) return;

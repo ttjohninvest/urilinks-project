@@ -19,14 +19,43 @@ const UsersAndFollowersContainer = (props) => {
 
   const lastDisplayNameRef = useRef(null);
   const lastUidRef = useRef(null);
-
+  
+  const previousValues = React.useRef({});
   const renderCount = React.useRef(0);
+
 renderCount.current += 1;
 
-console.log(
-  "UsersAndFollowerContainer followerRenderCount=",
-  renderCount.current
-);
+// console.log(
+//   "UsersAndFollowerContainer followerRenderCount=",
+//   renderCount.current
+// );
+
+
+const currentValues = {
+  users: props.users,
+  following: props.following,
+  auth: props.auth,
+  uid: props.uid,
+  theuser: props.theuser,
+};
+
+
+// Object.keys(currentValues).forEach((key) => {
+//   if (previousValues.current[key] !== currentValues[key]) {
+//     console.log(
+//       "CHANGED:",
+//       key,
+//       "render=",
+//       renderCount.current
+//     );
+//   }
+// });
+
+// previousValues.current = currentValues;
+
+
+
+
 
   const getUserDisplayName = (userData) => {
     const gud = userData.gud || {};

@@ -20,13 +20,51 @@ const UsersAndFollowingContainer = (props) => {
   const lastDisplayNameRef = useRef(null);
   const lastUidRef = useRef(null);
 
+  const previousValues = React.useRef({});
   const renderCount = React.useRef(0);
+
+
+
+
+  const instanceId = React.useRef(
+  Math.random().toString(36).substring(2, 8)
+);
+
+console.log(
+  "UsersAndFollowingContainer INSTANCE =",
+  instanceId.current
+);
+
+
 renderCount.current += 1;
 
 console.log(
   "UsersAndFollowingContainer followingRenderCount=",
   renderCount.current
 );
+
+
+const currentValues = {
+  users: props.users,
+  following: props.following,
+  auth: props.auth,
+  uid: props.uid,
+  theuser: props.theuser,
+};
+
+
+Object.keys(currentValues).forEach((key) => {
+  if (previousValues.current[key] !== currentValues[key]) {
+    console.log(
+      "CHANGED:",
+      key,
+      "render=",
+      renderCount.current
+    );
+  }
+});
+
+previousValues.current = currentValues;
 
   /*
     props.following example:
@@ -38,6 +76,26 @@ console.log(
       }
     ]
   */
+
+
+
+React.useEffect(() => {
+  console.log(
+    "MOUNT UsersAndFollowingContainer INSTANCE =",
+    instanceId.current
+  );
+
+  return () => {
+    console.log(
+      "UNMOUNT UsersAndFollowingContainer INSTANCE =",
+      instanceId.current
+    );
+  };
+}, []);
+
+
+
+
   const followingUidSet = useMemo(() => {
     return new Set(
       (props.following || []).map((following) => {
@@ -51,6 +109,12 @@ console.log(
       return;
     }
 
+    console.log(
+  "loadUsers INSTANCE =",
+  instanceId.current
+);
+
+    console.log("CALLING setLoading");
     setLoading(true);
 
     try {
@@ -162,15 +226,52 @@ console.log(
         lastUidRef.current = lastRecord.uid;
       }
 
-      setUsers((previousUsers) => {
-        return [...previousUsers, ...pageUsers];
-      });
+      console.log("CALLING setUsers, pageUsers =", JSON.stringify(pageUsers));
+      console.log("CALLING setUsers");
+      // setUsers((previousUsers) => {
+      //   return [...previousUsers, ...pageUsers];
+      // });
 
-      setHasMore(moreAvailable);
+      setUsers((previousUsers) => {
+  console.log("setUsers previous length =", previousUsers.length);
+  console.log("setUsers pageUsers length =", pageUsers.length);
+
+  if (pageUsers.length === 0) {
+    console.log("setUsers NOT changing users");
+    return previousUsers;
+  }
+
+  const newUsers = [...previousUsers, ...pageUsers];
+
+  console.log("setUsers NEW length =", newUsers.length);
+
+  return newUsers;
+});
+
+       
+      console.log("CALLING setHasMore");
+
+      //setHasMore(moreAvailable);
+      setHasMore((oldValue) => {
+  console.log("setHasMore OLD =", oldValue);
+  console.log("setHasMoreNEW =", moreAvailable);
+
+  return moreAvailable;
+});
+      
     } catch (error) {
       console.log("Error loading users:", error);
     } finally {
-      setLoading(false);
+      console.log("CALLING setLoading");
+      
+      
+      //setLoading(false);
+      setLoading((oldValue) => {
+  console.log("setLoading OLD =", oldValue);
+  console.log("setLoading NEW =", false);
+
+  return false;
+});
 
       // if (users.length > 1) {
       //     //array3 = users.sort((a, b) => {
@@ -190,6 +291,7 @@ console.log(
 
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+      console.log("CALLING setCurrentUser");
       setCurrentUser(user);
     });
 
@@ -202,13 +304,14 @@ console.log(
     Load first page.
   */
   useEffect(() => {
+    console.log("CALLING setUsers");
     setUsers([]);
 
     lastDisplayNameRef.current = null;
     lastUidRef.current = null;
-
+    console.log("CALLING setHasMore");
     setHasMore(true);
-
+    console.log("CALLING loadUsers");
     loadUsers();
   }, []);
 

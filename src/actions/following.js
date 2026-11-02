@@ -675,74 +675,140 @@ const isInOkArray = (uid) => {
   return val;
 };
 
+// export const startSetFollowing = (uid) => {
+//   console.log("startSetFollowing, uid=" + uid);
+//   const promises = [];
+//   const following = [];
+//   return (dispatch, getState) => {
+//     promises.push(
+//       database
+//         .ref(`users/${uid}/following`)
+//         .once("value")
+//         .then((snapshot) => {
+//           //console.log("snapshot=" + JSON.stringify(snapshot));
+//           if(snapshot!==null) {
+//           snapshot.forEach((childSnapshot) => {
+//             console.log(
+//               "startSetFollowing,childSnapshot=" +
+//                 JSON.stringify(childSnapshot),
+//             );
+
+//             following.push({
+//               uid: childSnapshot.key,
+//               ...childSnapshot.val(),
+//             });
+//             console.log("following.js, startSetFollowing(), following=" + JSON.stringify(following));
+//           });
+//         }
+
+//         }).catch((error) => console.log("startSetFollowing, error=" + error)))
+
+//     return Promise.all(promises).then(() => {
+//       console.log("done, startSetFollowing, following=" + JSON.stringify(following))
+//       dispatch(setFollowing(following));
+//     });
+//   };
+// };
+
 export const startSetFollowing = (uid) => {
   console.log("startSetFollowing, uid=" + uid);
-  const promises = [];
-  const following = [];
+
   return (dispatch, getState) => {
-    promises.push(
-      database
-        .ref(`users/${uid}/following`)
-        .once("value")
-        .then((snapshot) => {
-          //console.log("snapshot=" + JSON.stringify(snapshot));
-          if(snapshot!==null) {
-          snapshot.forEach((childSnapshot) => {
-            console.log(
-              "startSetFollowing,childSnapshot=" +
-                JSON.stringify(childSnapshot),
-            );
+    const following = [];
 
-            following.push({
-              uid: childSnapshot.key,
-              ...childSnapshot.val(),
-            });
-            console.log("following.js, startSetFollowing(), following=" + JSON.stringify(following));
+    return database
+      .ref(`users/${uid}/following`)
+      .once("value")
+      .then((snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+          following.push({
+            uid: childSnapshot.key,
+            ...childSnapshot.val(),
           });
-        }
+        });
 
-        }).catch((error) => console.log("startSetFollowing, error=" + error)))
+        console.log(
+          "done, startSetFollowing, following=" +
+            JSON.stringify(following)
+        );
 
-    return Promise.all(promises).then(() => {
-      console.log("done, startSetFollowing, following=" + JSON.stringify(following))
-      dispatch(setFollowing(following));
-    });
+        dispatch(setFollowing(following));
+
+        return following;
+      })
+      .catch((error) => {
+        console.log("startSetFollowing, error=" + error);
+        throw error;
+      });
   };
 };
 
+// export const startSetFollower = (uid) => {
+//   console.log("startSetFollower, uid=" + uid);
+//   const promises = [];
+//   const follower = [];
+//   return (dispatch, getState) => {
+//     promises.push(
+//       database
+//         .ref(`users/${uid}/follower`)
+//         .once("value")
+//         .then((snapshot) => {
+//           //console.log("snapshot=" + JSON.stringify(snapshot));
+//           if(snapshot!==null) {
+//           snapshot.forEach((childSnapshot) => {
+//             console.log(
+//               "startSetFollowing,childSnapshot=" +
+//                 JSON.stringify(childSnapshot),
+//             );
+
+//             follower.push({
+//               uid: childSnapshot.key,
+//               ...childSnapshot.val(),
+//             });
+//           });
+//         }
+          
+//         }).catch((error) => console.log("startSetFollower, error=" + error)))
+
+//     return Promise.all(promises).then(() => {
+//       console.log(
+//         "done, startSetFollower, follower=" + JSON.stringify(follower),
+//       );
+//       dispatch(setFollower(follower));
+//     });
+//   };
+// };
+
 export const startSetFollower = (uid) => {
   console.log("startSetFollower, uid=" + uid);
-  const promises = [];
-  const follower = [];
+
   return (dispatch, getState) => {
-    promises.push(
-      database
-        .ref(`users/${uid}/follower`)
-        .once("value")
-        .then((snapshot) => {
-          //console.log("snapshot=" + JSON.stringify(snapshot));
-          if(snapshot!==null) {
-          snapshot.forEach((childSnapshot) => {
-            console.log(
-              "startSetFollowing,childSnapshot=" +
-                JSON.stringify(childSnapshot),
-            );
+    const follower = [];
 
-            follower.push({
-              uid: childSnapshot.key,
-              ...childSnapshot.val(),
-            });
+    return database
+      .ref(`users/${uid}/follower`)
+      .once("value")
+      .then((snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+          follower.push({
+            uid: childSnapshot.key,
+            ...childSnapshot.val(),
           });
-        }
-          
-        }).catch((error) => console.log("startSetFollower, error=" + error)))
+        });
 
-    return Promise.all(promises).then(() => {
-      console.log(
-        "done, startSetFollower, follower=" + JSON.stringify(follower),
-      );
-      dispatch(setFollower(follower));
-    });
+        console.log(
+          "done, startSetFollower, follower=" +
+            JSON.stringify(follower)
+        );
+
+        dispatch(setFollower(follower));
+
+        return follower;
+      })
+      .catch((error) => {
+        console.log("startSetFollower, error=" + error);
+        throw error;
+      });
   };
 };
 

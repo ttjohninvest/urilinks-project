@@ -20,6 +20,14 @@ const UsersAndFollowingContainer = (props) => {
   const lastDisplayNameRef = useRef(null);
   const lastUidRef = useRef(null);
 
+  const renderCount = React.useRef(0);
+renderCount.current += 1;
+
+console.log(
+  "UsersAndFollowingContainer followingRenderCount=",
+  renderCount.current
+);
+
   /*
     props.following example:
 
@@ -235,15 +243,9 @@ const UsersAndFollowingContainer = (props) => {
     };
   }, [loading, hasMore]);
 
-  console.log("UsersAndFollowingContainer.js, currentUser="+(currentUser?currentUser.email:"no current user"))
-
-  console.log("COLUMN 1 users=", JSON.stringify(props.users));
-console.log("COLUMN 1 following=", JSON.stringify(props.following));
-//console.log("COLUMN 1 follower=", props.follower);
-console.log()
-console.log()
+console.log("<UsersAndFollowingContainer is about to render");
 console.log("COLUMN 1 users=", JSON.stringify(users));
-
+console.log("COLUMN 1 following=", JSON.stringify(props.following));
 
   return (
     <div>

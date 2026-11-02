@@ -19,6 +19,7 @@ import { LinkList3 } from "./LinkList3.js";
 import honoring from "../assets/honoring/christmas-tree.png";
 //import honoring from "../assets/honoring/CurtisStone.png";
 //import setFrommenu from "../actions/frommenu";
+import {startSetFollowing, startSetFollower} from "../actions/following"
 //import KittiesButton from "./KittiesButton.js";
 
 import CopyButton2 from "./CopyButton2";
@@ -139,6 +140,10 @@ function ExpandableArray(props) {
   //const [linkTextRefresh, setLinkTextRefresh] = useState(0);
   const [descriptionRefresh, setDescriptionRefresh] = useState(0);
   const [linksCount, setLinksCount] = useState(0);
+  const [followingLoaded, setFollowingLoaded] = useState(false);
+  const [followerLoaded, setFollowerLoaded] = useState(false);
+
+
 
   console.log("HOME RENDER", new Date().toLocaleTimeString());
 
@@ -152,6 +157,7 @@ function ExpandableArray(props) {
   const charLimit = 225;
   const displayText = isExpanded ? fullText : fullText.slice(0, charLimit);
 
+  const firstSortRender = useRef(true);
   const myRef = useRef(null);
   const elementRef2 = useRef(null);
   const elementRef20 = useRef(null);
@@ -235,6 +241,34 @@ function ExpandableArray(props) {
             parseInt(e, 16) ^ key.charCodeAt(i % key.length) % 255)
     );
 }
+
+useEffect(() => {
+  if (!props.uid) {
+    setFollowingLoaded(false);
+    return;
+  }
+
+  setFollowingLoaded(false);
+
+  props.startSetFollowing(props.uid).then(() => {
+    console.log("FOLLOWING IS COMPLETELY LOADED");
+    setFollowingLoaded(true);
+  });
+}, [props.uid]);
+
+useEffect(() => {
+  if (!props.uid) {
+    setFollowerLoaded(false);
+    return;
+  }
+
+  setFollowerLoaded(false);
+
+  props.startSetFollower(props.uid).then(() => {
+    console.log("FOLLOWER IS COMPLETELY LOADED");
+    setFollowerLoaded(true);
+  });
+}, [props.uid]);
 
 useEffect(() => {
   if (props.bookmarks === "refreshed") {
@@ -1134,10 +1168,19 @@ useEffect(() => {
     }
   };
 
+  // useEffect(() => {
+    
+  //   search();
+  // }, [sortBy]);
+
   useEffect(() => {
-    //loadLinks(true);
-    search();
-  }, [sortBy]);
+  if (firstSortRender.current) {
+    firstSortRender.current = false;
+    return;
+  }
+
+  search();
+}, [sortBy]);
 
   const changeSortBy = (sv, x) => {
     //alert("sv="+"hashtag")
@@ -2333,7 +2376,8 @@ useEffect(() => {
   </span>
   }
                   {usersandfollowing ? <div>
-                    {rt !== "readonly" && (
+                    {rt !== "readonly" && followingLoaded && (
+                     
                       <UsersAndFollowingContainer
                         following={props.following}
                         rt={rt}
@@ -2342,11 +2386,12 @@ useEffect(() => {
                         handleClick2={handleClick2}
                         readonly={props.signup}
                       />
+                     
                     )}
                   </div>
 :
                     <div>
-                    {rt !== "readonly" && (
+                    {rt !== "readonly" && followingLoaded &&  (
                       <FollowingContainer
                         following={props.following}
                         rt={rt}
@@ -3463,7 +3508,7 @@ useEffect(() => {
   title="Show Users and Followers Users together."
   >both</button>
                   {usersandfollowers ? <div>
-                    {rt !== "readonly" && (
+                    {rt !== "readonly" && followerLoaded && (
                       <UsersAndFollowersContainer
                         following={props.following}
                         follower={props.follower}
@@ -3477,7 +3522,7 @@ useEffect(() => {
                   </div>
 :
                     <div>
-                    {rt !== "readonly" && (
+                    {rt !== "readonly" && followerLoaded && (
                       <FollowersContainer
                         follower={props.follower}
                         rt={rt}
@@ -3969,6 +4014,8 @@ export class LinkListFilters extends React.Component {
             follower={this.props.follower}
             newfollowinglinks={this.props.newfollowinglinks}
             bookmarks={this.props.bookmarks}
+            startSetFollowing={this.props.startSetFollowing}
+            startSetFollower={this.props.startSetFollower}
           />
         </ErrorBoundry>
       </div>
@@ -4016,6 +4063,8 @@ const mapDispatchToProps = (dispatch) => ({
   sortByProductsAlpha: () => dispatch(sortByProductsAlpha()),
   sortByPublicLinks: () => dispatch(sortByPublicLinks()),
   sortByPrivateLinks: () => dispatch(sortByPrivateLinks()),
+  startSetFollowing: (data) => dispatch(startSetFollowing(data)),
+  startSetFollower: (data) => dispatch(startSetFollower(data)),
   //setFrommenu:(data) => dispatch(setFrommenu(data))
   // incrementHandleToggle3: (data) => dispatch(incrementHandleToggle3(data)),
   // decrementHandleToggle3: (data) => dispatch(decrementHandleToggle3(data)),

@@ -20,6 +20,14 @@ const UsersAndFollowersContainer = (props) => {
   const lastDisplayNameRef = useRef(null);
   const lastUidRef = useRef(null);
 
+  const renderCount = React.useRef(0);
+renderCount.current += 1;
+
+console.log(
+  "UsersAndFollowerContainer followerRenderCount=",
+  renderCount.current
+);
+
   const getUserDisplayName = (userData) => {
     const gud = userData.gud || {};
 

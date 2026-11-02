@@ -1,42 +1,47 @@
 import React, { useEffect, useState, useRef } from "react";
 import { v4 } from "uuid";
 import { connect } from "react-redux";
-import {withRouter} from "react-router-dom"
-import firebase from "firebase/app"
-//import LinkList from "./LinkList";
+import { withRouter } from "react-router-dom";
+import firebase from "firebase/app";
+
 import LinkListFilters from "./LinkListFilters";
 import DisplayHashtags from "./DisplayHashtags";
 import Simple3 from "./Simple3";
 import Testit from "./Testit";
 import setHasrefreshed from "../actions/hasrefreshed";
 import { startLogout } from "../actions/auth";
-import ScrollLimit from "./ScrollLimit"
+import ScrollLimit from "./ScrollLimit";
 import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
-import TestToast from "./TestToast"
+import TestToast from "./TestToast";
 
 import LinkListFileDate from "./LinkListFileDate";
 import LinkListFiltersFileDate from "./LinkListFiltersFileDate";
 import { useSelector } from "react-redux";
 import ErrorBoundary from "./ErrorBoundry";
 
-
-//  const logoutit = () => {
-//       //sessionStorage.setItem('hasRefreshed', 'false');
-//       //const hasRefreshed = sessionStorage.getItem('hasRefreshed');
-//       //props.setHasrefreshed({ hasrefreshed: false });
-//       //props.setTheplan({subscriptionId:"",plan:"free",customerId:""})
-//       props.startLogout();
-//     };
-
 const LinkDashboardPage = (props) => {
-  console.log(
-  "LinkDashboardPage, props.bookmarks=",
-  props.bookmarks
-);
-  //const elementRef = useRef()
+  console.log("LinkDashboardPage, props.bookmarks=", props.bookmarks);
+
   const scrollableDiv = React.useRef();
+
   const [heightofdiv, setHeightOfDiv] = useState(0);
-  const [scrollPos, setScrollPos] = useState(0);
+
+  /*
+   * FIX:
+   * Get the saved scroll position during the FIRST render.
+   *
+   * We no longer call setScrollPos() inside useEffect.
+   */
+  const [scrollPos] = useState(() => {
+    const saved = parseInt(sessionStorage.getItem("scrollPosition"));
+
+    if (isNaN(saved)) {
+      return 0;
+    }
+
+    return saved;
+  });
+
   const [first, setFirst] = useState(true);
   const [theValue, setTheValue] = useState(false);
   const [avalue, setAvalue] = useState(0);
@@ -47,142 +52,77 @@ const LinkDashboardPage = (props) => {
   const isMobile = () => {
     const regex =
       /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+
     return regex.test(navigator.userAgent);
   };
 
- useEffect(() => {
-
-  const unsubscribe = firebase
-    .auth()
-    .onAuthStateChanged((user) => {
-
+  useEffect(() => {
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
       if (!user) return;
 
+      const connectedRef = firebase.database().ref(".info/connected");
 
-      const connectedRef = firebase
-        .database()
-        .ref(".info/connected");
-
-
-      const userOnlineRef = firebase
-        .database()
-        .ref(`users/${user.uid}/online`);
-
+      const userOnlineRef = firebase.database().ref(`users/${user.uid}/online`);
 
       const userOnlineNameRef = firebase
         .database()
         .ref(`users/${user.uid}/onlineName`);
 
-
       const handleConnection = (snapshot) => {
-
         if (snapshot.val() === false) {
           return;
         }
 
-
-        /*
-         * Get the first part of the email.
-         *
-         * john@gmail.com
-         * becomes:
-         * john
-         */
         let onlineName = "Someone";
 
-        if (
-          user.email &&
-          typeof user.email === "string"
-        ) {
-
-          onlineName =
-            user.email.split("@")[0];
-
+        if (user.email && typeof user.email === "string") {
+          onlineName = user.email.split("@")[0];
         }
 
+        userOnlineNameRef.set(onlineName);
 
-        /*
-         * Store the person's name.
-         */
-        userOnlineNameRef.set(
-          onlineName
-        );
-
-
-        /*
-         * When this browser disconnects,
-         * Firebase changes online to false.
-         */
         userOnlineRef
           .onDisconnect()
           .set(false)
           .then(() => {
-
-            /*
-             * User is connected.
-             */
             userOnlineRef.set(true);
-
           });
-
       };
 
-
-      connectedRef.on(
-        "value",
-        handleConnection
-      );
-
+      connectedRef.on("value", handleConnection);
     });
 
-
-  return () => {
-
-    unsubscribe();
-
-  };
-
-}, []);
-
-
-
-
-   
-
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   useEffect(() => {
-    console.log("LinkDashboardPage.js, UseEffect, following="+JSON.stringify(props.following))
-    // const handleTabClose = (event) => {
-    //   //event.preventDefault();
-    //   // Optional: Set a custom message (though modern browsers may ignore it)
-    //   //logoutit()
-    //   //props.startLogout();
-    //   //return (event.returnValue = 'Are you sure you want to leave?');
-    // };
+    console.log("LINK DASHBOARD EFFECT START");
 
-    // window.addEventListener('beforeunload', handleTabClose);
-
-    // return () => {
-    //   window.removeEventListener('beforeunload', handleTabClose);
-    // };
+    console.log(
+      "LinkDashboardPage.js, UseEffect, following=" +
+        JSON.stringify(props.following),
+    );
 
     const handleScroll = () => {
       window.localStorage.setItem("scrollPosition", window.scrollY);
-      //window.localStorage.setItem("scrollY",window.scrollY)
+
       console.log(window.scrollY);
     };
 
-    // Adding scroll event listener
     window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     //window.onbeforeunload = null;
     //props.abc(2)
     //console.log("2, props.abcref="+JSON.stringify(props.abcref))
-  },[])
+  }, []);
 
   const setTheHashTagDivHeight = (h) => {
     setHeightOfDiv(h);
@@ -190,53 +130,58 @@ const LinkDashboardPage = (props) => {
 
   useEffect(() => {
     const sp = parseInt(window.localStorage.getItem("scrollPosition"));
+
     console.log("LinkDashboardPage.js, sp=" + sp);
-    //window.scrollTo(0, sp);
 
     console.log(
       "LinkDashboardPage, props.settings.photoURL=" + props.settings.photoURL,
     );
-    // Save scroll position before leaving
-    window.addEventListener(
-      "beforeunload",
-      () => {
-        window.localStorage.setItem("sortBy", "description");
-        sessionStorage.setItem("scrollPosition", window.scrollY);
-        console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
-        console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
-        console.log(
-          "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT window.scrollY=" + window.scrollY,
-        );
-        setTheValue(props.theValue);
-        setBvalue(!bvalue);
-      },
-      [],
-    );
 
-    //useEffect(()=>{
+    /*
+     * Use a named function so it can be
+     * removed properly during cleanup.
+     */
+    const handleBeforeUnload = () => {
+      window.localStorage.setItem("sortBy", "description");
 
-    // Restore scroll position on page load
-    const savedScrollPosition = parseInt(
-      sessionStorage.getItem("scrollPosition"),
-    );
-    setScrollPos(savedScrollPosition);
-    console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
-    console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
-    console.log(
-      "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT savedScrollPosition=" +
-        savedScrollPosition,
-    );
-    if (savedScrollPosition) {
-      //window.scrollTo(0, parseInt(savedScrollPosition));
-      //sessionStorage.removeItem('scrollPosition');
+      sessionStorage.setItem("scrollPosition", window.scrollY);
+
+      console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
+
+      console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
+
+      console.log(
+        "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT window.scrollY=" + window.scrollY,
+      );
+
+      console.log("ABOUT TO setTheValue");
+
+      setTheValue(props.theValue);
+
+      console.log("ABOUT TO setBvalue");
+
+      setBvalue(!bvalue);
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    /*
+     * scrollPos already contains the saved value
+     * on the FIRST render.
+     *
+     * No setScrollPos() here.
+     */
+    console.log("saved scrollPos=" + scrollPos);
+
+    if (scrollPos) {
+      //window.scrollTo(0, scrollPos);
+      //sessionStorage.removeItem("scrollPosition");
     }
 
     return () => {
-      window.removeEventListener("beforeunload", () => {
-        sessionStorage.setItem("scrollPosition", window.scrollY);
-      });
+      window.removeEventListener("beforeunload", handleBeforeUnload);
     };
-  }, [scrollPos]);
+  }, []);
 
   useEffect(() => {
     bf(b);
@@ -244,42 +189,51 @@ const LinkDashboardPage = (props) => {
 
   const av = (c) => {
     console.log("a=(c)=>, LinkDashboardPage.js, c=" + c);
+
     bf(c);
   };
 
   const useUnload = (fn) => {
     useEffect(() => {
       const callback = fn;
+
       window.addEventListener("beforeunload", callback);
+
       window.addEventListener("unload", callback);
+
       return () => {
         window.removeEventListener("beforeunload", callback);
+
         window.removeEventListener("unload", callback);
       };
     }, [fn]);
   };
 
   useUnload((e) => {
-    // Perform cleanup or send data before the page unloads
     console.log("Page is unloading");
-    //window.localStorage.setItem("sortBy", "description");
-    window.localStorage.setItem("whichOption", "option1"); //option1 (your links button), option3 (all public links button), option4 (people)
+
+    window.localStorage.setItem("whichOption", "option1");
+
     window.localStorage.setItem("searchLinks1", "");
+
     window.localStorage.setItem("searchLinks2", "");
+
     window.localStorage.setItem("searchLinks3", "");
+
     window.localStorage.setItem("searchLinks4", "");
-    // Example: Use navigator.sendBeacon to send data asynchronously
-    //navigator.sendBeacon('/api/log', JSON.stringify({ action: 'page-unload' }));
   });
 
   const rerenderit = () => {
-    console.log("LinkListDashboardPage.js, in rerender()")
+    console.log("LinkListDashboardPage.js, in rerender()");
+
+    console.log("ABOUT TO setV1");
+
     setV1(!v1);
 
     if (isMobile() === false) {
-       window.scrollTo({
+      window.scrollTo({
         top: 0,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     } else {
       window.scrollTo({
@@ -287,63 +241,49 @@ const LinkDashboardPage = (props) => {
         left: 100,
         behavior: "smooth",
       });
+    }
   };
-}
 
   useEffect(() => {
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0);
+
     const { id3 } = props.match.params;
-    console.log("LinkDashboardPage, User ID:"+JSON.stringify(props.match))
+
+    console.log("LinkDashboardPage, User ID:" + JSON.stringify(props.match));
   }, []);
 
   return (
-    <div>
+    <div key={props.auth.uid}>
       <ErrorBoundary>
-    <ScrollLimit>
-    <div className="flexrowh">
-      <div id="very-top-id" className="website-background-color">
-        {/* <div className="border2black">
-left column
-        </div> */}
-        <div className="padding-tb-1">
-          {/* <Simple2 /> */}
-
-            
-            <LinkListFilters
-              //abc = {props.abc}
-              //abcref = {props.abcref}
-              stopScrolling2={props.stopScrolling2}
-              scrollInterval2 = {props.scrollInterval2}
-              setTheHashTagDivHeight={setTheHashTagDivHeight}
-              b={b}
-              av={av}
-              rerenderit={rerenderit}
-              bookmarks={props.bookmarks}
-            />
-
-            {/* <TestToast /> */}
-
-      
-        </div>
-
-        {/* <div className="border2black">
-right column
-        </div> */}
-      </div>
-    </div>
-    </ScrollLimit>
-    </ErrorBoundary>
+        <ScrollLimit>
+          <div className="flexrowh">
+            <div id="very-top-id" className="website-background-color">
+              <div className="padding-tb-1">
+                <LinkListFilters
+                  stopScrolling2={props.stopScrolling2}
+                  scrollInterval2={props.scrollInterval2}
+                  setTheHashTagDivHeight={setTheHashTagDivHeight}
+                  b={b}
+                  av={av}
+                  rerenderit={rerenderit}
+                  bookmarks={props.bookmarks}
+                />
+              </div>
+            </div>
+          </div>
+        </ScrollLimit>
+      </ErrorBoundary>
     </div>
   );
 };
 
 const mapStateToProps = (state) => ({
+  auth:state.auth,
   settings: state.settings,
   hasrefreshed: state.hasrefreshed,
   links: state.links,
   signup: state.signup,
-  following:state.following,
-
+  following: state.following,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -352,7 +292,10 @@ const mapDispatchToProps = (dispatch) => ({
       .then(() => console.log("startLogout"))
       .catch((error) => console.log("startLogout, error" + error));
   },
+
   setHasrefreshed: (hasrefreshed) => dispatch(setHasrefreshed(hasrefreshed)),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LinkDashboardPage));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(LinkDashboardPage),
+);

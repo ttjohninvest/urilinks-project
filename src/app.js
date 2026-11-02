@@ -159,7 +159,7 @@ if (signup !== "signup") {
     id2 = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
     store.dispatch(login(id2));
   }
-
+console.log("app.js, CALLING THE FIRST RENDER")
   try {
     store
       .dispatch(startSetLinks(id2))
@@ -372,8 +372,10 @@ if (signup !== "signup") {
 
   try {
     firebase.auth().onAuthStateChanged((user) => {
+      
       console.log("app.js, 5th one abc");
       if (user) {
+        console.log("app.js, CALLING THE SECOND RENDER, user.uid="+user.uid)
         console.log("app.js, 6th one abc");
         console.log("logged in user=" + JSON.stringify(user));
 

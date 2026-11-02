@@ -3855,3 +3855,65 @@ vercel project linked to github repository: urilinks-project-vercel-api
 when i run git push origin main the github repository is updated and the vercel project is rebuilt
 I recently changed the upload file size from 100kb to 10mb on 10/31/2026
 =====================
+debugging steps to fix the double render of components UsersAndFollowingContainer
+and UsersAndFollowerContainer, rendering twice:
+If renders 8 through 15 already have the same users and following data, then those later renders are probably being caused by some other prop, local state setter, or parent render.
+
+The best next step is to log only what actually changed between renders.
+
+Put this near the top of UsersAndFollowingContainer:
+const renderCount = React.useRef(0);
+const previousValues = React.useRef({});
+
+renderCount.current += 1;
+
+const currentValues = {
+  users: props.users,
+  following: props.following,
+  auth: props.auth,
+  uid: props.uid,
+  theuser: props.theuser,
+};
+
+console.log(
+  "UsersAndFollowingContainer render",
+  renderCount.current
+);
+
+Object.keys(currentValues).forEach((key) => {
+  if (previousValues.current[key] !== currentValues[key]) {
+    console.log(
+      "CHANGED:",
+      key,
+      "render=",
+      renderCount.current
+    );
+  }
+});
+
+previousValues.current = currentValues;
+
+Then also add logs immediately before every local setter in that component, for example:
+console.log("CALLING setUsers");
+setUsers(value);
+
+console.log("CALLING setUniqueData");
+setUniqueData(value);
+
+And before any Redux dispatch that feeds this component:
+console.log("DISPATCHING setFollowing");
+dispatch(setFollowing(following));
+
+What we are looking for now is something like:
+render 8
+render 9
+CALLING setUniqueData
+render 10
+
+or:
+render 11
+CHANGED: auth
+render 12
+
+Since the real data is already present by render 8, I would focus especially on renders 9 through 15. That is probably where the unnecessary renders are coming from.
+===================================

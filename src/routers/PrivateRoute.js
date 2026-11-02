@@ -95,7 +95,7 @@ const bookmarks = params.get("bookmarks");
     <Route
       {...rest}
       render={(props) =>
-      //component={(props) =>
+      //component={(props) => //having this one in and not the above render was causing it to unmount and mount causing a second render of columns 1 and 3
         isAuthenticated ? (
           <div>
             <Header signup={signup} 

@@ -474,7 +474,7 @@ https://www.youtube.com/feed/history
 
         setIsPrivate(1);
 
-        alert("Made link public")
+        alert("Made link public");
 
         if (props.clearVisibilityCache) {
           props.clearVisibilityCache();
@@ -488,7 +488,7 @@ https://www.youtube.com/feed/history
         updateCachedShowPublic(id, x - 1);
 
         setIsPrivate(0);
-        alert("Made link private")
+        alert("Made link private");
         if (props.clearVisibilityCache) {
           props.clearVisibilityCache();
         }
@@ -1647,7 +1647,8 @@ data-value={props.id}
 
   const playInPlaceVideo = (id, Url, frequency, event) => {
     //alert("about to call to stop scroll")
-    props.stopScrolling3()
+
+    props.stopScrolling3();
     let newStr = Url;
 
     if (Url.includes("shorts")) {
@@ -1661,10 +1662,49 @@ data-value={props.id}
     const videoElement = document.querySelector("#ipvideo" + id);
 
     if (text === "Play video in place") {
+      // const up = document.getElementById("scrollup1");
+      // const dn = document.getElementById("dnid");
+      // const stop = document.getElementById("stopid");
+      // const batchDeleteButton = document.getElementById("batchdelete");
+      // const deleteAllButton = document.getElementById("deleteall");
+
+      const ids = [
+  "upid",
+  "dnid",
+  "stopid",
+  "batchdelete",
+  "deleteall",
+];
+
+ids.forEach((id) => {
+  const elements = document.querySelectorAll("#" + id);
+
+  console.log(id, "count =", elements.length);
+
+  elements.forEach((el, index) => {
+    el.style.display = "none";
+
+    console.log(
+      id,
+      "element",
+      index,
+      "style.display =",
+      el.style.display,
+      "computed =",
+      window.getComputedStyle(el).display
+    );
+  });
+});
+
+
+
+
+
+
       console.log("Play video in place");
       storeScrollPosition0(id, frequency);
       window.document.getElementById("ipvideo" + id).style.marginTop = "35px";
-     
+
       console.log("Play video in place, display set to block");
       const iframe = document.querySelector("#ipvideo" + id + " iframe");
 
@@ -1692,15 +1732,33 @@ data-value={props.id}
       setTimeout(() => {
         const ls2 = document.getElementById("ls2");
 
-        ls2.scrollBy({
-          top: -30,
-          behavior: "auto",
-        });
+if (ls2) {
+  ls2.scrollBy({
+    top: -30,
+    behavior: "auto",
+  });
+}
+
+
       }, 500);
-
-     
-
     } else {
+      
+const ids = [
+  "upid",
+  "dnid",
+  "stopid",
+  "batchdelete",
+  "deleteall",
+];
+
+ids.forEach((id) => {
+  const elements = document.querySelectorAll("#" + id);
+
+  elements.forEach((el) => {
+    el.style.display = "";
+  });
+});
+
       // console.log("Play video in place, about to set display to none");
       // window.document.getElementById("belowbuttonsid2").style.display = "none";
       // console.log("Play video in place, display set to none");
@@ -1899,34 +1957,33 @@ data-value={props.id}
             display: "inline-block",
           }}
         >
-            <div>
-                
-                  <input
-  type="checkbox"
-  checked={props.selectedLinkIds.includes(props.id)}
-  onChange={(event) =>
-    props.handleSelectLink(
-      props.id,
-      event.target.checked
-    )
-  }
-/>&nbsp;&nbsp;Check to include in batch delete
-                </div>
-         <div> <a
-            ref={myRef}
-            className={`ib text-size-16 font-weight-900 margin-right-1 textWrap ${isMobile() === true ? "width325" : ""}`}
-            href={props.Url}
-            target="_blank"
-            data-value={props.id}
-            //title={"click to open the webpage: " + props.Url}
-            onClick={(event) => storeScrollPosition(frequency, event)}
-            //onMouseEnter={() => checkLink(props.Url, props.id)}
-            onMouseEnter={() => handleMouseEnter(props.Url)}
-            onMouseLeave={() => handleMouseLeave()}
-          >
-            {props.description}
-          </a>
-</div>
+          <div>
+            <input
+              type="checkbox"
+              checked={props.selectedLinkIds.includes(props.id)}
+              onChange={(event) =>
+                props.handleSelectLink(props.id, event.target.checked)
+              }
+            />
+            &nbsp;&nbsp;Check to include in batch delete
+          </div>
+          <div>
+            {" "}
+            <a
+              ref={myRef}
+              className={`ib text-size-16 font-weight-900 margin-right-1 textWrap ${isMobile() === true ? "width325" : ""}`}
+              href={props.Url}
+              target="_blank"
+              data-value={props.id}
+              //title={"click to open the webpage: " + props.Url}
+              onClick={(event) => storeScrollPosition(frequency, event)}
+              //onMouseEnter={() => checkLink(props.Url, props.id)}
+              onMouseEnter={() => handleMouseEnter(props.Url)}
+              onMouseLeave={() => handleMouseLeave()}
+            >
+              {props.description}
+            </a>
+          </div>
 
           {showStatus && linkStatus && (
             <div

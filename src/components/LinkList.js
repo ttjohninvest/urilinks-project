@@ -947,8 +947,9 @@ export const LinkList = (props) => {
               <span>Scroll To Top</span>
             </button></div> */}
                 <div>
-                  <button
-                    id="scrollup1"
+                  <button 
+                    //id="scrollup1"
+                    id="upid"
                     ref={props.scrollupref}
                     title="Scroll Up"
                     onClick={props.startScrollingUp2}
@@ -959,7 +960,7 @@ export const LinkList = (props) => {
                   </button>
                 </div>
                 <div>
-                  <button
+                  <button id="dnid"
                     ref={props.scrolldownref}
                     title="Scroll Down"
                     onClick={props.startScrollingDown2}
@@ -970,7 +971,7 @@ export const LinkList = (props) => {
                   </button>
                 </div>
                 <div>
-                  <button
+                  <button id="stopid"
                     ref={props.buttonRef2}
                     title="Stop Scroll"
                     onClick={props.stopScrolling2}
@@ -981,14 +982,14 @@ export const LinkList = (props) => {
                   </button>
                 </div>
                 {props.signup.signup === true ?<div>
-                  <button
+                  <button id="batchdelete"
                     className="margin-left-11 button-2"
                     onClick={deleteSelectedLinks}
                     //disabled={selectedLinkIds.length === 0}
                   >
                     Batch delete selected links
                   </button>
-                   <button
+                   <button id="deleteall"
                     className="margin-left-11 button-2"
                     onClick={deleteAllLinks}
                     //disabled={selectedLinkIds.length === 0}

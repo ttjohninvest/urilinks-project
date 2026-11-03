@@ -1486,56 +1486,116 @@ useEffect(() => {
     setIsForm3Open(false);
   };
 
+  // const startScrollingUp2 = () => {
+  //    console.log("STARTING startScrollingUp2");
+  // console.trace();
+  //   try {
+  //     if (!!buttonRef2 === true && !!buttonRef2.current === true)
+  //       buttonRef2.current.click();
+  //   } catch (error) {
+  //     console.log("error=" + error);
+  //   }
+  //   // Prevent multiple intervals
+  //   if (props.scrollInterval2.current) return;
+
+  //   props.scrollInterval2.current = setInterval(() => {
+  //     try {
+  //       if (!!document.getElementById("ls2") === true)
+  //         document.getElementById("ls2").scrollBy({
+  //           top: 1, // Scroll 1 pixel each time
+  //           left: 0,
+  //           behavior: "auto",
+  //         });
+  //     } catch (error) {
+  //       console.log("error=" + error);
+  //     }
+
+  //     //console.log(document.getElementById("ls2").scrollTop +
+  //     //    document.getElementById("ls2").clientHeight)
+  //     //console.log(document.getElementById("ls2").scrollHeight)
+  //     if (!!document.getElementById("ls2") === true)
+  //       if (
+  //         document.getElementById("ls2").scrollTop +
+  //           document.getElementById("ls2").clientHeight >=
+  //         (document.getElementById("ls2").scrollHeight - 2 ||
+  //           document.getElementById("ls2").scrollHeight + 2)
+  //       ) {
+  //         try {
+  //           if (!!buttonRef2 === true && !!buttonRef2.current === true)
+  //             buttonRef2.current.click();
+  //         } catch (error) {
+  //           console.log("error=" + error);
+  //         }
+  //         try {
+  //           if (!!scrolldownref === true && !!scrolldownref.current === true)
+  //             //auto scroll in the other direction
+  //             scrolldownref.current.click();
+  //         } catch (error) {
+  //           console.log("error=" + error);
+  //         }
+  //       }
+  //   }, 20); // Every 20 milliseconds
+  // };
+
   const startScrollingUp2 = () => {
-     console.log("STARTING startScrollingUp2");
-  console.trace();
+  console.log("STARTING startScrollingUp2");
+
+  try {
+    if (buttonRef2 && buttonRef2.current) {
+      buttonRef2.current.click();
+    }
+  } catch (error) {
+    console.log("error=" + error);
+  }
+
+  // IMPORTANT:
+  // Remove any old interval before starting a new one.
+  if (props.scrollInterval2.current) {
+    clearInterval(props.scrollInterval2.current);
+    props.scrollInterval2.current = null;
+  }
+
+  props.scrollInterval2.current = setInterval(() => {
+    const ls2 = document.getElementById("ls2");
+
+    // Get the CURRENT element every time.
+    if (!ls2) {
+      return;
+    }
+
     try {
-      if (!!buttonRef2 === true && !!buttonRef2.current === true)
-        buttonRef2.current.click();
+      ls2.scrollBy({
+        top: 1,
+        left: 0,
+        behavior: "auto",
+      });
     } catch (error) {
       console.log("error=" + error);
     }
-    // Prevent multiple intervals
-    if (props.scrollInterval2.current) return;
 
-    props.scrollInterval2.current = setInterval(() => {
+    // Check the CURRENT scroll values.
+    if (
+      ls2.scrollTop + ls2.clientHeight >=
+      ls2.scrollHeight - 2
+    ) {
       try {
-        if (!!document.getElementById("ls2") === true)
-          document.getElementById("ls2").scrollBy({
-            top: 1, // Scroll 1 pixel each time
-            left: 0,
-            behavior: "auto",
-          });
+        if (buttonRef2 && buttonRef2.current) {
+          buttonRef2.current.click();
+        }
       } catch (error) {
         console.log("error=" + error);
       }
 
-      //console.log(document.getElementById("ls2").scrollTop +
-      //    document.getElementById("ls2").clientHeight)
-      //console.log(document.getElementById("ls2").scrollHeight)
-      if (!!document.getElementById("ls2") === true)
-        if (
-          document.getElementById("ls2").scrollTop +
-            document.getElementById("ls2").clientHeight >=
-          (document.getElementById("ls2").scrollHeight - 2 ||
-            document.getElementById("ls2").scrollHeight + 2)
-        ) {
-          try {
-            if (!!buttonRef2 === true && !!buttonRef2.current === true)
-              buttonRef2.current.click();
-          } catch (error) {
-            console.log("error=" + error);
-          }
-          try {
-            if (!!scrolldownref === true && !!scrolldownref.current === true)
-              //auto scroll in the other direction
-              scrolldownref.current.click();
-          } catch (error) {
-            console.log("error=" + error);
-          }
+      try {
+        if (scrolldownref && scrolldownref.current) {
+          scrolldownref.current.click();
         }
-    }, 20); // Every 20 milliseconds
-  };
+      } catch (error) {
+        console.log("error=" + error);
+      }
+    }
+  }, 20);
+};
 
   const startScrollToBottom2 = () => {
     try {
@@ -1614,57 +1674,113 @@ useEffect(() => {
   }
 }
 
+  // const startScrollingDown2 = () => {
+  //   try {
+  //     if (!!buttonRef2 === true && !!buttonRef2.current === true)
+  //       buttonRef2.current.click();
+  //   } catch (error) {
+  //     console.log("error=" + error);
+  //   }
+  //   // Prevent multiple intervals
+  //   if (props.scrollInterval2.current) return;
+
+  //   props.scrollInterval2.current = setInterval(() => {
+  //     try {
+  //       if (!!document.getElementById("ls2") === true)
+  //         //auto scroll in the other direction
+  //         document.getElementById("ls2").scrollBy({
+  //           top: -1, // Scroll 1 pixel each time
+  //           left: 0,
+  //           behavior: "auto",
+  //         });
+  //     } catch (error) {
+  //       console.log("error=" + error);
+  //     }
+
+  //     // Stop automatically when reaching the top
+  //     if (!!document.getElementById("ls2") === true)
+  //       if (
+  //         document.getElementById("ls2").scrollTop === 0 ||
+  //         document.getElementById("ls2").scrollTop <= 2
+  //       ) {
+  //         try {
+  //           if (!!buttonRef2 === true && !!buttonRef2.current === true)
+  //             buttonRef2.current.click();
+  //         } catch (error) {
+  //           console.log("error=" + error);
+  //         }
+
+  //         try {
+  //           if (!!scrollupref === true)
+  //             if (!!scrollupref === true)
+  //               if (!!scrollupref === true && !!scrollupref.current === true)
+  //                 //auto scroll in the other direction
+  //                 //auto scroll in the other direction
+  //                 scrollupref.current.click();
+  //         } catch (error) {
+  //           console.log("error=" + error);
+  //         }
+
+  //         //stopScrolling();
+  //       }
+  //   }, 20); // Every 20 milliseconds
+  // };
+
   const startScrollingDown2 = () => {
+  console.log("STARTING startScrollingDown2");
+
+  try {
+    if (buttonRef2 && buttonRef2.current) {
+      buttonRef2.current.click();
+    }
+  } catch (error) {
+    console.log("error=" + error);
+  }
+
+  // Remove any old interval before starting a new one.
+  if (props.scrollInterval2.current) {
+    clearInterval(props.scrollInterval2.current);
+    props.scrollInterval2.current = null;
+  }
+
+  props.scrollInterval2.current = setInterval(() => {
+    const ls2 = document.getElementById("ls2");
+
+    // Get the current element each time.
+    if (!ls2) {
+      return;
+    }
+
     try {
-      if (!!buttonRef2 === true && !!buttonRef2.current === true)
-        buttonRef2.current.click();
+      ls2.scrollBy({
+        top: -1,
+        left: 0,
+        behavior: "auto",
+      });
     } catch (error) {
       console.log("error=" + error);
     }
-    // Prevent multiple intervals
-    if (props.scrollInterval2.current) return;
 
-    props.scrollInterval2.current = setInterval(() => {
+    // When we reach the top, switch directions.
+    if (ls2.scrollTop <= 2) {
       try {
-        if (!!document.getElementById("ls2") === true)
-          //auto scroll in the other direction
-          document.getElementById("ls2").scrollBy({
-            top: -1, // Scroll 1 pixel each time
-            left: 0,
-            behavior: "auto",
-          });
+        if (buttonRef2 && buttonRef2.current) {
+          buttonRef2.current.click();
+        }
       } catch (error) {
         console.log("error=" + error);
       }
 
-      // Stop automatically when reaching the top
-      if (!!document.getElementById("ls2") === true)
-        if (
-          document.getElementById("ls2").scrollTop === 0 ||
-          document.getElementById("ls2").scrollTop <= 2
-        ) {
-          try {
-            if (!!buttonRef2 === true && !!buttonRef2.current === true)
-              buttonRef2.current.click();
-          } catch (error) {
-            console.log("error=" + error);
-          }
-
-          try {
-            if (!!scrollupref === true)
-              if (!!scrollupref === true)
-                if (!!scrollupref === true && !!scrollupref.current === true)
-                  //auto scroll in the other direction
-                  //auto scroll in the other direction
-                  scrollupref.current.click();
-          } catch (error) {
-            console.log("error=" + error);
-          }
-
-          //stopScrolling();
+      try {
+        if (scrollupref && scrollupref.current) {
+          scrollupref.current.click();
         }
-    }, 20); // Every 20 milliseconds
-  };
+      } catch (error) {
+        console.log("error=" + error);
+      }
+    }
+  }, 20);
+};
 
   const startScrollToTop2 = () => {
     try {

@@ -438,14 +438,19 @@ https://www.youtube.com/feed/history
     //console.log("bookmark ids="+localStorage.getItem('deleteData'))
     let result = confirm("Are you sure you want to remove the link?");
     if (result) {
+      alert("start remove")
       //props.removeLink({ id: event.target.value });
+      console.log("handleCheckboxDelete(), about to call props.startRemoveLink")
       props.startRemoveLink({ id: event.target.value });
+      console.log("handleCheckboxDelete(), removed from props.startRemoveLink")
       const thetype = typeof props.sessionRemoveLink;
-      console.log("aaa thetype=" + thetype);
+      console.log("handleCheckboxDelete(), thetype=" + thetype);
       if (thetype === "function") {
+        console.log("handleCheckboxDelete(), thetype===function, thetype="+ thetype);
         props.sessionRemoveLink(props.id);
       }
 
+      console.log("handleCheckboxDelete(), about to call setShowLink()")
       setShowLink(false);
       //alert("Link removed.");
       //  const x = confirm("Do you want to refresh the menu?");
@@ -1668,33 +1673,33 @@ data-value={props.id}
       // const batchDeleteButton = document.getElementById("batchdelete");
       // const deleteAllButton = document.getElementById("deleteall");
 
-      const ids = [
-  "upid",
-  "dnid",
-  "stopid",
-  "batchdelete",
-  "deleteall",
-];
+//       const ids = [
+//   "upid",
+//   "dnid",
+//   "stopid",
+//   "batchdelete",
+//   "deleteall",
+// ];
 
-ids.forEach((id) => {
-  const elements = document.querySelectorAll("#" + id);
+// ids.forEach((id) => {
+//   const elements = document.querySelectorAll("#" + id);
 
-  console.log(id, "count =", elements.length);
+//   console.log(id, "count =", elements.length);
 
-  elements.forEach((el, index) => {
-    el.style.display = "none";
+//   elements.forEach((el, index) => {
+//     el.style.display = "none";
 
-    console.log(
-      id,
-      "element",
-      index,
-      "style.display =",
-      el.style.display,
-      "computed =",
-      window.getComputedStyle(el).display
-    );
-  });
-});
+//     console.log(
+//       id,
+//       "element",
+//       index,
+//       "style.display =",
+//       el.style.display,
+//       "computed =",
+//       window.getComputedStyle(el).display
+//     );
+//   });
+// });
 
 
 
@@ -1742,22 +1747,22 @@ if (ls2) {
 
       }, 500);
     } else {
-      
-const ids = [
-  "upid",
-  "dnid",
-  "stopid",
-  "batchdelete",
-  "deleteall",
-];
 
-ids.forEach((id) => {
-  const elements = document.querySelectorAll("#" + id);
+// const ids = [
+//   "upid",
+//   "dnid",
+//   "stopid",
+//   "batchdelete",
+//   "deleteall",
+// ];
 
-  elements.forEach((el) => {
-    el.style.display = "";
-  });
-});
+// ids.forEach((id) => {
+//   const elements = document.querySelectorAll("#" + id);
+
+//   elements.forEach((el) => {
+//     el.style.display = "";
+//   });
+// });
 
       // console.log("Play video in place, about to set display to none");
       // window.document.getElementById("belowbuttonsid2").style.display = "none";

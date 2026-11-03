@@ -17,6 +17,7 @@ export const LinkList3 = React.forwardRef((props, ref) => {
 
     startAutoScroll: (v) => {
         if (props.linksCount <= 20) {
+        //if (props.linksCount <= 1) {
     console.log("No links. Auto-scroll not started.");
     return;
   }

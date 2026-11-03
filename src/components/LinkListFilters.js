@@ -2,12 +2,10 @@ const DISPLAY_THIS_MANY_LINKS = 100;
 import Constants from "./Constants";
 import React, { useState, useRef, useEffect } from "react";
 import OnlineStatus from "./OnlineStatus";
-import InfiniteScrollNewLinksShowPublicOrPrivate from "./InfiniteScrollNewLinksShowPublicOrPrivate"
+import InfiniteScrollNewLinksShowPublicOrPrivate from "./InfiniteScrollNewLinksShowPublicOrPrivate";
 import ErrorBoundry from "./ErrorBoundry";
 import { useSelector } from "react-redux";
-import {
-  toast, ToastContainer
-} from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -19,7 +17,7 @@ import { LinkList3 } from "./LinkList3.js";
 import honoring from "../assets/honoring/christmas-tree.png";
 //import honoring from "../assets/honoring/CurtisStone.png";
 //import setFrommenu from "../actions/frommenu";
-import {startSetFollowing, startSetFollower} from "../actions/following"
+import { startSetFollowing, startSetFollower } from "../actions/following";
 //import KittiesButton from "./KittiesButton.js";
 
 import CopyButton2 from "./CopyButton2";
@@ -63,7 +61,6 @@ import UsersAndFollowingContainer from "./UsersAndFollowingContainer";
 
 import FollowersContainer from "./FollowersContainer";
 import FollowingContainer from "./FollowingContainer";
-
 
 import {
   setTextFilter,
@@ -136,14 +133,15 @@ function ExpandableArray(props) {
   const [resultArray3, setResultArray3] = useState([]);
   const [usersandfollowing, setUsersandfollowing] = useState(true);
   const [usersandfollowers, setUsersandfollowers] = useState(true);
-  const [allLinksVisibility, setAllLinksVisibility] = useState("")
+  const [allLinksVisibility, setAllLinksVisibility] = useState("");
   //const [linkTextRefresh, setLinkTextRefresh] = useState(0);
   const [descriptionRefresh, setDescriptionRefresh] = useState(0);
   const [linksCount, setLinksCount] = useState(0);
   const [followingLoaded, setFollowingLoaded] = useState(false);
   const [followerLoaded, setFollowerLoaded] = useState(false);
-
-
+  const [selectedLinkIds, setSelectedLinkIds] = useState([]);
+  const [links, setLinks] = useState([]);
+  const [linksRefresh, setLinksRefresh] = useState(0);
 
   console.log("HOME RENDER", new Date().toLocaleTimeString());
 
@@ -197,7 +195,7 @@ function ExpandableArray(props) {
   const dn = params.get("dn"); //this value is sometimes John
   //const bookmarks = params.get("bookmarks");
 
-  console.log("props.bookmarks="+props.bookmarks)
+  console.log("props.bookmarks=" + props.bookmarks);
 
   console.log("LinkListFilters.js, dn2=" + dn2);
   console.log("LinkListFilters.js, dn=" + dn);
@@ -212,8 +210,8 @@ function ExpandableArray(props) {
   //console.log("linkid="+linkid)
   const childRef = useRef(null);
   const z10 = params.get("z10");
-  const z12 = params.get("z12")
-  const demonstration = params.get("demonstration")
+  const z12 = params.get("z12");
+  const demonstration = params.get("demonstration");
   const isFollower = decodeURIComponent(params.get("isFollower"));
   console.log("ExpanableArray, isFollower = " + isFollower);
   const isFollowing = decodeURIComponent(params.get("isFollowing"));
@@ -234,87 +232,182 @@ function ExpandableArray(props) {
 
   //   const isMountedRef = useRef(true);
 
+  ///////////////////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////////////////
 
+  const handleSelectLink = (id, checked) => {
+    //alert("handleSelectedLink, id="+id)
+    //alert("handleSelectedLink, checked="+checked)
+    if (checked) {
+      setSelectedLinkIds((oldIds) => [...oldIds, id]);
+    } else {
+      setSelectedLinkIds((oldIds) => oldIds.filter((linkId) => linkId !== id));
+    }
+  };
 
+  const clearLinksCache = () => {
+    Object.keys(sessionStorage).forEach((key) => {
+      if (key.startsWith("urilinks|")) {
+        sessionStorage.removeItem(key);
+      }
+    });
+  };
 
-const filtersInstanceId = React.useRef(
-  Math.random().toString(36).substring(2, 8)
-);
+  const deleteSelectedLinks = () => {
+    console.log(
+      "deleteSelectedLinks(), selectedLinkIds=",
+      JSON.stringify(selectedLinkIds),
+    );
 
-console.log(
-  "LinkListFilters INSTANCE =",
-  filtersInstanceId.current
-);
+    console.log("deleteSelectedLinks(), props.auth.uid=" + props.uid);
 
-React.useEffect(() => {
-  console.log(
-    "MOUNT LinkListFilters INSTANCE =",
-    filtersInstanceId.current
+    if (selectedLinkIds.length > 0) {
+      const v = confirm("Is it ok to delete the selected links?");
+
+      if (v === true) {
+        if (!props.uid) {
+          return;
+        }
+
+        const updates = {};
+
+        selectedLinkIds.forEach((id) => {
+          updates[id] = null;
+        });
+
+        firebase
+          .database()
+          .ref("users/" + props.uid + "/links")
+          .update(updates)
+          .then(() => {
+            console.log("deleted selected links from Firebase");
+
+            //sessionStorage.clear();
+            clearLinksCache();
+
+            setSelectedLinkIds([]);
+
+            setLinks((oldLinks) =>
+              oldLinks.filter((item) => !selectedLinkIds.includes(item.id)),
+            );
+
+            
+            setLinksRefresh((oldValue) => oldValue + 1);
+
+            alert("deleted the selected links");
+          })
+          .catch((error) => {
+            console.log("Error deleting selected links:", error);
+
+            alert("did not delete the selected links");
+          });
+      }
+    } else {
+      alert("no links selected to delete");
+    }
+  };
+
+  const deleteAllLinks = () => {
+    //const user = firebase.auth().currentUser;
+
+    if (!props.uid) {
+      return;
+    }
+
+    const v = confirm("Is it ok to delete all links?");
+
+    if (v === true) {
+      firebase
+        .database()
+        .ref("users/" + props.uid + "/links")
+        .remove()
+        .then(() => {
+          //sessionStorage.clear()
+          clearLinksCache();
+          setSelectedLinkIds([]);
+          
+          setLinksRefresh((oldValue) => oldValue + 1);
+          
+          alert("All links deleted.");
+        })
+        .catch((error) => {
+          console.log("Error deleting links:", error);
+        });
+    }
+  };
+
+  ///////////////////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////////////////
+
+  const filtersInstanceId = React.useRef(
+    Math.random().toString(36).substring(2, 8),
   );
 
-  return () => {
-    console.log(
-      "UNMOUNT LinkListFilters INSTANCE =",
-      filtersInstanceId.current
+  console.log("LinkListFilters INSTANCE =", filtersInstanceId.current);
+
+  React.useEffect(() => {
+    console.log("MOUNT LinkListFilters INSTANCE =", filtersInstanceId.current);
+
+    return () => {
+      console.log(
+        "UNMOUNT LinkListFilters INSTANCE =",
+        filtersInstanceId.current,
+      );
+    };
+  }, []);
+
+  const decrypt = (text, key) => {
+    if (text === null) return null;
+    return String.fromCharCode(
+      ...text
+        .match(/.{1,2}/g)
+        .map(
+          (e, i) => parseInt(e, 16) ^ (key.charCodeAt(i % key.length) % 255),
+        ),
     );
   };
-}, []);
 
+  useEffect(() => {
+    if (!props.uid) {
+      setFollowingLoaded(false);
+      return;
+    }
 
-
-
-
-
-
-  const decrypt=(text, key)=>{
-    if(text === null) return null
-    return String.fromCharCode(...text.match(/.{1,2}/g)
-        .map((e, i) => 
-            parseInt(e, 16) ^ key.charCodeAt(i % key.length) % 255)
-    );
-}
-
-useEffect(() => {
-  if (!props.uid) {
     setFollowingLoaded(false);
-    return;
-  }
 
-  setFollowingLoaded(false);
+    props.startSetFollowing(props.uid).then(() => {
+      console.log("FOLLOWING IS COMPLETELY LOADED");
+      setFollowingLoaded(true);
+    });
+  }, [props.uid]);
 
-  props.startSetFollowing(props.uid).then(() => {
-    console.log("FOLLOWING IS COMPLETELY LOADED");
-    setFollowingLoaded(true);
-  });
-}, [props.uid]);
+  useEffect(() => {
+    if (!props.uid) {
+      setFollowerLoaded(false);
+      return;
+    }
 
-useEffect(() => {
-  if (!props.uid) {
     setFollowerLoaded(false);
-    return;
-  }
 
-  setFollowerLoaded(false);
+    props.startSetFollower(props.uid).then(() => {
+      console.log("FOLLOWER IS COMPLETELY LOADED");
+      setFollowerLoaded(true);
+    });
+  }, [props.uid]);
 
-  props.startSetFollower(props.uid).then(() => {
-    console.log("FOLLOWER IS COMPLETELY LOADED");
-    setFollowerLoaded(true);
-  });
-}, [props.uid]);
+  useEffect(() => {
+    if (props.bookmarks === "refreshed") {
+      console.log("reload link text search");
 
-useEffect(() => {
-  if (props.bookmarks === "refreshed") {
-    console.log("reload link text search");
-
-    // call the function that reloads your link text search here
-    //search()
-     onSortChange({
-          target: {
-            value: "description",
-          },
-        });
-  }
-}, [props.bookmarks]);
+      // call the function that reloads your link text search here
+      //search()
+      onSortChange({
+        target: {
+          value: "description",
+        },
+      });
+    }
+  }, [props.bookmarks]);
 
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
@@ -572,7 +665,9 @@ useEffect(() => {
     console.log("setIt2, 3333333333333333333333333 product=" + product);
 
     window.document.getElementById("termid").value = product;
-    console.log("LinkListilters.js, in setit2(), setSearchText, product="+product)
+    console.log(
+      "LinkListilters.js, in setit2(), setSearchText, product=" + product,
+    );
     setSearchText(product);
     setMode("productsalpha");
     setDosearch(1);
@@ -612,10 +707,10 @@ useEffect(() => {
       }
 
     if (id !== null && id !== undefined) {
-      if (thelink !== null && thelink !== undefined)
-      
-        setSearchText(product);
-       console.log("LinkListilters.js, useEffect call, setSearchText, product="+product)
+      if (thelink !== null && thelink !== undefined) setSearchText(product);
+      console.log(
+        "LinkListilters.js, useEffect call, setSearchText, product=" + product,
+      );
       setit2(thelink, product);
     }
 
@@ -1101,10 +1196,7 @@ useEffect(() => {
 
     console.log("selectElement.value=" + selectElement.value);
 
-    console.log(
-    "search selectedValue=",
-    selectedValue
-  );
+    console.log("search selectedValue=", selectedValue);
 
     selectElement.value = "hashtag";
 
@@ -1125,48 +1217,33 @@ useEffect(() => {
     window.localStorage.setItem("sortBy", selectedValue);
 
     console.log(
-  "termid raw value=",
-  window.document.getElementById("termid").value
-);
+      "termid raw value=",
+      window.document.getElementById("termid").value,
+    );
 
     let term = window.document.getElementById("termid").value.trim();
 
-    console.log(
-    "search term before setSearchText=",
-    term
-  );
+    console.log("search term before setSearchText=", term);
 
-  if (selectedValue === "productsalpha") {
-  console.log(
-    "1 productsalpha search term=",
-    term
-  );
+    if (selectedValue === "productsalpha") {
+      console.log("1 productsalpha search term=", term);
 
-  window.localStorage.setItem(
-    "sortBy",
-    "productsalpha"
-  );
+      window.localStorage.setItem("sortBy", "productsalpha");
 
-  window.localStorage.setItem(
-    "termid",
-    term
-  );
+      window.localStorage.setItem("termid", term);
 
-  setSearchText(term);
-  setMode("productsalpha");
-  setDosearch(1);
+      setSearchText(term);
+      setMode("productsalpha");
+      setDosearch(1);
 
-  return;
-}
+      return;
+    }
 
     window.localStorage.setItem("termid", term);
 
     if (props.isinfinitescroll.isinfinitescroll === true) {
       //alert("setSearchText 1")
-        console.log(
-      "ABOUT TO setSearchText=",
-      term
-    );
+      console.log("ABOUT TO setSearchText=", term);
       setSearchText(term);
 
       setMode(selectedValue);
@@ -1201,18 +1278,18 @@ useEffect(() => {
   };
 
   // useEffect(() => {
-    
+
   //   search();
   // }, [sortBy]);
 
   useEffect(() => {
-  if (firstSortRender.current) {
-    firstSortRender.current = false;
-    return;
-  }
+    if (firstSortRender.current) {
+      firstSortRender.current = false;
+      return;
+    }
 
-  search();
-}, [sortBy]);
+    search();
+  }, [sortBy]);
 
   const changeSortBy = (sv, x) => {
     //alert("sv="+"hashtag")
@@ -1249,11 +1326,8 @@ useEffect(() => {
   const onSortChange = (e) => {
     props.stopScrolling2();
     console.log("onSortChange called");
-  console.log("event =", e);
-  console.log(
-    "event target value =",
-    e && e.target && e.target.value
-  );
+    console.log("event =", e);
+    console.log("event target value =", e && e.target && e.target.value);
     //handleCancelScroll();
     if (
       e.target.value === "none" ||
@@ -1269,20 +1343,18 @@ useEffect(() => {
 
     console.log("onSortChange, term=" + val);
 
-    if(e.target.value==="showpublic") {
-       console.log("1 onSortChange, e.target.value=" + e.target.value);
-       setAllLinksVisibility("showpublic")
-       
-    } else  if (e.target.value==="showprivate") {
-       console.log("1 onSortChange, e.target.value=" + e.target.value);
-       setAllLinksVisibility("showprivate")
+    if (e.target.value === "showpublic") {
+      console.log("1 onSortChange, e.target.value=" + e.target.value);
+      setAllLinksVisibility("showpublic");
+    } else if (e.target.value === "showprivate") {
+      console.log("1 onSortChange, e.target.value=" + e.target.value);
+      setAllLinksVisibility("showprivate");
     } else {
-      setAllLinksVisibility("")
+      setAllLinksVisibility("");
     }
 
-
     if (e.target.value === "description") {
-      console.log("doing description code")
+      console.log("doing description code");
       window.localStorage.setItem("sortBy", "description");
       props.setTextFilter(val);
       if (myRef.current) myRef.current.focus();
@@ -1398,17 +1470,15 @@ useEffect(() => {
       setSortBy("productsalpha");
       //alert("after call to props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
-    }  else if (e.target.value === "showpublic") {
-    
-    window.localStorage.setItem("sortBy", "showpublic");
+    } else if (e.target.value === "showpublic") {
+      window.localStorage.setItem("sortBy", "showpublic");
       props.setTextFilter(val);
       if (myRef.current) myRef.current.focus();
       // setSortBy("description");
       props.sortByPublicLinks();
       setSortBy("showpublic"); //this line causes a rerender so LinkList.js run again producing the filtered links for display using selector(...)
     } else if (e.target.value === "showprivate") {
-    
-    window.localStorage.setItem("sortBy", "showprivate");
+      window.localStorage.setItem("sortBy", "showprivate");
       props.setTextFilter(val);
       if (myRef.current) myRef.current.focus();
       // setSortBy("description");
@@ -1538,64 +1608,61 @@ useEffect(() => {
   // };
 
   const startScrollingUp2 = () => {
-  console.log("STARTING startScrollingUp2");
-
-  try {
-    if (buttonRef2 && buttonRef2.current) {
-      buttonRef2.current.click();
-    }
-  } catch (error) {
-    console.log("error=" + error);
-  }
-
-  // IMPORTANT:
-  // Remove any old interval before starting a new one.
-  if (props.scrollInterval2.current) {
-    clearInterval(props.scrollInterval2.current);
-    props.scrollInterval2.current = null;
-  }
-
-  props.scrollInterval2.current = setInterval(() => {
-    const ls2 = document.getElementById("ls2");
-
-    // Get the CURRENT element every time.
-    if (!ls2) {
-      return;
-    }
+    console.log("STARTING startScrollingUp2");
 
     try {
-      ls2.scrollBy({
-        top: 1,
-        left: 0,
-        behavior: "auto",
-      });
+      if (buttonRef2 && buttonRef2.current) {
+        buttonRef2.current.click();
+      }
     } catch (error) {
       console.log("error=" + error);
     }
 
-    // Check the CURRENT scroll values.
-    if (
-      ls2.scrollTop + ls2.clientHeight >=
-      ls2.scrollHeight - 2
-    ) {
+    // IMPORTANT:
+    // Remove any old interval before starting a new one.
+    if (props.scrollInterval2.current) {
+      clearInterval(props.scrollInterval2.current);
+      props.scrollInterval2.current = null;
+    }
+
+    props.scrollInterval2.current = setInterval(() => {
+      const ls2 = document.getElementById("ls2");
+
+      // Get the CURRENT element every time.
+      if (!ls2) {
+        return;
+      }
+
       try {
-        if (buttonRef2 && buttonRef2.current) {
-          buttonRef2.current.click();
-        }
+        ls2.scrollBy({
+          top: 1,
+          left: 0,
+          behavior: "auto",
+        });
       } catch (error) {
         console.log("error=" + error);
       }
 
-      try {
-        if (scrolldownref && scrolldownref.current) {
-          scrolldownref.current.click();
+      // Check the CURRENT scroll values.
+      if (ls2.scrollTop + ls2.clientHeight >= ls2.scrollHeight - 2) {
+        try {
+          if (buttonRef2 && buttonRef2.current) {
+            buttonRef2.current.click();
+          }
+        } catch (error) {
+          console.log("error=" + error);
         }
-      } catch (error) {
-        console.log("error=" + error);
+
+        try {
+          if (scrolldownref && scrolldownref.current) {
+            scrolldownref.current.click();
+          }
+        } catch (error) {
+          console.log("error=" + error);
+        }
       }
-    }
-  }, 20);
-};
+    }, 20);
+  };
 
   const startScrollToBottom2 = () => {
     try {
@@ -1653,26 +1720,22 @@ useEffect(() => {
   // };
 
   const stopScrolling3 = () => {
-
-  console.log("STOPPING CENTER AUTO SCROLL");
-
-   console.log(
-    "STOPPING CENTER SCROLL. interval before=",
-    props.scrollInterval2.current
-  );
-
-  clearInterval(props.scrollInterval2.current);
-  props.scrollInterval2.current = null;
+    console.log("STOPPING CENTER AUTO SCROLL");
 
     console.log(
-    "interval after=",
-    props.scrollInterval2.current
-  );
+      "STOPPING CENTER SCROLL. interval before=",
+      props.scrollInterval2.current,
+    );
 
-   if (childRef.current) {
-    childRef.current.cancelScroll();
-  }
-}
+    clearInterval(props.scrollInterval2.current);
+    props.scrollInterval2.current = null;
+
+    console.log("interval after=", props.scrollInterval2.current);
+
+    if (childRef.current) {
+      childRef.current.cancelScroll();
+    }
+  };
 
   // const startScrollingDown2 = () => {
   //   try {
@@ -1727,60 +1790,60 @@ useEffect(() => {
   // };
 
   const startScrollingDown2 = () => {
-  console.log("STARTING startScrollingDown2");
-
-  try {
-    if (buttonRef2 && buttonRef2.current) {
-      buttonRef2.current.click();
-    }
-  } catch (error) {
-    console.log("error=" + error);
-  }
-
-  // Remove any old interval before starting a new one.
-  if (props.scrollInterval2.current) {
-    clearInterval(props.scrollInterval2.current);
-    props.scrollInterval2.current = null;
-  }
-
-  props.scrollInterval2.current = setInterval(() => {
-    const ls2 = document.getElementById("ls2");
-
-    // Get the current element each time.
-    if (!ls2) {
-      return;
-    }
+    console.log("STARTING startScrollingDown2");
 
     try {
-      ls2.scrollBy({
-        top: -1,
-        left: 0,
-        behavior: "auto",
-      });
+      if (buttonRef2 && buttonRef2.current) {
+        buttonRef2.current.click();
+      }
     } catch (error) {
       console.log("error=" + error);
     }
 
-    // When we reach the top, switch directions.
-    if (ls2.scrollTop <= 2) {
+    // Remove any old interval before starting a new one.
+    if (props.scrollInterval2.current) {
+      clearInterval(props.scrollInterval2.current);
+      props.scrollInterval2.current = null;
+    }
+
+    props.scrollInterval2.current = setInterval(() => {
+      const ls2 = document.getElementById("ls2");
+
+      // Get the current element each time.
+      if (!ls2) {
+        return;
+      }
+
       try {
-        if (buttonRef2 && buttonRef2.current) {
-          buttonRef2.current.click();
-        }
+        ls2.scrollBy({
+          top: -1,
+          left: 0,
+          behavior: "auto",
+        });
       } catch (error) {
         console.log("error=" + error);
       }
 
-      try {
-        if (scrollupref && scrollupref.current) {
-          scrollupref.current.click();
+      // When we reach the top, switch directions.
+      if (ls2.scrollTop <= 2) {
+        try {
+          if (buttonRef2 && buttonRef2.current) {
+            buttonRef2.current.click();
+          }
+        } catch (error) {
+          console.log("error=" + error);
         }
-      } catch (error) {
-        console.log("error=" + error);
+
+        try {
+          if (scrollupref && scrollupref.current) {
+            scrollupref.current.click();
+          }
+        } catch (error) {
+          console.log("error=" + error);
+        }
       }
-    }
-  }, 20);
-};
+    }, 20);
+  };
 
   const startScrollToTop2 = () => {
     try {
@@ -1980,7 +2043,17 @@ useEffect(() => {
       .join("");
   }
 
-  const otherPage = (id2, id, dn2, dn, purl, email, theemail2, isMatch, demonstration) => {
+  const otherPage = (
+    id2,
+    id,
+    dn2,
+    dn,
+    purl,
+    email,
+    theemail2,
+    isMatch,
+    demonstration,
+  ) => {
     console.log("LinkListFilters.js, otherPage(), id2=" + id2);
     console.log("LinkListFilters.js, otherPage(), id=" + id);
     console.log("LinkListFilters.js, otherPage(), dn2=" + dn2);
@@ -2010,7 +2083,7 @@ useEffect(() => {
       "&isFollowing=" +
       isMatch.trim() +
       "&isFollower=" +
-      ""+
+      "" +
       "&demonstration=" +
       demonstration;
 
@@ -2094,11 +2167,11 @@ useEffect(() => {
 
       const array3 = itemId.split(";");
 
-      const v1 = encrypt(array3[5], "125434")
-      const v2 = encrypt(array3[6], "125434")
+      const v1 = encrypt(array3[5], "125434");
+      const v2 = encrypt(array3[6], "125434");
 
-      console.log("handleClick2(), v1="+v1)
-      console.log("handleClick2(), v1="+v1)
+      console.log("handleClick2(), v1=" + v1);
+      console.log("handleClick2(), v1=" + v1);
       setitbacktono(array3[0], array3[1])
         .then(() => {
           if (array3[0]) {
@@ -2111,8 +2184,7 @@ useEffect(() => {
               v1,
               v2,
               array3[7],
-              "no"
-              
+              "no",
             );
           }
         })
@@ -2131,17 +2203,17 @@ useEffect(() => {
 
       const array3 = itemId.split(";");
 
-      console.log("handleClick2(), array3="+JSON.stringify(array3))
+      console.log("handleClick2(), array3=" + JSON.stringify(array3));
       //alert("stopit")
       console.log("handleClick, itemId=" + itemId);
       // array3[5],
       //     array3[6],
 
-       const v1 = encrypt(array3[5], "125434")
-      const v2 = encrypt(array3[6], "125434")
+      const v1 = encrypt(array3[5], "125434");
+      const v2 = encrypt(array3[6], "125434");
 
-      console.log("handleClick2(), v1="+v1)
-      console.log("handleClick2(), v1="+v1)
+      console.log("handleClick2(), v1=" + v1);
+      console.log("handleClick2(), v1=" + v1);
 
       if (array3[0]) {
         otherPage(
@@ -2153,15 +2225,25 @@ useEffect(() => {
           v1,
           v2,
           array3[7],
-          array3[8]
-          
+          array3[8],
         );
       }
     } else {
     }
   };
 
-  const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch, isMatch2, demonstration) => {
+  const otherPagea = (
+    id2,
+    id,
+    dn2,
+    dn,
+    purl,
+    email,
+    theemail2,
+    isMatch,
+    isMatch2,
+    demonstration,
+  ) => {
     console.log("otherPagea(), id2=" + id2);
     console.log("otherPagea(), id=" + id);
     console.log("otherPagea(), dn2=" + dn2);
@@ -2193,7 +2275,7 @@ useEffect(() => {
       "&isFollowing=" +
       isMatch2 +
       "&demonstration=" +
-      demonstration
+      demonstration;
 
     // window.open(
     //   //"https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
@@ -2319,7 +2401,7 @@ useEffect(() => {
           encrypt(array3[6], "125434"),
           array3[7],
           array3[8],
-          array3[9]
+          array3[9],
         );
       }
     } else {
@@ -2334,39 +2416,32 @@ useEffect(() => {
       searchText,
   );
 
-  console.log("LinkListFilters.js, before return statement, allLinksVisibility="+allLinksVisibility)
+  console.log(
+    "LinkListFilters.js, before return statement, allLinksVisibility=" +
+      allLinksVisibility,
+  );
 
-
-
-
-console.log(
-  "LinkListFilters ABOUT TO RENDER UsersAndFollowingContainer",
-  "filters instance =",
-  filtersInstanceId.current
-);
-
-
-
+  console.log(
+    "LinkListFilters ABOUT TO RENDER UsersAndFollowingContainer",
+    "filters instance =",
+    filtersInstanceId.current,
+  );
 
   return (
     <div className="flexrowh-">
+      <div>
+        <FollowingOnlineToasts
+          uid={firebase.auth().currentUser && firebase.auth().currentUser.uid}
+        />
 
-    <div>
-  <FollowingOnlineToasts
-    uid={
-      firebase.auth().currentUser &&
-      firebase.auth().currentUser.uid
-    }
-  />
+        <ToastContainer
+          position={toast.POSITION.BOTTOM_RIGHT}
+          autoClose={32000}
+          newestOnTop={true}
+        />
+      </div>
 
-  <ToastContainer
-    position={toast.POSITION.BOTTOM_RIGHT}
-    autoClose={32000}
-    newestOnTop={true}
-  />
-</div>
-
-{/* <button
+      {/* <button
   onClick={() => {
     toast("Toast test");
   }}
@@ -2519,51 +2594,57 @@ console.log(
                     </div>
                   </div>
                 ) : (
-
-<div>
-  {rt !== "readonly" && 
-  <span>
-  <button className="ib button-2" onClick={()=>{
-    setUsersandfollowing(false)
-  }}
-  title="Show only users that I am following."
-  >only following</button>
-   <button className="ib button-2 margin-left-11 margin-bottom-1" onClick={()=>{
-    setUsersandfollowing(true)
-  }}
-  title="Show Users and Following Users together."
-  >both</button>
-  </span>
-  }
-                  {usersandfollowing ? <div>
-                    {rt !== "readonly" && followingLoaded && (
-                     
-                      <UsersAndFollowingContainer
-                        following={props.following}
-                        rt={rt}
-                        theuser={theuser}
-                        uid={props.uid}
-                        handleClick2={handleClick2}
-                        readonly={props.signup}
-                      />
-                     
+                  <div>
+                    {rt !== "readonly" && (
+                      <span>
+                        <button
+                          className="ib button-2"
+                          onClick={() => {
+                            setUsersandfollowing(false);
+                          }}
+                          title="Show only users that I am following."
+                        >
+                          only following
+                        </button>
+                        <button
+                          className="ib button-2 margin-left-11 margin-bottom-1"
+                          onClick={() => {
+                            setUsersandfollowing(true);
+                          }}
+                          title="Show Users and Following Users together."
+                        >
+                          both
+                        </button>
+                      </span>
+                    )}
+                    {usersandfollowing ? (
+                      <div>
+                        {rt !== "readonly" && followingLoaded && (
+                          <UsersAndFollowingContainer
+                            following={props.following}
+                            rt={rt}
+                            theuser={theuser}
+                            uid={props.uid}
+                            handleClick2={handleClick2}
+                            readonly={props.signup}
+                          />
+                        )}
+                      </div>
+                    ) : (
+                      <div>
+                        {rt !== "readonly" && followingLoaded && (
+                          <FollowingContainer
+                            following={props.following}
+                            rt={rt}
+                            theuser={theuser}
+                            uid={props.uid}
+                            handleClick2={handleClick2}
+                            readonly={props.signup}
+                          />
+                        )}
+                      </div>
                     )}
                   </div>
-:
-                    <div>
-                    {rt !== "readonly" && followingLoaded &&  (
-                      <FollowingContainer
-                        following={props.following}
-                        rt={rt}
-                        theuser={theuser}
-                        uid={props.uid}
-                        handleClick2={handleClick2}
-                        readonly={props.signup}
-                      />
-                    )}
-                  </div>}
-</div>
-
                 )}
               </div>
             )}
@@ -2692,7 +2773,7 @@ console.log(
                         onClick={handleClick}
                       >
                         <span className="ib color-white-1">
-                          Email your link
+                          Email your sharable link
                         </span>
                       </a>
                       <button
@@ -2981,30 +3062,53 @@ console.log(
                   )}
 
                   {props.signup === true && rt !== "readonly" ? (
-                    <div
-                      id="before-before-link-summary-id"
-                      className="margin-bottom-1"
-                    >
-                      <a
-                        target="_blank"
-                        id="adlinkid"
-                        href="#"
-                        title="Email your sharable link to share with others. Email recipient sees readonly page"
-                        className={`ib flexrowzc2 cursor-pointer width400 button-2 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
-                        onClick={handleClick}
+                    <div className="flexrowz">
+                      <div
+                        id="before-before-link-summary-id"
+                        className="margin-bottom-1"
                       >
-                        <span className="ib color-white-1">
-                          Email your link
-                        </span>
-                      </a>
-                      {/* <button
+                        <a
+                          target="_blank"
+                          id="adlinkid"
+                          href="#"
+                          title="Email your sharable link to share with others. Email recipient sees readonly page"
+                          className={`ib flexrowzc2 cursor-pointer width400 button-2 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
+                          onClick={handleClick}
+                        >
+                          <span className="ib color-white-1">
+                            Email your sharable link
+                          </span>
+                        </a>
+                        {/* <button
                         className={`ib ${isMobile() === false ? "margin-left-11" : "margin-top-1"} button-2 bg-shade-1`}
                         onClick={addALink}
                         title="Add a link to your page."
                       >
                         Add A link
                       </button> */}
-                      <AddALinkButton />
+                        {/* <div className="flexrowz"> */}
+                        <AddALinkButton />
+                        <div className="margin-top-1">
+                          <button
+                            id="batchdelete"
+                            className="margin-left-11- button-2"
+                            onClick={deleteSelectedLinks}
+                            title="Batch delete selected links"
+                            //disabled={selectedLinkIds.length === 0}
+                          >
+                            Batch delete selected links
+                          </button>
+                          <button
+                            id="deleteall"
+                            className="margin-left-11 button-2"
+                            title="Delete all links"
+                            onClick={deleteAllLinks}
+                            //disabled={selectedLinkIds.length === 0}
+                          >
+                            Delete all links
+                          </button>
+                        </div>
+                      </div>
                       {/* {isForm2Open && (
                         <AddLinkPage
                           isForm2Open={isForm2Open}
@@ -3104,7 +3208,7 @@ console.log(
                     <div className="border5-">
                       <input
                         title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
-                        placeholder="search field"
+                        placeholder="search for link/s field"
                         autoFocus
                         id="termid"
                         className={`margin-left-11 width325 searchinput`}
@@ -3123,7 +3227,7 @@ console.log(
                       <button
                         id="buttonid"
                         className={`ib ${isMobile() === true ? "width325" : ""} button-2 color-white-1 cursor-pointer font-weight-bold borderRadius55`}
-                        style={{outline:"none"}}
+                        style={{ outline: "none" }}
                         //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
 
                         //onClick={this.search}
@@ -3141,7 +3245,7 @@ console.log(
                       <button
                         id="buttonid2"
                         className={`${isMobile() === true ? "width325" : ""} button-2 color-white-1 cursor-pointer font-weight-bold borderRadius55`}
-                        style={{ visibility: "hidden", outline:"none" }}
+                        style={{ visibility: "hidden", outline: "none" }}
                         //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
 
                         //onClick={this.search}
@@ -3261,7 +3365,7 @@ console.log(
                       <div className="">
                         <input
                           title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
-                          placeholder="search field"
+                          placeholder="search for link/s field"
                           autoFocus
                           id="termid"
                           className={`margin-left-11 width400 searchinput`}
@@ -3272,11 +3376,11 @@ console.log(
 
                           //onChange={(e) => setSearchTerm(e.target.value)}
                           //onKeyDown={handleKeyPress}
-                           onKeyDown={(e) => {
+                          onKeyDown={(e) => {
                             if (e.key === "Enter") {
                               search();
                             }
-                           }}
+                          }}
                         />
                       </div>
 
@@ -3289,7 +3393,7 @@ console.log(
                             id="buttonid"
                             //className="button-3- button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
                             className={`ib ${isMobile() === true ? "width325" : ""} button-2 color-white-1 cursor-pointer font-weight-bold borderRadius55`}
-                             style={{outline:"none"}}
+                            style={{ outline: "none" }}
                             //onClick={this.search}
                             onClick={() => search()}
                             //title="Searches to find entered term through the previously selected list which will appear in copper color."
@@ -3327,7 +3431,7 @@ console.log(
                       >
                         <optgroup label="Find:">
                           <option value="hashtag" title="search by hash tag">
-                            2Hashtag Search
+                            Hashtag Search
                           </option>
 
                           <option
@@ -3389,38 +3493,37 @@ console.log(
                             Products (Alphabetical Order)
                           </option>
                         </optgroup>
-                         <optgroup label="Show public links or private links">
-                          <option
-                            value="showpublic"
-                            title="show public links"
-                          >
-                           Show public links
+                        <optgroup label="Show public links or private links">
+                          <option value="showpublic" title="show public links">
+                            Show public links
                           </option>
                           <option
                             value="showprivate"
                             title="show private links"
                           >
-                           Show private links
+                            Show private links
                           </option>
                         </optgroup>
                       </select>
                       {z10 !== null && (
                         <div className="flexrowz">
                           {/* {!!isFollower !== true &&  <FollowButton />} */}
-                          {((!!isFollowing === true &&
-                          isFollowing === "is not following")) ? ( //was isFollowing !== "is following" 
+                          {!!isFollowing === true &&
+                          isFollowing === "is not following" ? ( //was isFollowing !== "is following"
                             <div className="flexrowz">
-                              <FollowButton displayName={dn} 
-                              signup = {props.signup}
-                              demonstration = {demonstration}
+                              <FollowButton
+                                displayName={dn}
+                                signup={props.signup}
+                                demonstration={demonstration}
                               />
                             </div>
-                          ) : ((!!isFollowing === true &&
-                            isFollowing === "is following")) ? (
+                          ) : !!isFollowing === true &&
+                            isFollowing === "is following" ? (
                             <div className="flexrowz">
-                              <UnFollowButton displayName={dn} 
-                              signup = {props.signup}
-                              demonstration = {demonstration}
+                              <UnFollowButton
+                                displayName={dn}
+                                signup={props.signup}
+                                demonstration={demonstration}
                               />
                               {/* <ChatButton id2={id2} id={id} name2={dn2} name1={dn} chatsetting={2} /> */}
                               {/* <ChatButton
@@ -3435,27 +3538,27 @@ console.log(
                           ) : null}
 
                           {((!!isFollower === true &&
-                            isFollower === "is follower") || (!!isFollowing === true &&
-                            isFollowing === "is following")) && (
-                              <div className="flexrowtt0">
-                                <span className="ib">
-                                  <ChatButton
-                                    id2={id2}
-                                    id={id}
-                                    //name2={dn2}
-                                    name2={decrypt(z12,"125434").split("@")[0]}
-                                    name1={dn}
-                                    chatsetting={2}
-                                    signup = {props.signup}
-                                    demonstration = {demonstration}
-                                  />
-                                </span>
-                                  <span className="ib">
-                                    <OnlineStatus userId={id} displayName={dn} />
-                                  </span>
-                                
-                              </div>
-                            )}
+                            isFollower === "is follower") ||
+                            (!!isFollowing === true &&
+                              isFollowing === "is following")) && (
+                            <div className="flexrowtt0">
+                              <span className="ib">
+                                <ChatButton
+                                  id2={id2}
+                                  id={id}
+                                  //name2={dn2}
+                                  name2={decrypt(z12, "125434").split("@")[0]}
+                                  name1={dn}
+                                  chatsetting={2}
+                                  signup={props.signup}
+                                  demonstration={demonstration}
+                                />
+                              </span>
+                              <span className="ib">
+                                <OnlineStatus userId={id} displayName={dn} />
+                              </span>
+                            </div>
+                          )}
 
                           {!!isFollower === true &&
                             isFollower === "is a follower of" && (
@@ -3481,13 +3584,10 @@ console.log(
             <div className="scrollable-div2-">
               <div id="ef2" ref={elementRef2} className=""></div>
 
-             
-
               <div
                 id="results1"
                 className={`margin-top-18- ${window.screen.height <= 1050 ? "margin-top-n-gx2" : "margin-top-n-gx-"} scrollable-div2- width825- bordergreen-`}
               >
-               
                 <LinkList3
                   dosearch={dosearch}
                   searchText={searchText}
@@ -3515,15 +3615,11 @@ console.log(
                   descriptionRefresh={descriptionRefresh}
                   linksCount={linksCount}
                   onLinksCountChange={setLinksCount}
+                  selectedLinkIds={selectedLinkIds}
+                  handleSelectLink={handleSelectLink}
+                  linksRefresh={linksRefresh}
                 />
               </div>
-
-
-
-
-
-
-
             </div>
           </div>
 
@@ -3655,52 +3751,58 @@ console.log(
                 <div>
                   {/* <FollowersContainer follower={props.follower} rt={rt} theuser={theuser} uid={props.uid} handleClick2={handleClick2} signup={props.signup} /> */}
                   {rt !== "readonly" ? (
-
-<div>
-  <button className="ib button-2" onClick={()=>{
-    setUsersandfollowers(false)
-  }}
-  title="Show only users that are followers of me."
-  >only followers</button>
-   <button className="ib button-2 margin-left-11 margin-bottom-1" onClick={()=>{
-    setUsersandfollowers(true)
-  }}
-  title="Show Users and Followers Users together."
-  >both</button>
-                  {usersandfollowers ? <div>
-                    {rt !== "readonly" && followerLoaded && (
-                      <UsersAndFollowersContainer
-                        following={props.following}
-                        follower={props.follower}
-                        rt={rt}
-                        theuser={theuser}
-                        uid={props.uid}
-                        handleClick3={handleClick3}
-                        signup={props.signup}
-                      />
-                    )}
-                  </div>
-:
                     <div>
-                    {rt !== "readonly" && followerLoaded && (
-                      <FollowersContainer
-                        follower={props.follower}
-                        rt={rt}
-                        theuser={theuser}
-                        uid={props.uid}
-                        handleClick3={handleClick3}
-                        readonly={props.signup}
-                      />
-                    )}
-                  </div>}
-</div>
-        
-
+                      <button
+                        className="ib button-2"
+                        onClick={() => {
+                          setUsersandfollowers(false);
+                        }}
+                        title="Show only users that are followers of me."
+                      >
+                        only followers
+                      </button>
+                      <button
+                        className="ib button-2 margin-left-11 margin-bottom-1"
+                        onClick={() => {
+                          setUsersandfollowers(true);
+                        }}
+                        title="Show Users and Followers Users together."
+                      >
+                        both
+                      </button>
+                      {usersandfollowers ? (
+                        <div>
+                          {rt !== "readonly" && followerLoaded && (
+                            <UsersAndFollowersContainer
+                              following={props.following}
+                              follower={props.follower}
+                              rt={rt}
+                              theuser={theuser}
+                              uid={props.uid}
+                              handleClick3={handleClick3}
+                              signup={props.signup}
+                            />
+                          )}
+                        </div>
+                      ) : (
+                        <div>
+                          {rt !== "readonly" && followerLoaded && (
+                            <FollowersContainer
+                              follower={props.follower}
+                              rt={rt}
+                              theuser={theuser}
+                              uid={props.uid}
+                              handleClick3={handleClick3}
+                              readonly={props.signup}
+                            />
+                          )}
+                        </div>
+                      )}
+                    </div>
                   ) : (
                     <div style={{ width: "270px", height: "726px" }}></div>
                   )}
                 </div>
-              
               )}
             </div>
           )}

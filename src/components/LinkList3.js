@@ -69,6 +69,9 @@ export const LinkList3 = React.forwardRef((props, ref) => {
           allLinksVisibility={props.allLinksVisibility}
           descriptionRefresh={props.descriptionRefresh}
           onLinksCountChange={props.onLinksCountChange}
+          selectedLinkIds={props.selectedLinkIds}
+          handleSelectLink={props.handleSelectLink}
+          linksRefresh={props.linksRefresh}
         />
       </ErrorBoundary>
     </div>

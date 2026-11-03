@@ -81,7 +81,7 @@ export const LinkList = (props) => {
       allLinksVisibility,
   );
   const [linksRefresh, setLinksRefresh] = useState(0);
-  const [selectedLinkIds, setSelectedLinkIds] = useState([]);
+  // const [selectedLinkIds, setSelectedLinkIds] = useState([]);
 
   const linkWord = props.linkCount === 1 ? "Uri/Url Link" : "Uri/Url Links";
   const formattedLinksTotal = numeral(props.linksTotal / 100).format("$0,0.00");
@@ -218,15 +218,15 @@ export const LinkList = (props) => {
 
   //const [linksCount, setLinksCount] = useState(0);
 
-  const handleSelectLink = (id, checked) => {
-    //alert("handleSelectedLink, id="+id)
-    //alert("handleSelectedLink, checked="+checked)
-    if (checked) {
-      setSelectedLinkIds((oldIds) => [...oldIds, id]);
-    } else {
-      setSelectedLinkIds((oldIds) => oldIds.filter((linkId) => linkId !== id));
-    }
-  };
+  // const handleSelectLink = (id, checked) => {
+  //   //alert("handleSelectedLink, id="+id)
+  //   //alert("handleSelectedLink, checked="+checked)
+  //   if (checked) {
+  //     setSelectedLinkIds((oldIds) => [...oldIds, id]);
+  //   } else {
+  //     setSelectedLinkIds((oldIds) => oldIds.filter((linkId) => linkId !== id));
+  //   }
+  // };
 
   //this code updates linksCount everytime a new link is added to firebase realtime database
 
@@ -777,89 +777,89 @@ export const LinkList = (props) => {
 
   
 
-  const deleteSelectedLinks = () => {
-    console.log(
-      "deleteSelectedLinks(), selectedLinkIds=",
-      JSON.stringify(selectedLinkIds),
-    );
+  // const deleteSelectedLinks = () => {
+  //   console.log(
+  //     "deleteSelectedLinks(), selectedLinkIds=",
+  //     JSON.stringify(selectedLinkIds),
+  //   );
 
-    console.log("deleteSelectedLinks(), props.auth.uid=" + props.auth.uid);
+  //   console.log("deleteSelectedLinks(), props.auth.uid=" + props.auth.uid);
 
-    if (selectedLinkIds.length > 0) {
-      const v = confirm("Is it ok to delete the selected links?");
+  //   if (selectedLinkIds.length > 0) {
+  //     const v = confirm("Is it ok to delete the selected links?");
 
-      if (v === true) {
-        if (!props.auth) {
-          return;
-        }
+  //     if (v === true) {
+  //       if (!props.auth) {
+  //         return;
+  //       }
 
-        const updates = {};
+  //       const updates = {};
 
-        selectedLinkIds.forEach((id) => {
-          updates[id] = null;
-        });
+  //       selectedLinkIds.forEach((id) => {
+  //         updates[id] = null;
+  //       });
 
-        firebase
-          .database()
-          .ref("users/" + props.auth.uid + "/links")
-          .update(updates)
-          .then(() => {
-            console.log("deleted selected links from Firebase");
+  //       firebase
+  //         .database()
+  //         .ref("users/" + props.auth.uid + "/links")
+  //         .update(updates)
+  //         .then(() => {
+  //           console.log("deleted selected links from Firebase");
 
-            //sessionStorage.clear();
-            clearLinksCache()
+  //           //sessionStorage.clear();
+  //           clearLinksCache()
 
-            setSelectedLinkIds([]);
+  //           setSelectedLinkIds([]);
 
-            setLinks((oldLinks) =>
-              oldLinks.filter((item) => !selectedLinkIds.includes(item.id)),
-            );
+  //           setLinks((oldLinks) =>
+  //             oldLinks.filter((item) => !selectedLinkIds.includes(item.id)),
+  //           );
 
-            setLinksRefresh((oldValue) => oldValue + 1);
+  //           setLinksRefresh((oldValue) => oldValue + 1);
 
-            alert("deleted the selected links");
-          })
-          .catch((error) => {
-            console.log("Error deleting selected links:", error);
+  //           alert("deleted the selected links");
+  //         })
+  //         .catch((error) => {
+  //           console.log("Error deleting selected links:", error);
 
-            alert("did not delete the selected links");
-          });
-      }
-    } else {
-      alert("no links selected to delete");
-    }
-  };
-
-
+  //           alert("did not delete the selected links");
+  //         });
+  //     }
+  //   } else {
+  //     alert("no links selected to delete");
+  //   }
+  // };
 
 
-  const deleteAllLinks = () => {
-  //const user = firebase.auth().currentUser;
 
-  if (!props.auth) {
-    return;
-  }
 
-  const v = confirm("Is it ok to delete all links?");
+//   const deleteAllLinks = () => {
+//   //const user = firebase.auth().currentUser;
 
-  if (v === true) {
-    firebase
-      .database()
-      .ref("users/" + props.auth.uid + "/links")
-      .remove()
-      .then(() => {
-        //sessionStorage.clear()
-        clearLinksCache()
-        setSelectedLinkIds([]);
-        setLinksRefresh((oldValue) => oldValue + 1);
-        //alert("All links deleted.");
+//   if (!props.auth) {
+//     return;
+//   }
+
+//   const v = confirm("Is it ok to delete all links?");
+
+//   if (v === true) {
+//     firebase
+//       .database()
+//       .ref("users/" + props.auth.uid + "/links")
+//       .remove()
+//       .then(() => {
+//         //sessionStorage.clear()
+//         clearLinksCache()
+//         setSelectedLinkIds([]);
+//         setLinksRefresh((oldValue) => oldValue + 1);
+//         //alert("All links deleted.");
        
-      })
-      .catch((error) => {
-        console.log("Error deleting links:", error);
-      });
-  }
-};
+//       })
+//       .catch((error) => {
+//         console.log("Error deleting links:", error);
+//       });
+//   }
+// };
 
   console.log("LinkList.js, props.dosearch=" + props.dosearch);
 
@@ -981,23 +981,28 @@ export const LinkList = (props) => {
                     <span>Stop</span>
                   </button>
                 </div>
-                {props.signup.signup === true ?<div>
-                  <button id="batchdelete"
+                {props.signup.signup === true ?
+                <div className="">
+                  {/* <button id="batchdelete"
                     className="margin-left-11 button-2"
                     onClick={deleteSelectedLinks}
+                    title="Batch delete selected links"
                     //disabled={selectedLinkIds.length === 0}
                   >
-                    Batch delete selected links
+                    Delsel
                   </button>
                    <button id="deleteall"
                     className="margin-left-11 button-2"
+                    title="Delete all links"
                     onClick={deleteAllLinks}
                     //disabled={selectedLinkIds.length === 0}
                   >
-                    Delete all links
-                  </button>
-                </div>:<div>
-                  <button
+                    Delall
+                  </button> */}
+                </div>
+                
+                :<div>
+                  {/* <button
                     className="margin-left-11 button-2 pointereventsnone"
                     onClick={deleteSelectedLinks}
                     //disabled={selectedLinkIds.length === 0}
@@ -1010,7 +1015,7 @@ export const LinkList = (props) => {
                     //disabled={selectedLinkIds.length === 0}
                   >
                     Delete all links
-                  </button>
+                  </button> */}
                 </div>}
 
                 {isMobile() === true ? (
@@ -1097,11 +1102,11 @@ export const LinkList = (props) => {
                     theSortBy={props.theSortBy}
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
-                    linksRefresh={linksRefresh}
+                    linksRefresh={props.linksRefresh}
                     descriptionRefresh={props.descriptionRefresh}
                     stopScrolling3={props.stopScrolling3}
-                    selectedLinkIds={selectedLinkIds}
-                    handleSelectLink={handleSelectLink}
+                    selectedLinkIds={props.selectedLinkIds}
+                    handleSelectLink={props.handleSelectLink}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1117,10 +1122,10 @@ export const LinkList = (props) => {
                     theSortBy={props.theSortBy}
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
-                    linksRefresh={linksRefresh}
+                    linksRefresh={props.linksRefresh}
                     stopScrolling3={props.stopScrolling3}
-                    selectedLinkIds={selectedLinkIds}
-                    handleSelectLink={handleSelectLink}
+                    selectedLinkIds={props.selectedLinkIds}
+                    handleSelectLink={props.handleSelectLink}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1136,10 +1141,10 @@ export const LinkList = (props) => {
                     theSortBy={props.theSortBy}
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
-                    linksRefresh={linksRefresh}
+                    linksRefresh={props.linksRefresh}
                     stopScrolling3={props.stopScrolling3}
-                    selectedLinkIds={selectedLinkIds}
-                    handleSelectLink={handleSelectLink}
+                    selectedLinkIds={props.selectedLinkIds}
+                    handleSelectLink={props.handleSelectLink}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1155,10 +1160,10 @@ export const LinkList = (props) => {
                     theSortBy={props.theSortBy}
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
-                    linksRefresh={linksRefresh}
+                    linksRefresh={props.linksRefresh}
                     stopScrolling3={props.stopScrolling3}
-                    selectedLinkIds={selectedLinkIds}
-                    handleSelectLink={handleSelectLink}
+                    selectedLinkIds={props.selectedLinkIds}
+                    handleSelectLink={props.handleSelectLink}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1174,10 +1179,10 @@ export const LinkList = (props) => {
                     theSortBy={props.theSortBy}
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
-                    linksRefresh={linksRefresh}
+                    linksRefresh={props.linksRefresh}
                     stopScrolling3={props.stopScrolling3}
-                    selectedLinkIds={selectedLinkIds}
-                    handleSelectLink={handleSelectLink}
+                    selectedLinkIds={props.selectedLinkIds}
+                    handleSelectLink={props.handleSelectLink}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1193,10 +1198,10 @@ export const LinkList = (props) => {
                     theSortBy={props.theSortBy}
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
-                    linksRefresh={linksRefresh}
+                    linksRefresh={props.linksRefresh}
                     stopScrolling3={props.stopScrolling3}
-                    selectedLinkIds={selectedLinkIds}
-                    handleSelectLink={handleSelectLink}
+                    selectedLinkIds={props.selectedLinkIds}
+                    handleSelectLink={props.handleSelectLink}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1212,10 +1217,10 @@ export const LinkList = (props) => {
                     theSortBy={props.theSortBy}
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
-                    linksRefresh={linksRefresh}
+                    linksRefresh={props.linksRefresh}
                     stopScrolling3={props.stopScrolling3}
-                    selectedLinkIds={selectedLinkIds}
-                    handleSelectLink={handleSelectLink}
+                    selectedLinkIds={props.selectedLinkIds}
+                    handleSelectLink={props.handleSelectLink}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1231,10 +1236,10 @@ export const LinkList = (props) => {
                     theSortBy={props.theSortBy}
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
-                    linksRefresh={linksRefresh}
+                    linksRefresh={props.linksRefresh}
                     stopScrolling3={props.stopScrolling3}
-                    selectedLinkIds={selectedLinkIds}
-                    handleSelectLink={handleSelectLink}
+                    selectedLinkIds={props.selectedLinkIds}
+                    handleSelectLink={props.handleSelectLink}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1250,10 +1255,10 @@ export const LinkList = (props) => {
                     theSortBy={props.theSortBy}
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
-                    linksRefresh={linksRefresh}
+                    linksRefresh={props.linksRefresh}
                     stopScrolling3={props.stopScrolling3}
-                    selectedLinkIds={selectedLinkIds}
-                    handleSelectLink={handleSelectLink}
+                    selectedLinkIds={props.selectedLinkIds}
+                    handleSelectLink={props.handleSelectLink}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1269,10 +1274,10 @@ export const LinkList = (props) => {
                     theSortBy={props.theSortBy}
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
-                    linksRefresh={linksRefresh}
+                    linksRefresh={props.linksRefresh}
                     stopScrolling3={props.stopScrolling3}
-                    selectedLinkIds={selectedLinkIds}
-                    handleSelectLink={handleSelectLink}
+                    selectedLinkIds={props.selectedLinkIds}
+                    handleSelectLink={props.handleSelectLink}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1289,10 +1294,10 @@ export const LinkList = (props) => {
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
                     visibility={1}
-                    linksRefresh={linksRefresh}
+                    linksRefresh={props.linksRefresh}
                     stopScrolling3={props.stopScrolling3}
-                    selectedLinkIds={selectedLinkIds}
-                    handleSelectLink={handleSelectLink}
+                    selectedLinkIds={props.selectedLinkIds}
+                    handleSelectLink={props.handleSelectLink}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true &&
                   props.dosearch === 1 &&
@@ -1309,10 +1314,10 @@ export const LinkList = (props) => {
                     //theSortBy = "description"
                     onLinksCountChange={setLinksCount}
                     visibility={0}
-                    linksRefresh={linksRefresh}
+                    linksRefresh={props.linksRefresh}
                     stopScrolling3={props.stopScrolling3}
-                    selectedLinkIds={selectedLinkIds}
-                    handleSelectLink={handleSelectLink}
+                    selectedLinkIds={props.selectedLinkIds}
+                    handleSelectLink={props.handleSelectLink}
                   />
                 ) : props.isinfinitescroll.isinfinitescroll === true ? ( //not the search one, infinite scrolls the whole list
                   <InfiniteScrollNew
@@ -1323,10 +1328,10 @@ export const LinkList = (props) => {
                     databasePath={`users/${props.auth.uid}/links`}
                     theSortBy={props.theSortBy}
                     onLinksCountChange={setLinksCount}
-                    linksRefresh={linksRefresh}
+                    linksRefresh={props.linksRefresh}
                     stopScrolling3={props.stopScrolling3}
-                    selectedLinkIds={selectedLinkIds}
-                    handleSelectLink={handleSelectLink}
+                    selectedLinkIds={props.selectedLinkIds}
+                    handleSelectLink={props.handleSelectLink}
                   />
                 ) : null
 

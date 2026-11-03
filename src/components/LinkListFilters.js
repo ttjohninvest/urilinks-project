@@ -3135,12 +3135,81 @@ function ExpandableArray(props) {
                       }
                     </div>
                   ) : (
-                    <div>
+                    <div className="flexrowz">
+                      <div
+                        id="before-before-link-summary-id"
+                        className="margin-bottom-1"
+                      >
+                        <a
+                          target="_blank"
+                          id="adlinkid"
+                          href="#"
+                          title="Email your sharable link to share with others. Email recipient sees readonly page"
+                          className={`pointereventsnone ib flexrowzc2 cursor-pointer width400 button-2 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
+                          onClick={handleClick}
+                        >
+                          <span className="ib color-white-1">
+                            Email your sharable link
+                          </span>
+                        </a>
+                        {/* <button
+                        className={`ib ${isMobile() === false ? "margin-left-11" : "margin-top-1"} button-2 bg-shade-1`}
+                        onClick={addALink}
+                        title="Add a link to your page."
+                      >
+                        Add A link
+                      </button> */}
+                        {/* <div className="flexrowz"> */}
+                        <AddALinkButton x={100} />
+                        <div className="margin-top-1">
+                          <button
+                            id="batchdelete"
+                            className="pointereventsnone margin-left-11- button-2"
+                            onClick={deleteSelectedLinks}
+                            title="Batch delete selected links"
+                            //disabled={selectedLinkIds.length === 0}
+                          >
+                            Batch delete selected links
+                          </button>
+                          <button
+                            id="deleteall"
+                            className="pointereventsnone margin-left-11 button-2"
+                            title="Delete all links"
+                            onClick={deleteAllLinks}
+                            //disabled={selectedLinkIds.length === 0}
+                          >
+                            Delete all links
+                          </button>
+                        </div>
+                      </div>
+                      {/* {isForm2Open && (
+                        <AddLinkPage
+                          isForm2Open={isForm2Open}
+                          handleClose2={handleClose2}
+                        />
+                      )} */}
+
                       {/* <HashTagsButton
-                    changeSortBy={changeSortBy}
-                    setSortBy={setSortBy}
-                    /> */}
+                        changeSortBy={changeSortBy}
+                        //setSortBy={setSortBy}
+                      /> */}
+
+                      {
+                        //emailForm &&
+                        isFormOpen && (
+                          <SendEmailPage
+                            isreadonly={true}
+                            sharablelink={`Please click on: ${baseUrl}/dashboard?signup=0&x=readonly&id=${uid}`}
+                            uid={uid}
+                            isFormOpen={isFormOpen}
+                            handleClose={handleClose}
+                          />
+                        )
+                      }
                     </div>
+                    //<div>
+                     
+                    //</div>
                     // <div
                     //   id="before-before-link-summary-id"
                     //   className="margin-bottom-1"

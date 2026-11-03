@@ -345,13 +345,13 @@ isValidUrl2 = (value) => {
       console.log("LinkForm.js, this.state.addescription="+this.state.addescription)
 
       //this.updateCachedAdDescription(this.state.id, this.state.addescription)
-       this.updateCachedAdDescription(this.state.link.id, 
-      this.state.link.description, 
-      this.state.link.Url, 
-      this.state.link.note,
-      this.state.link.addescription, 
-      this.state.link.adUrl, 
-      this.state.link.buyerdiscountcode
+       this.updateCachedAdDescription(this.state.id, 
+      this.state.description, 
+      this.state.Url, 
+      this.state.note,
+      this.state.addescription, 
+      this.state.AdUrl, 
+      this.state.buyerdiscountcode
     
     
     )

@@ -25,7 +25,7 @@ export const AddLinkPage = (props) => {
   const [userId, setUserId] = useState("");
   const [maximumPage, setMaximumPage] = useState(false);
   const [errorDialog, setErrorDialog] = useState(false);
-   const [linkStatuses, setLinkStatuses] = useState({});
+  const [linkStatuses, setLinkStatuses] = useState({});
   //const history = useHistory();
 
   //   const baseUrl =
@@ -76,44 +76,24 @@ export const AddLinkPage = (props) => {
   };
 
   useEffect(() => {
+     firebase.auth().onAuthStateChanged((user) => {
     console.log("getPlanMax()=" + getPlanMax());
+    //const user = firebase.auth().currentUser
     const fetchData = async () => {
       try {
-        //XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
+         const db = firebase.database();
+         let snapshot;
         if (props.signup.signup === true) {
-          firebase.auth().onAuthStateChanged(async (user) => {
- if (user) {
-            const uid = user.uid;
-            setUserId(uid);
-            console.log("User ID:", uid);
-          } else {
-            console.log("No user is currently logged in.");
-          }
-});
-
-
-         
-         
-        } else {
-          setUserId("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2");
-        }
-
-        const db = firebase.database();
-        ////try {//XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
-        let snapshot;
-        if (props.signup.signup === true) {
-          firebase.auth().onAuthStateChanged(async (user) => {
 
           snapshot = await db.ref(`/users/${user.uid}/links`).once("value");
-})
           
         } else {
-          snapshot = await db
-            .ref(`/users/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2/links`)
-            .once("value");
+          
+          snapshot = await db.ref(`/users/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2/links`).once("value");
+
         }
 
-        if (snapshot.exists()) {
+        if (snapshot && snapshot.exists()) {
           const data = snapshot.val();
           const count = Object.keys(data).length;
           console.log("count=" + count);
@@ -129,6 +109,7 @@ export const AddLinkPage = (props) => {
     };
 
     fetchData();
+  })
   }, []);
 
   // const isityt = (url) => {
@@ -162,80 +143,81 @@ export const AddLinkPage = (props) => {
   // };
 
   const isYouTubeThumbnailAvailable = async (thumbnailUrl) => {
-  if (!thumbnailUrl) return false;
+    if (!thumbnailUrl) return false;
 
-  try {
-    const response = await fetch(thumbnailUrl, {
-      method: "HEAD"
-    });
+    try {
+      const response = await fetch(thumbnailUrl, {
+        method: "HEAD",
+      });
 
-    return response.ok;
-
-  } catch (error) {
-    console.log("Thumbnail check failed:", error);
-    return false;
-  }
-};
+      return response.ok;
+    } catch (error) {
+      console.log("Thumbnail check failed:", error);
+      return false;
+    }
+  };
 
   //const getYouTubeThumbnail = (url) => {
   const isityt = (url) => {
-  if (!url) //return null; 
-  return ""
+    if (!url)
+      //return null;
+      return "";
 
-  try {
-    const parsedUrl = new URL(url);
+    try {
+      const parsedUrl = new URL(url);
 
-    const hostname = parsedUrl.hostname.replace("www.", "");
+      const hostname = parsedUrl.hostname.replace("www.", "");
 
-    // Confirm it is a YouTube URL
-    const isYouTube =
-      hostname === "youtube.com" ||
-      hostname === "m.youtube.com" ||
-      hostname === "music.youtube.com" ||
-      hostname === "youtu.be";
+      // Confirm it is a YouTube URL
+      const isYouTube =
+        hostname === "youtube.com" ||
+        hostname === "m.youtube.com" ||
+        hostname === "music.youtube.com" ||
+        hostname === "youtu.be";
 
-    if (!isYouTube) //return null;
-    return ""
+      if (!isYouTube)
+        //return null;
+        return "";
 
-    let videoId = null;
+      let videoId = null;
 
-    // https://youtu.be/VIDEO_ID
-    if (hostname === "youtu.be") {
-      videoId = parsedUrl.pathname.split("/")[1];
+      // https://youtu.be/VIDEO_ID
+      if (hostname === "youtu.be") {
+        videoId = parsedUrl.pathname.split("/")[1];
+      }
+
+      // https://youtube.com/watch?v=VIDEO_ID
+      else if (parsedUrl.pathname === "/watch") {
+        videoId = parsedUrl.searchParams.get("v");
+      }
+
+      // https://youtube.com/shorts/VIDEO_ID
+      else if (parsedUrl.pathname.startsWith("/shorts/")) {
+        videoId = parsedUrl.pathname.split("/")[2];
+      }
+
+      // https://youtube.com/live/VIDEO_ID
+      else if (parsedUrl.pathname.startsWith("/live/")) {
+        videoId = parsedUrl.pathname.split("/")[2];
+      }
+
+      // https://youtube.com/embed/VIDEO_ID
+      else if (parsedUrl.pathname.startsWith("/embed/")) {
+        videoId = parsedUrl.pathname.split("/")[2];
+      }
+
+      if (!videoId)
+        //return null;
+        return "";
+
+      return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+    } catch (error) {
+      //return null;
+      return "";
     }
+  };
 
-    // https://youtube.com/watch?v=VIDEO_ID
-    else if (parsedUrl.pathname === "/watch") {
-      videoId = parsedUrl.searchParams.get("v");
-    }
-
-    // https://youtube.com/shorts/VIDEO_ID
-    else if (parsedUrl.pathname.startsWith("/shorts/")) {
-      videoId = parsedUrl.pathname.split("/")[2];
-    }
-
-    // https://youtube.com/live/VIDEO_ID
-    else if (parsedUrl.pathname.startsWith("/live/")) {
-      videoId = parsedUrl.pathname.split("/")[2];
-    }
-
-    // https://youtube.com/embed/VIDEO_ID
-    else if (parsedUrl.pathname.startsWith("/embed/")) {
-      videoId = parsedUrl.pathname.split("/")[2];
-    }
-
-    if (!videoId) //return null;
-    return ""
-
-    return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-
-  } catch (error) {
-    //return null;
-    return ""
-  }
-};
-
-const checkLink = async (url) => {
+  const checkLink = async (url) => {
     try {
       const response = await fetch(
         "https://urilinks-project-vercel-api-5.vercel.app/check-link",
@@ -259,28 +241,26 @@ const checkLink = async (url) => {
 
   const onSubmit = async (link) => {
     console.log("AddlinkPage.js, in onSubmit");
-    console.log("AddlinkPage.js, link.addescription = " + link.addescription);
-    console.log("AddlinkPage.js, link.adUrl = " + link.adUrl);
-   
+    // console.log("AddlinkPage.js, link.addescription = " + link.addescription);
+    // console.log("AddlinkPage.js, link.adUrl = " + link.adUrl);
+
     if (count < getPlanMax()) {
-      
       //link.showpublic = 1;
       link.showpublic = 0; //showpublic is private by default
       link.foldername = link.description;
-      
+
       link.yturl = isityt(link.Url);
 
-        const linkStatus = await checkLink(link.Url);
-                              setLinkStatuses((prev) => ({
-                                ...prev,
-                                [link.Url]: linkStatus,
-                              }));
+      const linkStatus = await checkLink(link.Url);
+      setLinkStatuses((prev) => ({
+        ...prev,
+        [link.Url]: linkStatus,
+      }));
 
-      const v = await isYouTubeThumbnailAvailable(link.yturl) //returns true or false
-      if(v===true) {
-
+      const v = await isYouTubeThumbnailAvailable(link.yturl); //returns true or false
+      if (v === true) {
       } else {
-        link.yturl = ""
+        link.yturl = "";
       }
       console.log("A link.yturl=" + link.yturl);
       let isin = false;
@@ -299,14 +279,11 @@ const checkLink = async (url) => {
           //alert("found a match")
           isin = true;
         }
-
-       
       });
 
       if (isin === false) {
-       
         const r = props.startAddLink(props.follower, link);
-       
+
         if (r === false) {
           setErrorDialog(true);
           console.log("VVVVVVVVVVVVV returned false");
@@ -316,19 +293,16 @@ const checkLink = async (url) => {
           props.startAddTheupdatedate({
             updatedate: datet,
           });
-//           Object.keys(sessionStorage).forEach((key) => {
-//   if (key.includes("|page|")) {
-//     sessionStorage.removeItem(key);
-//   }
-// });
-Object.keys(sessionStorage).forEach((key) => {
-  if (
-    key.includes("|page|") ||
-    key.endsWith("|count")
-  ) {
-    sessionStorage.removeItem(key);
-  }
-});
+          //           Object.keys(sessionStorage).forEach((key) => {
+          //   if (key.includes("|page|")) {
+          //     sessionStorage.removeItem(key);
+          //   }
+          // });
+          Object.keys(sessionStorage).forEach((key) => {
+            if (key.includes("|page|") || key.endsWith("|count")) {
+              sessionStorage.removeItem(key);
+            }
+          });
           window.location.href = baseUrl + "?signup=signup&z=1&z2=2";
         }
       } else {

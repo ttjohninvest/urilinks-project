@@ -1655,10 +1655,12 @@ data-value={props.id}
 
     props.stopScrolling3();
     let newStr = Url;
+    let videoId = ""
 
     if (Url.includes("shorts")) {
       newStr = Url.replace("shorts", "embed");
     } else if (Url.includes("watch?v=")) {
+      videoId = Url.split("?v=")[1] //use to append &loop=1&playlist=${videoId} for ifrace src attribute in <BasicIfram
       newStr = Url.replace("watch?v=", "embed/");
     }
 
@@ -1714,7 +1716,9 @@ data-value={props.id}
       const iframe = document.querySelector("#ipvideo" + id + " iframe");
 
       if (iframe) {
-        iframe.src = newStr;
+        if(videoId !== "")
+        iframe.src = newStr+"?playlist="+videoId+"&loop=1";
+        else iframe.src = newStr;
       }
 
       savedScrollYw.current = window.scrollY;

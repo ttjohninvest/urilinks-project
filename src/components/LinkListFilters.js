@@ -3625,8 +3625,10 @@ function ExpandableArray(props) {
                                   signup={props.signup}
                                   demonstration={demonstration}
                                 />
-                                <button onClick={() => setShowAIChat(true)}>
-                                   Start AI Chat
+                                <button 
+                                 className="margin-left-11 margin-top-1 button-2 ib"
+                                onClick={() => setShowAIChat(true)}>
+                                   Start ai chat
                                 </button>
                                 {showAIChat && <AiChat />}
                               </span>

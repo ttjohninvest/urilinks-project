@@ -936,6 +936,22 @@ expenses for urilinks.com:
 openai.com, chatgpt help: first month from 10/2/2026 to 11/2/2026 free and $20 each month after that
 amazon.com/snap food orders, have prime $4.95/month so delivery is always free first month free from 8/4/2026 to 9/4/2026
 platform.openai.com, access to gpt-3.5-turbo, I paid $5.00 on 3/10/2026. It does not automatically recharge.
+
+voice chat, cost limit at 5 minutes usage per day only:
+Your current voice allowance counts up, not down.
+
+However, the code reserves the full 300 seconds immediately when a conversation starts.
+- Before starting: usedSeconds = 0
+- When starting: usedSeconds = 300
+- After ending: usedSeconds = 300
+So even if you talk for only 10 seconds, the system records all 300 seconds as used.
+
+The five-minute timer itself counts down from 300 seconds to 0.
+
+Your daily allowance resets at midnight UTC, which is 4:00 PM Pacific today.
+
+
+
 cheapnames.com $12.99/year for urllynk.com due on 12/24/2026
 vercel.com
 heroku.com $7.00/month

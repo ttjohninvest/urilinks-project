@@ -19,8 +19,11 @@ const Simple = (props) => {
   //     firebase.auth().currentUser.uid + props.theplan.subscriptionId!==undefined &&
   //     props.theplan.subscriptionId!==null?props.theplan.subscriptionId:""
   //   );
+  const currentUser = firebase.auth().currentUser;
   const [theUserId, setTheUserId] = useState("");
-  const [theEmail, setTheEmail] = useState(firebase.auth().currentUser.email);
+  const [theEmail, setTheEmail] = useState(
+    currentUser ? currentUser.email : "",
+  );
   const [isFree, setIsFree] = useState(false);
   const [isBasic, setIsBasic] = useState(false);
   const [isStandard, setIsStandard] = useState(false);

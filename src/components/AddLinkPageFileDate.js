@@ -36,16 +36,20 @@ export const AddLinkPageFileDate = (props) => {
       try {
         if (props.signup.signup === true) {
           const user = firebase.auth().currentUser;
-          if (user) {
-            const uid = user.uid;
-            setUserId(uid);
-            console.log("User ID:", uid);
-          } else {
+          if (!user) {
             console.log("No user is currently logged in.");
+            setUserId("");
+            setCount(0);
+            return;
           }
+
+          const uid = user.uid;
+          setUserId(uid);
+          console.log("User ID:", uid);
+
           const db = firebase.database();
           const snapshot = await db
-            .ref(`/users/${user.uid}/linksfiledate`)
+            .ref(`/users/${uid}/linksfiledate`)
             .once("value");
           if (snapshot.exists()) {
             const data = snapshot.val();

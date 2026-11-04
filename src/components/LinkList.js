@@ -25,7 +25,7 @@ import MyInfiniteScroll4 from "./MyInfiniteScroll4";
 import { startRemoveLink, removeLink } from "../actions/links";
 import { Link } from "react-router-dom";
 import numeral from "numeral";
-import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
+//import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
 import selectLinksTotal from "../selectors/links-total";
 import LinkListItem from "./LinkListItem";
 import LinkListItem2 from "./LinkListItem2";
@@ -37,7 +37,7 @@ import selectLinks2 from "../selectors/links2";
 
 import LinksSummary from "./LinksSummary";
 import AddLinkPage from "./AddlinkPage";
-import printerImage from "../assets/images/printer_image.png";
+//import printerImage from "../assets/images/printer_image.png";
 import { v4 } from "uuid";
 import LoadingPage from "./LoadingPage";
 import StorageSizes from "./StorageSizes";
@@ -702,9 +702,14 @@ export const LinkList = (props) => {
     if (linkid !== null) {
       props.stopScrolling2();
       window.scrollTo(0, 0);
-      document.querySelector("#" + linkid).scrollIntoView({
-        behavior: "smooth",
-      });
+
+      const linkElement = document.querySelector("#" + linkid);
+      if (linkElement) {
+        linkElement.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+
       //params.delete("p");
       window.scrollTo(0, window.scrollY); //without this statement, it will put the link near the top with the scroll control buttons
     }
@@ -775,8 +780,6 @@ export const LinkList = (props) => {
   //   }
   // };
 
-  
-
   // const deleteSelectedLinks = () => {
   //   console.log(
   //     "deleteSelectedLinks(), selectedLinkIds=",
@@ -830,36 +833,33 @@ export const LinkList = (props) => {
   //   }
   // };
 
+  //   const deleteAllLinks = () => {
+  //   //const user = firebase.auth().currentUser;
 
+  //   if (!props.auth) {
+  //     return;
+  //   }
 
+  //   const v = confirm("Is it ok to delete all links?");
 
-//   const deleteAllLinks = () => {
-//   //const user = firebase.auth().currentUser;
+  //   if (v === true) {
+  //     firebase
+  //       .database()
+  //       .ref("users/" + props.auth.uid + "/links")
+  //       .remove()
+  //       .then(() => {
+  //         //sessionStorage.clear()
+  //         clearLinksCache()
+  //         setSelectedLinkIds([]);
+  //         setLinksRefresh((oldValue) => oldValue + 1);
+  //         //alert("All links deleted.");
 
-//   if (!props.auth) {
-//     return;
-//   }
-
-//   const v = confirm("Is it ok to delete all links?");
-
-//   if (v === true) {
-//     firebase
-//       .database()
-//       .ref("users/" + props.auth.uid + "/links")
-//       .remove()
-//       .then(() => {
-//         //sessionStorage.clear()
-//         clearLinksCache()
-//         setSelectedLinkIds([]);
-//         setLinksRefresh((oldValue) => oldValue + 1);
-//         //alert("All links deleted.");
-       
-//       })
-//       .catch((error) => {
-//         console.log("Error deleting links:", error);
-//       });
-//   }
-// };
+  //       })
+  //       .catch((error) => {
+  //         console.log("Error deleting links:", error);
+  //       });
+  //   }
+  // };
 
   console.log("LinkList.js, props.dosearch=" + props.dosearch);
 
@@ -936,18 +936,9 @@ export const LinkList = (props) => {
                 className="border-red margin-left-11 margin-top-n-1u flexrowp11"
                 style={{ zIndex: 99 }}
               >
-                {/* <div><button
-              id="linkid"
-              //ref={props.scrollupref}
-              title="Return to link."
-              onClick={goTolinkid}
-              className="ib button-2 widthxpx1"
-              style={{ zIndex: 99 }}
-            >
-              <span>Scroll To Top</span>
-            </button></div> */}
+            
                 <div>
-                  <button 
+                  <button
                     //id="scrollup1"
                     id="upid"
                     ref={props.scrollupref}
@@ -960,7 +951,8 @@ export const LinkList = (props) => {
                   </button>
                 </div>
                 <div>
-                  <button id="dnid"
+                  <button
+                    id="dnid"
                     ref={props.scrolldownref}
                     title="Scroll Down"
                     onClick={props.startScrollingDown2}
@@ -971,7 +963,8 @@ export const LinkList = (props) => {
                   </button>
                 </div>
                 <div>
-                  <button id="stopid"
+                  <button
+                    id="stopid"
                     ref={props.buttonRef2}
                     title="Stop Scroll"
                     onClick={props.stopScrolling2}
@@ -981,9 +974,9 @@ export const LinkList = (props) => {
                     <span>Stop</span>
                   </button>
                 </div>
-                {props.signup.signup === true ?
-                <div className="">
-                  {/* <button id="batchdelete"
+                {props.signup.signup === true ? (
+                  <div className="">
+                    {/* <button id="batchdelete"
                     className="margin-left-11 button-2"
                     onClick={deleteSelectedLinks}
                     title="Batch delete selected links"
@@ -999,10 +992,10 @@ export const LinkList = (props) => {
                   >
                     Delall
                   </button> */}
-                </div>
-                
-                :<div>
-                  {/* <button
+                  </div>
+                ) : (
+                  <div>
+                    {/* <button
                     className="margin-left-11 button-2 pointereventsnone"
                     onClick={deleteSelectedLinks}
                     //disabled={selectedLinkIds.length === 0}
@@ -1016,7 +1009,8 @@ export const LinkList = (props) => {
                   >
                     Delete all links
                   </button> */}
-                </div>}
+                  </div>
+                )}
 
                 {isMobile() === true ? (
                   <div></div>

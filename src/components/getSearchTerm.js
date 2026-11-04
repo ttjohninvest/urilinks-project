@@ -1,5 +1,11 @@
 const getSearchTerm = () => {
-  return window.document.getElementById("termid").value.trim();
+  const termInput = window.document.getElementById("termid");
+
+  if (termInput && termInput instanceof HTMLInputElement) {
+    return termInput.value.trim();
+  }
+
+  return "";
 };
 
 module.exports = getSearchTerm;

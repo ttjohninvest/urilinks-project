@@ -9,7 +9,7 @@ import selectLinks from "../selectors/links";
 import { startAddLink2 } from "../actions/links";
 import { useDispatch } from "react-redux";
 
-import visited from "../assets/images/visited-1.png";
+//import visited from "../assets/images/visited-1.png";
 import {
   FacebookEmbed,
   InstagramEmbed,
@@ -219,13 +219,15 @@ const LinkListItem = (props) => {
 
   console.log("RENDER props.show=", props.show, "props.id=", props.id);
 
+  const currentUser = firebase.auth().currentUser;
+
   let xdotcomadmessage = "";
-  if (!!firebase.auth().currentUser) {
+  if (currentUser) {
     xdotcomadmessage =
       "Please buy " +
       props.addescription +
       " from " +
-      firebase.auth().currentUser.displayName +
+      currentUser.displayName +
       " to help this seller make money from commission:";
   } else {
     xdotcomadmessage =
@@ -423,14 +425,14 @@ https://www.youtube.com/feed/history
     );
   };
 
-  const addIdToDelete = (id) => {
-    console.log("LinkListItem, id=" + id);
-    //let book = new Book(title.value, author.value, pages.value);
-    //let bookStringified = JSON.stringify(book);
+  // const addIdToDelete = (id) => {
+  //   console.log("LinkListItem, id=" + id);
+  //   //let book = new Book(title.value, author.value, pages.value);
+  //   //let bookStringified = JSON.stringify(book);
 
-    //bookData.push(bookStringified);
-    setDeleteData2(id);
-  };
+  //   //bookData.push(bookStringified);
+  //   //setDeleteData2(id);
+  // };
 
   const handleCheckboxDelete = (event) => {
     console.log("bookmark id=" + event.target.value);
@@ -438,19 +440,23 @@ https://www.youtube.com/feed/history
     //console.log("bookmark ids="+localStorage.getItem('deleteData'))
     let result = confirm("Are you sure you want to remove the link?");
     if (result) {
-      alert("start remove")
+      alert("start remove");
       //props.removeLink({ id: event.target.value });
-      console.log("handleCheckboxDelete(), about to call props.startRemoveLink")
+      console.log(
+        "handleCheckboxDelete(), about to call props.startRemoveLink",
+      );
       props.startRemoveLink({ id: event.target.value });
-      console.log("handleCheckboxDelete(), removed from props.startRemoveLink")
+      console.log("handleCheckboxDelete(), removed from props.startRemoveLink");
       const thetype = typeof props.sessionRemoveLink;
       console.log("handleCheckboxDelete(), thetype=" + thetype);
       if (thetype === "function") {
-        console.log("handleCheckboxDelete(), thetype===function, thetype="+ thetype);
+        console.log(
+          "handleCheckboxDelete(), thetype===function, thetype=" + thetype,
+        );
         props.sessionRemoveLink(props.id);
       }
 
-      console.log("handleCheckboxDelete(), about to call setShowLink()")
+      console.log("handleCheckboxDelete(), about to call setShowLink()");
       setShowLink(false);
       //alert("Link removed.");
       //  const x = confirm("Do you want to refresh the menu?");
@@ -460,7 +466,13 @@ https://www.youtube.com/feed/history
       // }
     } else {
       // User clicked Cancel
-      document.getElementById("delete%" + event.target.value).checked = false;
+      const deleteCheckbox = document.getElementById(
+        "delete%" + event.target.value,
+      );
+
+      if (deleteCheckbox && deleteCheckbox instanceof HTMLInputElement) {
+        deleteCheckbox.checked = false;
+      }
 
       alert("Deletion canceled.");
     }
@@ -837,7 +849,7 @@ https://www.youtube.com/feed/history
     frequency = frequency + 1;
     updateCachedFrequency(x, frequency);
     setFrequency(frequency);
-    window.localStorage.setItem("scrollPosition", window.scrollY);
+    window.localStorage.setItem("scrollPosition", window.scrollY.toString());
   };
 
   const storeScrollPosition0 = (id, frequency) => {
@@ -847,7 +859,7 @@ https://www.youtube.com/feed/history
     frequency = frequency + 1;
     updateCachedFrequency(id, frequency);
     setFrequency(frequency);
-    window.localStorage.setItem("scrollPosition", window.scrollY);
+    window.localStorage.setItem("scrollPosition", window.scrollY.toString());
   };
 
   const storeScrollPosition2 = (likes, event) => {
@@ -873,7 +885,7 @@ https://www.youtube.com/feed/history
         setLikes(0);
       }
 
-      window.localStorage.setItem("scrollPosition", window.scrollY);
+      window.localStorage.setItem("scrollPosition", window.scrollY.toString());
     }
   };
 
@@ -918,7 +930,7 @@ https://www.youtube.com/feed/history
         } //alert("You have zero of ten stars selected for your top ten.");
       }
 
-      window.localStorage.setItem("scrollPosition", window.scrollY);
+      window.localStorage.setItem("scrollPosition", window.scrollY.toString());
     }
   };
 
@@ -941,561 +953,561 @@ https://www.youtube.com/feed/history
     }
   };
 
-  const sortit2 = (event) => {
-    console.log(
-      "Button was clicked, event.currentTarget.obj.data.length=" +
-        event.currentTarget.obj.data.length,
-    );
-    let url;
-    let data1 = [];
-    let ndata = [];
-    for (let i = 0; i < event.currentTarget.obj.data.length; i++) {
-      url = new URL(event.currentTarget.obj.data[i]);
-      let name = new URL(event.currentTarget.obj.data[i]).hostname
-        .split(".")
-        .slice(-2)
-        .join(".");
-      // console.log("url.protocol="+url.protocol); // "https:"
-      // console.log("url.hostname="+url.hostname); // "www.example.com"
-      // console.log("url.port="+url.port); // "8080"
-      // console.log("url.pathname="+url.pathname); // "/path/to/page"
-      // console.log("url.search="+url.search); // "?query=string"
-      // console.log("url.hash="+url.hash); // "#fragment"
-      // console.log("-----------------------------------------------------------------------------");
-      ndata = {
-        hostname: url.hostname,
-        name: name,
-        pathname: url.pathname,
-        url: url,
-      };
-      data1.push(ndata);
-    }
-    //data1 is ready here
-    //     array.sort((a, b) => a.name.localeCompare(b.name));
-
-    // For descending order, reverse the arguments:
-
-    // array.sort((a, b) => b.name.localeCompare(a.name));
-    // console.log("data1="+JSON.stringify(data1))
-    // console.log()
-
-    //let data1s = data1.sort((a, b) => a.name.localeCompare(b.name));
-    let data1s = data1.sort((a, b) => {
-      // Compare by name first
-      if (a.name !== b.name) {
-        return a.name.localeCompare(b.name);
-      }
-      // If names are equal, compare by department
-      return a.pathname.localeCompare(b.pathname);
-    });
-
-    // console.log(
-    //   "data1 sorted by two fields name and pathname=" +
-    //     JSON.stringify(data1s, null, 4),
-    // );
-    //setData2s(data1s)
-    //setSortit1flag(true) //sortit1flag
-    //setS(1) //makes the other list ready to be displayed
-    // const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
-    // ul.innerHTML = "";
-    //if (data1s.length === 0) {
-    // let li = document.createElement("li");
-    // li.className = "lsn corangered";
-    // li.innerHTML = `Results: 0`;
-
-    // ul.appendChild(li);
-    //} else {
-    // let li0 = document.createElement("li");
-    // li0.className = "lsn corangered";
-    // li0.innerHTML = `Results: ${data1s.length} url(s)`;
-
-    // ul.appendChild(li0);
-
-    // data1s.map((d) => {
-    //   let li = document.createElement("li");
-
-    //   let a = document.createElement("a");
-    //   a.title = "click to open the page";
-    //   a.className = "nounderline color-purple";
-    //   a.href = d.url;
-    //   a.target = "_blank";
-    //   a.innerHTML = `${decodeURIComponent(d.url)}`;
-
-    //   // li.appendChild(a);
-
-    //   // ul.appendChild(li);
-
-    //   let a2 = document.createElement("a");
-    //   a2.title = `click to open page,${d.hostname}`;
-    //   a2.className = "nounderline color-black";
-    //   a2.href = "https://" + d.hostname;
-    //   a2.target = "_blank";
-    //   a2.innerHTML = `${d.hostname}`;
-
-    //   let span2 = document.createElement("span");
-    //   let br2 = document.createElement("br");
-
-    //   span2.appendChild(a);
-    //   span2.appendChild(br2);
-    //   span2.appendChild(a2);
-    //   //https://www.google.com/search?q=arthritis
-
-    //   let pathnamearray = d.pathname.split("/");
-
-    //   for (let i = 0; i < pathnamearray.length; i++) {
-    //     if (pathnamearray[i + 1] !== undefined) {
-    //       let a3 = document.createElement("a");
-    //       a3.title = `click to google search for ${pathnamearray[i + 1]}`;
-    //       a3.className = "nounderline color-black";
-    //       a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
-    //       a3.target = "_blank";
-    //       a3.innerHTML = `,  ${decodeURIComponent(pathnamearray[i + 1])}`;
-    //       span2.appendChild(a3);
-    //     }
-    //   }
-
-    //   li.appendChild(span2);
-    //   ul.appendChild(li);
-    // });
-    //}
-  };
-
-  const sortit1 = (event) => {
-    console.log(
-      "Button was clicked, event.currentTarget.obj.data.length=" +
-        event.currentTarget.obj.data.length,
-    );
-    let url;
-    let data1 = [];
-    let ndata = [];
-    for (let i = 0; i < event.currentTarget.obj.data.length; i++) {
-      url = new URL(event.currentTarget.obj.data[i]);
-      let name = new URL(event.currentTarget.obj.data[i]).hostname
-        .split(".")
-        .slice(-2)
-        .join(".");
-      // console.log("url.protocol="+url.protocol); // "https:"
-      // console.log("url.hostname="+url.hostname); // "www.example.com"
-      // console.log("url.port="+url.port); // "8080"
-      // console.log("url.pathname="+url.pathname); // "/path/to/page"
-      // console.log("url.search="+url.search); // "?query=string"
-      // console.log("url.hash="+url.hash); // "#fragment"
-      // console.log("-----------------------------------------------------------------------------");
-      ndata = {
-        hostname: url.hostname,
-        name: name,
-        pathname: url.pathname,
-        url: url,
-      };
-      data1.push(ndata);
-    }
-    //data1 is ready here
-    //     array.sort((a, b) => a.name.localeCompare(b.name));
-
-    // For descending order, reverse the arguments:
-
-    // array.sort((a, b) => b.name.localeCompare(a.name));
-    // console.log("data1="+JSON.stringify(data1))
-    // console.log()
-
-    let data1s = data1.sort((a, b) => a.name.localeCompare(b.name));
-
-    console.log(
-      "data1 sorted by name and extension in hostname=" +
-        JSON.stringify(data1s, null, 4),
-    );
-    //setData2s(data1s)
-    //setSortit1flag(true) //sortit1flag
-    //setS(1) //makes the other list ready to be displayed
-    // const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
-    // ul.innerHTML = "";
-    // if (data1s.length === 0) {
-    //   let li = document.createElement("li");
-    //   li.className = "lsn corangered";
-    //   li.innerHTML = `Results: 0`;
-
-    //   ul.appendChild(li);
-    // } else {
-    //   let li0 = document.createElement("li");
-    //   li0.className = "lsn corangered";
-    //   li0.innerHTML = `Results: ${data1s.length} url(s)`;
-
-    //   ul.appendChild(li0);
-
-    //   data1s.map((d) => {
-    //     let li = document.createElement("li");
-    //     let a = document.createElement("a");
-    //     a.title = "click to open the page";
-    //     a.className = "nounderline color-purple";
-    //     a.href = d.url;
-    //     //a.target = "_blank";
-    //     a.innerHTML = `${decodeURIComponent(d.url)}`;
-
-    //     let a2 = document.createElement("a");
-    //     a2.title = `click to open page,${d.hostname}`;
-    //     a2.className = "nounderline color-black";
-    //     a2.href = "https://" + d.hostname;
-    //     a2.target = "_blank";
-    //     a2.innerHTML = `${d.hostname}`;
-
-    //     let span2 = document.createElement("span");
-    //     let br2 = document.createElement("br");
-
-    //     span2.appendChild(a);
-    //     span2.appendChild(br2);
-    //     span2.appendChild(a2);
-    //     //https://www.google.com/search?q=arthritis
-
-    //     let pathnamearray = d.pathname.split("/");
-
-    //     for (let i = 0; i < pathnamearray.length; i++) {
-    //       if (pathnamearray[i + 1] !== undefined) {
-    //         let a3 = document.createElement("a");
-    //         a3.title = `click to google search for ${pathnamearray[i + 1]}`;
-    //         a3.className = "nounderline color-black";
-    //         a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
-    //         a3.target = "_blank";
-    //         a3.innerHTML = `,  ${decodeURIComponent(pathnamearray[i + 1])}`;
-    //         span2.appendChild(a3);
-    //       }
-    //     }
-
-    //     li.appendChild(span2);
-    //     ul.appendChild(li);
-    //   });
-    // }
-  };
-
-  const sortit3 = (event) => {
-    console.log(
-      "Button was clicked, event.currentTarget.obj.data.length=" +
-        event.currentTarget.obj.data.length,
-    );
-    let url;
-    let data1 = [];
-    let ndata = [];
-    for (let i = 0; i < event.currentTarget.obj.data.length; i++) {
-      url = new URL(event.currentTarget.obj.data[i]);
-      let name = new URL(event.currentTarget.obj.data[i]).hostname
-        .split(".")
-        .slice(-2)
-        .join(".");
-      // console.log("url.protocol="+url.protocol); // "https:"
-      // console.log("url.hostname="+url.hostname); // "www.example.com"
-      // console.log("url.port="+url.port); // "8080"
-      // console.log("url.pathname="+url.pathname); // "/path/to/page"
-      // console.log("url.search="+url.search); // "?query=string"
-      // console.log("url.hash="+url.hash); // "#fragment"
-      // console.log("-----------------------------------------------------------------------------");
-      ndata = {
-        hostname: url.hostname,
-        name: name,
-        pathname: url.pathname,
-        url: url,
-      };
-      data1.push(ndata);
-    }
-    //data1 is ready here
-    //     array.sort((a, b) => a.name.localeCompare(b.name));
-
-    // For descending order, reverse the arguments:
-
-    // array.sort((a, b) => b.name.localeCompare(a.name));
-    // console.log("data1="+JSON.stringify(data1))
-    // console.log()
-
-    //let data1s = data1.sort((a, b) => a.name.localeCompare(b.name));
-    let data1s = data1.sort((a, b) => {
-      // Compare by name first
-      if (a.name !== b.name) {
-        return b.name.localeCompare(a.name);
-      }
-      // If names are equal, compare by department
-      return b.pathname.localeCompare(a.pathname);
-    });
-
-    console.log(
-      "data1 sorted by two fields name and pathname=" +
-        JSON.stringify(data1s, null, 4),
-    );
-    //setData2s(data1s)
-    //setSortit1flag(true) //sortit1flag
-    //setS(1) //makes the other list ready to be displayed
-    // const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
-    // ul.innerHTML = "";
-    // if (data1s.length === 0) {
-    //   let li = document.createElement("li");
-    //   li.className = "lsn corangered";
-    //   li.innerHTML = `Results: 0`;
-
-    //   ul.appendChild(li);
-    // } else {
-    //   let li0 = document.createElement("li");
-    //   li0.className = "lsn corangered";
-    //   li0.innerHTML = `Results: ${data1s.length} url(s)`;
-
-    //   ul.appendChild(li0);
-
-    //   data1s.map((d) => {
-    //     let li = document.createElement("li");
-    //     let a = document.createElement("a");
-    //     a.title = "click to open the page";
-    //     a.className = "nounderline color1- color-purple";
-    //     a.href = d.url;
-    //     a.target = "_blank";
-    //     a.innerHTML = `${decodeURIComponent(d.url)}`;
-
-    //     let a2 = document.createElement("a");
-    //     a2.title = `click to open page,${d.hostname}`;
-    //     a2.className = "nounderline color-black";
-    //     a2.href = "https://" + d.hostname;
-    //     a2.target = "_blank";
-    //     a2.innerHTML = `${d.hostname}`;
-
-    //     let span2 = document.createElement("span");
-    //     let br2 = document.createElement("br");
-
-    //     span2.appendChild(a);
-    //     span2.appendChild(br2);
-    //     span2.appendChild(a2);
-    //     //https://www.google.com/search?q=arthritis
-
-    //     let pathnamearray = d.pathname.split("/");
-
-    //     for (let i = 0; i < pathnamearray.length; i++) {
-    //       if (pathnamearray[i + 1] !== undefined) {
-    //         let a3 = document.createElement("a");
-    //         a3.title = `click to google search for ${pathnamearray[i + 1]}`;
-    //         a3.className = "nounderline color-black";
-    //         a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
-    //         a3.target = "_blank";
-    //         a3.innerHTML = `,  ${decodeURIComponent(pathnamearray[i + 1])}`;
-    //         span2.appendChild(a3);
-    //       }
-    //     }
-
-    //     li.appendChild(span2);
-    //     ul.appendChild(li);
-    //   });
-    // }
-  };
-
-  const sortit4 = (event) => {
-    console.log(
-      "Button was clicked, event.currentTarget.obj.data.length=" +
-        event.currentTarget.obj.data.length,
-    );
-    let url;
-    let data1 = [];
-    let ndata = [];
-    for (let i = 0; i < event.currentTarget.obj.data.length; i++) {
-      url = new URL(event.currentTarget.obj.data[i]);
-      let name = new URL(event.currentTarget.obj.data[i]).hostname
-        .split(".")
-        .slice(-2)
-        .join(".");
-      // console.log("url.protocol="+url.protocol); // "https:"
-      // console.log("url.hostname="+url.hostname); // "www.example.com"
-      // console.log("url.port="+url.port); // "8080"
-      // console.log("url.pathname="+url.pathname); // "/path/to/page"
-      // console.log("url.search="+url.search); // "?query=string"
-      // console.log("url.hash="+url.hash); // "#fragment"
-      // console.log("-----------------------------------------------------------------------------");
-      ndata = {
-        hostname: url.hostname,
-        name: name,
-        pathname: url.pathname,
-        url: url,
-      };
-      data1.push(ndata);
-    }
-
-    let data1s = data1.sort((a, b) => b.name.localeCompare(a.name));
-
-    // console.log(
-    //   "data1 sorted by name and extension in hostname=" +
-    //     JSON.stringify(data1s, null, 4),
-    // );
-    //setData2s(data1s)
-    //setSortit1flag(true) //sortit1flag
-    //setS(1) //makes the other list ready to be displayed
-    // const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
-    // ul.innerHTML = "";
-    // if (data1s.length === 0) {
-    //   let li = document.createElement("li");
-    //   li.className = "lsn corangered";
-    //   li.innerHTML = `Results: 0`;
-
-    //   ul.appendChild(li);
-    // } else {
-    //   let li0 = document.createElement("li");
-    //   li0.className = "lsn corangered";
-    //   li0.innerHTML = `Results: ${data1s.length} url(s)`;
-
-    //   ul.appendChild(li0);
-
-    //   data1s.map((d) => {
-    //     let li = document.createElement("li");
-    //     let a = document.createElement("a");
-    //     a.title = "click to open the page";
-    //     a.className = "nounderline color-purple";
-    //     a.href = d.url;
-    //     a.target = "_blank";
-    //     a.innerHTML = `${decodeURIComponent(d.url)}`;
-
-    //     let a2 = document.createElement("a");
-    //     a2.title = `click to open page,${d.hostname}`;
-    //     a2.className = "nounderline color-black";
-    //     a2.href = "https://" + d.hostname;
-    //     a2.target = "_blank";
-    //     a2.innerHTML = `${d.hostname}`;
-
-    //     let span2 = document.createElement("span");
-    //     let br2 = document.createElement("br");
-
-    //     span2.appendChild(a);
-    //     span2.appendChild(br2);
-    //     span2.appendChild(a2);
-    //     //https://www.google.com/search?q=arthritis
-
-    //     let pathnamearray = d.pathname.split("/");
-
-    //     for (let i = 0; i < pathnamearray.length; i++) {
-    //       if (pathnamearray[i + 1] !== undefined) {
-    //         let a3 = document.createElement("a");
-    //         a3.title = `click to google search for ${pathnamearray[i + 1]}`;
-    //         a3.className = "nounderline color-black";
-    //         a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
-    //         a3.target = "_blank";
-    //         a3.innerHTML = `,  ${decodeURIComponent(pathnamearray[i + 1])}`;
-    //         span2.appendChild(a3);
-    //       }
-    //     }
-
-    //     li.appendChild(span2);
-    //     ul.appendChild(li);
-    //   });
-    // }
-  };
-
-  const getUrlsList = (url2, id) => {
-    if (s === 1) {
-      setS(0);
-      // const ul = document.getElementById("uldata" + id);
-      // ul.innerHTML = "";
-      fetch("https://urilinks-project-links-to-tabs-expr.vercel.app", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ url: url2 }),
-      })
-        .then((response) => {
-          //console.log("response")
-          return response.json();
-        })
-        .then((data) => {
-          setData(data);
-          if (data.length === 0) {
-            // let li = document.createElement("li");
-            // li.className = "lsn corangered";
-            // li.innerHTML = `Results: 0`;
-            // ul.appendChild(li);
-            //  let r = document.getElementById("resultsId")
-            // r.innerHTML = `Results: ${data.length} url(s)`;
-          } else {
-            let span = document.createElement("span");
-            span.innerHTML = "sort1a";
-            span.className = "ib cursor-pointer corange";
-            span.title =
-              "click to sort the results in ascending order on the name and extension in the domain name";
-            let obj = {
-              data: data,
-              id: id,
-            };
-            //span.data = data;
-            span.obj = obj;
-
-            span.addEventListener("click", sortit1);
-            //ul.appendChild(span);
-
-            let span2 = document.createElement("span");
-            span2.innerHTML = "sort2a";
-            span2.className = "ib margin-left-11 cursor-pointer corange";
-            span2.title =
-              "click to sort the results in ascending order on the name, extension and the pathname in the full url";
-            let obj2 = {
-              data: data,
-              id: id,
-            };
-            //span.data = data;
-            span2.obj = obj2;
-
-            span2.addEventListener("click", sortit2);
-            //ul.appendChild(span2);
-
-            let span4 = document.createElement("span");
-            span4.innerHTML = "sort3d";
-            span4.className = "ib margin-left-11 cursor-pointer corange";
-            span4.title =
-              "click to sort the results in descending order on the name and extension in the domain name";
-            let obj4 = {
-              data: data,
-              id: id,
-            };
-            //span.data = data;
-            span4.obj = obj4;
-
-            span4.addEventListener("click", sortit4);
-            //ul.appendChild(span4);
-
-            let span3 = document.createElement("span");
-            span3.innerHTML = "sort4d";
-            span3.className = "ib margin-left-11 cursor-pointer corange";
-            span3.title =
-              "click to sort the results in descending order on the name, extension and the pathname in the full url";
-            let obj3 = {
-              data: data,
-              id: id,
-            };
-            //span.data = data;
-            span3.obj = obj3;
-
-            span3.addEventListener("click", sortit3);
-            //ul.appendChild(span3);
-
-            let li0 = document.createElement("li");
-            li0.className = "lsn corangered";
-            li0.innerHTML = `Results: ${data.length} url(s)`;
-
-            //ul.appendChild(li0);
-
-            //here
-            data.map((url, index) => {
-              let a = document.createElement("a");
-              a.title = "click to open the page";
-              a.className = "nounderline color1- color-purple";
-              a.href = url; //use a.href='#' for drilldown version
-              a.target = "_blank"; //remove the target attribute for drilldown version
-              //a.onClick = {()=>drilldown(url,index)}
-              a.innerHTML = `${decodeURIComponent(url)}`; //data.title+", "+`${url}`;
-
-              // li.appendChild(a);
-
-              // ul.appendChild(li);
-            });
-          }
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    } else {
-      setS(1);
-      // const ul = document.getElementById("uldata" + id);
-      // ul.innerHTML = "";
-    }
-  };
-  //
+  // const sortit2 = (event) => {
+  //   console.log(
+  //     "Button was clicked, event.currentTarget.obj.data.length=" +
+  //       event.currentTarget.obj.data.length,
+  //   );
+  //   let url;
+  //   let data1 = [];
+  //   let ndata = [];
+  //   for (let i = 0; i < event.currentTarget.obj.data.length; i++) {
+  //     url = new URL(event.currentTarget.obj.data[i]);
+  //     let name = new URL(event.currentTarget.obj.data[i]).hostname
+  //       .split(".")
+  //       .slice(-2)
+  //       .join(".");
+  //     // console.log("url.protocol="+url.protocol); // "https:"
+  //     // console.log("url.hostname="+url.hostname); // "www.example.com"
+  //     // console.log("url.port="+url.port); // "8080"
+  //     // console.log("url.pathname="+url.pathname); // "/path/to/page"
+  //     // console.log("url.search="+url.search); // "?query=string"
+  //     // console.log("url.hash="+url.hash); // "#fragment"
+  //     // console.log("-----------------------------------------------------------------------------");
+  //     ndata = {
+  //       hostname: url.hostname,
+  //       name: name,
+  //       pathname: url.pathname,
+  //       url: url,
+  //     };
+  //     data1.push(ndata);
+  //   }
+  //   //data1 is ready here
+  //   //     array.sort((a, b) => a.name.localeCompare(b.name));
+
+  //   // For descending order, reverse the arguments:
+
+  //   // array.sort((a, b) => b.name.localeCompare(a.name));
+  //   // console.log("data1="+JSON.stringify(data1))
+  //   // console.log()
+
+  //   //let data1s = data1.sort((a, b) => a.name.localeCompare(b.name));
+  //   let data1s = data1.sort((a, b) => {
+  //     // Compare by name first
+  //     if (a.name !== b.name) {
+  //       return a.name.localeCompare(b.name);
+  //     }
+  //     // If names are equal, compare by department
+  //     return a.pathname.localeCompare(b.pathname);
+  //   });
+
+  //   // console.log(
+  //   //   "data1 sorted by two fields name and pathname=" +
+  //   //     JSON.stringify(data1s, null, 4),
+  //   // );
+  //   //setData2s(data1s)
+  //   //setSortit1flag(true) //sortit1flag
+  //   //setS(1) //makes the other list ready to be displayed
+  //   // const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
+  //   // ul.innerHTML = "";
+  //   //if (data1s.length === 0) {
+  //   // let li = document.createElement("li");
+  //   // li.className = "lsn corangered";
+  //   // li.innerHTML = `Results: 0`;
+
+  //   // ul.appendChild(li);
+  //   //} else {
+  //   // let li0 = document.createElement("li");
+  //   // li0.className = "lsn corangered";
+  //   // li0.innerHTML = `Results: ${data1s.length} url(s)`;
+
+  //   // ul.appendChild(li0);
+
+  //   // data1s.map((d) => {
+  //   //   let li = document.createElement("li");
+
+  //   //   let a = document.createElement("a");
+  //   //   a.title = "click to open the page";
+  //   //   a.className = "nounderline color-purple";
+  //   //   a.href = d.url;
+  //   //   a.target = "_blank";
+  //   //   a.innerHTML = `${decodeURIComponent(d.url)}`;
+
+  //   //   // li.appendChild(a);
+
+  //   //   // ul.appendChild(li);
+
+  //   //   let a2 = document.createElement("a");
+  //   //   a2.title = `click to open page,${d.hostname}`;
+  //   //   a2.className = "nounderline color-black";
+  //   //   a2.href = "https://" + d.hostname;
+  //   //   a2.target = "_blank";
+  //   //   a2.innerHTML = `${d.hostname}`;
+
+  //   //   let span2 = document.createElement("span");
+  //   //   let br2 = document.createElement("br");
+
+  //   //   span2.appendChild(a);
+  //   //   span2.appendChild(br2);
+  //   //   span2.appendChild(a2);
+  //   //   //https://www.google.com/search?q=arthritis
+
+  //   //   let pathnamearray = d.pathname.split("/");
+
+  //   //   for (let i = 0; i < pathnamearray.length; i++) {
+  //   //     if (pathnamearray[i + 1] !== undefined) {
+  //   //       let a3 = document.createElement("a");
+  //   //       a3.title = `click to google search for ${pathnamearray[i + 1]}`;
+  //   //       a3.className = "nounderline color-black";
+  //   //       a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
+  //   //       a3.target = "_blank";
+  //   //       a3.innerHTML = `,  ${decodeURIComponent(pathnamearray[i + 1])}`;
+  //   //       span2.appendChild(a3);
+  //   //     }
+  //   //   }
+
+  //   //   li.appendChild(span2);
+  //   //   ul.appendChild(li);
+  //   // });
+  //   //}
+  // };
+
+  // const sortit1 = (event) => {
+  //   console.log(
+  //     "Button was clicked, event.currentTarget.obj.data.length=" +
+  //       event.currentTarget.obj.data.length,
+  //   );
+  //   let url;
+  //   let data1 = [];
+  //   let ndata = [];
+  //   for (let i = 0; i < event.currentTarget.obj.data.length; i++) {
+  //     url = new URL(event.currentTarget.obj.data[i]);
+  //     let name = new URL(event.currentTarget.obj.data[i]).hostname
+  //       .split(".")
+  //       .slice(-2)
+  //       .join(".");
+  //     // console.log("url.protocol="+url.protocol); // "https:"
+  //     // console.log("url.hostname="+url.hostname); // "www.example.com"
+  //     // console.log("url.port="+url.port); // "8080"
+  //     // console.log("url.pathname="+url.pathname); // "/path/to/page"
+  //     // console.log("url.search="+url.search); // "?query=string"
+  //     // console.log("url.hash="+url.hash); // "#fragment"
+  //     // console.log("-----------------------------------------------------------------------------");
+  //     ndata = {
+  //       hostname: url.hostname,
+  //       name: name,
+  //       pathname: url.pathname,
+  //       url: url,
+  //     };
+  //     data1.push(ndata);
+  //   }
+  //   //data1 is ready here
+  //   //     array.sort((a, b) => a.name.localeCompare(b.name));
+
+  //   // For descending order, reverse the arguments:
+
+  //   // array.sort((a, b) => b.name.localeCompare(a.name));
+  //   // console.log("data1="+JSON.stringify(data1))
+  //   // console.log()
+
+  //   let data1s = data1.sort((a, b) => a.name.localeCompare(b.name));
+
+  //   console.log(
+  //     "data1 sorted by name and extension in hostname=" +
+  //       JSON.stringify(data1s, null, 4),
+  //   );
+  //   //setData2s(data1s)
+  //   //setSortit1flag(true) //sortit1flag
+  //   //setS(1) //makes the other list ready to be displayed
+  //   // const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
+  //   // ul.innerHTML = "";
+  //   // if (data1s.length === 0) {
+  //   //   let li = document.createElement("li");
+  //   //   li.className = "lsn corangered";
+  //   //   li.innerHTML = `Results: 0`;
+
+  //   //   ul.appendChild(li);
+  //   // } else {
+  //   //   let li0 = document.createElement("li");
+  //   //   li0.className = "lsn corangered";
+  //   //   li0.innerHTML = `Results: ${data1s.length} url(s)`;
+
+  //   //   ul.appendChild(li0);
+
+  //   //   data1s.map((d) => {
+  //   //     let li = document.createElement("li");
+  //   //     let a = document.createElement("a");
+  //   //     a.title = "click to open the page";
+  //   //     a.className = "nounderline color-purple";
+  //   //     a.href = d.url;
+  //   //     //a.target = "_blank";
+  //   //     a.innerHTML = `${decodeURIComponent(d.url)}`;
+
+  //   //     let a2 = document.createElement("a");
+  //   //     a2.title = `click to open page,${d.hostname}`;
+  //   //     a2.className = "nounderline color-black";
+  //   //     a2.href = "https://" + d.hostname;
+  //   //     a2.target = "_blank";
+  //   //     a2.innerHTML = `${d.hostname}`;
+
+  //   //     let span2 = document.createElement("span");
+  //   //     let br2 = document.createElement("br");
+
+  //   //     span2.appendChild(a);
+  //   //     span2.appendChild(br2);
+  //   //     span2.appendChild(a2);
+  //   //     //https://www.google.com/search?q=arthritis
+
+  //   //     let pathnamearray = d.pathname.split("/");
+
+  //   //     for (let i = 0; i < pathnamearray.length; i++) {
+  //   //       if (pathnamearray[i + 1] !== undefined) {
+  //   //         let a3 = document.createElement("a");
+  //   //         a3.title = `click to google search for ${pathnamearray[i + 1]}`;
+  //   //         a3.className = "nounderline color-black";
+  //   //         a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
+  //   //         a3.target = "_blank";
+  //   //         a3.innerHTML = `,  ${decodeURIComponent(pathnamearray[i + 1])}`;
+  //   //         span2.appendChild(a3);
+  //   //       }
+  //   //     }
+
+  //   //     li.appendChild(span2);
+  //   //     ul.appendChild(li);
+  //   //   });
+  //   // }
+  // };
+
+  // const sortit3 = (event) => {
+  //   console.log(
+  //     "Button was clicked, event.currentTarget.obj.data.length=" +
+  //       event.currentTarget.obj.data.length,
+  //   );
+  //   let url;
+  //   let data1 = [];
+  //   let ndata = [];
+  //   for (let i = 0; i < event.currentTarget.obj.data.length; i++) {
+  //     url = new URL(event.currentTarget.obj.data[i]);
+  //     let name = new URL(event.currentTarget.obj.data[i]).hostname
+  //       .split(".")
+  //       .slice(-2)
+  //       .join(".");
+  //     // console.log("url.protocol="+url.protocol); // "https:"
+  //     // console.log("url.hostname="+url.hostname); // "www.example.com"
+  //     // console.log("url.port="+url.port); // "8080"
+  //     // console.log("url.pathname="+url.pathname); // "/path/to/page"
+  //     // console.log("url.search="+url.search); // "?query=string"
+  //     // console.log("url.hash="+url.hash); // "#fragment"
+  //     // console.log("-----------------------------------------------------------------------------");
+  //     ndata = {
+  //       hostname: url.hostname,
+  //       name: name,
+  //       pathname: url.pathname,
+  //       url: url,
+  //     };
+  //     data1.push(ndata);
+  //   }
+  //   //data1 is ready here
+  //   //     array.sort((a, b) => a.name.localeCompare(b.name));
+
+  //   // For descending order, reverse the arguments:
+
+  //   // array.sort((a, b) => b.name.localeCompare(a.name));
+  //   // console.log("data1="+JSON.stringify(data1))
+  //   // console.log()
+
+  //   //let data1s = data1.sort((a, b) => a.name.localeCompare(b.name));
+  //   let data1s = data1.sort((a, b) => {
+  //     // Compare by name first
+  //     if (a.name !== b.name) {
+  //       return b.name.localeCompare(a.name);
+  //     }
+  //     // If names are equal, compare by department
+  //     return b.pathname.localeCompare(a.pathname);
+  //   });
+
+  //   console.log(
+  //     "data1 sorted by two fields name and pathname=" +
+  //       JSON.stringify(data1s, null, 4),
+  //   );
+  //   //setData2s(data1s)
+  //   //setSortit1flag(true) //sortit1flag
+  //   //setS(1) //makes the other list ready to be displayed
+  //   // const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
+  //   // ul.innerHTML = "";
+  //   // if (data1s.length === 0) {
+  //   //   let li = document.createElement("li");
+  //   //   li.className = "lsn corangered";
+  //   //   li.innerHTML = `Results: 0`;
+
+  //   //   ul.appendChild(li);
+  //   // } else {
+  //   //   let li0 = document.createElement("li");
+  //   //   li0.className = "lsn corangered";
+  //   //   li0.innerHTML = `Results: ${data1s.length} url(s)`;
+
+  //   //   ul.appendChild(li0);
+
+  //   //   data1s.map((d) => {
+  //   //     let li = document.createElement("li");
+  //   //     let a = document.createElement("a");
+  //   //     a.title = "click to open the page";
+  //   //     a.className = "nounderline color1- color-purple";
+  //   //     a.href = d.url;
+  //   //     a.target = "_blank";
+  //   //     a.innerHTML = `${decodeURIComponent(d.url)}`;
+
+  //   //     let a2 = document.createElement("a");
+  //   //     a2.title = `click to open page,${d.hostname}`;
+  //   //     a2.className = "nounderline color-black";
+  //   //     a2.href = "https://" + d.hostname;
+  //   //     a2.target = "_blank";
+  //   //     a2.innerHTML = `${d.hostname}`;
+
+  //   //     let span2 = document.createElement("span");
+  //   //     let br2 = document.createElement("br");
+
+  //   //     span2.appendChild(a);
+  //   //     span2.appendChild(br2);
+  //   //     span2.appendChild(a2);
+  //   //     //https://www.google.com/search?q=arthritis
+
+  //   //     let pathnamearray = d.pathname.split("/");
+
+  //   //     for (let i = 0; i < pathnamearray.length; i++) {
+  //   //       if (pathnamearray[i + 1] !== undefined) {
+  //   //         let a3 = document.createElement("a");
+  //   //         a3.title = `click to google search for ${pathnamearray[i + 1]}`;
+  //   //         a3.className = "nounderline color-black";
+  //   //         a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
+  //   //         a3.target = "_blank";
+  //   //         a3.innerHTML = `,  ${decodeURIComponent(pathnamearray[i + 1])}`;
+  //   //         span2.appendChild(a3);
+  //   //       }
+  //   //     }
+
+  //   //     li.appendChild(span2);
+  //   //     ul.appendChild(li);
+  //   //   });
+  //   // }
+  // };
+
+  // const sortit4 = (event) => {
+  //   console.log(
+  //     "Button was clicked, event.currentTarget.obj.data.length=" +
+  //       event.currentTarget.obj.data.length,
+  //   );
+  //   let url;
+  //   let data1 = [];
+  //   let ndata = [];
+  //   for (let i = 0; i < event.currentTarget.obj.data.length; i++) {
+  //     url = new URL(event.currentTarget.obj.data[i]);
+  //     let name = new URL(event.currentTarget.obj.data[i]).hostname
+  //       .split(".")
+  //       .slice(-2)
+  //       .join(".");
+  //     // console.log("url.protocol="+url.protocol); // "https:"
+  //     // console.log("url.hostname="+url.hostname); // "www.example.com"
+  //     // console.log("url.port="+url.port); // "8080"
+  //     // console.log("url.pathname="+url.pathname); // "/path/to/page"
+  //     // console.log("url.search="+url.search); // "?query=string"
+  //     // console.log("url.hash="+url.hash); // "#fragment"
+  //     // console.log("-----------------------------------------------------------------------------");
+  //     ndata = {
+  //       hostname: url.hostname,
+  //       name: name,
+  //       pathname: url.pathname,
+  //       url: url,
+  //     };
+  //     data1.push(ndata);
+  //   }
+
+  //   let data1s = data1.sort((a, b) => b.name.localeCompare(a.name));
+
+  //   // console.log(
+  //   //   "data1 sorted by name and extension in hostname=" +
+  //   //     JSON.stringify(data1s, null, 4),
+  //   // );
+  //   //setData2s(data1s)
+  //   //setSortit1flag(true) //sortit1flag
+  //   //setS(1) //makes the other list ready to be displayed
+  //   // const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
+  //   // ul.innerHTML = "";
+  //   // if (data1s.length === 0) {
+  //   //   let li = document.createElement("li");
+  //   //   li.className = "lsn corangered";
+  //   //   li.innerHTML = `Results: 0`;
+
+  //   //   ul.appendChild(li);
+  //   // } else {
+  //   //   let li0 = document.createElement("li");
+  //   //   li0.className = "lsn corangered";
+  //   //   li0.innerHTML = `Results: ${data1s.length} url(s)`;
+
+  //   //   ul.appendChild(li0);
+
+  //   //   data1s.map((d) => {
+  //   //     let li = document.createElement("li");
+  //   //     let a = document.createElement("a");
+  //   //     a.title = "click to open the page";
+  //   //     a.className = "nounderline color-purple";
+  //   //     a.href = d.url;
+  //   //     a.target = "_blank";
+  //   //     a.innerHTML = `${decodeURIComponent(d.url)}`;
+
+  //   //     let a2 = document.createElement("a");
+  //   //     a2.title = `click to open page,${d.hostname}`;
+  //   //     a2.className = "nounderline color-black";
+  //   //     a2.href = "https://" + d.hostname;
+  //   //     a2.target = "_blank";
+  //   //     a2.innerHTML = `${d.hostname}`;
+
+  //   //     let span2 = document.createElement("span");
+  //   //     let br2 = document.createElement("br");
+
+  //   //     span2.appendChild(a);
+  //   //     span2.appendChild(br2);
+  //   //     span2.appendChild(a2);
+  //   //     //https://www.google.com/search?q=arthritis
+
+  //   //     let pathnamearray = d.pathname.split("/");
+
+  //   //     for (let i = 0; i < pathnamearray.length; i++) {
+  //   //       if (pathnamearray[i + 1] !== undefined) {
+  //   //         let a3 = document.createElement("a");
+  //   //         a3.title = `click to google search for ${pathnamearray[i + 1]}`;
+  //   //         a3.className = "nounderline color-black";
+  //   //         a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
+  //   //         a3.target = "_blank";
+  //   //         a3.innerHTML = `,  ${decodeURIComponent(pathnamearray[i + 1])}`;
+  //   //         span2.appendChild(a3);
+  //   //       }
+  //   //     }
+
+  //   //     li.appendChild(span2);
+  //   //     ul.appendChild(li);
+  //   //   });
+  //   // }
+  // };
+
+  // const getUrlsList = (url2, id) => {
+  //   if (s === 1) {
+  //     setS(0);
+  //     // const ul = document.getElementById("uldata" + id);
+  //     // ul.innerHTML = "";
+  //     fetch("https://urilinks-project-links-to-tabs-expr.vercel.app", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({ url: url2 }),
+  //     })
+  //       .then((response) => {
+  //         //console.log("response")
+  //         return response.json();
+  //       })
+  //       .then((data) => {
+  //         setData(data);
+  //         if (data.length === 0) {
+  //           // let li = document.createElement("li");
+  //           // li.className = "lsn corangered";
+  //           // li.innerHTML = `Results: 0`;
+  //           // ul.appendChild(li);
+  //           //  let r = document.getElementById("resultsId")
+  //           // r.innerHTML = `Results: ${data.length} url(s)`;
+  //         } else {
+  //           let span = document.createElement("span");
+  //           span.innerHTML = "sort1a";
+  //           span.className = "ib cursor-pointer corange";
+  //           span.title =
+  //             "click to sort the results in ascending order on the name and extension in the domain name";
+  //           let obj = {
+  //             data: data,
+  //             id: id,
+  //           };
+  //           //span.data = data;
+  //           span.obj = obj;
+
+  //           span.addEventListener("click", sortit1);
+  //           //ul.appendChild(span);
+
+  //           let span2 = document.createElement("span");
+  //           span2.innerHTML = "sort2a";
+  //           span2.className = "ib margin-left-11 cursor-pointer corange";
+  //           span2.title =
+  //             "click to sort the results in ascending order on the name, extension and the pathname in the full url";
+  //           let obj2 = {
+  //             data: data,
+  //             id: id,
+  //           };
+  //           //span.data = data;
+  //           span2.obj = obj2;
+
+  //           span2.addEventListener("click", sortit2);
+  //           //ul.appendChild(span2);
+
+  //           let span4 = document.createElement("span");
+  //           span4.innerHTML = "sort3d";
+  //           span4.className = "ib margin-left-11 cursor-pointer corange";
+  //           span4.title =
+  //             "click to sort the results in descending order on the name and extension in the domain name";
+  //           let obj4 = {
+  //             data: data,
+  //             id: id,
+  //           };
+  //           //span.data = data;
+  //           span4.obj = obj4;
+
+  //           span4.addEventListener("click", sortit4);
+  //           //ul.appendChild(span4);
+
+  //           let span3 = document.createElement("span");
+  //           span3.innerHTML = "sort4d";
+  //           span3.className = "ib margin-left-11 cursor-pointer corange";
+  //           span3.title =
+  //             "click to sort the results in descending order on the name, extension and the pathname in the full url";
+  //           let obj3 = {
+  //             data: data,
+  //             id: id,
+  //           };
+  //           //span.data = data;
+  //           span3.obj = obj3;
+
+  //           span3.addEventListener("click", sortit3);
+  //           //ul.appendChild(span3);
+
+  //           let li0 = document.createElement("li");
+  //           li0.className = "lsn corangered";
+  //           li0.innerHTML = `Results: ${data.length} url(s)`;
+
+  //           //ul.appendChild(li0);
+
+  //           //here
+  //           data.map((url, index) => {
+  //             let a = document.createElement("a");
+  //             a.title = "click to open the page";
+  //             a.className = "nounderline color1- color-purple";
+  //             a.href = url; //use a.href='#' for drilldown version
+  //             a.target = "_blank"; //remove the target attribute for drilldown version
+  //             //a.onClick = {()=>drilldown(url,index)}
+  //             a.innerHTML = `${decodeURIComponent(url)}`; //data.title+", "+`${url}`;
+
+  //             // li.appendChild(a);
+
+  //             // ul.appendChild(li);
+  //           });
+  //         }
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error:", error);
+  //       });
+  //   } else {
+  //     setS(1);
+  //     // const ul = document.getElementById("uldata" + id);
+  //     // ul.innerHTML = "";
+  //   }
+  // };
+  
 
   const truncateString = (str, length) => {
     let str1 = !!str ? str : "";
@@ -1655,12 +1667,12 @@ data-value={props.id}
 
     props.stopScrolling3();
     let newStr = Url;
-    let videoId = ""
+    let videoId = "";
 
     if (Url.includes("shorts")) {
       newStr = Url.replace("shorts", "embed");
     } else if (Url.includes("watch?v=")) {
-      videoId = Url.split("?v=")[1] //use to append &loop=1&playlist=${videoId} for ifrace src attribute in <BasicIfram
+      videoId = Url.split("?v=")[1]; //use to append &loop=1&playlist=${videoId} for ifrace src attribute in <BasicIfram
       newStr = Url.replace("watch?v=", "embed/");
     }
 
@@ -1675,50 +1687,51 @@ data-value={props.id}
       // const batchDeleteButton = document.getElementById("batchdelete");
       // const deleteAllButton = document.getElementById("deleteall");
 
-//       const ids = [
-//   "upid",
-//   "dnid",
-//   "stopid",
-//   "batchdelete",
-//   "deleteall",
-// ];
+      //       const ids = [
+      //   "upid",
+      //   "dnid",
+      //   "stopid",
+      //   "batchdelete",
+      //   "deleteall",
+      // ];
 
-// ids.forEach((id) => {
-//   const elements = document.querySelectorAll("#" + id);
+      // ids.forEach((id) => {
+      //   const elements = document.querySelectorAll("#" + id);
 
-//   console.log(id, "count =", elements.length);
+      //   console.log(id, "count =", elements.length);
 
-//   elements.forEach((el, index) => {
-//     el.style.display = "none";
+      //   elements.forEach((el, index) => {
+      //     el.style.display = "none";
 
-//     console.log(
-//       id,
-//       "element",
-//       index,
-//       "style.display =",
-//       el.style.display,
-//       "computed =",
-//       window.getComputedStyle(el).display
-//     );
-//   });
-// });
-
-
-
-
-
+      //     console.log(
+      //       id,
+      //       "element",
+      //       index,
+      //       "style.display =",
+      //       el.style.display,
+      //       "computed =",
+      //       window.getComputedStyle(el).display
+      //     );
+      //   });
+      // });
 
       console.log("Play video in place");
       storeScrollPosition0(id, frequency);
-      window.document.getElementById("ipvideo" + id).style.marginTop = "35px";
+
+      const ipVideo = window.document.getElementById("ipvideo" + id);
+      if (ipVideo && ipVideo instanceof HTMLElement) {
+        ipVideo.style.marginTop = "35px";
+      }
 
       console.log("Play video in place, display set to block");
       const iframe = document.querySelector("#ipvideo" + id + " iframe");
 
-      if (iframe) {
-        if(videoId !== "")
-        iframe.src = newStr+"?playlist="+videoId+"&loop=1";
-        else iframe.src = newStr;
+      if (iframe && iframe instanceof HTMLIFrameElement) {
+        if (videoId !== "") {
+          iframe.src = newStr + "?playlist=" + videoId + "&loop=1";
+        } else {
+          iframe.src = newStr;
+        }
       }
 
       savedScrollYw.current = window.scrollY;
@@ -1730,43 +1743,41 @@ data-value={props.id}
       console.log("WINDOW =", savedScrollYw.current);
       console.log("INNER =", savedScrollYiw.current);
 
-      videoElement.style.display = "block";
+      if (videoElement && videoElement instanceof HTMLElement) {
+        videoElement.style.display = "block";
+        videoElement.scrollIntoView({
+          behavior: "auto",
+        });
+      }
 
       event.currentTarget.innerText = "Close video";
-
-      videoElement.scrollIntoView({
-        behavior: "auto",
-      });
 
       setTimeout(() => {
         const ls2 = document.getElementById("ls2");
 
-if (ls2) {
-  ls2.scrollBy({
-    top: -30,
-    behavior: "auto",
-  });
-}
-
-
+        if (ls2) {
+          ls2.scrollBy({
+            top: -30,
+            behavior: "auto",
+          });
+        }
       }, 500);
     } else {
+      // const ids = [
+      //   "upid",
+      //   "dnid",
+      //   "stopid",
+      //   "batchdelete",
+      //   "deleteall",
+      // ];
 
-// const ids = [
-//   "upid",
-//   "dnid",
-//   "stopid",
-//   "batchdelete",
-//   "deleteall",
-// ];
+      // ids.forEach((id) => {
+      //   const elements = document.querySelectorAll("#" + id);
 
-// ids.forEach((id) => {
-//   const elements = document.querySelectorAll("#" + id);
-
-//   elements.forEach((el) => {
-//     el.style.display = "";
-//   });
-// });
+      //   elements.forEach((el) => {
+      //     el.style.display = "";
+      //   });
+      // });
 
       // console.log("Play video in place, about to set display to none");
       // window.document.getElementById("belowbuttonsid2").style.display = "none";
@@ -1777,11 +1788,13 @@ if (ls2) {
       const iframe = document.querySelector("#ipvideo" + id + " iframe");
 
       // Stops video and audio
-      if (iframe) {
+      if (iframe && iframe instanceof HTMLIFrameElement) {
         iframe.src = "";
       }
 
-      videoElement.style.display = "none";
+      if (videoElement && videoElement instanceof HTMLElement) {
+        videoElement.style.display = "none";
+      }
       event.currentTarget.innerText = "Play video in place";
 
       setTimeout(() => {
@@ -2341,8 +2354,8 @@ if (ls2) {
             <span>
               <span className="ib bg-color-1w borderRadius11- nounderline color-black">
                 See what{" "}
-                {props.signup.signup === true
-                  ? firebase.auth().currentUser.displayName
+                {props.signup.signup === true && currentUser
+                  ? currentUser.displayName
                   : "John"}{" "}
                 has for sale:&nbsp;
               </span>
@@ -2393,8 +2406,8 @@ if (ls2) {
               >
                 <span className="" style={{ cursor: "pointer" }}>
                   <span className="ib bg-color-1w- borderRadius11 nounderline color-black">
-                    See what {firebase.auth().currentUser.displayName} has for
-                    sale:&nbsp;
+                    See what {currentUser ? currentUser.displayName : "John"}{" "}
+                    has for sale:&nbsp;
                   </span>
                   <span className="underline" style={{ color: "#0000EE" }}>
                     Nothing Yet
@@ -2406,8 +2419,8 @@ if (ls2) {
             <div>
               <span className="ib bg-color-1w- borderRadius11- nounderline color-black-">
                 See what{" "}
-                {!!firebase.auth().currentUser === true
-                  ? firebase.auth().currentUser.displayName + " has "
+                {!!currentUser === true
+                  ? currentUser.displayName + " has "
                   : " John has "}
                 for sale:&nbsp;
               </span>
@@ -2496,7 +2509,7 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
   //links: selectLinks(state.links, state.filters),
 });
-
+//startAddLink2
 const mapDispatchToProps = (dispatch, props) => ({
   startRemoveLink: (data) => dispatch(startRemoveLink(data)),
   removeLink: (data) => dispatch(removeLink(data)),
@@ -2521,14 +2534,15 @@ const mapDispatchToProps = (dispatch, props) => ({
     dispatch(incrementTotalStarClickCount(data)),
   decrementTotalStarClickCount: (data) =>
     dispatch(decrementTotalStarClickCount(data)),
-  incrementHashtagsIsOpenClickCount: (data) =>
-    dispatch(incrementHashtagsIsOpenClickCount(data)),
-  decrementHashtagsIsOpenClickCount: (data) =>
-    dispatch(decrementHashtagsIsOpenClickCount(data)),
+  // incrementHashtagsIsOpenClickCount: (data) =>
+  //   dispatch(incrementHashtagsIsOpenClickCount(data)),
+  // decrementHashtagsIsOpenClickCount: (data) =>
+  //   dispatch(decrementHashtagsIsOpenClickCount(data)),
   incrementHandleToggle: (data) => dispatch(incrementHandleToggle(data)),
   decrementHandleToggle: (data) => dispatch(decrementHandleToggle(data)),
   incrementHandleToggle3: (data) => dispatch(incrementHandleToggle3(data)),
   decrementHandleToggle3: (data) => dispatch(decrementHandleToggle3(data)),
+  startAddLink2: (data) => dispatch(startAddLink2(data)),
 });
 
 export default withRouter(

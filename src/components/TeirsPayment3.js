@@ -11,10 +11,14 @@ import "firebase/storage"; // If using Storage
 import StorageSizes from "./StorageSizes";
 
 const TeirsPayment3 = (props) => {
+  const currentUser = firebase.auth().currentUser;
   const [clientSecret, setClientSecret] = useState("");
   const [pti, setPti] = useState(process.env.PTI);
   const [theUserId, setTheUserId] = useState(
-    firebase.auth().currentUser.uid + props.theplan.customerId,
+    (currentUser ? currentUser.uid : "") +
+      (props.theplan && props.theplan.customerId
+        ? props.theplan.customerId
+        : ""),
   );
 
   const [isFree, setIsFree] = useState(false);
@@ -41,7 +45,7 @@ const TeirsPayment3 = (props) => {
   useEffect(() => {
     console.log("the following should be the uid:");
     console.log(
-      "firebase.auth().currentUser.uid=" + firebase.auth().currentUser.uid,
+      "firebase.auth().currentUser.uid=" + (currentUser ? currentUser.uid : ""),
     );
     // console.log(
     //   "3 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId

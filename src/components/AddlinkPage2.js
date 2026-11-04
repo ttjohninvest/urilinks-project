@@ -61,26 +61,24 @@ export const AddLinkPage2 = (props) => {
     const fetchData = async () => {
       try {
         //XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
-        if (props.signup.signup === true) {
-          const user = firebase.auth().currentUser;
-          if (user) {
-            const uid = user.uid;
-            setUserId(uid);
-            console.log("User ID:", uid);
-          } else {
-            console.log("No user is currently logged in.");
-          }
-        } else {
-          setUserId("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2");
-        }
-
         const db = firebase.database();
         ////try {//XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
         let snapshot;
         if (props.signup.signup === true) {
           const user = firebase.auth().currentUser;
-          snapshot = await db.ref(`/users/${user.uid}/links`).once("value");
+          if (!user) {
+            console.log("No user is currently logged in.");
+            setUserId("");
+            setCount(0);
+            return;
+          }
+
+          const uid = user.uid;
+          setUserId(uid);
+          console.log("User ID:", uid);
+          snapshot = await db.ref(`/users/${uid}/links`).once("value");
         } else {
+          setUserId("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2");
           snapshot = await db
             .ref(`/users/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2/links`)
             .once("value");

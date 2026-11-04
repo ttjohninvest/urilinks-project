@@ -76,40 +76,38 @@ export const AddLinkPage = (props) => {
   };
 
   useEffect(() => {
-     firebase.auth().onAuthStateChanged((user) => {
-    console.log("getPlanMax()=" + getPlanMax());
-    //const user = firebase.auth().currentUser
-    const fetchData = async () => {
-      try {
-         const db = firebase.database();
-         let snapshot;
-        if (props.signup.signup === true) {
+    firebase.auth().onAuthStateChanged((user) => {
+      console.log("getPlanMax()=" + getPlanMax());
+      //const user = firebase.auth().currentUser
+      const fetchData = async () => {
+        try {
+          const db = firebase.database();
+          let snapshot;
+          if (props.signup.signup === true && user) {
+            snapshot = await db.ref(`/users/${user.uid}/links`).once("value");
+          } else {
+            snapshot = await db
+              .ref(`/users/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2/links`)
+              .once("value");
+          }
 
-          snapshot = await db.ref(`/users/${user.uid}/links`).once("value");
-          
-        } else {
-          
-          snapshot = await db.ref(`/users/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2/links`).once("value");
-
+          if (snapshot && snapshot.exists()) {
+            const data = snapshot.val();
+            const count = Object.keys(data).length;
+            console.log("count=" + count);
+            setCount(count);
+          } else {
+            console.log("else part, count=" + 0);
+            setCount(0);
+          }
+        } catch (error) {
+          console.error("Error fetching data:", error);
+          setCount(-1); // Indicate an error
         }
+      };
 
-        if (snapshot && snapshot.exists()) {
-          const data = snapshot.val();
-          const count = Object.keys(data).length;
-          console.log("count=" + count);
-          setCount(count);
-        } else {
-          console.log("else part, count=" + 0);
-          setCount(0);
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setCount(-1); // Indicate an error
-      }
-    };
-
-    fetchData();
-  })
+      fetchData();
+    });
   }, []);
 
   // const isityt = (url) => {

@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react'
 
-const StickyFixed = ({ children }) => {
+const StickyFixed = ({ children = null }) => {
   const [isFixed, setIsFixed] = useState(false);
   const [offset, setOffset] = useState(0);
   const [thetop, setThetop] = useState(0);

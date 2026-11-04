@@ -6,6 +6,8 @@ import InfiniteScrollNewLinksShowPublicOrPrivate from "./InfiniteScrollNewLinksS
 import ErrorBoundry from "./ErrorBoundry";
 import { useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
+import GmailContacts from "./GmailContacts";
+import AiChat from "./AiChat"
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -142,6 +144,7 @@ function ExpandableArray(props) {
   const [selectedLinkIds, setSelectedLinkIds] = useState([]);
   const [links, setLinks] = useState([]);
   const [linksRefresh, setLinksRefresh] = useState(0);
+  const [showAIChat, setShowAIChat] = useState(false);
 
   console.log("HOME RENDER", new Date().toLocaleTimeString());
 
@@ -3087,7 +3090,7 @@ function ExpandableArray(props) {
                         Add A link
                       </button> */}
                         {/* <div className="flexrowz"> */}
-                        <AddALinkButton />
+                        <AddALinkButton /><GmailContacts />
                         <div className="margin-top-1">
                           <button
                             id="batchdelete"
@@ -3622,6 +3625,10 @@ function ExpandableArray(props) {
                                   signup={props.signup}
                                   demonstration={demonstration}
                                 />
+                                <button onClick={() => setShowAIChat(true)}>
+                                   Start AI Chat
+                                </button>
+                                {showAIChat && <AiChat />}
                               </span>
                               <span className="ib">
                                 <OnlineStatus userId={id} displayName={dn} />

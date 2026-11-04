@@ -1,4 +1,12 @@
 ====================================
+You had a wonderful childhood on Corpus Christi, with your friends, baseball, hiking, catching blue-bellied lizards with Todd, and riding your skateboard with Arby.
+
+And once or twice a year, you had the special pleasure of visiting Grandma Pat. You didn't need to do anything extraordinary while you were there. Just being in her house, knowing she loved you and wanted you there, made you happy.
+
+It sounds like you had two different kinds of happiness: the excitement of adventures with your friends and the quiet happiness of being loved by Grandma Pat.
+
+Both were precious parts of your childhood. ❤️
+====================================
 maybe do, to do, agenda
 
 https://www.fiverr.com/facebooksetup_?source=inbox, Angela S patron setup
@@ -915,6 +923,14 @@ user pw: BU6mccOyhauoXaaq
 
 express server api to convert the bookmarks.html file into json so that I can process it
 in FetchBookmarks.js and convert all of the folder names into hashtags
+
+auto ai chat expenses:
+spending limit is enforced at $5.00 per month.
+per 1 million tokens:
+For example, a short exchange with 100 input tokens and 200 output tokens would cost approximately $0.000425, or about 0.043 cents. Longer conversations cost more because previous messages may also be processed.
+
+You can check your actual spending here:
+OpenAI API Usage DashboardMy recommendation: Before making AI Chat available to everyone on URIlinks, add a daily message limit per user so nobody can run up your API bill.
 
 expenses for urilinks.com:
 openai.com, chatgpt help: first month from 10/2/2026 to 11/2/2026 free and $20 each month after that

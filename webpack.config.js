@@ -106,20 +106,9 @@ module.exports = (env) => {
 
         "process.env.FIREBASE_APP_ID":
           JSON.stringify(variables.FIREBASE_APP_ID)
-      }),
+      })
 
-      // Minify JavaScript only in production
-      ...(isProduction
-        ? [
-            new webpack.optimize.UglifyJsPlugin({
-              compress: {
-                warnings: false
-              },
-              mangle: true,
-              sourceMap: true
-            })
-          ]
-        : [])
+    
     ],
 
     devtool: isProduction ? "source-map" : "inline-source-map",

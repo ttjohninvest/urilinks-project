@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build:dev": "webpack --env development",
-    "build:prod": "webpack --env production",
+    "build:prod": "webpack --env production && node minify-production.js",
     "dev-server": "webpack-dev-server",
     "test": "jest --config=jest.config.json",
     "start": "node server/server.js",
@@ -73,6 +73,7 @@
     "eslint": "^8.57.1",
     "jest": "20.0.4",
     "react-test-renderer": "15.6.1",
+    "terser": "^5.51.2",
     "typescript": "^7.0.2",
     "webpack-dev-server": "2.5.1"
   }

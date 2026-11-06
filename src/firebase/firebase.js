@@ -47,6 +47,8 @@ const config = {
 console.log("A ABOUT TO CALL firebase.initializeApp");
 console.log(1);
 const app = firebase.initializeApp(config);
+console.log("Firebase Project ID =", app.options.projectId);
+console.log("Firebase Database URL =", app.options.databaseURL);
 console.log(2);
 const storage = firebase.storage();
 console.log(3);

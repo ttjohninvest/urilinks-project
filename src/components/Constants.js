@@ -1,7 +1,6 @@
 
 const Constants = {
   
-  //
   //NODE_DEV:"development",
   NODE_DEV:"production",
   CATS:true,

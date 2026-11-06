@@ -37,25 +37,6 @@ module.exports = (env) => {
 
   const CSSExtract = new ExtractTextPlugin("styles.css");
 
-  // Extra safety:
-  // Remove old source map files before production builds.
-  if (isProduction) {
-    const distPath = path.join(__dirname, "public", "dist");
-
-    if (fs.existsSync(distPath)) {
-      fs.readdirSync(distPath).forEach((file) => {
-        if (file.endsWith(".map")) {
-          const mapPath = path.join(distPath, file);
-
-          if (fs.statSync(mapPath).isFile()) {
-            fs.unlinkSync(mapPath);
-            console.log("Removed old source map:", file);
-          }
-        }
-      });
-    }
-  }
-
   return {
     entry: ["babel-polyfill", "./src/app.js"],
 
@@ -78,13 +59,13 @@ module.exports = (env) => {
               {
                 loader: "css-loader",
                 options: {
-                  sourceMap: !isProduction
+                  sourceMap: true
                 }
               },
               {
                 loader: "sass-loader",
                 options: {
-                  sourceMap: !isProduction
+                  sourceMap: true
                 }
               }
             ]
@@ -135,14 +116,13 @@ module.exports = (env) => {
                 warnings: false
               },
               mangle: true,
-              sourceMap: false
+              sourceMap: true
             })
           ]
         : [])
     ],
 
-    // Source maps only for development
-    devtool: isProduction ? false : "inline-source-map",
+    devtool: isProduction ? "source-map" : "inline-source-map",
 
     devServer: {
       contentBase: path.join(__dirname, "public"),

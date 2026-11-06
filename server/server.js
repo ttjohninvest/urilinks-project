@@ -4,13 +4,13 @@ const app = express();
 const publicPath = path.join(__dirname, '..', 'public');
 //const port = process.env.PORT || 3000;
 
-app.use((req, res, next) => {
-  if (req.path.endsWith(".map")) {
-    return res.sendStatus(404);
-  }
+// app.use((req, res, next) => {
+//   if (req.path.endsWith(".map")) {
+//     return res.sendStatus(404);
+//   }
 
-  next();
-});
+//   next();
+// });
 
 app.use(express.static(publicPath)); //serves all of the files in public folder to user's browser
 // app.use( //does not server the source maps in public folder to user's browser

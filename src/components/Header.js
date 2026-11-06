@@ -109,7 +109,7 @@ const Dropdown = ({ trigger, children }) => {
 
 export const Header = (props) => {
   console.log("HEADER SIGNUP AFTER RELOAD =", props.signup);
-console.log("HEADER AUTH UID AFTER RELOAD =", props.auth.uid);
+  console.log("HEADER AUTH UID AFTER RELOAD =", props.auth.uid);
   const [deleteAccountError, setDeleteAccountError] = useState(false);
   const [photoURL, setPhotoURL] = useState("");
   const [inviewport, setInviewport] = useState(false);
@@ -153,7 +153,6 @@ console.log("HEADER AUTH UID AFTER RELOAD =", props.auth.uid);
   const z10 = params.get("z10");
   const ni = params.get("ni");
 
-
   //   const baseUrl =
   // process.env.NODE_ENV === "development"
   //   ? "http://localhost:3000"
@@ -163,7 +162,7 @@ console.log("HEADER AUTH UID AFTER RELOAD =", props.auth.uid);
 
   let baseUrl = "";
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   if (Constants.NODE_DEV === "development") {
     baseUrl = "http://localhost:3000";
@@ -279,315 +278,306 @@ console.log("HEADER AUTH UID AFTER RELOAD =", props.auth.uid);
   //     });
   // };
 
-//   const downloadLinksHTML = () => {
-//     firebase.auth().onAuthStateChanged(async (user) => {
-//       console.log("1. downloadLinksHTML started");
+  //   const downloadLinksHTML = () => {
+  //     firebase.auth().onAuthStateChanged(async (user) => {
+  //       console.log("1. downloadLinksHTML started");
 
-//       if (!user) {
-//         console.log("STOPPED: no Firebase user");
-//         return;
-//       }
+  //       if (!user) {
+  //         console.log("STOPPED: no Firebase user");
+  //         return;
+  //       }
 
-//       console.log("user.email =", user.email);
+  //       console.log("user.email =", user.email);
 
-//       const emailName = user && user.email ? user.email.split("@")[0] : "user";
+  //       const emailName = user && user.email ? user.email.split("@")[0] : "user";
 
-//       console.log("emailName =", emailName);
+  //       console.log("emailName =", emailName);
 
-//       firebase
-//         .database()
-//         .ref("users/" + user.uid + "/links")
-//         .once("value")
-//         .then((snapshot) => {
-//           console.log("3. Firebase read completed");
+  //       firebase
+  //         .database()
+  //         .ref("users/" + user.uid + "/links")
+  //         .once("value")
+  //         .then((snapshot) => {
+  //           console.log("3. Firebase read completed");
 
-//           const linksObject = snapshot.val();
+  //           const linksObject = snapshot.val();
 
-//           console.log("4. linksObject =", linksObject);
+  //           console.log("4. linksObject =", linksObject);
 
-//           if (!linksObject) {
-//             console.log("STOPPED: no links found");
-//             return;
-//           }
+  //           if (!linksObject) {
+  //             console.log("STOPPED: no links found");
+  //             return;
+  //           }
 
-//           let html = `
-// <!DOCTYPE html>
-// <html>
-// <head>
-//   <meta charset="UTF-8">
-//   <title>urilinks Links</title>
-// </head>
-// <body>
+  //           let html = `
+  // <!DOCTYPE html>
+  // <html>
+  // <head>
+  //   <meta charset="UTF-8">
+  //   <title>urilinks Links</title>
+  // </head>
+  // <body>
 
-// <h1>urilinks Links</h1>
-// `;
+  // <h1>urilinks Links</h1>
+  // `;
 
-//           // Sort links alphabetically by description
-//           const sortedLinks = Object.keys(linksObject)
-//             .map((id) => linksObject[id])
-//             .sort((a, b) => {
-//               const aDescription = (a.description || "").toLowerCase();
+  //           // Sort links alphabetically by description
+  //           const sortedLinks = Object.keys(linksObject)
+  //             .map((id) => linksObject[id])
+  //             .sort((a, b) => {
+  //               const aDescription = (a.description || "").toLowerCase();
 
-//               const bDescription = (b.description || "").toLowerCase();
+  //               const bDescription = (b.description || "").toLowerCase();
 
-//               return aDescription.localeCompare(bDescription);
-//             });
+  //               return aDescription.localeCompare(bDescription);
+  //             });
 
-//           sortedLinks.forEach((link) => {
-//             const description = link.description || "";
+  //           sortedLinks.forEach((link) => {
+  //             const description = link.description || "";
 
-//             const linkUrl = link.Url || "";
+  //             const linkUrl = link.Url || "";
 
-//             const note = link.note || "";
+  //             const note = link.note || "";
 
-//             html += `
-// <div>
-//   <p>
-//     <a href="${linkUrl}" target="_blank">
-//       ${description}
-//     </a>
-//   </p>
+  //             html += `
+  // <div>
+  //   <p>
+  //     <a href="${linkUrl}" target="_blank">
+  //       ${description}
+  //     </a>
+  //   </p>
 
-//   <p>${note}</p>
-// </div>
+  //   <p>${note}</p>
+  // </div>
 
-// <hr>
-// `;
-//           });
+  // <hr>
+  // `;
+  //           });
 
-//           html += `
-// </body>
-// </html>
-// `;
+  //           html += `
+  // </body>
+  // </html>
+  // `;
 
-//           console.log("5. HTML created");
+  //           console.log("5. HTML created");
 
-//           const blob = new Blob([html], {
-//             type: "text/html;charset=utf-8;",
-//           });
+  //           const blob = new Blob([html], {
+  //             type: "text/html;charset=utf-8;",
+  //           });
 
-//           const downloadUrl = URL.createObjectURL(blob);
+  //           const downloadUrl = URL.createObjectURL(blob);
 
-//           console.log("6. Blob URL created =", downloadUrl);
+  //           console.log("6. Blob URL created =", downloadUrl);
 
-//           const a = document.createElement("a");
+  //           const a = document.createElement("a");
 
-//           a.href = downloadUrl;
+  //           a.href = downloadUrl;
 
-//           a.download = emailName + "-urilinks-links.html";
+  //           a.download = emailName + "-urilinks-links.html";
 
-//           document.body.appendChild(a);
+  //           document.body.appendChild(a);
 
-//           console.log("7. About to click download link");
+  //           console.log("7. About to click download link");
 
-//           a.click();
+  //           a.click();
 
-//           console.log("8. Download link clicked");
+  //           console.log("8. Download link clicked");
 
-//           setTimeout(() => {
-//             document.body.removeChild(a);
+  //           setTimeout(() => {
+  //             document.body.removeChild(a);
 
-//             URL.revokeObjectURL(downloadUrl);
+  //             URL.revokeObjectURL(downloadUrl);
 
-//             console.log("9. Download cleanup completed");
-//           }, 2000);
-//         })
-//         .catch((error) => {
-//           console.log("DOWNLOAD ERROR:", error);
-//         });
-//     });
-//   };
+  //             console.log("9. Download cleanup completed");
+  //           }, 2000);
+  //         })
+  //         .catch((error) => {
+  //           console.log("DOWNLOAD ERROR:", error);
+  //         });
+  //     });
+  //   };
 
-const downloadLinksHTML = () => {
-  if (!props.auth) {
-    return;
-  }
+  const downloadLinksHTML = () => {
+    if (!props.auth) {
+      return;
+    }
 
-  firebase
-    .database()
-    .ref("users/" + props.auth.uid + "/links")
-    .once("value")
-    .then((snapshot) => {
-      const data = snapshot.val();
+    firebase
+      .database()
+      .ref("users/" + props.auth.uid + "/links")
+      .once("value")
+      .then((snapshot) => {
+        const data = snapshot.val();
 
-      if (!data) {
-        alert("There are no links to download.");
-        return;
-      }
-
-      const escapeHTML = (text) => {
-        if (text === undefined || text === null) {
-          return "";
-        }
-
-        return String(text)
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;")
-          .replace(/"/g, "&quot;");
-      };
-
-      const links = Object.keys(data).map((id) => {
-        return {
-          id: id,
-          ...data[id],
-        };
-      });
-
-      let html = "";
-
-      html += "<!DOCTYPE NETSCAPE-Bookmark-file-1>\n";
-      html += "<!-- This is an automatically generated file.\n";
-      html += "     It will be read and overwritten.\n";
-      html += "     DO NOT EDIT! -->\n";
-      html +=
-        '<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">\n';
-      html += "<TITLE>Bookmarks</TITLE>\n";
-      html += "<H1>Bookmarks</H1>\n";
-      html += "<DL><p>\n";
-
-      links.forEach((link) => {
-        const url = link.Url || link.url || "";
-        const description = link.description || url || "Bookmark";
-        const note = link.note || "";
-
-        if (!url) {
+        if (!data) {
+          alert("There are no links to download.");
           return;
         }
 
-        let addDate = Math.floor(Date.now() / 1000);
+        const escapeHTML = (text) => {
+          if (text === undefined || text === null) {
+            return "";
+          }
 
-        if (link.createdAt) {
-          addDate = Math.floor(Number(link.createdAt) / 1000);
+          return String(text)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;");
+        };
+
+        const links = Object.keys(data).map((id) => {
+          return {
+            id: id,
+            ...data[id],
+          };
+        });
+
+        let html = "";
+
+        html += "<!DOCTYPE NETSCAPE-Bookmark-file-1>\n";
+        html += "<!-- This is an automatically generated file.\n";
+        html += "     It will be read and overwritten.\n";
+        html += "     DO NOT EDIT! -->\n";
+        html +=
+          '<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">\n';
+        html += "<TITLE>Bookmarks</TITLE>\n";
+        html += "<H1>Bookmarks</H1>\n";
+        html += "<DL><p>\n";
+
+        links.forEach((link) => {
+          const url = link.Url || link.url || "";
+          const description = link.description || url || "Bookmark";
+          const note = link.note || "";
+
+          if (!url) {
+            return;
+          }
+
+          let addDate = Math.floor(Date.now() / 1000);
+
+          if (link.createdAt) {
+            addDate = Math.floor(Number(link.createdAt) / 1000);
+          }
+
+          html +=
+            '    <DT><A HREF="' +
+            escapeHTML(url) +
+            '" ADD_DATE="' +
+            addDate +
+            '" URILINKS_NOTE="' +
+            escapeHTML(note) +
+            '">' +
+            escapeHTML(description) +
+            "</A>\n";
+        });
+
+        html += "</DL><p>\n";
+
+        const blob = new Blob([html], {
+          type: "text/html;charset=utf-8",
+        });
+
+        const downloadUrl = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = downloadUrl;
+        a.download = "urilinks-bookmarks.html";
+
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        URL.revokeObjectURL(downloadUrl);
+      })
+      .catch((error) => {
+        console.log("Error downloading links:", error);
+        alert("There was an error downloading the bookmarks.");
+      });
+  };
+
+  const downloadLinksCSV = () => {
+    const user = firebase.auth().currentUser;
+
+    if (!user) {
+      return;
+    }
+
+    firebase
+      .database()
+      .ref("users/" + user.uid + "/links")
+      .once("value")
+      .then((snapshot) => {
+        const linksObject = snapshot.val();
+
+        if (!linksObject) {
+          return;
         }
 
-        html +=
-          '    <DT><A HREF="' +
-          escapeHTML(url) +
-          '" ADD_DATE="' +
-          addDate +
-          '" URILINKS_NOTE="' +
-          escapeHTML(note) +
-          '">' +
-          escapeHTML(description) +
-          "</A>\n";
-      });
+        const rows = [];
 
-      html += "</DL><p>\n";
-
-      const blob = new Blob([html], {
-        type: "text/html;charset=utf-8",
-      });
-
-      const downloadUrl = URL.createObjectURL(blob);
-
-      const a = document.createElement("a");
-      a.href = downloadUrl;
-      a.download = "urilinks-bookmarks.html";
-
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-
-      URL.revokeObjectURL(downloadUrl);
-    })
-    .catch((error) => {
-      console.log("Error downloading links:", error);
-      alert("There was an error downloading the bookmarks.");
-    });
-};
-
-
-
-const downloadLinksCSV = () => {
-  const user = firebase.auth().currentUser;
-
-  if (!user) {
-    return;
-  }
-
-  firebase
-    .database()
-    .ref("users/" + user.uid + "/links")
-    .once("value")
-    .then((snapshot) => {
-      const linksObject = snapshot.val();
-
-      if (!linksObject) {
-        return;
-      }
-
-      const rows = [];
-
-      // CSV header
-      rows.push([
-        "description",
-        "Url",
-        "note",
-        "foldername",
-        "addescription",
-        "adUrl",
-        "showpublic",
-        "frequency",
-        "createdAt"
-      ]);
-
-      Object.keys(linksObject).forEach((id) => {
-        const link = linksObject[id];
-
+        // CSV header
         rows.push([
-          link.description || "",
-          link.Url || "",
-          link.note || "",
-          link.foldername || "",
-          link.addescription || "",
-          link.adUrl || "",
-          link.showpublic || 0,
-          link.frequency || 0,
-          link.createdAt || ""
+          "description",
+          "Url",
+          "note",
+          "foldername",
+          "addescription",
+          "adUrl",
+          "showpublic",
+          "frequency",
+          "createdAt",
         ]);
+
+        Object.keys(linksObject).forEach((id) => {
+          const link = linksObject[id];
+
+          rows.push([
+            link.description || "",
+            link.Url || "",
+            link.note || "",
+            link.foldername || "",
+            link.addescription || "",
+            link.adUrl || "",
+            link.showpublic || 0,
+            link.frequency || 0,
+            link.createdAt || "",
+          ]);
+        });
+
+        const escapeCSV = (value) => {
+          const text = String(value);
+
+          return '"' + text.replace(/"/g, '""') + '"';
+        };
+
+        const csv = rows
+          .map((row) => row.map((value) => escapeCSV(value)).join(","))
+          .join("\r\n");
+
+        const blob = new Blob([csv], {
+          type: "text/csv;charset=utf-8;",
+        });
+
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+
+        a.href = url;
+        a.download = "urilinks-links.csv";
+
+        document.body.appendChild(a);
+
+        a.click();
+
+        document.body.removeChild(a);
+
+        URL.revokeObjectURL(url);
+      })
+      .catch((error) => {
+        console.log("Error downloading links:", error);
       });
-
-      const escapeCSV = (value) => {
-        const text = String(value);
-
-        return '"' + text.replace(/"/g, '""') + '"';
-      };
-
-      const csv = rows
-        .map((row) =>
-          row.map((value) => escapeCSV(value)).join(",")
-        )
-        .join("\r\n");
-
-      const blob = new Blob([csv], {
-        type: "text/csv;charset=utf-8;"
-      });
-
-      const url = URL.createObjectURL(blob);
-
-      const a = document.createElement("a");
-
-      a.href = url;
-      a.download = "urilinks-links.csv";
-
-      document.body.appendChild(a);
-
-      a.click();
-
-      document.body.removeChild(a);
-
-      URL.revokeObjectURL(url);
-    })
-    .catch((error) => {
-      console.log(
-        "Error downloading links:",
-        error
-      );
-    });
-};
-
-
+  };
 
   const z11 = decrypt(z10, "125434"); //process.env.REACT_APP_EKEY)
   //const follower = useSelector(state => state.follower);
@@ -1006,28 +996,27 @@ const handleClick = useCallback(() => {
   }, []);
 
   const handleUpdate2 = useCallback(() => {
-  try {
-    const user = firebase.auth().currentUser;
+    try {
+      const user = firebase.auth().currentUser;
 
-    if (!user) {
-      console.log("handleUpdate2: No user logged in");
-      return;
+      if (!user) {
+        console.log("handleUpdate2: No user logged in");
+        return;
+      }
+
+      database
+        .ref(`users/${user.uid}/theloggedin`)
+        .update({ loggedin: 0 })
+        .then(() => {
+          console.log("handleUpdate2 success");
+        })
+        .catch((error) => {
+          console.error("handleUpdate2 error:", error);
+        });
+    } catch (error) {
+      console.error("Update failed:", error);
     }
-
-    database
-      .ref(`users/${user.uid}/theloggedin`)
-      .update({ loggedin: 0 })
-      .then(() => {
-        console.log("handleUpdate2 success");
-      })
-      .catch((error) => {
-        console.error("handleUpdate2 error:", error);
-      });
-
-  } catch (error) {
-    console.error("Update failed:", error);
-  }
-}, []);
+  }, []);
 
   //   const handleUpdate = async () => {
   //   try {
@@ -1091,8 +1080,8 @@ const handleClick = useCallback(() => {
 
       //props.stopScrolling2();
       if (typeof props.stopScrolling2 === "function") {
-  props.stopScrolling2();
-}
+        props.stopScrolling2();
+      }
 
       const user = firebase.auth().currentUser;
 
@@ -1134,10 +1123,9 @@ const handleClick = useCallback(() => {
     setLinks([]);
 
     //props.stopScrolling2();
-if (typeof props.stopScrolling2 === "function") {
-  props.stopScrolling2();
-}
-
+    if (typeof props.stopScrolling2 === "function") {
+      props.stopScrolling2();
+    }
 
     props.startLogout();
   };
@@ -1296,7 +1284,11 @@ if (typeof props.stopScrolling2 === "function") {
                   <div style={{ display: "flex", flexDirection: "column" }}>
                     <span
                       className="color-white-1 cursor-default"
-                      style={{ fontWeight: "700", fontSize: "16px", lineHeight: "18px" }}
+                      style={{
+                        fontWeight: "700",
+                        fontSize: "16px",
+                        lineHeight: "18px",
+                      }}
                     >
                       🌺 urilinks
                     </span>
@@ -1305,7 +1297,11 @@ if (typeof props.stopScrolling2 === "function") {
                       <span
                         id="linksupdate"
                         className="color-white-1"
-                        style={{ fontSize: "11px", opacity: "0.92", marginTop: "2px" }}
+                        style={{
+                          fontSize: "11px",
+                          opacity: "0.92",
+                          marginTop: "2px",
+                        }}
                         title="To see what links were added, select Date (Latest First) from the drop down menu to see the update(s). They will appear first."
                       >
                         {!!props.theupdatedate.updatedate === true
@@ -1365,7 +1361,10 @@ if (typeof props.stopScrolling2 === "function") {
                         background: "rgba(255,255,255,0.12)",
                       }}
                     >
-                      <span className="color-white-1" style={{ fontSize: "12px" }}>
+                      <span
+                        className="color-white-1"
+                        style={{ fontSize: "12px" }}
+                      >
                         {dn + "'s links page"}
                       </span>
                       <img
@@ -1474,7 +1473,7 @@ if (typeof props.stopScrolling2 === "function") {
 
                   {ni !== "1" && ni !== "2" && ni !== "3" && (
                     <HeaderAccountMenu
-                      signup = {props.signup.signup}
+                      signup={props.signup.signup}
                       onDeleteAccount={cancelsubscription}
                       downloadLinksCSV={downloadLinksCSV}
                       downloadLinksHTML={downloadLinksHTML}
@@ -1526,8 +1525,7 @@ if (typeof props.stopScrolling2 === "function") {
                   {console.log("HEADER AUTH UID =", props.auth.uid)}
                   {console.log("HEADER SIGNUP =", props.signup.signup)}
                   {console.log("HEADER URL =", window.location.href)}
-                  {!props.auth.uid && 
-                    
+                  {!props.auth.uid &&
                     ni !== "1" &&
                     ni !== "2" &&
                     ni !== "3" && (
@@ -1543,16 +1541,22 @@ if (typeof props.stopScrolling2 === "function") {
                     )}
 
                   {console.log("HEADER SIGNUP =", props.signup.signup)}
-                  {console.log("HEADER SIGNUP OBJECT =", JSON.stringify(props.signup))}
-                  {!!props.auth.uid && (
-                    <button
-                      id="friendlylogout"
-                      className="button button--link- button-2h padding-left-4x padding-right-4x ib text-size-11 color-white-1 cursor-pointer"
-                      onClick={logoutit}
-                    >
-                      ◧ friendly logout
-                    </button>
+                  {console.log(
+                    "HEADER SIGNUP OBJECT =",
+                    JSON.stringify(props.signup),
                   )}
+                  {!!props.auth.uid &&
+                    new URLSearchParams(window.location.search).get(
+                      "hideColumn1",
+                    ) !== "1" && (
+                      <button
+                        id="friendlylogout"
+                        className="button button--link- button-2h padding-left-4x padding-right-4x ib text-size-11 color-white-1 cursor-pointer"
+                        onClick={logoutit}
+                      >
+                        ◧ friendly logout
+                      </button>
+                    )}
 
                   {/* {props.signup.signup === true && (
                     <button

@@ -161,7 +161,13 @@ const handleChatDelete = () => {
     className={`ib pointereventsnone- button-2b padding-top-and-bottom ${isMobile() === false ? "" : "width295 margin-top-1"}`}
     title="Press to 'Start Chat.'"
     onClick={handleChat}
-    disabled={props.demonstration?props.demonstration==="yes"?true:false:false}
+    //disabled={props.demonstration?props.demonstration==="yes"?true:false:false}
+    disabled={
+  new URLSearchParams(window.location.search).get("demonstration") === "yes"
+}
+    // disabled={new URLSearchParams(window.location.search).get(
+    //                         "hideColumn1",
+    //                       ) === "1"}
     >
     
     Start Chat with {name1}

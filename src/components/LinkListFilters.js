@@ -719,11 +719,11 @@ function ExpandableArray(props) {
     // }
 
     if (id !== null && id !== undefined) {
-  if (product !== null && product !== undefined) {
-    setSearchText(product);
-    setit2(thelink, product);
-  }
-}
+      if (product !== null && product !== undefined) {
+        setSearchText(product);
+        setit2(thelink, product);
+      }
+    }
 
     if (id !== null) setIdexists(1);
   }, []);
@@ -1201,7 +1201,6 @@ function ExpandableArray(props) {
     console.log("1search");
     console.log("HASHTAG SEARCH CALLED", z);
 
-  
     props.stopScrolling2();
 
     const selectElement = document.getElementById("mode");
@@ -1237,14 +1236,14 @@ function ExpandableArray(props) {
 
     let term = window.document.getElementById("termid").value.trim();
 
-      console.log("HASHTAG SEARCH VALUES =", JSON.stringify({
-  clickedHashtag: z,
-  searchTerm: term,
-  selectedValue: selectedValue,
-}));
-
-
-
+    console.log(
+      "HASHTAG SEARCH VALUES =",
+      JSON.stringify({
+        clickedHashtag: z,
+        searchTerm: term,
+        selectedValue: selectedValue,
+      }),
+    );
 
     console.log("search term before setSearchText=", term);
 
@@ -1258,8 +1257,6 @@ function ExpandableArray(props) {
       setSearchText(term);
       setMode("productsalpha");
       setDosearch(1);
-
-    
 
       return;
     }
@@ -1275,13 +1272,15 @@ function ExpandableArray(props) {
 
       setDosearch(1);
 
-  console.log("HASHTAG SEARCH REQUEST =", JSON.stringify({
-  term: term,
-  mode: selectedValue,
-  dosearch: 1,
-  uid: props.uid,
-}));
-      
+      console.log(
+        "HASHTAG SEARCH REQUEST =",
+        JSON.stringify({
+          term: term,
+          mode: selectedValue,
+          dosearch: 1,
+          uid: props.uid,
+        }),
+      );
     } else {
       props.setTextFilter(term);
 
@@ -2117,7 +2116,8 @@ function ExpandableArray(props) {
       "&isFollower=" +
       "" +
       "&demonstration=" +
-      demonstration;
+      demonstration +
+      "&hideColumn1=1";
 
     // window.open(
     //   //"https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
@@ -2307,7 +2307,8 @@ function ExpandableArray(props) {
       "&isFollowing=" +
       isMatch2 +
       "&demonstration=" +
-      demonstration;
+      demonstration +
+      "&hideColumn1=1";
 
     // window.open(
     //   //"https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
@@ -2459,8 +2460,6 @@ function ExpandableArray(props) {
     filtersInstanceId.current,
   );
 
- 
-
   return (
     <div className="flexrowh-">
       <div>
@@ -2482,7 +2481,9 @@ function ExpandableArray(props) {
 >
   Test Toast
 </button> */}
-      <div className={`${!!props.auth.uid === false ? "bg-gray-1" : "bg-gray-1"}`}>
+      <div
+        className={`${!!props.auth.uid === false ? "bg-gray-1" : "bg-gray-1"}`}
+      >
         <div className="">
           <div
             className={`website-background-color width30pt flexrowzc2 border-b-5font-roboto text-size-1 font-weight-500-`}
@@ -2538,11 +2539,14 @@ function ExpandableArray(props) {
         <div className="flexrowtt0">
           <div>
             {/* 1st column 1 column */}
-            {console.log("DEFAULT PAGE HASHTAGS =", JSON.stringify({
-              uid: props.uid,
-              authUid: props.auth.uid,
-              hashtagCount: props.mappedDataShort.length,
-            }))}
+            {console.log(
+              "DEFAULT PAGE HASHTAGS =",
+              JSON.stringify({
+                uid: props.uid,
+                authUid: props.auth.uid,
+                hashtagCount: props.mappedDataShort.length,
+              }),
+            )}
             {openHt === true ? (
               <div
                 id="ls"
@@ -2634,53 +2638,71 @@ function ExpandableArray(props) {
                   </div>
                 ) : (
                   <div>
-                    {rt !== "readonly" && (
-                      <span>
-                        <button
-                          className="ib button-2"
-                          onClick={() => {
-                            setUsersandfollowing(false);
-                          }}
-                          title="Show only users that I am following."
-                        >
-                          only following
-                        </button>
-                        <button
-                          className="ib button-2 margin-left-11 margin-bottom-1"
-                          onClick={() => {
-                            setUsersandfollowing(true);
-                          }}
-                          title="Show Users and Following Users together."
-                        >
-                          both
-                        </button>
-                      </span>
-                    )}
+                    {
+                      //rt !== "readonly"
+                      true && (
+                        <span>
+                          {new URLSearchParams(window.location.search).get(
+                            "hideColumn1",
+                          ) !== "1" && (
+                            <span>
+                              <button
+                                className="ib button-2"
+                                onClick={() => {
+                                  setUsersandfollowing(false);
+                                }}
+                                title="Show only users that I am following."
+                              >
+                                only following
+                              </button>
+                              <button
+                                className="ib button-2 margin-left-11 margin-bottom-1"
+                                onClick={() => {
+                                  setUsersandfollowing(true);
+                                }}
+                                title="Show Users and Following Users together."
+                              >
+                                both
+                              </button>
+                            </span>
+                          )}
+                        </span>
+                      )
+                    }
+                    {console.log("1 isFollowing=" + !!isFollowing)}
                     {usersandfollowing ? (
                       <div>
-                        {followingLoaded && (
-                          <UsersAndFollowingContainer
-                            following={props.following}
-                            rt={rt}
-                            theuser={theuser}
-                            uid={props.uid}
-                            handleClick2={handleClick2}
-                            readonly={props.signup}
-                          />
-                        )}
+                        {followingLoaded &&
+                          // !!isFollowing === false &&
+                          new URLSearchParams(window.location.search).get(
+                            "hideColumn1",
+                          ) !== "1" && (
+                            <UsersAndFollowingContainer
+                              following={props.following}
+                              rt={rt}
+                              theuser={theuser}
+                              uid={props.uid}
+                              handleClick2={handleClick2}
+                              readonly={props.signup}
+                            />
+                          )}
                       </div>
                     ) : (
                       <div>
-                        {followingLoaded && (
-                          <FollowingContainer
-                            following={props.following}
-                            rt={rt}
-                            theuser={theuser}
-                            uid={props.uid}
-                            handleClick2={handleClick2}
-                            readonly={props.signup}
-                          />
-                        )}
+                        {followingLoaded &&
+                          // !!isFollowing === false &&
+                          new URLSearchParams(window.location.search).get(
+                            "hideColumn1",
+                          ) !== "1" && (
+                            <FollowingContainer
+                              following={props.following}
+                              rt={rt}
+                              theuser={theuser}
+                              uid={props.uid}
+                              handleClick2={handleClick2}
+                              readonly={props.signup}
+                            />
+                          )}
                       </div>
                     )}
                   </div>
@@ -2902,7 +2924,7 @@ function ExpandableArray(props) {
                         setOpenHt={(value) => {
                           console.log("OPEN TAGS BUTTON CALLED =", value);
                           setOpenHt(value);
-                      }}
+                        }}
                         //setSortBy={setSortBy}
                       />
                       {/* {readonly===false && <OthersButton
@@ -3126,8 +3148,10 @@ function ExpandableArray(props) {
                       </div>
                     </div>
                   )}
- {console.log("LinkListFilters.js, !!props.auth.uid ="+!!props.auth.uid)}
-  {console.log("LinkListFilters.js, rt ="+rt)}
+                  {console.log(
+                    "LinkListFilters.js, !!props.auth.uid =" + !!props.auth.uid,
+                  )}
+                  {console.log("LinkListFilters.js, rt =" + rt)}
                   {!!props.auth.uid && id === null && rt !== "readonly" ? (
                     <div className="flexrowz">
                       {console.log("LinkListFilters.js, not readonly")}
@@ -3155,7 +3179,9 @@ function ExpandableArray(props) {
                         Add A link
                       </button> */}
                         {/* <div className="flexrowz"> */}
-                        {console.log("AddALinkButton, GmailContacts should display")}
+                        {console.log(
+                          "AddALinkButton, GmailContacts should display",
+                        )}
                         <AddALinkButton />
                         {console.log("ABOUT TO RENDER GmailContacts")}
                         <GmailContacts />
@@ -3205,11 +3231,7 @@ function ExpandableArray(props) {
                         )
                       }
                     </div>
-                  ) : 
-                  
-                  
-                  
-                  (
+                  ) : (
                     <div className="flexrowz">
                       {/* {console.log("LinkListFilters.js, readonly")}
                       <div
@@ -3255,7 +3277,6 @@ function ExpandableArray(props) {
                         </div>
                
                       </div> */}
-                      
                     </div>
                   )}
                 </div>
@@ -3470,7 +3491,7 @@ function ExpandableArray(props) {
                           // onSortChange2 = {onSortChange2}
                           search={search}
                           setSortBy={setSortBy}
-                           //setOpenHt={setOpenHt}
+                          //setOpenHt={setOpenHt}
                           setOpenHt={(value) => {
                             console.log("OPEN TAGS BUTTON CALLED =", value);
                             setOpenHt(value);
@@ -3621,12 +3642,14 @@ function ExpandableArray(props) {
                                 />
                                 <button
                                   className="margin-left-11 margin-top-1 button-2 ib"
+                                   disabled={
+  new URLSearchParams(window.location.search).get("demonstration") === "yes"
+}
                                   onClick={() => setShowAIChat(true)}
                                 >
                                   Start ai chat
                                 </button>
                                 <button
-                                  
                                   onClick={() => window.close()}
                                   className="margin-left-11 button-2"
                                 >
@@ -3668,8 +3691,14 @@ function ExpandableArray(props) {
                 id="results1"
                 className={`margin-top-18- ${window.screen.height <= 1050 ? "margin-top-n-gx2" : "margin-top-n-gx-"} scrollable-div2- width825- bordergreen-`}
               >
-                {console.log("LinkListFilters.js, other page, UID BEING PASSED, uid=", id)}
-                {console.log("LinkListFilters.js, logged in user, props.uid=", props.uid)}
+                {console.log(
+                  "LinkListFilters.js, other page, UID BEING PASSED, uid=",
+                  id,
+                )}
+                {console.log(
+                  "LinkListFilters.js, logged in user, props.uid=",
+                  props.uid,
+                )}
                 {console.log("LINKLISTFILTERS VIEWED UID =", props.uid)}
                 {console.log("LINKLISTFILTERS AUTH UID =", props.auth.uid)}
                 <LinkList3
@@ -3835,58 +3864,72 @@ function ExpandableArray(props) {
                   </div>
                 </div>
               ) : (
-                <div>
+                <div style={{ minWidth: "270px" }}>
                   {/* <FollowersContainer follower={props.follower} rt={rt} theuser={theuser} uid={props.uid} handleClick2={handleClick2} signup={props.signup} /> */}
                   {/* {rt !== "readonly" ? ( */}
                   {true ? (
                     <div>
-                      <button
-                        className="ib button-2"
-                        onClick={() => {
-                          setUsersandfollowers(false);
-                        }}
-                        title="Show only users that are followers of me."
-                      >
-                        only followers
-                      </button>
-                      <button
-                        className="ib button-2 margin-left-11 margin-bottom-1"
-                        onClick={() => {
-                          setUsersandfollowers(true);
-                        }}
-                        title="Show Users and Followers Users together."
-                      >
-                        both
-                      </button>
+                      {new URLSearchParams(window.location.search).get(
+                        "hideColumn1",
+                      ) !== "1" && (
+                        <span>
+                          <button
+                            className="ib button-2"
+                            onClick={() => {
+                              setUsersandfollowers(false);
+                            }}
+                            title="Show only users that are followers of me."
+                          >
+                            only followers
+                          </button>
+                          <button
+                            className="ib button-2 margin-left-11 margin-bottom-1"
+                            onClick={() => {
+                              setUsersandfollowers(true);
+                            }}
+                            title="Show Users and Followers Users together."
+                          >
+                            both
+                          </button>
+                        </span>
+                      )}
                       {console.log("COLUMN 3 followerLoaded =", followerLoaded)}
                       {console.log("COLUMN 3 followers =", props.follower)}
                       {console.log("COLUMN 3 UID =", props.uid)}
                       {usersandfollowers ? (
                         <div>
-                          {followerLoaded && (
-                            <UsersAndFollowersContainer
-                              following={props.following}
-                              follower={props.follower}
-                              rt={rt}
-                              theuser={theuser}
-                              uid={props.uid}
-                              handleClick3={handleClick3}
-                              signup={props.signup}
-                            />
-                          )}
+                          {followerLoaded &&
+                            // !!isFollower === false &&
+                            new URLSearchParams(window.location.search).get(
+                              "hideColumn1",
+                            ) !== "1" && (
+                              <UsersAndFollowersContainer
+                                following={props.following}
+                                follower={props.follower}
+                                rt={rt}
+                                theuser={theuser}
+                                uid={props.uid}
+                                handleClick3={handleClick3}
+                                signup={props.signup}
+                              />
+                            )}
                         </div>
                       ) : (
                         <div>
-                          {followerLoaded && (
-                            <FollowersContainer
-                              follower={props.follower}
-                              rt={rt}
-                              theuser={theuser}
-                              uid={props.uid}
-                              handleClick3={handleClick3}
-                              readonly={props.signup}
-                            />
-                          )}
+                          {followerLoaded &&
+                            // !!isFollower === false &&
+                            new URLSearchParams(window.location.search).get(
+                              "hideColumn1",
+                            ) !== "1" && (
+                              <FollowersContainer
+                                follower={props.follower}
+                                rt={rt}
+                                theuser={theuser}
+                                uid={props.uid}
+                                handleClick3={handleClick3}
+                                readonly={props.signup}
+                              />
+                            )}
                         </div>
                       )}
                     </div>
@@ -4185,19 +4228,17 @@ export class LinkListFilters extends React.Component {
   componentDidMount() {
     //this.props.abc(3);
     //console.log("3, this.props.abcref=" + JSON.stringify(this.props.abcref));
-   console.log("HASHTAG componentDidMount CALLED");
+    console.log("HASHTAG componentDidMount CALLED");
 
-     const params = new URLSearchParams(window.location.search);
-  const readonly = params.get("x") === "readonly";
+    const params = new URLSearchParams(window.location.search);
+    const readonly = params.get("x") === "readonly";
 
-  const uid =
-    this.props.uid ||
-    this.props.auth.uid ||
-    "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
+    const uid =
+      this.props.uid || this.props.auth.uid || "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
 
-  this.props.startSetHashtagsOnly(uid, readonly);
+    this.props.startSetHashtagsOnly(uid, readonly);
 
-console.log("HASHTAG componentDidMount CALLED done");
+    console.log("HASHTAG componentDidMount CALLED done");
 
     console.log(
       "LinkListFilter.js, this.props.theuserscount.userscount=" +
@@ -4244,7 +4285,7 @@ console.log("HASHTAG componentDidMount CALLED done");
   };
 
   setit = (value, event) => {
-    console.log("in setit, value="+value)
+    console.log("in setit, value=" + value);
     if (!!event === true) event.preventDefault();
     console.log("setIt, 3333333333333333333333333 value=" + value);
 
@@ -4347,7 +4388,6 @@ console.log("HASHTAG componentDidMount CALLED done");
         {console.log("REDUX HASHTAGS LENGTH =", this.props.hashtags.length)}
         <ErrorBoundry>
           <ExpandableArray
-         
             auth={this.props.auth}
             isinfinitescroll={this.props.isinfinitescroll}
             stopScrolling2={this.props.stopScrolling2}
@@ -4442,8 +4482,9 @@ const mapDispatchToProps = (dispatch) => ({
   sortByPrivateLinks: () => dispatch(sortByPrivateLinks()),
   startSetFollowing: (data) => dispatch(startSetFollowing(data)),
   startSetFollower: (data) => dispatch(startSetFollower(data)),
-  startSetHashtagsOnly: (uid, publicOnly) => dispatch(startSetHashtagsOnly(uid, publicOnly)),
-  
+  startSetHashtagsOnly: (uid, publicOnly) =>
+    dispatch(startSetHashtagsOnly(uid, publicOnly)),
+
   //setFrommenu:(data) => dispatch(setFrommenu(data))
   // incrementHandleToggle3: (data) => dispatch(incrementHandleToggle3(data)),
   // decrementHandleToggle3: (data) => dispatch(decrementHandleToggle3(data)),

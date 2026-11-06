@@ -2482,7 +2482,7 @@ function ExpandableArray(props) {
   Test Toast
 </button> */}
       <div
-        className={`${!!props.auth.uid === false ? "bg-gray-1" : "bg-gray-1"}`}
+        className={`${!!props.auth.uid === false ? "bg-light-orange-1" : "bg-light-orange-1"}`}
       >
         <div className="">
           <div
@@ -2575,7 +2575,7 @@ function ExpandableArray(props) {
                   <div className={`border-right-5`}>
                     <div
                       ref={props.ref1}
-                      className={`${""} ${!!props.auth.uid === false ? "bg-white-1" : "bg-gray-1"} borderradius5`}
+                      className={`${""} ${!!props.auth.uid === false ? "bg-white-1" : "bg-light-orange-1"} borderradius5`}
                       title={
                         !!props.auth.uid === true
                           ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"
@@ -3642,9 +3642,11 @@ function ExpandableArray(props) {
                                 />
                                 <button
                                   className="margin-left-11 margin-top-1 button-2 ib"
-                                   disabled={
-  new URLSearchParams(window.location.search).get("demonstration") === "yes"
-}
+                                  disabled={
+                                    new URLSearchParams(
+                                      window.location.search,
+                                    ).get("demonstration") === "yes"
+                                  }
                                   onClick={() => setShowAIChat(true)}
                                 >
                                   Start ai chat

@@ -61,7 +61,7 @@ const LoginPage = (props) => {
   }, []);
 
   return (
-    <div className="welcome-page">
+    <div className="welcome-page bg-light-orange-1">
       <div className="margin-top-100x welcome-content">
         <div className="">
           <h3>urilinks.com</h3>

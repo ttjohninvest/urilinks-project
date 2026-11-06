@@ -1,9 +1,7 @@
 {
   "eslint.enable": false,
+  "js/ts.validate.enabled": false,
   "editor.inlineSuggest.enabled": false,
-
   "problems.decorations.enabled": false,
-"editor.renderValidationDecorations": "off",
-"explorer.decorations.colors": false,
-"explorer.decorations.badges": false
+  "editor.renderValidationDecorations": "off"
 }

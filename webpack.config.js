@@ -37,6 +37,25 @@ module.exports = (env) => {
 
   const CSSExtract = new ExtractTextPlugin("styles.css");
 
+  // Extra safety:
+  // Remove old source map files before production builds.
+  if (isProduction) {
+    const distPath = path.join(__dirname, "public", "dist");
+
+    if (fs.existsSync(distPath)) {
+      fs.readdirSync(distPath).forEach((file) => {
+        if (file.endsWith(".map")) {
+          const mapPath = path.join(distPath, file);
+
+          if (fs.statSync(mapPath).isFile()) {
+            fs.unlinkSync(mapPath);
+            console.log("Removed old source map:", file);
+          }
+        }
+      });
+    }
+  }
+
   return {
     entry: ["babel-polyfill", "./src/app.js"],
 
@@ -59,13 +78,13 @@ module.exports = (env) => {
               {
                 loader: "css-loader",
                 options: {
-                  sourceMap: true
+                  sourceMap: !isProduction
                 }
               },
               {
                 loader: "sass-loader",
                 options: {
-                  sourceMap: true
+                  sourceMap: !isProduction
                 }
               }
             ]
@@ -83,6 +102,9 @@ module.exports = (env) => {
       CSSExtract,
 
       new webpack.DefinePlugin({
+        "process.env.NODE_ENV":
+          JSON.stringify(environment),
+
         "process.env.FIREBASE_API_KEY":
           JSON.stringify(variables.FIREBASE_API_KEY),
 
@@ -103,10 +125,24 @@ module.exports = (env) => {
 
         "process.env.FIREBASE_APP_ID":
           JSON.stringify(variables.FIREBASE_APP_ID)
-      })
+      }),
+
+      // Minify JavaScript only in production
+      ...(isProduction
+        ? [
+            new webpack.optimize.UglifyJsPlugin({
+              compress: {
+                warnings: false
+              },
+              mangle: true,
+              sourceMap: false
+            })
+          ]
+        : [])
     ],
 
-    devtool: isProduction ? "source-map" : "inline-source-map",
+    // Source maps only for development
+    devtool: isProduction ? false : "inline-source-map",
 
     devServer: {
       contentBase: path.join(__dirname, "public"),

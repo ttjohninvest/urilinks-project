@@ -4067,3 +4067,30 @@ Since you're using React and a Vercel API, we can later have your Vercel server 
 
 For now, have you been able to open the Spotify Developer Dashboard?
 ========================================================================================================
+local development build and production build
+local: public/dist/bundle.js is built from npm run build:dev
+local: public/dist/bundle.js is built from npm run build:prod
+one overwrites the other
+always run npm run start, then put http://localhost:3000 in the browser
+
+                                                   -----
+if problem with minified production build on heroku, go back and build with webpack.config-works-non-minified.js
+rename it to webpack.conig.js
+                                                   -----
+
+No. A working development bundle does not always mean the production bundle will work.
+
+For URIlinks.com, there are three important differences:
+1. Firebase: Development uses urilinks-development, while production uses urilinks-2f721.
+2. Webpack: npm run build:dev and npm run build:prod create bundles with different settings.
+3. Server: Your local environment may behave differently from Heroku.
+My recommendation
+For your normal programming work:
+1. Run npm run build:dev and test your changes.
+2. Before pushing important changes, run npm run build:prod.
+3. Make sure the production build completes without errors.
+4. Push to GitHub and let Heroku deploy automatically.
+Important: A successful production build confirms that the code compiles. It doesn't guarantee that every feature works correctly.
+
+You don't need to test the production bundle after every small change, but testing it before major updates is a sensible precaution.
+================================================================================================================

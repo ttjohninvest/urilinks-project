@@ -1,6 +1,6 @@
 import database from "../firebase/firebase";
 import subscriptionid from "../reducers/subscriptionid";
-import {addThesignupcount} from "./thesignupcount"
+import { addThesignupcount } from "./thesignupcount";
 
 // SET_SETTINGS
 export const setTheloggedin = (theloggedin) => ({
@@ -14,6 +14,11 @@ export const startAddTheloggedin = (theloggedinData = {}) => {
   );
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
+
+    if (typeof uid !== "string" || !uid.trim() || uid === "undefined") {
+      console.log("BLOCKED Firebase write. Invalid UID =", uid);
+      return Promise.resolve();
+    }
 
     return (
       database
@@ -65,7 +70,6 @@ export const getTheloggedin2 = (id) => {
     const uid = getState().auth.uid;
     console.log("actions/getTheloggedin2, uid=" + uid);
 
-   
     let x = {
       loggedin: 0,
     };
@@ -79,7 +83,6 @@ export const getTheloggedin2 = (id) => {
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);
       });
-   
   };
 };
 
@@ -124,7 +127,7 @@ export const getTheloggedin = (uid) => {
   return (dispatch, getState) => {
     //const uid = getState().auth.uid;
     console.log("actions/getTheloggedin, uid=" + uid);
-    
+
     let x = {
       loggedin: 1,
     };
@@ -155,17 +158,14 @@ export const getTheloggedin = (uid) => {
 //     //const uid = getState().auth.uid;
 //     console.log("actions/getTheloggedin, uid=" + uid);
 
-   
-
 //         return database
 //       //.ref(`users/${uid}/theplan/plan`)
 //       .ref(`users/${uid}/theloggedin`)
 //       .once("value")
 //       .then((snapshot) => {
 
-      
 //         if(snapshot.val()===null || snapshot.val().loggedin === 0) { //if not loggedin because snapshot.val().loggedin is zero, set it to loggedin
-        
+
 //          return database
 //       //.ref(`users/${uid}/theplan/plan`)
 //       .ref(`users/thesignupcount`)
@@ -175,7 +175,7 @@ export const getTheloggedin = (uid) => {
 //          let x = {
 //           signupcount:snapshot.val().signupcount+1
 //          }
- 
+
 //           return database
 //       .ref(`users/thesignupcount`)
 //       .update(x) //{showpublic:0}
@@ -190,13 +190,7 @@ export const getTheloggedin = (uid) => {
 //       }).catch(()=>{
 
 //       })
-        
-        
-        
-        
-         
-     
-     
+
 //       } else {
 
 //          let x = {
@@ -216,11 +210,9 @@ export const getTheloggedin = (uid) => {
 
 //       }
 //     })
-    
+
 //   };
 // };
-
-
 
 // REMOVE_SETTINGS
 export const removeTheloggedin = () => ({

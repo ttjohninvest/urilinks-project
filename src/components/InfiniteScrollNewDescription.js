@@ -12,6 +12,8 @@ const rt = params.get("x");
 
 const InfiniteScrollNewDescription = (props) => {
   console.log("abc InfiniteScrollNewDescription");
+  console.log("abc InfiniteScrollNewDescription, props.databasePath="+props.databasePath);
+  console.log("abc InfiniteScrollNewDescription, props.uid="+props.uid);
 
   const [links, setLinks] = useState([]);
   const [loading, setLoading] = useState(false);

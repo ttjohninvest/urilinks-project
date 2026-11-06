@@ -1,3 +1,4 @@
+
 import React from "react";
 import { connect } from "react-redux";
 import { Route, Redirect } from "react-router-dom";
@@ -20,9 +21,11 @@ export const PublicRoute = ({
   return (
     <Route
       {...rest}
-      component={(props) =>
-        isAuthenticated ? (
-          // <Redirect to={`/dashboard?signup=signup&bookmarks=${bookmarks}&z2=1${linkid!==null?'&p='+linkid:''}`} />
+      render={(props) => {
+        const routeParams = new URLSearchParams(props.location.search);
+        const showLoginPage = routeParams.has("signup");
+
+        return isAuthenticated && !showLoginPage ? (
           <Redirect
             to={
               `/dashboard?signup=signup` +
@@ -33,8 +36,8 @@ export const PublicRoute = ({
           />
         ) : (
           <Component {...props} />
-        )
-      }
+        );
+      }}
     />
   );
 };

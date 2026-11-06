@@ -18,7 +18,8 @@ import AddLinkPage from "./AddlinkPage";
 import SendEmailPage from "./SendEmailPage";
 import ReadMoreSpan from "./ReadMoreSpan";
 
-import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
+//import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
+
 
 import { DateRangePicker } from "react-dates";
 import EmailForm from "./EmailForm";

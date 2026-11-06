@@ -16,46 +16,49 @@ const UsersAndFollowersContainer = (props) => {
 
   const loaderRef = useRef(null);
   const scrollRef = useRef(null);
+  const mountedRef = useRef(false);
+
+  useEffect(() => {
+    mountedRef.current = true;
+
+    return () => {
+      mountedRef.current = false;
+    };
+  }, []);
 
   const lastDisplayNameRef = useRef(null);
   const lastUidRef = useRef(null);
-  
+
   const previousValues = React.useRef({});
   const renderCount = React.useRef(0);
 
-renderCount.current += 1;
+  renderCount.current += 1;
 
-// console.log(
-//   "UsersAndFollowerContainer followerRenderCount=",
-//   renderCount.current
-// );
+  // console.log(
+  //   "UsersAndFollowerContainer followerRenderCount=",
+  //   renderCount.current
+  // );
 
+  const currentValues = {
+    users: props.users,
+    following: props.following,
+    auth: props.auth,
+    uid: props.uid,
+    theuser: props.theuser,
+  };
 
-const currentValues = {
-  users: props.users,
-  following: props.following,
-  auth: props.auth,
-  uid: props.uid,
-  theuser: props.theuser,
-};
+  // Object.keys(currentValues).forEach((key) => {
+  //   if (previousValues.current[key] !== currentValues[key]) {
+  //     console.log(
+  //       "CHANGED:",
+  //       key,
+  //       "render=",
+  //       renderCount.current
+  //     );
+  //   }
+  // });
 
-
-// Object.keys(currentValues).forEach((key) => {
-//   if (previousValues.current[key] !== currentValues[key]) {
-//     console.log(
-//       "CHANGED:",
-//       key,
-//       "render=",
-//       renderCount.current
-//     );
-//   }
-// });
-
-// previousValues.current = currentValues;
-
-
-
-
+  // previousValues.current = currentValues;
 
   const getUserDisplayName = (userData) => {
     const gud = userData.gud || {};
@@ -124,6 +127,8 @@ const currentValues = {
       }
 
       const snapshot = await query.once("value");
+
+      if (!mountedRef.current) return;
 
       const rawUsers = [];
 
@@ -213,7 +218,9 @@ const currentValues = {
     } catch (error) {
       console.log("Error loading users:", error);
     } finally {
-      setLoading(false);
+      if (mountedRef.current) {
+        setLoading(false);
+      }
     }
   };
 
@@ -287,35 +294,36 @@ const currentValues = {
                 padding-tb`}
                   data-item-id={
                     props.uid +
-                      ";" +
-                      item.gud.uid +
-                      ";" +
-                      // (props.theuser
-                      //   ? props.theuser.displayName
-                      //   : "name") +
-                      // ";" +
-                      (currentUser && currentUser.email
+                    ";" +
+                    item.gud.uid +
+                    ";" +
+                    // (props.theuser
+                    //   ? props.theuser.displayName
+                    //   : "name") +
+                    // ";" +
+                    (currentUser && currentUser.email
                       ? currentUser.email.split("@")[0]
-                      : "ttjohninvest4") + ";" +
-                        //item.displayName +
-                        item.email.split("@")[0] +
-                        ";" +
-                        item.photoUrl +
-                        ";" +
-                        item.email +
-                        ";" +
-                        //(props.theuser ? props.theuser.email : "ph@ph.com") +
-                        //";" +
-                         (currentUser && currentUser.email
+                      : "ttjohninvest4") +
+                    ";" +
+                    //item.displayName +
+                    item.email.split("@")[0] +
+                    ";" +
+                    item.photoUrl +
+                    ";" +
+                    item.email +
+                    ";" +
+                    //(props.theuser ? props.theuser.email : "ph@ph.com") +
+                    //";" +
+                    (currentUser && currentUser.email
                       ? currentUser.email
-                      : "ttjohninvest@gmail.com") + ";" +
-                        item.isMatch +
-                        ";" +
-                        //to be able to follow back and unfollow from the 3rd column followers list put replace the following "" with item.isMatch2
-                        "" //item.isMatch2
-                        +
-                        ";" +
-                        (!currentUser ? "yes": "no")
+                      : "ttjohninvest@gmail.com") +
+                    ";" +
+                    item.isMatch +
+                    ";" +
+                    //to be able to follow back and unfollow from the 3rd column followers list put replace the following "" with item.isMatch2
+                    "" + //item.isMatch2
+                    ";" +
+                    (!currentUser ? "yes" : "no")
                   }
                 >
                   <img

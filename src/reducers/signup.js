@@ -1,13 +1,14 @@
 const signupReducerDefaultState = {
-  signup:false
+  signup: false
 };
 
 export default (state = signupReducerDefaultState, action) => {
   switch (action.type) {
     case "SET_SIGNUP":
       return {
-        ...action.signup
-      }
+        ...action.v
+      };
+
     default:
       return state;
   }

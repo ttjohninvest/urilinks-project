@@ -16,6 +16,7 @@ const UsersAndFollowingContainer = (props) => {
 
   const loaderRef = useRef(null);
   const scrollRef = useRef(null);
+  const mountedRef = useRef(false);
 
   const lastDisplayNameRef = useRef(null);
   const lastUidRef = useRef(null);
@@ -23,48 +24,32 @@ const UsersAndFollowingContainer = (props) => {
   const previousValues = React.useRef({});
   const renderCount = React.useRef(0);
 
+  const instanceId = React.useRef(Math.random().toString(36).substring(2, 8));
 
+  console.log("UsersAndFollowingContainer INSTANCE =", instanceId.current);
 
+  renderCount.current += 1;
 
-  const instanceId = React.useRef(
-  Math.random().toString(36).substring(2, 8)
-);
+  console.log(
+    "UsersAndFollowingContainer followingRenderCount=",
+    renderCount.current,
+  );
 
-console.log(
-  "UsersAndFollowingContainer INSTANCE =",
-  instanceId.current
-);
+  const currentValues = {
+    users: props.users,
+    following: props.following,
+    auth: props.auth,
+    uid: props.uid,
+    theuser: props.theuser,
+  };
 
+  Object.keys(currentValues).forEach((key) => {
+    if (previousValues.current[key] !== currentValues[key]) {
+      console.log("CHANGED:", key, "render=", renderCount.current);
+    }
+  });
 
-renderCount.current += 1;
-
-console.log(
-  "UsersAndFollowingContainer followingRenderCount=",
-  renderCount.current
-);
-
-
-const currentValues = {
-  users: props.users,
-  following: props.following,
-  auth: props.auth,
-  uid: props.uid,
-  theuser: props.theuser,
-};
-
-
-Object.keys(currentValues).forEach((key) => {
-  if (previousValues.current[key] !== currentValues[key]) {
-    console.log(
-      "CHANGED:",
-      key,
-      "render=",
-      renderCount.current
-    );
-  }
-});
-
-previousValues.current = currentValues;
+  previousValues.current = currentValues;
 
   /*
     props.following example:
@@ -77,24 +62,21 @@ previousValues.current = currentValues;
     ]
   */
 
-
-
-React.useEffect(() => {
-  console.log(
-    "MOUNT UsersAndFollowingContainer INSTANCE =",
-    instanceId.current
-  );
-
-  return () => {
+  React.useEffect(() => {
+    mountedRef.current = true;
     console.log(
-      "UNMOUNT UsersAndFollowingContainer INSTANCE =",
-      instanceId.current
+      "MOUNT UsersAndFollowingContainer INSTANCE =",
+      instanceId.current,
     );
-  };
-}, []);
 
-
-
+    return () => {
+      mountedRef.current = false;
+      console.log(
+        "UNMOUNT UsersAndFollowingContainer INSTANCE =",
+        instanceId.current,
+      );
+    };
+  }, []);
 
   const followingUidSet = useMemo(() => {
     return new Set(
@@ -105,14 +87,11 @@ React.useEffect(() => {
   }, [props.following]);
 
   const loadUsers = async () => {
-    if (loading || !hasMore) {
+    if (!mountedRef.current || loading || !hasMore) {
       return;
     }
 
-    console.log(
-  "loadUsers INSTANCE =",
-  instanceId.current
-);
+    console.log("loadUsers INSTANCE =", instanceId.current);
 
     console.log("CALLING setLoading");
     setLoading(true);
@@ -132,6 +111,9 @@ React.useEffect(() => {
       }
 
       const snapshot = await query.once("value");
+
+      // Do not update state if this component was removed while Firebase loaded.
+      if (!mountedRef.current) return;
 
       const rawUsers = [];
 
@@ -233,45 +215,44 @@ React.useEffect(() => {
       // });
 
       setUsers((previousUsers) => {
-  console.log("setUsers previous length =", previousUsers.length);
-  console.log("setUsers pageUsers length =", pageUsers.length);
+        console.log("setUsers previous length =", previousUsers.length);
+        console.log("setUsers pageUsers length =", pageUsers.length);
 
-  if (pageUsers.length === 0) {
-    console.log("setUsers NOT changing users");
-    return previousUsers;
-  }
+        if (pageUsers.length === 0) {
+          console.log("setUsers NOT changing users");
+          return previousUsers;
+        }
 
-  const newUsers = [...previousUsers, ...pageUsers];
+        const newUsers = [...previousUsers, ...pageUsers];
 
-  console.log("setUsers NEW length =", newUsers.length);
+        console.log("setUsers NEW length =", newUsers.length);
 
-  return newUsers;
-});
+        return newUsers;
+      });
 
-       
       console.log("CALLING setHasMore");
 
       //setHasMore(moreAvailable);
       setHasMore((oldValue) => {
-  console.log("setHasMore OLD =", oldValue);
-  console.log("setHasMoreNEW =", moreAvailable);
+        console.log("setHasMore OLD =", oldValue);
+        console.log("setHasMoreNEW =", moreAvailable);
 
-  return moreAvailable;
-});
-      
+        return moreAvailable;
+      });
     } catch (error) {
       console.log("Error loading users:", error);
     } finally {
       console.log("CALLING setLoading");
-      
-      
-      //setLoading(false);
-      setLoading((oldValue) => {
-  console.log("setLoading OLD =", oldValue);
-  console.log("setLoading NEW =", false);
 
-  return false;
-});
+      //setLoading(false);
+      if (mountedRef.current) {
+        setLoading((oldValue) => {
+          console.log("setLoading OLD =", oldValue);
+          console.log("setLoading NEW =", false);
+
+          return false;
+        });
+      }
 
       // if (users.length > 1) {
       //     //array3 = users.sort((a, b) => {
@@ -291,8 +272,10 @@ React.useEffect(() => {
 
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-      console.log("CALLING setCurrentUser");
-      setCurrentUser(user);
+      if (mountedRef.current) {
+        console.log("CALLING setCurrentUser");
+        setCurrentUser(user);
+      }
     });
 
     return () => {
@@ -346,9 +329,9 @@ React.useEffect(() => {
     };
   }, [loading, hasMore]);
 
-console.log("<UsersAndFollowingContainer is about to render");
-console.log("COLUMN 1 users=", JSON.stringify(users));
-console.log("COLUMN 1 following=", JSON.stringify(props.following));
+  console.log("<UsersAndFollowingContainer is about to render");
+  console.log("COLUMN 1 users=", JSON.stringify(users));
+  console.log("COLUMN 1 following=", JSON.stringify(props.following));
 
   return (
     <div>
@@ -360,8 +343,6 @@ console.log("COLUMN 1 following=", JSON.stringify(props.following));
         <div className="liststylenone- cursor-pointer interline padding-top-z6">
           {users.map((item) => {
             if (props.auth.uid !== item.gud.uid) {
-
-              
               return (
                 <div
                   key={item.gud.uid}
@@ -377,36 +358,33 @@ console.log("COLUMN 1 following=", JSON.stringify(props.following));
                 padding-tb`}
                   data-item-id={
                     props.uid +
-                      ";" +
-                      item.gud.uid +
-                      ";" +
-                      //firebase.auth().currentUser.email.split("@")[0] +
-                      // (props.theuser
-                      //   ? props.theuser.displayName
-                      //   : "name") +
-                      (currentUser && currentUser.email
+                    ";" +
+                    item.gud.uid +
+                    ";" +
+                    //firebase.auth().currentUser.email.split("@")[0] +
+                    // (props.theuser
+                    //   ? props.theuser.displayName
+                    //   : "name") +
+                    (currentUser && currentUser.email
                       ? currentUser.email.split("@")[0]
                       : "ttjohninvest4") +
-                        ";" +
-                        //item.displayName +
-                        item.email.split("@")[0] +
-                        ";" +
-                        item.photoUrl +
-                        ";" +
-                        item.email +
-                        ";" +
-                        // (props.theuser ? props.theuser.email : "ph@ph.com") +
-                        // ";" +
-                          (currentUser && currentUser.email
+                    ";" +
+                    //item.displayName +
+                    item.email.split("@")[0] +
+                    ";" +
+                    item.photoUrl +
+                    ";" +
+                    item.email +
+                    ";" +
+                    // (props.theuser ? props.theuser.email : "ph@ph.com") +
+                    // ";" +
+                    (currentUser && currentUser.email
                       ? currentUser.email
                       : "ttjohninvest4@gmail.com") +
-                        ";" +
-                        item.isMatch +
-                        ";" +
-                        (currentUser
-                      ? "no"
-                      : "yes")
-
+                    ";" +
+                    item.isMatch +
+                    ";" +
+                    (currentUser ? "no" : "yes")
                   }
                 >
                   <img

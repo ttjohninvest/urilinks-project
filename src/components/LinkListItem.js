@@ -1979,7 +1979,7 @@ data-value={props.id}
             display: "inline-block",
           }}
         >
-          <div>
+          {props.rt !== "readonly" && <div>
             <input
               type="checkbox"
               checked={props.selectedLinkIds.includes(props.id)}
@@ -1988,7 +1988,7 @@ data-value={props.id}
               }
             />
             &nbsp;&nbsp;Check to include in batch delete
-          </div>
+          </div>}
           <div>
             {" "}
             <a

@@ -932,7 +932,13 @@ For example, a short exchange with 100 input tokens and 200 output tokens would 
 You can check your actual spending here:
 OpenAI API Usage DashboardMy recommendation: Before making AI Chat available to everyone on URIlinks, add a daily message limit per user so nobody can run up your API bill.
 
+
+                              --------------
 expenses for urilinks.com:
+
+spotify music api developers
+login: google, ttjohninvest@gmail.com, cost: 
+
 openai.com, chatgpt help: first month from 10/2/2026 to 11/2/2026 free and $20 each month after that
 amazon.com/snap food orders, have prime $4.95/month so delivery is always free first month free from 8/4/2026 to 9/4/2026
 platform.openai.com, access to gpt-3.5-turbo, I paid $5.00 on 3/10/2026. It does not automatically recharge.
@@ -950,7 +956,10 @@ The five-minute timer itself counts down from 300 seconds to 0.
 
 Your daily allowance resets at midnight UTC, which is 4:00 PM Pacific today.
 
+cron-job.com used to call endpoint every minute:
+https://console.cron-job.org/jobs/8793067/history
 
+                                        ---------
 
 cheapnames.com $12.99/year for urllynk.com due on 12/24/2026
 vercel.com
@@ -3949,3 +3958,112 @@ render 12
 
 Since the real data is already present by render 8, I would focus especially on renders 9 through 15. That is probably where the unnecessary renders are coming from.
 ===================================
+spotify music instructions:
+
+https://api.spotify.com/v1/search?q=artist%3ALauren%20Daigle&type=track
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Yes. That URL is correctly formatted to search Spotify for songs by Lauren Daigle.
+
+Search Lauren Daigle's songs using the Spotify API
+
+However, Spotify requires an OAuth access token.
+
+For JavaScript, you can use:
+fetch(
+  "https://api.spotify.com/v1/search?q=artist%3ALauren%20Daigle&type=track",
+  {
+    headers: {
+      Authorization: "Bearer " + accessToken
+    }
+  }
+)
+  .then(response => response.json())
+  .then(data => console.log(data.tracks.items));
+
+
+This returns song information, including titles, artists, albums, and Spotify links. It does not return the actual audio files.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+how do i get an access token
+
+
+
+
+
+
+
+
+
+
+
+
+
+Hi. You can get a Spotify access token by creating a free Spotify developer application, although Spotify currently requires a Premium account to use its Web API. 
+Spotify for Developers
+
+
+We'll do this one step at a time.
+Step 1 — Open Spotify Developer Dashboard
+Go to:
+
+Spotify Developer Dashboard
+1. Sign in with your Spotify account.
+2. Click Create app.
+3. Enter an application name and description.
+4. Select Web API.
+5. Save your application.
+Step 2 — Find your credentials
+Open your new application and select Settings.
+
+You should see:
+- Client ID
+- Client Secret (click View client secret)
+Keep your Client Secret private. Do not put it in your React frontend code.
+Step 3 — Request your access token
+On your server, send a POST request to:
+https://accounts.spotify.com/api/token
+
+
+With these values:
+grant_type=client_credentials
+client_id=YOUR_CLIENT_ID
+client_secret=YOUR_CLIENT_SECRET
+
+
+Spotify responds with an access_token that normally lasts 1 hour. 
+Spotify for Developers+1
+
+
+Since you're using React and a Vercel API, we can later have your Vercel server request tokens automatically, without exposing your Client Secret.
+
+For now, have you been able to open the Spotify Developer Dashboard?
+========================================================================================================

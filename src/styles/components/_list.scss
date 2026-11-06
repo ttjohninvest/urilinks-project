@@ -1968,3 +1968,24 @@ font-family: monospace;
 
   white-space: nowrap;
 }
+
+.welcome-page {
+  position: relative;
+  min-height: 100vh;
+  background-image: url("/images/logo-orange-u.png");
+  background-size: 60% auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  top: 200px;
+}
+
+.noscroll {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}

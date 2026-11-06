@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Router, Route, Switch, Link, NavLink } from "react-router-dom";
+import Header from "../components/Header";
 import createHistory from "history/createBrowserHistory";
 import Manual from "./../components/Manual";
 import CatFetcher from "./../components/CatFetcher";
@@ -41,9 +42,31 @@ import AddLinkPageFileDate from "../components/AddLinkPageFileDate";
 
 export const history = createHistory();
 
-const AppRouter = (props) => (
+//const AppRouter = (props) => (
+  const AppRouter = (props) => {
+    console.log("APP ROUTER RENDER");
+  const scrollInterval2 = useRef(null);
+
+  const stopScrolling2 = () => {
+
+     console.log(
+    "STOPPING AUTO-SCROLL, interval =",
+    scrollInterval2.current
+  );
+
+    clearInterval(scrollInterval2.current);
+    scrollInterval2.current = null;
+  };
+
+  return (
   <Router history={history}>
     <div>
+      <div style={{ position: "sticky", top: 0, zIndex: 9999 }}>
+  <Header 
+    stopScrolling2={stopScrolling2}
+  scrollInterval2={scrollInterval2}
+  />
+</div>
       <Switch>
         <PublicRoute
           path="/"
@@ -56,6 +79,8 @@ const AppRouter = (props) => (
           signup={props.signup}
           component={LinkDashboardPage}
           componentProps={{ theValue: true }}
+          stopScrolling2={stopScrolling2}
+          scrollInterval2={scrollInterval2}
         />
 
         <PrivateRoute
@@ -211,6 +236,7 @@ const AppRouter = (props) => (
       </Switch>
     </div>
   </Router>
-);
+  );
+};
 
 export default AppRouter;

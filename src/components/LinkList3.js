@@ -4,6 +4,7 @@ import ErrorBoundary from "./ErrorBoundry";
 // import { useSelector } from "react-redux";
 
 export const LinkList3 = React.forwardRef((props, ref) => {
+  console.log("<LinkList entered")
   const scrollTimeoutRef = useRef(null);
 
   React.useImperativeHandle(ref, () => ({
@@ -43,6 +44,8 @@ export const LinkList3 = React.forwardRef((props, ref) => {
     <div>
       <ErrorBoundary>
         <LinkList
+          uid={props.uid}
+          uid2={props.id2}
           dosearch={props.dosearch}
           searchText={props.searchText}
           theSortBy={props.theSortBy}

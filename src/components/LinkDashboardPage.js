@@ -20,6 +20,17 @@ import { useSelector } from "react-redux";
 import ErrorBoundary from "./ErrorBoundry";
 
 const LinkDashboardPage = (props) => {
+  console.log(
+  "DASHBOARD REDUX UID =",
+  props.auth.uid
+);
+
+console.log(
+  "DASHBOARD FIREBASE UID =",
+  firebase.auth().currentUser
+    ? firebase.auth().currentUser.uid
+    : "No Firebase user"
+);
   console.log("LinkDashboardPage, props.bookmarks=", props.bookmarks);
 
   const scrollableDiv = React.useRef();
@@ -282,7 +293,9 @@ React.useEffect(() => {
   }, []);
 
   return (
-    <div key={props.auth.uid}>
+    <div 
+    key={props.auth.uid}
+    >
       <ErrorBoundary>
         <ScrollLimit>
           <div className="flexrowh">

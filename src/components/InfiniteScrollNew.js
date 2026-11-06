@@ -12,6 +12,8 @@ const rt = params.get("x");
 
 const InfiniteScrollNew = (props) => {
   console.log("abc InfiniteScrollNew");
+  console.log("abc InfiniteScrollNew, props.databasePath="+props.databasePath);
+  console.log("abc InfiniteScrollNew, props.uid="+props.uid);
 
   const [links, setLinks] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -24,9 +26,31 @@ const InfiniteScrollNew = (props) => {
 
   const linksRef = useRef([]);
 
+
+
+
+
+
+  useEffect(() => {
+  console.log("LINKS STATE CHANGED =", links.length);
+}, [links]);
+
+
+useEffect(() => {
+  console.log("MOUNT InfiniteScrollNew");
+
+  return () => {
+    console.log("UNMOUNT InfiniteScrollNew");
+  };
+}, []);
+
+
+
   const normalizeSearch = (value) => {
     return (value || "").trim().replace(/\s+/g, " ").toLowerCase();
   };
+
+
 
   const linkMatchesSearch = (item, search) => {
     const description = normalizeSearch(item && item.description);
@@ -120,7 +144,12 @@ const InfiniteScrollNew = (props) => {
 
           linksRef.current = updatedLinks;
 
+           console.log("2 UPDATED LINKS COUNT =", updatedLinks.length);
+      console.log("2 UPDATED LINKS =", JSON.stringify(updatedLinks));
+
           setLinks(updatedLinks);
+
+          console.log("2 SETLINKS CALLED WITH =", updatedLinks.length);
 
           setHasMore(cachedPage.hasMore);
 
@@ -152,6 +181,8 @@ const InfiniteScrollNew = (props) => {
       );
 
       const snapshot = await query.once("value");
+      console.log("INFINITE SCROLL SNAPSHOT EXISTS =", snapshot.exists());
+console.log("INFINITE SCROLL RECORD COUNT =", snapshot.numChildren());
       if (!snapshot.exists()) {
   setLinks([]);
   setHasMore(false);
@@ -212,7 +243,12 @@ const InfiniteScrollNew = (props) => {
 
       linksRef.current = updatedLinks;
 
+      console.log("1 UPDATED LINKS COUNT =", updatedLinks.length);
+      console.log("1 UPDATED LINKS =", JSON.stringify(updatedLinks));
+
       setLinks(updatedLinks);
+
+      console.log("1 SETLINKS CALLED WITH =", updatedLinks.length);
 
       setHasMore(moreAvailable);
 
@@ -231,7 +267,9 @@ const InfiniteScrollNew = (props) => {
 
     const countCacheKey = getCountCacheKey(search);
 
+    
     const cachedCount = window.sessionStorage.getItem(countCacheKey);
+    console.log("CACHED COUNT =", cachedCount);
 
     if (cachedCount !== null) {
       console.log(
@@ -267,6 +305,7 @@ const InfiniteScrollNew = (props) => {
     }
 
       if (count === 0) {
+        console.log("CLEARING LINKS FROM getTotalCount");
     setLinks([]);
     setHasMore(false);
     setLoading(false);
@@ -339,7 +378,7 @@ const InfiniteScrollNew = (props) => {
     cursorRef.current = null;
     pageRef.current = 0;
     linksRef.current = [];
-
+    console.log("CLEARING LINKS FROM useEffect");
     setLinks([]);
     setHasMore(true);
 
@@ -425,6 +464,8 @@ const InfiniteScrollNew = (props) => {
 
     props.setLinksCount(props.linksCount - 1);
   };
+
+  console.log("RENDER UPDATED LINKS COUNT =", links.length);
 
   return (
     <div>

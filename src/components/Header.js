@@ -108,6 +108,8 @@ const Dropdown = ({ trigger, children }) => {
 };
 
 export const Header = (props) => {
+  console.log("HEADER SIGNUP AFTER RELOAD =", props.signup);
+console.log("HEADER AUTH UID AFTER RELOAD =", props.auth.uid);
   const [deleteAccountError, setDeleteAccountError] = useState(false);
   const [photoURL, setPhotoURL] = useState("");
   const [inviewport, setInviewport] = useState(false);
@@ -150,6 +152,7 @@ export const Header = (props) => {
   const purl2 = params.get("purl");
   const z10 = params.get("z10");
   const ni = params.get("ni");
+
 
   //   const baseUrl =
   // process.env.NODE_ENV === "development"
@@ -1003,21 +1006,28 @@ const handleClick = useCallback(() => {
   }, []);
 
   const handleUpdate2 = useCallback(() => {
-    try {
-      let x = {
-        loggedin: 0,
-      };
+  try {
+    const user = firebase.auth().currentUser;
 
-      database
-        .ref(`users/${firebase.auth().currentUser.uid}/theloggedin`)
-        .update(x) //{showpublic:0}
-        .then(() => {})
-        .catch((error) => {});
-      //};
-    } catch (error) {
-      console.error("Update failed:", error);
+    if (!user) {
+      console.log("handleUpdate2: No user logged in");
+      return;
     }
-  }, []);
+
+    database
+      .ref(`users/${user.uid}/theloggedin`)
+      .update({ loggedin: 0 })
+      .then(() => {
+        console.log("handleUpdate2 success");
+      })
+      .catch((error) => {
+        console.error("handleUpdate2 error:", error);
+      });
+
+  } catch (error) {
+    console.error("Update failed:", error);
+  }
+}, []);
 
   //   const handleUpdate = async () => {
   //   try {
@@ -1079,7 +1089,10 @@ const handleClick = useCallback(() => {
       dispatch({ type: "CLEAR_FOLLOWING" });
       dispatch({ type: "CLEAR_FOLLOWER" });
 
-      props.stopScrolling2();
+      //props.stopScrolling2();
+      if (typeof props.stopScrolling2 === "function") {
+  props.stopScrolling2();
+}
 
       const user = firebase.auth().currentUser;
 
@@ -1120,7 +1133,12 @@ const handleClick = useCallback(() => {
 
     setLinks([]);
 
-    props.stopScrolling2();
+    //props.stopScrolling2();
+if (typeof props.stopScrolling2 === "function") {
+  props.stopScrolling2();
+}
+
+
     props.startLogout();
   };
 
@@ -1505,7 +1523,7 @@ const handleClick = useCallback(() => {
                     flexWrap: "wrap",
                   }}
                 >
-                  {props.signup.signup === false &&
+                  {!props.auth.uid && 
                     x !== "readonly" &&
                     ni !== "1" &&
                     ni !== "2" &&
@@ -1521,7 +1539,9 @@ const handleClick = useCallback(() => {
                       </Link>
                     )}
 
-                  {props.signup.signup === true && (
+                  {console.log("HEADER SIGNUP =", props.signup.signup)}
+                  {console.log("HEADER SIGNUP OBJECT =", JSON.stringify(props.signup))}
+                  {!!props.auth.uid && (
                     <button
                       id="friendlylogout"
                       className="button button--link- button-2h padding-left-4x padding-right-4x ib text-size-11 color-white-1 cursor-pointer"

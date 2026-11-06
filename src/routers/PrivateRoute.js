@@ -1,114 +1,77 @@
-import React, { useRef } from "react";
+
+import React from "react";
 import { connect } from "react-redux";
 import { Route, Redirect, withRouter } from "react-router-dom";
-import Header from "../components/Header";
 
-//const params = new URLSearchParams(window.location.search);
-//const z10 = params.get("z10"); //recipent email
+// Decrypt recipient email
+function decrypt(text, key) {
+  if (text === null) return null;
 
-
- function decrypt(text, key) {
-    if(text === null) return null
-    return String.fromCharCode(...text.match(/.{1,2}/g)
-        .map((e, i) => 
-            parseInt(e, 16) ^ key.charCodeAt(i % key.length) % 255)
-    );
+  return String.fromCharCode(
+    ...text.match(/.{1,2}/g).map(
+      (e, i) =>
+        parseInt(e, 16) ^
+        (key.charCodeAt(i % key.length) % 255)
+    )
+  );
 }
-
-
-//const recipientemail = decrypt(z10, "125434") 
-
-
-
-
-
-//const params = new URLSearchParams(window.location.search);
-
-
 
 export const PrivateRoute = ({
   signup,
   isAuthenticated,
   auth,
   component: Component,
+  stopScrolling2,
+  scrollInterval2,
   ...rest
 }) => {
 
+  // Track PrivateRoute instance
+  const privateRouteInstanceId = React.useRef(
+    Math.random().toString(36).substring(2, 8)
+  );
 
-
-
-const privateRouteInstanceId = React.useRef(
-  Math.random().toString(36).substring(2, 8)
-);
-
-console.log(
-  "PrivateRoute INSTANCE =",
-  privateRouteInstanceId.current
-);
-
-React.useEffect(() => {
   console.log(
-    "MOUNT PrivateRoute INSTANCE =",
+    "PrivateRoute INSTANCE =",
     privateRouteInstanceId.current
   );
 
-  return () => {
+  React.useEffect(() => {
     console.log(
-      "UNMOUNT PrivateRoute INSTANCE =",
+      "MOUNT PrivateRoute INSTANCE =",
       privateRouteInstanceId.current
     );
-  };
-}, []);
 
+    return () => {
+      console.log(
+        "UNMOUNT PrivateRoute INSTANCE =",
+        privateRouteInstanceId.current
+      );
+    };
+  }, []);
 
-
-
-
-  //const abcref = useRef("abcref");
-  // const abc = (x) => {
-  //   console.log("PrivateRoute, abc, x=" + x);
-  // };
-
+  // Read URL parameters
   const params = new URLSearchParams(window.location.search);
-const z10 = params.get("z10"); //recipent email
-const recipientemail = decrypt(z10, "125434") 
-const bookmarks = params.get("bookmarks");
 
-  const scrollInterval2 = useRef(null);
-  const stopScrolling2 = () => {
-    //scrollupref.current = null
-    clearInterval(scrollInterval2.current);
-    scrollInterval2.current = null;
-  };
-
-//   console.log(
-//   "PrivateRoute auth.uid =",
-//   props.auth && props.auth.uid
-// );
-
-// console.log(
-//   "PrivateRoute signup =",
-//   props.signup
-// );
+  const z10 = params.get("z10");
+  const recipientemail = decrypt(z10, "125434");
+  const bookmarks = params.get("bookmarks");
 
   return (
     <Route
       {...rest}
       render={(props) =>
-      //component={(props) => //having this one in and not the above render was causing it to unmount and mount causing a second render of columns 1 and 3
         isAuthenticated ? (
           <div>
-            <Header signup={signup} 
-            ////abc={abc} 
-            // abcref={abcref} 
-            stopScrolling2={stopScrolling2} scrollInterval2={scrollInterval2} />
-            <Component {...props} isFormOpen={true} isreadonly={false} 
-            bookmarks={bookmarks}
-            //senderemail={senderemail} 
-            recipientemail={recipientemail}
-            //abc={abc} 
-            //abcref={abcref}  
-            stopScrolling2={stopScrolling2} scrollInterval2={scrollInterval2} />
+            <Component
+              {...props}
+              isFormOpen={true}
+              isreadonly={false}
+              bookmarks={bookmarks}
+              recipientemail={recipientemail}
+              stopScrolling2={stopScrolling2}
+              scrollInterval2={scrollInterval2}
+            />
           </div>
         ) : (
           <Redirect to="/" />
@@ -118,13 +81,11 @@ const bookmarks = params.get("bookmarks");
   );
 };
 
-
-
 const mapStateToProps = (state) => ({
   isAuthenticated: !!state.auth.uid,
-  //  signup: state.signup,
-  
   auth: state.auth,
 });
 
-export default withRouter(connect(mapStateToProps)(PrivateRoute));
+export default withRouter(
+  connect(mapStateToProps)(PrivateRoute)
+);

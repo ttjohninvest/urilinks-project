@@ -365,10 +365,11 @@ console.log("app.js, CALLING THE FIRST RENDER")
   }
 } else {
   console.log("app.js, 4th one abc");
-  store.dispatch({
-    type: "SET_SIGNUP",
-    signup: { signup: true },
-  });
+  // store.dispatch({
+  //   type: "SET_SIGNUP",
+  //   signup: { signup: true },
+  // });
+  store.dispatch(setSignup({ signup: true }));
 
   try {
     firebase.auth().onAuthStateChanged((user) => {
@@ -598,5 +599,6 @@ console.log("app.js, CALLING THE FIRST RENDER")
   }
 }
 
+console.log("APP.JS STARTING");
 ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 //ReactDOM.render(<CatFetcher />, document.getElementById("app"));

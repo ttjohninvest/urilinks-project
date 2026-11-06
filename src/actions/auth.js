@@ -1,4 +1,5 @@
 import { firebase, googleAuthProvider } from '../firebase/firebase';
+import { history } from "../routers/AppRouter";
 import {decrementSignupCount} from "./thesignupcount"
 
 export const login = (uid) => ({
@@ -6,26 +7,54 @@ export const login = (uid) => ({
   uid
 });
 
+// export const startLogin = () => {
+//   console.log("startLogin");
+
+//   return () => {
+//     return firebase
+//       .auth()
+//       .setPersistence(
+//         firebase.auth.Auth.Persistence.SESSION
+//       )
+//       .then(() => {
+//         return firebase
+//           .auth()
+//           .signInWithPopup(googleAuthProvider);
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       });
+//   };
+// };
+
 export const startLogin = () => {
   console.log("startLogin");
 
-  return () => {
+  return (dispatch, getState) => {
     return firebase
       .auth()
-      .setPersistence(
-        firebase.auth.Auth.Persistence.SESSION
-      )
+      .setPersistence(firebase.auth.Auth.Persistence.SESSION)
       .then(() => {
-        return firebase
-          .auth()
-          .signInWithPopup(googleAuthProvider);
+        return firebase.auth().signInWithPopup(googleAuthProvider);
+      })
+      .then((result) => {
+        // if (result && result.user) {
+        //   history.replace("/dashboard?signup=signup&z2=1");
+        // }
+         if (result && result.user) {
+    console.log("GOOGLE LOGIN UID =", result.user.uid);
+    dispatch(login(result.user.uid));
+    history.replace("/dashboard?signup=signup&z2=1");
+    //console.log("REDUX LOGIN DISPATCHED =", result.user.uid);
+    console.log("REDUX UID AFTER LOGIN =", getState().auth.uid);
+  }
       })
       .catch((error) => {
         console.log(error);
       });
   };
-};
 
+};
 
 //   export const startLogin = () => {
 //   console.log("startLogin")
@@ -63,11 +92,26 @@ export const logout = () => {
   }
 };
 
-export const startLogout = () => {
+// export const startLogout = () => {
   
-  return () => {
+//   return () => {
     
-    return firebase.auth().signOut();
+//     return firebase.auth().signOut();
+//   };
+// };
+
+export const startLogout = () => {
+  return (dispatch,getState) => {
+    return firebase.auth().signOut().then(() => {
+      console.log("FIREBASE SIGNOUT SUCCESS");
+      dispatch(logout());
+
+console.log("REDUX UID AFTER CLEAR =", getState().auth.uid);
+    
+
+    }).catch((error) => {
+      console.log("FIREBASE SIGNOUT ERROR =", error);
+    });
   };
 };
 

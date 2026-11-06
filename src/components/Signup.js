@@ -30,11 +30,17 @@ export const Signup = (props) => {
     baseUrl = "https://urilinks.com"
   }
 
+  // useEffect(() => {
+  //   console.log("in Signup");
+  //   props.setSignup({ signup: true });
+  //   window.location.href = baseUrl + "?signup=signup";
+  // }, []);
+
   useEffect(() => {
-    console.log("in Signup");
-    props.setSignup({ signup: true });
-    window.location.href = baseUrl + "?signup=signup";
-  }, []);
+  console.log("in Signup");
+  props.setSignup({ signup: true });
+  props.history.replace("/?signup=signup");
+}, []);
 
   return <div></div>;
 };

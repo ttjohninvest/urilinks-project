@@ -51,7 +51,10 @@ const z2 = params.get("z2");
 const linkid = params.get("p");
 
 export const LinkList = (props) => {
-  console.log("LATEST SOURCE FILE TEST");
+  console.log("ENTERED LinkList");
+
+  
+  //console.log("LATEST SOURCE FILE TEST");
   console.log(
     "top LinkList.js, LinkList(), props.allLinksVisibility=" +
       props.allLinksVisibility,
@@ -62,6 +65,12 @@ export const LinkList = (props) => {
     { id: 3, text: "hello 3" },
   ];
   const [selectedOption, setSelectedOption] = useState("option1");
+    console.log("LINKLIST RENDER CONDITIONS =", JSON.stringify( {
+  isinfinitescroll: props.isinfinitescroll.isinfinitescroll,
+  dosearch: props.dosearch,
+  theSortBy: props.theSortBy,
+  selectedOption: selectedOption
+}));
   const [deleteData, setDeleteData] = useState([]);
   const [first, setFirst] = useState(0);
   const [key, setKey] = useState(v4());
@@ -76,6 +85,13 @@ export const LinkList = (props) => {
   const [links, setLinks] = useState([]);
   //const [allLinksVisibility, setAllLinksVisibility] = useState("");
   const [allLinksVisibility, setAllLinksVisibility] = useState("");
+
+
+
+
+
+
+
   console.log(
     "top LinkList.js, LinkList(), after const [allLinksVisibility, set...,  allLinksVisibility=" +
       allLinksVisibility,
@@ -1081,6 +1097,10 @@ export const LinkList = (props) => {
               className={`${isMobile() === true ? "scrollable-div2content" : "scrollable-div1c"}`}
               //onClick={()=>stopScrolling2()}
             >
+              {/* {console.log("DATABASE PATH =", `users/${props.auth.uid}/links`)} */}
+              {console.log("DATABASE PATH =", `users/${props.uid?props.uid:props.uid2}/links`)}
+              {console.log("VIEWED USER UID =", props.uid)}
+              {console.log("LOGGED IN UID =", props.uid2)}
               {
                 props.isinfinitescroll.isinfinitescroll === true &&
                 props.dosearch === 1 &&
@@ -1090,7 +1110,7 @@ export const LinkList = (props) => {
                     onLinksCountChange2={props.onLinksCountChange}
                     linksCount={linksCount}
                     scrollContainerRef={scrollContainerRef}
-                    databasePath={`users/${props.auth.uid}/links`}
+                    databasePath={`users/${props.uid?props.uid:props.uid2?props.uid2:props.auth.uid}/links`}
                     //searchText={ props.filters.text}
                     searchText={props.searchText}
                     theSortBy={props.theSortBy}
@@ -1254,9 +1274,18 @@ export const LinkList = (props) => {
                     selectedLinkIds={props.selectedLinkIds}
                     handleSelectLink={props.handleSelectLink}
                   />
-                ) : props.isinfinitescroll.isinfinitescroll === true &&
-                  props.dosearch === 1 &&
-                  props.theSortBy === "productsalpha" ? (
+                ) : 
+                
+                // props.isinfinitescroll.isinfinitescroll === true &&
+                //   props.dosearch === 1 &&
+                //   props.theSortBy === "productsalpha" ? (
+
+                props.isinfinitescroll.isinfinitescroll === true &&
+props.dosearch === 1 &&
+props.theSortBy === "productsalpha" &&
+rt !== "readonly" ? (
+
+
                   <InfiniteScrollNewSortByProductsAlpha
                     setLinksCount={setLinksCount}
                     onLinksCountChange2={props.onLinksCountChange}
@@ -1319,13 +1348,15 @@ export const LinkList = (props) => {
                     onLinksCountChange2={props.onLinksCountChange}
                     linksCount={linksCount}
                     scrollContainerRef={scrollContainerRef}
-                    databasePath={`users/${props.auth.uid}/links`}
+                    //databasePath={`users/${props.auth.uid}/links`}
+                    databasePath={`users/${props.uid?props.uid:props.uid2?props.uid2:props.auth.uid}/links`}
                     theSortBy={props.theSortBy}
                     onLinksCountChange={setLinksCount}
                     linksRefresh={props.linksRefresh}
                     stopScrolling3={props.stopScrolling3}
                     selectedLinkIds={props.selectedLinkIds}
                     handleSelectLink={props.handleSelectLink}
+                    rt={rt}
                   />
                 ) : null
 

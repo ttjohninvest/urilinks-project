@@ -1,4 +1,9 @@
 {
   "eslint.enable": false,
-  "editor.inlineSuggest.enabled": false
+  "editor.inlineSuggest.enabled": false,
+
+  "problems.decorations.enabled": false,
+"editor.renderValidationDecorations": "off",
+"explorer.decorations.colors": false,
+"explorer.decorations.badges": false
 }

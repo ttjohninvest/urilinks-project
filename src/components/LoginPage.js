@@ -5,11 +5,12 @@ import "firebase/auth"; // If using authentication
 //import 'firebase/firestore';   // If using Firestore
 import "firebase/database"; // If using Realtime Database
 import "firebase/storage"; // If using Storage
+import setSignup from "../actions/signup";
 import { connect } from "react-redux";
 import { startLogin } from "../actions/auth";
 //import penguinSayingHello from "../assets/gifs/penguin-saying-hello.gif";
 
-const LoginPage = ({ startLogin }) => {
+const LoginPage = (props) => {
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
   //const [count, setCount] = useState(0);
   // const [userId, setUserId] = useState('');
@@ -49,37 +50,54 @@ const LoginPage = ({ startLogin }) => {
   // }, []);
 
   useEffect(() => {
+  props.setSignup({ signup: false });
+}, []);
+
+  useEffect(() => {
     //setInnerWidth(window.innerWidth);
     const handleResize = () => setInnerWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  if (true)
-    //count < 20 )
-    return (
-      <div className="box-layout">
-        <div className="flexrowzc2 borderRadius5 opacity5">
-          <div
-            title="Thank you. Welcome. This internet tool helps to organize your bookmarks in a friendly user interface."
-            className="box-layout__box"
-          >
-            <h3 className="margin-left-11- box-layout__title">urilinks.com</h3>
-
-            <p className="margin-left-11">Welcome, click the Enter button</p>
-
-            <button className="ib button margin-left-11-" onClick={startLogin}>
-              enter button
-            </button>
-          </div>
+  return (
+    <div className="welcome-page">
+      <div className="margin-top-100x welcome-content">
+        <div className="">
+          <h3>urilinks.com</h3>
+          <p title="You are welcome. Click the enter button.">Welcome</p>
+          <button className="button-2" onClick={props.startLogin}>
+            enter
+          </button>
         </div>
       </div>
-    );
-  else return <div>too many</div>;
+    </div>
+    // <div className="box-layout">
+    //   <div className="flexrowzc2 borderRadius5 opacity5">
+    //     <div
+    //       title="Thank you. Welcome. This internet tool helps to organize your bookmarks in a friendly user interface."
+    //       className="box-layout__box"
+    //     >
+    //       <h3 className="margin-left-11- box-layout__title">urilinks.com</h3>
+
+    //       <p className="margin-left-11">Welcome, click the Enter button</p>
+
+    //       <button className="ib button margin-left-11-" onClick={startLogin}>
+    //         enter button
+    //       </button>
+    //     </div>
+    //   </div>
+    // </div>
+  );
 };
 
 const mapDispatchToProps = (dispatch) => ({
   startLogin: () => dispatch(startLogin()),
+  setSignup: (v) => dispatch(setSignup(v)),
 });
+
+
+
+//export default connect(mapStateToProps)(Signup);
 
 export default connect(undefined, mapDispatchToProps)(LoginPage);

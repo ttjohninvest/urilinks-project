@@ -156,8 +156,9 @@ const GmailContacts = () => {
 
 return (
   <div style={{ width: "100%" }}>
+    <div className="margin-top-1">
     <button
-      className="button-2"
+      className="ib button-2"
       type="button"
       onClick={getGmailContacts}
       disabled={loading}
@@ -166,6 +167,7 @@ return (
         ? "Loading Contacts..."
         : "Get my gmail contacts"}
     </button>
+    </div>
 
     {error && (
       <p style={{ color: "red" }}>

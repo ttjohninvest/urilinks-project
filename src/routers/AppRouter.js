@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
-import { Router, Route, Switch, Link, NavLink } from "react-router-dom";
+
+import { Router, Route, Switch, Link, NavLink, Redirect } from "react-router-dom";
 import Header from "../components/Header";
 import createHistory from "history/createBrowserHistory";
 import Manual from "./../components/Manual";
@@ -68,12 +69,26 @@ export const history = createHistory();
   />
 </div>
       <Switch>
-        <PublicRoute
+        {/* <PublicRoute
           path="/"
           signup={props.signup}
           component={LoginPage}
           exact={true}
-        />
+        /> */}
+        <Route
+            exact
+            path="/login"
+            component={LoginPage}
+          />
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <Redirect
+              to="/dashboard?x=readonly&id=XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
+            />
+          )}
+/>
         <PrivateRoute
           path="/dashboard"
           signup={props.signup}

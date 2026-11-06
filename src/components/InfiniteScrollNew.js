@@ -493,9 +493,9 @@ console.log("INFINITE SCROLL RECORD COUNT =", snapshot.numChildren());
                     signup={props.signup.signup}
                     idexists={props.idexists}
                     theSortBy={props.theSortBy}
-                     stopScrolling3={props.stopScrolling3}
-                     selectedLinkIds={props.selectedLinkIds}
-                             handleSelectLink={props.handleSelectLink}
+                    stopScrolling3={props.stopScrolling3}
+                    selectedLinkIds={props.selectedLinkIds}
+                    handleSelectLink={props.handleSelectLink}
                   />
                 </div>
               );

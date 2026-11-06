@@ -53,6 +53,14 @@ const linkid = params.get("p");
 export const LinkList = (props) => {
   console.log("ENTERED LinkList");
 
+  console.log("LINKLIST HASHTAG SEARCH =", JSON.stringify({
+  uid: props.uid,
+  uid2: props.uid2,
+  searchText: props.searchText,
+  theSortBy: props.theSortBy,
+  dosearch: props.dosearch,
+}));
+
   
   //console.log("LATEST SOURCE FILE TEST");
   console.log(
@@ -247,14 +255,21 @@ export const LinkList = (props) => {
   //this code updates linksCount everytime a new link is added to firebase realtime database
 
   useEffect(() => {
-    if (!props.auth.uid) {
+    // if (!props.auth.uid) {
+    //   setLinksCount(0);
+    //   return;
+    // }
+
+    const viewedUid = props.uid || props.uid2 || props.auth.uid;
+
+    if (!viewedUid) {
       setLinksCount(0);
       return;
     }
 
     const linksRef = firebase
       .database()
-      .ref("users/" + props.auth.uid + "/links");
+      .ref("users/" + viewedUid  + "/links");
 
     const handleValue = (snapshot) => {
       setLinksCount(snapshot.numChildren());
@@ -265,7 +280,7 @@ export const LinkList = (props) => {
     return () => {
       linksRef.off("value", handleValue);
     };
-  }, [props.auth.uid]);
+  }, [props.uid, props.uid2, props.auth.uid]);
 
   useEffect(() => {
     setAllLinksVisibility(props.allLinksVisibility);
@@ -1149,7 +1164,8 @@ export const LinkList = (props) => {
                     onLinksCountChange2={props.onLinksCountChange}
                     linksCount={linksCount}
                     scrollContainerRef={scrollContainerRef}
-                    databasePath={`users/${props.auth.uid}/links`}
+                    //databasePath={`users/${props.auth.uid}/links`}
+                    databasePath={`users/${props.uid || props.uid2 || props.auth.uid}/links`}
                     //searchText={ props.filters.text}
                     searchText={props.searchText}
                     theSortBy={props.theSortBy}

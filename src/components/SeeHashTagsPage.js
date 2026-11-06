@@ -377,6 +377,28 @@ export const SeeHashTagsPage = (props) => {
     return regex.test(navigator.userAgent);
   };
 
+   const combinedHashtags = Array.from(
+  uniqueData.reduce((map, item) => {
+    if (!item || !item.matchesstring) return map;
+
+    const key = item.matchesstring.trim().toLowerCase();
+
+    if (map.has(key)) {
+      const existing = map.get(key);
+
+      existing.count += Number(item.count) || 0;
+    } else {
+      map.set(key, {
+        ...item,
+        matchesstring: item.matchesstring.trim(),
+        count: Number(item.count) || 0,
+      });
+    }
+
+    return map;
+  }, new Map()).values()
+);
+
   return (
     <div
       className="position-absolute- z-index99- opaque100"
@@ -473,9 +495,9 @@ export const SeeHashTagsPage = (props) => {
           </div>
         </div>
 
-        {uniqueData.length}
+        {combinedHashtags.length}
 
-        {`${uniqueData.length === 1 ? " hashtag" : " hashtags"}`}
+        {`${combinedHashtags.length === 1 ? " hashtag" : " hashtags"}`}
 
         <div
           id="ls3"
@@ -511,12 +533,13 @@ export const SeeHashTagsPage = (props) => {
             marginLeft: "1rem"
           }}
           onClick={handleClick}>
-            {uniqueData.map(
+            {combinedHashtags.map(
               (item, index) =>
                 !!item &&
                 !!item.matchesstring && (
                   <div
-                    key={item.matchesstring || index}
+                    //key={item.matchesstring || index}
+                    key={`${item.matchesstring}-${index}`}
                     data-item-id={item.matchesstring}
                       style={{
                         maxWidth: "100%",

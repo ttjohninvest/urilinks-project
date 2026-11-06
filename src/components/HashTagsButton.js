@@ -75,7 +75,7 @@ const HashTagsButton = (props) => {
         }`}
         onClick={handleDisplay}
       >
-        {isDisplayed ? "Displayed" : "Open tags menu"}
+        {isDisplayed ? "Displayed" : "Open hashtags menu"}
       </button>
 
       {/* {isDisplayed === true && (

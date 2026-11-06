@@ -4,6 +4,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 
 const GmailContacts = () => {
+  console.log("ENTERED GmailContacts");
   const [contacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");

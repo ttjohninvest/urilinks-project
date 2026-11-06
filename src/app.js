@@ -154,11 +154,19 @@ if (signup !== "signup") {
   if (id2 !== null) {
     console.log("app.js, 2nd one abc");
     store.dispatch(login(id2));
+  // } else {
+  //   console.log("app.js, 3rd one abc");
+  //   id2 = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
+  //   store.dispatch(login(id2));
+  // }
   } else {
-    console.log("app.js, 3rd one abc");
-    id2 = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
-    store.dispatch(login(id2));
-  }
+  console.log("app.js, 3rd one abc");
+
+  id2 = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
+
+  // Do not log in the default user.
+  // Use id2 only to display the default user's public links.
+}
 console.log("app.js, CALLING THE FIRST RENDER")
   try {
     store

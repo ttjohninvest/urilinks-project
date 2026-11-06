@@ -91,6 +91,7 @@ if (Constants.NODE_DEV === "development") {
 }
 
 const LinkListItem = (props) => {
+ 
   console.log("LinkListItem RECEIVED", props.id, "frequency=", props.frequency);
   //  const params = new URLSearchParams(window.location.search);
   if (props.thetotalstars) {
@@ -1868,6 +1869,7 @@ data-value={props.id}
     return null;
   }
   console.log("LinkListItem.js, props.adUrl=" + props.adUrl);
+  console.log("LinkListItem(), props.rt="+props.rt)
   return (
     <div key={props.index}>
       <div id="divtop" />
@@ -2068,7 +2070,7 @@ data-value={props.id}
         )}
         {props.signup.signup === true ? (
           <span className="bg-light-orange- height48- height14x flexrowzv2">
-            <span className="ib margin-left-11- margin-right-1- height14x- flexrowzv-">
+            {props.rt !== "readonly" && <span className="ib margin-left-11- margin-right-1- height14x- flexrowzv-">
               <input
                 type="checkbox"
                 id={"delete%" + props.id}
@@ -2086,7 +2088,7 @@ data-value={props.id}
               >
                 Remove link
               </label>
-            </span>
+            </span>}
 
             <span className="ib margin-right-1">
               <input

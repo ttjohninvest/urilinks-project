@@ -25,6 +25,15 @@ const LinkDashboardPage = (props) => {
   props.auth.uid
 );
 
+const params = new URLSearchParams(window.location.search);
+
+const viewedUid =
+  params.get("id") ||
+  props.auth.uid ||
+  "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
+
+console.log("DASHBOARD VIEWED UID =", viewedUid);
+
 console.log(
   "DASHBOARD FIREBASE UID =",
   firebase.auth().currentUser
@@ -302,6 +311,7 @@ React.useEffect(() => {
             <div id="very-top-id" className="website-background-color">
               <div className="padding-tb-1">
                 <LinkListFilters
+                  uid={viewedUid}
                   stopScrolling2={props.stopScrolling2}
                   scrollInterval2={props.scrollInterval2}
                   setTheHashTagDivHeight={setTheHashTagDivHeight}

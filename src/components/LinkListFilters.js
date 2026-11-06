@@ -2,6 +2,8 @@ const DISPLAY_THIS_MANY_LINKS = 100;
 import Constants from "./Constants";
 import React, { useState, useRef, useEffect } from "react";
 import OnlineStatus from "./OnlineStatus";
+import { startSetHashtagsOnly } from "../actions/links";
+
 import InfiniteScrollNewLinksShowPublicOrPrivate from "./InfiniteScrollNewLinksShowPublicOrPrivate";
 import ErrorBoundry from "./ErrorBoundry";
 import { useSelector } from "react-redux";
@@ -708,13 +710,20 @@ function ExpandableArray(props) {
           });
       }
 
+    // if (id !== null && id !== undefined) {
+    //   if (thelink !== null && thelink !== undefined) setSearchText(product);
+    //   console.log(
+    //     "LinkListilters.js, useEffect call, setSearchText, product=" + product,
+    //   );
+    //   setit2(thelink, product);
+    // }
+
     if (id !== null && id !== undefined) {
-      if (thelink !== null && thelink !== undefined) setSearchText(product);
-      console.log(
-        "LinkListilters.js, useEffect call, setSearchText, product=" + product,
-      );
-      setit2(thelink, product);
-    }
+  if (product !== null && product !== undefined) {
+    setSearchText(product);
+    setit2(thelink, product);
+  }
+}
 
     if (id !== null) setIdexists(1);
   }, []);
@@ -899,7 +908,7 @@ function ExpandableArray(props) {
     if (user !== null && user !== undefined) {
       setPhotoURL(user.photoURL);
     }
-    if (props.signup === true && user) {
+    if (!!props.auth.uid === true && user) {
       setUid(user.uid);
       setEmail(user.email);
       setTheuser(user);
@@ -1190,7 +1199,9 @@ function ExpandableArray(props) {
 
   const search = (z) => {
     console.log("1search");
+    console.log("HASHTAG SEARCH CALLED", z);
 
+  
     props.stopScrolling2();
 
     const selectElement = document.getElementById("mode");
@@ -1226,6 +1237,15 @@ function ExpandableArray(props) {
 
     let term = window.document.getElementById("termid").value.trim();
 
+      console.log("HASHTAG SEARCH VALUES =", JSON.stringify({
+  clickedHashtag: z,
+  searchTerm: term,
+  selectedValue: selectedValue,
+}));
+
+
+
+
     console.log("search term before setSearchText=", term);
 
     if (selectedValue === "productsalpha") {
@@ -1238,6 +1258,8 @@ function ExpandableArray(props) {
       setSearchText(term);
       setMode("productsalpha");
       setDosearch(1);
+
+    
 
       return;
     }
@@ -1252,6 +1274,14 @@ function ExpandableArray(props) {
       setMode(selectedValue);
 
       setDosearch(1);
+
+  console.log("HASHTAG SEARCH REQUEST =", JSON.stringify({
+  term: term,
+  mode: selectedValue,
+  dosearch: 1,
+  uid: props.uid,
+}));
+      
     } else {
       props.setTextFilter(term);
 
@@ -2429,6 +2459,8 @@ function ExpandableArray(props) {
     filtersInstanceId.current,
   );
 
+ 
+
   return (
     <div className="flexrowh-">
       <div>
@@ -2450,7 +2482,7 @@ function ExpandableArray(props) {
 >
   Test Toast
 </button> */}
-      <div className={`${props.signup === false ? "bg-gray-1" : "bg-gray-1"}`}>
+      <div className={`${!!props.auth.uid === false ? "bg-gray-1" : "bg-gray-1"}`}>
         <div className="">
           <div
             className={`website-background-color width30pt flexrowzc2 border-b-5font-roboto text-size-1 font-weight-500-`}
@@ -2506,6 +2538,11 @@ function ExpandableArray(props) {
         <div className="flexrowtt0">
           <div>
             {/* 1st column 1 column */}
+            {console.log("DEFAULT PAGE HASHTAGS =", JSON.stringify({
+              uid: props.uid,
+              authUid: props.auth.uid,
+              hashtagCount: props.mappedDataShort.length,
+            }))}
             {openHt === true ? (
               <div
                 id="ls"
@@ -2534,9 +2571,9 @@ function ExpandableArray(props) {
                   <div className={`border-right-5`}>
                     <div
                       ref={props.ref1}
-                      className={`${""} ${props.signup === false ? "bg-white-1" : "bg-gray-1"} borderradius5`}
+                      className={`${""} ${!!props.auth.uid === false ? "bg-white-1" : "bg-gray-1"} borderradius5`}
                       title={
-                        props.signup === true
+                        !!props.auth.uid === true
                           ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"
                           : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
                       }
@@ -2621,7 +2658,7 @@ function ExpandableArray(props) {
                     )}
                     {usersandfollowing ? (
                       <div>
-                        {rt !== "readonly" && followingLoaded && (
+                        {followingLoaded && (
                           <UsersAndFollowingContainer
                             following={props.following}
                             rt={rt}
@@ -2634,7 +2671,7 @@ function ExpandableArray(props) {
                       </div>
                     ) : (
                       <div>
-                        {rt !== "readonly" && followingLoaded && (
+                        {followingLoaded && (
                           <FollowingContainer
                             following={props.following}
                             rt={rt}
@@ -2669,7 +2706,7 @@ function ExpandableArray(props) {
               )}
               {isMobile() === true ? (
                 <div className="margin-left-11 margin-bottom-1 flexcol3">
-                  {props.signup === true && (
+                  {!!props.auth.uid === true && (
                     <span>
                       <div className="">
                         {readonly === false && (
@@ -2697,7 +2734,7 @@ function ExpandableArray(props) {
                                 <CopyButton2
                                   readonly={readonly}
                                   accountpagename={
-                                    props.signup === true &&
+                                    !!props.auth.uid === true &&
                                     firebase.auth().currentUser
                                       ? firebase.auth().currentUser
                                           .displayName || "John"
@@ -2712,7 +2749,7 @@ function ExpandableArray(props) {
                       </div>
                     </span>
                   )}
-                  {props.signup === false && (
+                  {!!props.auth.uid === false && (
                     <span>
                       <div className="">
                         {readonly === false && (
@@ -2750,7 +2787,7 @@ function ExpandableArray(props) {
                                 <CopyButton2
                                   readonly={readonly}
                                   accountpagename={
-                                    props.signup === true &&
+                                    !!props.auth.uid === true &&
                                     firebase.auth().currentUser
                                       ? firebase.auth().currentUser
                                           .displayName || "John"
@@ -2774,8 +2811,8 @@ function ExpandableArray(props) {
                     </span>
                   )}
 
-                  {props.signup === true ||
-                  (props.signup === false && rt !== "readonly") ? (
+                  {!!props.auth.uid === true ||
+                  (!!props.auth.uid === false && rt !== "readonly") ? (
                     <div className="">
                       {/*end email is not working in mobile phone*/}
                       {/* <a
@@ -2861,7 +2898,11 @@ function ExpandableArray(props) {
                         changeSortBy={changeSortBy}
                         //onSortChange2 = {onSortChange2}
                         search={search}
-                        setOpenHt={setOpenHt}
+                        //setOpenHt={setOpenHt}
+                        setOpenHt={(value) => {
+                          console.log("OPEN TAGS BUTTON CALLED =", value);
+                          setOpenHt(value);
+                      }}
                         //setSortBy={setSortBy}
                       />
                       {/* {readonly===false && <OthersButton
@@ -2874,7 +2915,7 @@ function ExpandableArray(props) {
                 </div>
               ) : (
                 <div className="margin-left-11 flexcol3">
-                  {props.signup === true && (
+                  {!!props.auth.uid === true && (
                     <span>
                       <div className="margin-bottom-123">
                         {readonly === false && (
@@ -2904,7 +2945,7 @@ function ExpandableArray(props) {
                                   <CopyButton3
                                     readonly={readonly}
                                     accountpagename={
-                                      props.signup === true &&
+                                      !!props.auth.uid === true &&
                                       firebase.auth().currentUser
                                         ? firebase.auth().currentUser
                                             .displayName || "John"
@@ -2914,7 +2955,7 @@ function ExpandableArray(props) {
                                   />
                                   {/* <CopyButton2
                                     readonly={readonly}
-                                    accountpagename={`${props.signup === true ? firebase.auth().currentUser.displayName : "John"}`}
+                                    accountpagename={`${!!props.auth.uid === true ? firebase.auth().currentUser.displayName : "John"}`}
                                     textToCopy={`${baseUrl}/dashboard?signup=0&x=readonly&id=${props.uid}`}
                                   /> */}
                                   {readonly === false && (
@@ -2984,7 +3025,7 @@ function ExpandableArray(props) {
                       </div>
                     </span>
                   )}
-                  {props.signup === false && (
+                  {!!props.auth.uid === false && (
                     <div>
                       <div className="margin-bottom-123">
                         {readonly === false && (
@@ -3011,7 +3052,7 @@ function ExpandableArray(props) {
                                 <CopyButton3
                                   readonly={readonly}
                                   accountpagename={
-                                    props.signup === true &&
+                                    !!props.auth.uid === true &&
                                     firebase.auth().currentUser
                                       ? firebase.auth().currentUser
                                           .displayName || "John"
@@ -3085,10 +3126,11 @@ function ExpandableArray(props) {
                       </div>
                     </div>
                   )}
- {console.log("LinkListFilters.js, props.signup="+props.signup)}
-  {console.log("LinkListFilters.js, rt="+rt)}
-                  {props.signup === true && rt !== "readonly" ? (
+ {console.log("LinkListFilters.js, !!props.auth.uid ="+!!props.auth.uid)}
+  {console.log("LinkListFilters.js, rt ="+rt)}
+                  {!!props.auth.uid && id === null && rt !== "readonly" ? (
                     <div className="flexrowz">
+                      {console.log("LinkListFilters.js, not readonly")}
                       <div
                         id="before-before-link-summary-id"
                         className="margin-bottom-1"
@@ -3115,7 +3157,8 @@ function ExpandableArray(props) {
                         {/* <div className="flexrowz"> */}
                         {console.log("AddALinkButton, GmailContacts should display")}
                         <AddALinkButton />
-                        <div>a<GmailContacts /></div>
+                        {console.log("ABOUT TO RENDER GmailContacts")}
+                        <GmailContacts />
                         <div className="margin-top-1">
                           <button
                             id="batchdelete"
@@ -3162,8 +3205,13 @@ function ExpandableArray(props) {
                         )
                       }
                     </div>
-                  ) : (
+                  ) : 
+                  
+                  
+                  
+                  (
                     <div className="flexrowz">
+                      {/* {console.log("LinkListFilters.js, readonly")}
                       <div
                         id="before-before-link-summary-id"
                         className="margin-bottom-1"
@@ -3180,16 +3228,9 @@ function ExpandableArray(props) {
                             Email your sharable link
                           </span>
                         </a>
-                        {/* <button
-                        className={`ib ${isMobile() === false ? "margin-left-11" : "margin-top-1"} button-2 bg-shade-1`}
-                        onClick={addALink}
-                        title="Add a link to your page."
-                      >
-                        Add A link
-                      </button> */}
-                        {/* <div className="flexrowz"> */}
-                        {/* { rt !== "readonly" && */}
-                          
+                       
+                      
+                          <div>
                           <AddALinkButton x={100} />
                         <div className="margin-top-1">
                           <button
@@ -3211,92 +3252,11 @@ function ExpandableArray(props) {
                             Delete all links
                           </button>
                         </div>
-                        
-{/* } */}
-                      </div>
+                        </div>
+               
+                      </div> */}
                       
-                      {/* {isForm2Open && (
-                        <AddLinkPage
-                          isForm2Open={isForm2Open}
-                          handleClose2={handleClose2}
-                        />
-                      )} */}
-
-                      {/* <HashTagsButton
-                        changeSortBy={changeSortBy}
-                        //setSortBy={setSortBy}
-                      /> */}
-
-                      {
-                        //emailForm &&
-                        isFormOpen && (
-                          <SendEmailPage
-                            isreadonly={true}
-                            sharablelink={`Please click on: ${baseUrl}/dashboard?signup=0&x=readonly&id=${uid}`}
-                            uid={uid}
-                            isFormOpen={isFormOpen}
-                            handleClose={handleClose}
-                          />
-                        )
-                      }
                     </div>
-                    //<div>
-
-                    //</div>
-                    // <div
-                    //   id="before-before-link-summary-id"
-                    //   className="margin-bottom-1"
-                    // >
-                    //   <a
-                    //     target="_blank"
-                    //     id="adlinkid"
-                    //     href="#"
-                    //     title="Email your sharable link to share with others. Email recipient sees readonly page"
-                    //     className={`ib margin-top-n-gx1 pointereventsnone flexrowzc2 cursor-default width400 button-2 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
-                    //     onClick={handleClick}
-                    //   >
-                    //     <span className="ib color-white-1">
-                    //       Email your link
-                    //     </span>
-                    //   </a>
-                    //   {/* <button
-                    //     className={`ib ${isMobile() === false ? "margin-left-11" : "margin-top-1"} button-2 bg-shade-1`}
-                    //     onClick={addALink}
-                    //     title="Add a link to your page."
-                    //   >
-                    //     Add A link
-                    //   </button> */}
-                    //   <AddALinkButton x={100} />
-                    //   {/* {isForm2Open && (
-                    //     <AddLinkPage
-                    //       isForm2Open={isForm2Open}
-                    //       handleClose2={handleClose2}
-                    //     />
-                    //   )} */}
-
-                    //   <HashTagsButton
-                    //     changeSortBy={changeSortBy}
-                    //     //setSortBy={setSortBy}
-                    //   />
-
-                    //    {readonly===false &&  <OthersButton
-                    //     elementRef20={elementRef20}
-                    //     changeSortBy={changeSortBy}
-                    //     //setSortBy={setSortBy}
-                    //   />}
-
-                    //   {
-                    //     //emailForm &&
-                    //     isFormOpen && (
-                    //       <SendEmailPage
-                    //         sharablelink={`Please click on: https://urilinks.com/dashboard?signup=0&x=readonly&id=${uid}`}
-                    //         uid={uid}
-                    //         isFormOpen={isFormOpen}
-                    //         handleClose={handleClose}
-                    //       />
-                    //     )
-                    //   }
-                    // </div>
                   )}
                 </div>
               )}
@@ -3510,7 +3470,11 @@ function ExpandableArray(props) {
                           // onSortChange2 = {onSortChange2}
                           search={search}
                           setSortBy={setSortBy}
-                          setOpenHt={setOpenHt}
+                           //setOpenHt={setOpenHt}
+                          setOpenHt={(value) => {
+                            console.log("OPEN TAGS BUTTON CALLED =", value);
+                            setOpenHt(value);
+                          }}
                         />
                       </div>
                     </div>
@@ -3706,6 +3670,8 @@ function ExpandableArray(props) {
               >
                 {console.log("LinkListFilters.js, other page, UID BEING PASSED, uid=", id)}
                 {console.log("LinkListFilters.js, logged in user, props.uid=", props.uid)}
+                {console.log("LINKLISTFILTERS VIEWED UID =", props.uid)}
+                {console.log("LINKLISTFILTERS AUTH UID =", props.auth.uid)}
                 <LinkList3
                   uid={id}
                   uid2={id2}
@@ -3752,9 +3718,9 @@ function ExpandableArray(props) {
                 <div className="scrollable-div3">
                   <div
                     style={{ borderRadius: "5px" }}
-                    className={`flexcol3 borderLightOrange- ${props.signup === false ? "margin-top-n-x2a" : "margin-top-n-x2b"} padding1 border-top-1`}
+                    className={`flexcol3 borderLightOrange- ${!!props.auth.uid === false ? "margin-top-n-x2a" : "margin-top-n-x2b"} padding1 border-top-1`}
                   >
-                    {props.signup === false && (
+                    {!!props.auth.uid === false && (
                       <div>
                         <div className="flexrowzc2">
                           {/* <img src={honoring} width="150" height="200" className="ib" /> Christmas tree came out right with this one */}
@@ -3871,7 +3837,8 @@ function ExpandableArray(props) {
               ) : (
                 <div>
                   {/* <FollowersContainer follower={props.follower} rt={rt} theuser={theuser} uid={props.uid} handleClick2={handleClick2} signup={props.signup} /> */}
-                  {rt !== "readonly" ? (
+                  {/* {rt !== "readonly" ? ( */}
+                  {true ? (
                     <div>
                       <button
                         className="ib button-2"
@@ -3891,9 +3858,12 @@ function ExpandableArray(props) {
                       >
                         both
                       </button>
+                      {console.log("COLUMN 3 followerLoaded =", followerLoaded)}
+                      {console.log("COLUMN 3 followers =", props.follower)}
+                      {console.log("COLUMN 3 UID =", props.uid)}
                       {usersandfollowers ? (
                         <div>
-                          {rt !== "readonly" && followerLoaded && (
+                          {followerLoaded && (
                             <UsersAndFollowersContainer
                               following={props.following}
                               follower={props.follower}
@@ -3907,7 +3877,7 @@ function ExpandableArray(props) {
                         </div>
                       ) : (
                         <div>
-                          {rt !== "readonly" && followerLoaded && (
+                          {followerLoaded && (
                             <FollowersContainer
                               follower={props.follower}
                               rt={rt}
@@ -4215,6 +4185,20 @@ export class LinkListFilters extends React.Component {
   componentDidMount() {
     //this.props.abc(3);
     //console.log("3, this.props.abcref=" + JSON.stringify(this.props.abcref));
+   console.log("HASHTAG componentDidMount CALLED");
+
+     const params = new URLSearchParams(window.location.search);
+  const readonly = params.get("x") === "readonly";
+
+  const uid =
+    this.props.uid ||
+    this.props.auth.uid ||
+    "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
+
+  this.props.startSetHashtagsOnly(uid, readonly);
+
+console.log("HASHTAG componentDidMount CALLED done");
+
     console.log(
       "LinkListFilter.js, this.props.theuserscount.userscount=" +
         this.props.theuserscount.userscount,
@@ -4260,14 +4244,19 @@ export class LinkListFilters extends React.Component {
   };
 
   setit = (value, event) => {
+    console.log("in setit, value="+value)
     if (!!event === true) event.preventDefault();
     console.log("setIt, 3333333333333333333333333 value=" + value);
 
     this.props.sortByDescription();
+    //this.props.sortByHashTag();
+
     this.props.setTextFilter(value);
 
     //window.localStorage.setItem("sortBy", "hashtag");
     window.localStorage.setItem("sortBy", "description");
+    //window.localStorage.setItem("sortBy", "hashtag");
+
     window.localStorage.setItem("searchLinks3", value);
 
     this.props.rerenderit();
@@ -4355,8 +4344,11 @@ export class LinkListFilters extends React.Component {
   render() {
     return (
       <div>
+        {console.log("REDUX HASHTAGS LENGTH =", this.props.hashtags.length)}
         <ErrorBoundry>
           <ExpandableArray
+         
+            auth={this.props.auth}
             isinfinitescroll={this.props.isinfinitescroll}
             stopScrolling2={this.props.stopScrolling2}
             scrollInterval2={this.props.scrollInterval2}
@@ -4371,7 +4363,8 @@ export class LinkListFilters extends React.Component {
             plan={this.props.theplan.plan}
             newspaper={this.state.newspaper}
             signup={this.props.signup.signup}
-            uid={this.props.auth.uid}
+            //uid={this.props.auth.uid}
+            uid={this.props.uid || this.props.auth.uid}
             links={this.props.links}
             b={this.props.b}
             setTextFilter={this.props.setTextFilter}
@@ -4399,6 +4392,7 @@ export class LinkListFilters extends React.Component {
             bookmarks={this.props.bookmarks}
             startSetFollowing={this.props.startSetFollowing}
             startSetFollower={this.props.startSetFollower}
+            startSetHashtagsOnly={this.props.startSetHashtagsOnly}
           />
         </ErrorBoundry>
       </div>
@@ -4448,6 +4442,8 @@ const mapDispatchToProps = (dispatch) => ({
   sortByPrivateLinks: () => dispatch(sortByPrivateLinks()),
   startSetFollowing: (data) => dispatch(startSetFollowing(data)),
   startSetFollower: (data) => dispatch(startSetFollower(data)),
+  startSetHashtagsOnly: (uid, publicOnly) => dispatch(startSetHashtagsOnly(uid, publicOnly)),
+  
   //setFrommenu:(data) => dispatch(setFrommenu(data))
   // incrementHandleToggle3: (data) => dispatch(incrementHandleToggle3(data)),
   // decrementHandleToggle3: (data) => dispatch(decrementHandleToggle3(data)),

@@ -1523,15 +1523,18 @@ if (typeof props.stopScrolling2 === "function") {
                     flexWrap: "wrap",
                   }}
                 >
+                  {console.log("HEADER AUTH UID =", props.auth.uid)}
+                  {console.log("HEADER SIGNUP =", props.signup.signup)}
+                  {console.log("HEADER URL =", window.location.href)}
                   {!props.auth.uid && 
-                    x !== "readonly" &&
+                    
                     ni !== "1" &&
                     ni !== "2" &&
                     ni !== "3" && (
                       <Link
                         id="friendlylogin"
                         className="nounderline color-white-1 cursor-pointer text-size-11 button-2h padding-left-4x padding-right-4x"
-                        to="/signup"
+                        to="/login"
                         title="The first 25 links are free. plan $4.99 stores up to 100; plan $9.99 stores up to 200; plan $14.99 stores up to 400"
                         style={{ textDecoration: "none", color: "white" }}
                       >

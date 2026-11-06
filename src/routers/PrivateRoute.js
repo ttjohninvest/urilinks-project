@@ -56,17 +56,18 @@ export const PrivateRoute = ({
   const z10 = params.get("z10");
   const recipientemail = decrypt(z10, "125434");
   const bookmarks = params.get("bookmarks");
+  const isReadonly = params.get("x") === "readonly";
 
   return (
     <Route
       {...rest}
       render={(props) =>
-        isAuthenticated ? (
+        (isAuthenticated || isReadonly) ? (
           <div>
             <Component
               {...props}
-              isFormOpen={true}
-              isreadonly={false}
+              isFormOpen={isAuthenticated && !isReadonly}
+              isreadonly={isReadonly}
               bookmarks={bookmarks}
               recipientemail={recipientemail}
               stopScrolling2={stopScrolling2}

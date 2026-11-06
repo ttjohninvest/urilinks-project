@@ -388,12 +388,18 @@ const InfiniteScrollNewNoteHashtags = (props) => {
   const getTotalCount = async () => {
     const search = normalizeSearch(props.searchText);
 
+    console.log("HASHTAG COUNT DEBUG =", JSON.stringify({
+  search: search,
+  expectedCount: getHashtagExpectedCount(),
+  cachedCount: sessionStorage.getItem(getCountCacheKey(search)),
+}));
+
     /*
      * For a hashtag search,
      * SeeHashTagsPage may already
      * know the exact count.
      */
-    if (props.theSortBy === "hashtag") {
+    if (false && props.theSortBy === "hashtag") {
       const expectedCount = getHashtagExpectedCount();
 
       if (expectedCount > 0) {

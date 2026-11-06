@@ -1003,6 +1003,222 @@ export const startSetLinks = (uid) => {
   };
 };
 
+const removeDuplicateHashtags = (hashtags) => {
+  const unique = new Map();
+
+  hashtags.forEach((item) => {
+    if (!item || !item.matchesstring) return;
+
+    const key = item.matchesstring.trim().toLowerCase();
+
+    if (!unique.has(key)) {
+      unique.set(key, item);
+    }
+  });
+
+  return Array.from(unique.values());
+};
+
+// export const startSetHashtagsOnly = (uid, publicOnly = false) => {
+//   return (dispatch) => {
+//     if (!uid) {
+//       dispatch(setHashTags([]));
+//       return Promise.resolve([]);
+//     }
+
+//     return database
+//       .ref(`users/${uid}/links`)
+//       .once("value")
+//       .then((snapshot) => {
+//         const hashtagCounts = new Map();
+
+//         snapshot.forEach((childSnapshot) => {
+//           const link = childSnapshot.val();
+
+//           if (!link) return;
+
+//           // On the demonstration page, count public links only.
+//           if (publicOnly && Number(link.showpublic) === 0) {
+//             return;
+//           }
+
+//           // Use your existing hashtag extraction function.
+//           const hashtags = extractHashtags(link);
+
+//           // Count a hashtag only once per link.
+//           const seenInLink = new Set();
+
+//           hashtags.forEach((hashtag) => {
+//             const description = hashtag.description;
+
+//             if (typeof description !== "string") return;
+
+//             const normalized = description.trim().toLowerCase();
+
+//             if (!normalized || seenInLink.has(normalized)) return;
+
+//             seenInLink.add(normalized);
+
+//             if (!hashtagCounts.has(normalized)) {
+//               hashtagCounts.set(normalized, {
+//                 ...hashtag,
+//                 description: description,
+//                 count: 0,
+//               });
+//             }
+
+//             hashtagCounts.get(normalized).count++;
+//           });
+//         });
+
+//         // const results = Array.from(hashtagCounts.values()).sort(
+//         //   (a, b) =>
+//         //     a.description.toLowerCase().localeCompare(
+//         //       b.description.toLowerCase()
+//         //     )
+//         // );
+
+//         const hashtagsWithCounts = Array.from(hashtagCounts.values());
+
+//         const results = countTimesEachHashTagIsUsed(
+//           hashtagsWithCounts.flatMap((hashtag) =>
+//             Array(hashtag.count).fill(hashtag),
+//           ),
+//         );
+
+//         results.sort((a, b) => a.description.localeCompare(b.description));
+
+//         //dispatch(setHashTags(results));
+//         const uniqueResults = removeDuplicateHashtags(results);
+
+//         dispatch(setHashTags(uniqueResults));
+
+//         console.log("UNIQUE HASHTAGS =", uniqueResults.length);
+
+//         console.log("HASHTAGS LOADED =", results.length);
+
+//         //return results;
+//         return uniqueResults;
+//       })
+//       .catch((error) => {
+//         console.log("HASHTAGS ERROR =", error);
+//         throw error;
+//       });
+//   };
+// };
+
+
+export const startSetHashtagsOnly = (uid, publicOnly = false) => {
+  return (dispatch) => {
+    if (!uid) {
+      dispatch(setHashTags([]));
+      return Promise.resolve([]);
+    }
+
+    return database
+      .ref(`users/${uid}/links`)
+      .once("value")
+      .then((snapshot) => {
+        const allHashtags = [];
+        const hashtagCounts = new Map();
+
+        snapshot.forEach((childSnapshot) => {
+          const link = childSnapshot.val();
+
+          if (!link) return;
+
+          // Read-only visitors see public links only.
+          if (publicOnly && Number(link.showpublic) !== 1) {
+            return;
+          }
+
+          const extracted = extractHashtags(link) || [];
+          const seenInThisLink = new Set();
+
+          extracted.forEach((hashtag) => {
+            if (!hashtag ||
+                typeof hashtag.description !== "string") {
+              return;
+            }
+
+            const description = hashtag.description.trim();
+            const key = description.toLowerCase();
+
+            if (!key || seenInThisLink.has(key)) {
+              return;
+            }
+
+            // Count each hashtag once per link.
+            seenInThisLink.add(key);
+
+            if (!hashtagCounts.has(key)) {
+              hashtagCounts.set(key, {
+                count: 0,
+                description: description,
+              });
+            }
+
+            const entry = hashtagCounts.get(key);
+            entry.count += 1;
+
+            // Preserve the original display fields.
+            allHashtags.push({
+              ...hashtag,
+              description: entry.description,
+            });
+          });
+        });
+
+        // Use your original display-formatting function.
+        const formatted = countTimesEachHashTagIsUsed(
+          allHashtags
+        );
+
+        // Ensure one entry and the correct count per hashtag.
+        const unique = new Map();
+
+        formatted.forEach((hashtag) => {
+          if (!hashtag ||
+              typeof hashtag.description !== "string") {
+            return;
+          }
+
+          const key = hashtag.description.trim().toLowerCase();
+          const entry = hashtagCounts.get(key);
+
+          if (!entry || unique.has(key)) return;
+
+          unique.set(key, {
+            ...hashtag,
+            count: entry.count,
+          });
+        });
+
+        // Alphabetical order.
+        const results = Array.from(unique.values()).sort(
+          (a, b) =>
+            a.description.localeCompare(
+              b.description,
+              undefined,
+              { sensitivity: "base" }
+            )
+        );
+
+        dispatch(setHashTags(results));
+
+        console.log("UNIQUE HASHTAGS =", results.length);
+        console.log("HASHTAGS LOADED =", results.length);
+
+        return results;
+      })
+      .catch((error) => {
+        console.log("HASHTAGS ERROR =", error);
+        throw error;
+      });
+  };
+};
+
+
 // export const startSetLinks = (uid) => {
 //   console.log("startSetLinks");
 

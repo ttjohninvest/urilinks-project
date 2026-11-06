@@ -70,6 +70,18 @@ export const SeeHashTagsPage = (props) => {
 
     const itemId = listItem.dataset.itemId;
 
+    console.log(
+  "CLICKED HASHTAG ORIGINAL DATA =",JSON.stringify(
+  props.hashtags.filter((item) => {
+    return (
+      item &&
+      JSON.stringify(item)
+        .toLowerCase()
+        .includes(itemId.toLowerCase())
+    );
+  }))
+);
+
     if (!itemId) {
       return;
     }
@@ -377,6 +389,30 @@ export const SeeHashTagsPage = (props) => {
     return regex.test(navigator.userAgent);
   };
 
+  console.log(
+  "BALLOON ART DATA =",JSON.stringify(
+  uniqueData.filter(
+    (item) =>
+      item &&
+      JSON.stringify(item).toLowerCase().includes("balloonart")
+  )
+));
+
+  console.log(
+  "BALLOON ART ORIGINAL COUNTS =",JSON.stringify(
+  uniqueData
+    .filter(
+      (item) =>
+        item &&
+        item.matchesstring &&
+        item.matchesstring.trim().toLowerCase() === "#balloonart"
+    )
+    .map((item) => ({
+      hashtag: item.matchesstring,
+      count: item.count,
+    })))
+);
+
    const combinedHashtags = Array.from(
   uniqueData.reduce((map, item) => {
     if (!item || !item.matchesstring) return map;
@@ -386,12 +422,14 @@ export const SeeHashTagsPage = (props) => {
     if (map.has(key)) {
       const existing = map.get(key);
 
-      existing.count += Number(item.count) || 0;
+      //existing.count += Number(item.count) || 0;
+      existing.count += 1;
     } else {
       map.set(key, {
         ...item,
         matchesstring: item.matchesstring.trim(),
-        count: Number(item.count) || 0,
+        //count: Number(item.count) || 0,
+        count:1,
       });
     }
 

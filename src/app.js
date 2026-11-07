@@ -115,7 +115,7 @@ import { firebase } from "./firebase/firebase";
 import LoadingPage from "./components/LoadingPage";
 import CatFetcher from "./components/CatFetcher";
 
-//console.log = () => {};
+console.log = () => {};
 
 let hasRendered = false;
 

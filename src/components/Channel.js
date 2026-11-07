@@ -13,6 +13,7 @@ const Channel = (props) => {
   const [language, setLanguage] = useState("en");
   const [photourl, setPhotourl] = useState(null);
   const [profilePhotoURL, setProfilePhotoURL] = useState(null);
+  const [deletedNotice, setDeletedNotice] = useState("");
   // console.log("Channel, user="+JSON.stringify(user))
   //const theurl=`chat/messages/${props.id2}/${props.name2}/${props.id}/${props.name1}/3`
 
@@ -103,88 +104,265 @@ const Channel = (props) => {
     photoUrl,
   } = props.user; // || {};
 
-  // useEffect(() => {
-
-  //    let stoppedUserId=""
-  //    const stoppedName=""
-  //   //const user = firebase.auth().currentUser;
-  //   const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-  //     stoppedName =
-  //       user && user.email ? user.email.split("@")[0] : "User";
-  //     //if (!props.uid || !props.channelId) {
-
-  //     stoppedUserId = user && user.uid;
-
-  //     if (!user.uid || !theurl) {
-  //       return;
-  //     }
-
-  //     const handleBeforeUnload = () => {
-  //       const messageRef = firebase.database().ref(theurl).push();
-
-  //       messageRef.set({
-  //         uid: stoppedUserId,
-  //         name: stoppedName,
-  //         text: stoppedName + " stopped the chat session.",
-  //         createdAt: firebase.database.ServerValue.TIMESTAMP,
-  //         systemMessage: true,
-  //       });
-
-  //       messageRef.onDisconnect().set({
-  //         text: stoppedName + " stopped the chat session.",
-  //         uid: stoppedUserId,
-  //         createdAt: firebase.database.ServerValue.TIMESTAMP,
-  //         systemMessage: true,
-  //       });
-  //     };
-  //   }); //end of get user code
-
-  //   window.addEventListener("beforeunload", handleBeforeUnload);
-
-  //   return () => {
-  //     window.removeEventListener("beforeunload", handleBeforeUnload);
-
-  //     unsubscribe();
-  //   };
-  // }, [stoppedUserId, theurl, stoppedName]);
-
-  useEffect(() => {
-  let disconnectRef = null;
+ 
+useEffect(() => {
+  let stoppedUserId = "";
+  let stoppedName = "";
 
   const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-    if (!user || !theurl) {
-      return;
-    }
+    if (!user) return;
 
-    const stoppedUserId = user.uid;
+    stoppedUserId = user.uid;
+    stoppedName = user.email
+      ? user.email.split("@")[0]
+      : "User";
+  });
 
-    const stoppedName =
-      user.email
-        ? user.email.split("@")[0]
-        : "User";
+  const handleBeforeUnload = () => {
+    if (!stoppedUserId || !theurl) return;
 
-    disconnectRef = firebase
-      .database()
-      .ref(theurl)
-      .push();
+    const messageRef = firebase.database().ref(theurl).push();
 
-    disconnectRef.onDisconnect().set({
+    messageRef.set({
       uid: stoppedUserId,
       name: stoppedName,
       text: stoppedName + " stopped the chat session.",
       createdAt: firebase.database.ServerValue.TIMESTAMP,
-      systemMessage: true
+      systemMessage: true,
     });
-  });
+  };
+
+  window.addEventListener("beforeunload", handleBeforeUnload);
 
   return () => {
-    if (disconnectRef) {
-      disconnectRef.onDisconnect().cancel();
-    }
-
+    window.removeEventListener("beforeunload", handleBeforeUnload);
     unsubscribe();
   };
 }, [theurl]);
+
+
+  //   useEffect(() => {
+  //   let disconnectRef = null;
+
+  //   const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+  //     if (!user || !theurl) {
+  //       return;
+  //     }
+
+  //     const stoppedUserId = user.uid;
+
+  //     const stoppedName =
+  //       user.email
+  //         ? user.email.split("@")[0]
+  //         : "User";
+
+  //     disconnectRef = firebase
+  //       .database()
+  //       .ref(theurl)
+  //       .push();
+
+  //     disconnectRef.onDisconnect().set({
+  //       uid: stoppedUserId,
+  //       name: stoppedName,
+  //       text: stoppedName + " stopped the chat session.",
+  //       createdAt: firebase.database.ServerValue.TIMESTAMP,
+  //       systemMessage: true
+  //     });
+  //   });
+
+  //   return () => {
+  //     if (disconnectRef) {
+  //       disconnectRef.onDisconnect().cancel();
+  //     }
+
+  //     unsubscribe();
+  //   };
+  // }, [theurl]);
+
+  useEffect(() => {
+    let disconnectRef = null;
+    let currentUser = null;
+    let isDeleted = false;
+    let initialNoticeLoaded = false;
+    let effectActive = true;
+
+    const deletionRef = database.ref(
+      `chat/deleted/${props.id2}/${props.name2}/${props.id}/${props.name1}`,
+    );
+
+    const registerDisconnect = () => {
+      if (
+        !effectActive ||
+        !initialNoticeLoaded ||
+        !currentUser ||
+        isDeleted ||
+        disconnectRef
+      ) {
+        return;
+      }
+
+      const stoppedName = currentUser.email
+        ? currentUser.email.split("@")[0]
+        : "User";
+
+      disconnectRef = database.ref(theurl).push();
+
+      const registeredRef = disconnectRef;
+
+      registeredRef
+        .onDisconnect()
+        .set({
+          uid: currentUser.uid,
+          name: stoppedName,
+          text: stoppedName + " stopped the chat session.",
+          createdAt: firebase.database.ServerValue.TIMESTAMP,
+          systemMessage: true,
+        })
+        .then(() => {
+          if (isDeleted || !effectActive) {
+            return registeredRef.onDisconnect().cancel();
+          }
+        })
+        .catch((error) => {
+          console.log("Disconnect registration error:", error);
+        });
+    };
+
+    const handleDeletion = (snapshot) => {
+      if (!effectActive) return;
+
+      initialNoticeLoaded = true;
+      isDeleted = snapshot.exists();
+
+      if (isDeleted) {
+        const notice = snapshot.val();
+
+        setDeletedNotice(notice.deletedBy + " has deleted this chat session.");
+
+        if (disconnectRef) {
+          disconnectRef
+            .onDisconnect()
+            .cancel()
+            .catch((error) => {
+              console.log("Unable to cancel disconnect:", error);
+            });
+        }
+      } else {
+        setDeletedNotice("");
+        registerDisconnect();
+      }
+    };
+
+    deletionRef.on("value", handleDeletion);
+
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+      currentUser = user;
+      registerDisconnect();
+    });
+
+    return () => {
+      effectActive = false;
+
+      deletionRef.off("value", handleDeletion);
+
+      if (disconnectRef) {
+        disconnectRef
+          .onDisconnect()
+          .cancel()
+          .catch((error) => {
+            console.log("Disconnect cleanup error:", error);
+          });
+      }
+
+      unsubscribe();
+    };
+  }, [theurl, props.id2, props.name2, props.id, props.name1]);
+
+  // useEffect(() => {
+  //   let disconnectRef = null;
+  //   let chatRef = null;
+  //   let chatListener = null;
+  //   let chatWasCreated = false;
+  //   let disconnectRegistered = false;
+  //   let effectActive = true;
+
+  //   const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+  //     if (!user || !theurl || !effectActive) {
+  //       return;
+  //     }
+
+  //     const stoppedUserId = user.uid;
+
+  //     const stoppedName = user.email
+  //       ? user.email.split("@")[0]
+  //       : "User";
+
+  //     chatRef = firebase.database().ref(theurl);
+
+  //     chatListener = (snapshot) => {
+  //       if (!effectActive) return;
+
+  //       if (snapshot.exists()) {
+  //         chatWasCreated = true;
+
+  //         // Register the close message only once.
+  //         if (!disconnectRegistered) {
+  //           disconnectRegistered = true;
+
+  //           disconnectRef = chatRef.push();
+
+  //           disconnectRef.onDisconnect().set({
+  //             uid: stoppedUserId,
+  //             name: stoppedName,
+  //             text: stoppedName + " stopped the chat session.",
+  //             createdAt: firebase.database.ServerValue.TIMESTAMP,
+  //             systemMessage: true,
+  //           }).then(() => {
+  //             // The chat may have been deleted while
+  //             // Firebase was registering the message.
+  //             if (!effectActive || !disconnectRegistered) {
+  //               return disconnectRef.onDisconnect().cancel();
+  //             }
+  //           }).catch((error) => {
+  //             console.log("Chat disconnect error:", error);
+  //           });
+  //         }
+  //       } else if (chatWasCreated) {
+  //         // The chat existed and was subsequently deleted.
+  //         // Cancel the scheduled close message.
+  //         console.log("Chat deleted. Cancelling close message.");
+
+  //         chatWasCreated = false;
+  //         disconnectRegistered = false;
+
+  //         if (disconnectRef) {
+  //           disconnectRef.onDisconnect().cancel().catch((error) => {
+  //             console.log("Chat cancellation error:", error);
+  //           });
+  //         }
+  //       }
+  //     };
+
+  //     chatRef.on("value", chatListener);
+  //   });
+
+  //   return () => {
+  //     effectActive = false;
+
+  //     if (chatRef && chatListener) {
+  //       chatRef.off("value", chatListener);
+  //     }
+
+  //     // Keep cancellation on component cleanup.
+  //     // Firebase executes onDisconnect only if the
+  //     // connection ends before cancellation completes.
+  //     if (disconnectRef) {
+  //       disconnectRef.onDisconnect().cancel();
+  //     }
+
+  //     unsubscribe();
+  //   };
+  // }, [theurl]);
 
   useEffect(() => {
     console.log(
@@ -296,6 +474,19 @@ const Channel = (props) => {
 
   return (
     <div className="flex flex-col h-full">
+      {deletedNotice && (
+        <div
+          style={{
+            backgroundColor: "#fff3cd",
+            color: "#664d03",
+            padding: "12px",
+            textAlign: "center",
+            fontWeight: "bold",
+          }}
+        >
+          {deletedNotice}
+        </div>
+      )}
       <div className="overflow-auto h-full">
         <div className="py-4 max-w-screen-lg mx-auto">
           <div className="border-b dark:border-gray-600 border-gray-200 py-8 mb-4">

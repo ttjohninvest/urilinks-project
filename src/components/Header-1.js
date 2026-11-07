@@ -150,20 +150,7 @@ export const Header = (props) => {
   const z10 = params.get("z10");
   const ni = params.get("ni");
 
-  //   const baseUrl =
-  // process.env.NODE_ENV === "development"
-  //   ? "http://localhost:3000"
-  //   : "https://urilinks.com";
-
-  // alert(process.env.NODE_ENV)
-
-  let baseUrl = "";
-
-  if (Constants.NODE_DEV === "development") {
-    baseUrl = "http://localhost:3000";
-  } else {
-    baseUrl = "https://urilinks.com";
-  }
+  const baseUrl = window.location.origin;
 
   // useEffect(() => {
   //   const unsubscribe = firebase.auth().onAuthStateChanged((user) => {

@@ -63,22 +63,33 @@ checkForChatMessages()
   });
 }, []);
 
-const openNewTabWithCustomTitleType = (url, type, customTitle) => {
-  const newWindow = window.open(url, type);
+// const openNewTabWithCustomTitleType = (url, type, customTitle) => {
+//   const newWindow = window.open(url, type);
   
-  if (newWindow) {
-    // Option 1: Using addEventListener (Recommended)
-    newWindow.addEventListener('load', () => {
-      newWindow.document.title = customTitle 
-    });
+//   if (newWindow) {
+//     // Option 1: Using addEventListener (Recommended)
+//     newWindow.addEventListener('load', () => {
+//       newWindow.document.title = customTitle 
+//     });
 
-    // Option 2: Using setTimeout (Fallback if load event is unreliable)
-    // setTimeout(() => {
-    //   if (newWindow && !newWindow.closed) {
-    //     newWindow.document.title = customTitle;
-    //   }
-    // }, 500); 
+//     // Option 2: Using setTimeout (Fallback if load event is unreliable)
+//     // setTimeout(() => {
+//     //   if (newWindow && !newWindow.closed) {
+//     //     newWindow.document.title = customTitle;
+//     //   }
+//     // }, 500); 
+//   }
+// };
+
+const openNewTabWithCustomTitleType = (url, type, customTitle) => {
+  const newWindow = window.open(url, "_blank");
+
+  if (!newWindow) {
+    console.log("Chat tab was blocked or could not be opened");
+    return;
   }
+
+  console.log("Chat opened in new tab:", url);
 };
 
 
@@ -101,16 +112,53 @@ const checkForChatMessages = () => {
     });
 };
 
-const handleChatDelete = () => {
-  //alert("handleChatDelete")
-  console.log("handleChatDelete(), id2="+id2)
-  console.log("handleChatDelete(), name2="+name2)
-  console.log("handleChatDelete(), id="+id)
-  console.log("handleChatDelete(), name1="+name1)
+// const handleChatDelete = () => {
+//   //alert("handleChatDelete")
+//   console.log("handleChatDelete(), id2="+id2)
+//   console.log("handleChatDelete(), name2="+name2)
+//   console.log("handleChatDelete(), id="+id)
+//   console.log("handleChatDelete(), name1="+name1)
 
-   try {
+//    try {
+//     const confirmation = window.prompt(
+//       "To delete this chat with "+name2+", type exactly: delete chat",
+//     );
+
+//     if (confirmation !== "delete chat") {
+//       alert("Chat was not deleted.");
+//       return;
+//     }
+
+//     // Put your Firebase deletion code here
+//     console.log("calling the database to delete the chat from the firebase realtime database");
+//     firebase.database().ref(`chat/messages/${id2}/${name2}/${id}/${name1}`)
+//       .remove()
+//       .then(() => {
+//         alert("The chat with "+name2+" is removed.")
+//         window.location.reload();
+//         console.log("Chat removed");
+//       })
+//       .catch((error) => {
+//         alert("The chat with "+name2+" was not removed.")
+        
+//         console.log("Error removing chat:", error);
+//       });
+//    } catch(error) {
+//     console.log("handleChatDelete error. error="+error)
+//    }
+
+// }
+
+
+const handleChatDelete = () => {
+  console.log("handleChatDelete(), id2=" + id2);
+  console.log("handleChatDelete(), name2=" + name2);
+  console.log("handleChatDelete(), id=" + id);
+  console.log("handleChatDelete(), name1=" + name1);
+
+  try {
     const confirmation = window.prompt(
-      "To delete this chat with "+name2+", type exactly: delete chat",
+      "To delete this chat with " + name2 + ", type exactly: delete chat"
     );
 
     if (confirmation !== "delete chat") {
@@ -118,25 +166,34 @@ const handleChatDelete = () => {
       return;
     }
 
-    // Put your Firebase deletion code here
-    console.log("calling the database to delete the chat from the firebase realtime database");
-    firebase.database().ref(`chat/messages/${id2}/${name2}/${id}/${name1}`)
-      .remove()
+    const chatPath = `${id2}/${name2}/${id}/${name1}`;
+
+    const updates = {};
+
+    // Delete chat messages.
+    updates[`chat/messages/${chatPath}`] = null;
+
+    // Delete chat deletion notice.
+    updates[`chat/deleted/${chatPath}`] = null;
+
+    console.log("Deleting chat messages and deletion notice");
+
+    firebase.database().ref().update(updates)
       .then(() => {
-        alert("The chat with "+name2+" is removed.")
+        alert("The chat with " + name2 + " is removed.");
+        console.log("Chat messages and deletion notice removed");
         window.location.reload();
-        console.log("Chat removed");
       })
       .catch((error) => {
-        alert("The chat with "+name2+" was not removed.")
-        
+        alert("The chat with " + name2 + " was not removed.");
         console.log("Error removing chat:", error);
       });
-   } catch(error) {
-    console.log("handleChatDelete error. error="+error)
-   }
 
-}
+  } catch (error) {
+    console.log("handleChatDelete error. error=" + error);
+  }
+};
+
 
 
   const handleChat = (props) => {
@@ -144,11 +201,14 @@ const handleChatDelete = () => {
       //id2,id //id2 is loggedin user, id is subpage
       //window.open(`/chat/${id2}/${name2}/${id}/${name1}/3`) //names are hard coded because i am not passing them in the url yet
       
-    openNewTabWithCustomTitleType(`/chat/${id2}/${name2}/${id}/${name1}/?ni=3&chatsetting=2`, "_blank", "urilinks-chat" )
+    //openNewTabWithCustomTitleType(`/chat/${id2}/${name2}/${id}/${name1}/?ni=3&chatsetting=2`, "_blank", "urilinks-chat" )
 
-//window.open(`/chat/${id2}/${name2}/${id}/${name1}/?ni=3&chatsetting=2`)
-      
-      
+
+      openNewTabWithCustomTitleType(
+  `/chat/${id2}/${name2}/${id}/${name1}/?ni=3&chatsetting=2&signup=signup`,
+  "_blank",
+  "urilinks-chat"
+);
      
     } catch (err) {
       console.error('Failed to Start Chat:', err);

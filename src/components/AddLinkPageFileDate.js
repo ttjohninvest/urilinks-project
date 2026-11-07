@@ -14,18 +14,8 @@ export const AddLinkPageFileDate = (props) => {
   const [errorDialog, setErrorDialog] = useState(false);
   //const history = useHistory();
 
-  //   const baseUrl =
-  // process.env.NODE_ENV === "development"
-  //   ? "http://localhost:3000"
-  //   : "https://urilinks.com";
-
-  let baseUrl = "";
-
-  if (Constants.NODE_DEV === "development") {
-    baseUrl = "http://localhost:3000";
-  } else {
-    baseUrl = "https://urilinks.com";
-  }
+ 
+  const baseUrl = window.location.origin;
 
   const goBack = () => {
     props.history.goBack(); // Navigates back one step in the history

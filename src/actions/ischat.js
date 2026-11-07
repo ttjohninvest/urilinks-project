@@ -687,30 +687,40 @@ const getChatUsers = (data) => {
 
 //D9.../XL...
 //this one has XL... as the key
+let chatListenerRef = null;
+let chatListenerCallback = null;
+
 export const startSetChat = (uid) => {
-  console.log("startSetChat, uid=" + uid);
-  const promises = [];
-  let ischat = [];
+  console.log("START SET CHAT CALLED, uid =", uid);
   return (dispatch, getState) => {
-    promises.push(
-      database
+    console.log("startSetChat, uid=" + uid);
 
-        .ref(`chat/messages`)
-        .once("value")
-        .then((snapshot) => {
-          console.log("ischat.js, snapshot=" + JSON.stringify(snapshot));
+    // Remove the previous listener
+    if (chatListenerRef && chatListenerCallback) {
+      chatListenerRef.off("value", chatListenerCallback);
+    }
 
+    const chatRef = database.ref("chat/messages");
 
-          const data = snapshot.val();
-          ischat = getChatUsers(data)
-       
-        })
-        .catch((error) => console.log("startSetChat, error=" + error)))
+    const callback = (snapshot) => {
+  const data = snapshot.val();
+  const ischat = getChatUsers(data);
 
-    return Promise.all(promises).then(() => {
-      console.log("done, startSetIsonline, ischat=" + JSON.stringify(ischat));
-      dispatch(setIsChat(ischat));
+  console.log("CHAT SNAPSHOT EXISTS =", snapshot.exists());
+  console.log("CHAT PARSED COUNT =", ischat.length);
+
+  dispatch(setIsChat(ischat));
+};
+
+    chatListenerRef = chatRef;
+    chatListenerCallback = callback;
+
+    // Listen for changes in real time
+    chatRef.on("value", callback, (error) => {
+      console.log("startSetChat listener error =", error);
     });
+
+    return Promise.resolve();
   };
 };
 

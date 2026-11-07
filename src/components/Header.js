@@ -153,22 +153,7 @@ export const Header = (props) => {
   const z10 = params.get("z10");
   const ni = params.get("ni");
 
-  //   const baseUrl =
-  // process.env.NODE_ENV === "development"
-  //   ? "http://localhost:3000"
-  //   : "https://urilinks.com";
-
-  // alert(process.env.NODE_ENV)
-
-  let baseUrl = "";
-
-  const dispatch = useDispatch();
-
-  if (Constants.NODE_DEV === "development") {
-    baseUrl = "http://localhost:3000";
-  } else {
-    baseUrl = "https://urilinks.com";
-  }
+  const baseUrl = window.location.origin;
 
   // useEffect(() => {
   //   const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
@@ -1325,7 +1310,10 @@ const handleClick = useCallback(() => {
                   {props.signup.signup === true &&
                     x !== "readonly" &&
                     ni !== "1" &&
-                    ni !== "2" && (
+                    ni !== "2" &&
+                    !window.location.pathname.startsWith("/chat/")
+  
+                    && (
                       <OthersButton
                         whichone={1}
                         buttonText={"New Links Ready"}
@@ -1339,16 +1327,14 @@ const handleClick = useCallback(() => {
                         uid={props.auth.uid}
                       />
                     )}
-
-                  {ni === "3" ? (
-                    <div></div>
-                  ) : props.signup.signup === true ? (
-                    <div>
-                      <ChatNotifications chatsetting={1} />
-                    </div>
-                  ) : (
-                    <div></div>
-                  )}
+{console.log("HEADER CHAT ni =", ni)}
+{console.log("HEADER CHAT signup =", props.signup.signup)}
+{console.log("HEADER CHAT pathname =", window.location.pathname)}
+                  {ni !== "3" && props.auth.uid && (
+  <div>
+    <ChatNotifications chatsetting={1} />
+  </div>
+)}
 
                   {dn !== null && (
                     <div

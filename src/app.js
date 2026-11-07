@@ -1,3 +1,4 @@
+
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 //import { useSelector, useDispatch } from "react-redux";
@@ -18,8 +19,8 @@ import {
   startSetChat
 } from "./actions/ischat";
 
-
 import setSignup from "./actions/signup";
+
 /////////////////start
 //put these in express server because it needs fs
 // const router = require('./routers/AppRouter').default;
@@ -31,24 +32,28 @@ import setSignup from "./actions/signup";
 //       .save('./sitemap.xml')
 //   );
 // }
-
 // generateSitemap();
 ////////////end
 
 //import configureStore from "./store/configureStore";
 import store from "./store";
-import { startSetLinks, startSetLinksNew, startAddLink } from "./actions/links";
+import {
+  startSetLinks,
+  startSetLinksNew,
+  startAddLink
+} from "./actions/links";
 import { startSetLinks2 } from "./actions/links2";
 import { startSetPeople } from "./actions/people";
 import { startLogout } from "./actions/auth";
-//startSetGoogleUserData
 import { startSetGoogleUserData } from "./actions/googleuserdata";
 
 import { startSetLinksFileDate } from "./actions/linksfiledate";
-//import { startSetSettings } from "./actions/settings";
 import { getSettings } from "./actions/settings";
 import { getTheplan, getTheplan2 } from "./actions/theplan";
-import { getThetotalstars, getThetotalstars2 } from "./actions/thetotalstars";
+import {
+  getThetotalstars,
+  getThetotalstars2
+} from "./actions/thetotalstars";
 import { startSetUsers } from "./actions/users";
 
 import {
@@ -59,15 +64,19 @@ import {
   getThetotalloggedout,
   getThetotalloggedout2,
 } from "./actions/thetotalloggedout";
+
 import {
   getThesharablelink,
   getThesharablelink2,
 } from "./actions/thesharablelink";
+
 import { getTheuserscount2 } from "./actions/theuserscount";
+
 import {
   getThesignupcount,
   getThesignupcount2,
 } from "./actions/thesignupcount";
+
 import {
   getTheuserscounti,
   getTheuserscounti2,
@@ -83,25 +92,33 @@ import {
   getTheothersisopen2,
 } from "./actions/theothersisopen";
 
-import { getTheloggedin, getTheloggedin2 } from "./actions/theloggedin";
+import {
+  getTheloggedin,
+  getTheloggedin2
+} from "./actions/theloggedin";
 
-import { getTheupdatedate, getTheupdatedate2 } from "./actions/theupdatedate";
+import {
+  getTheupdatedate,
+  getTheupdatedate2
+} from "./actions/theupdatedate";
+
 import { login, logout } from "./actions/auth";
 import { setSettings } from "./actions/settings";
-//import getVisibleLinks from './selectors/links';
 import { getCustomerId } from "./actions/customerid";
 import { getSubscriptionId } from "./actions/subscriptionid";
+
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
-//
 import "react-dates/lib/css/_datepicker.css";
+
 import { firebase } from "./firebase/firebase";
 import LoadingPage from "./components/LoadingPage";
 import CatFetcher from "./components/CatFetcher";
 
-console.log = () => {};
+//console.log = () => {};
 
 let hasRendered = false;
+
 const renderApp = (store) => {
   console.log("about to render the app");
 
@@ -121,10 +138,11 @@ const signup = params.get("signup");
 
 let id2;
 let id = params.get("id");
-//if(id3===null)
+
 id2 = id;
-//else id2 = id3
+
 let z2 = params.get("z2");
+
 console.log("1 z2=" + z2);
 console.log("1 signup=" + signup);
 console.log("1 id=" + id);
@@ -132,10 +150,15 @@ console.log("1 id=" + id);
 let x10 = params.get("x");
 
 let theStore = store.getState();
-//console.log("theStore.theplan="+JSON.stringify(theStore.theplan))
-console.log("theStore.theplan.plan=" + theStore.theplan.plan);
+
+console.log(
+  "theStore.theplan.plan=" + theStore.theplan.plan
+);
+
 store.subscribe(() => {
-  console.log("A,theStore=" + JSON.stringify(theStore));
+  console.log(
+    "A,theStore=" + JSON.stringify(theStore)
+  );
 });
 
 store
@@ -149,25 +172,50 @@ console.log("app.js, 0th one abc");
 
 if (signup !== "signup") {
   console.log("app.js, 1st one abc");
+
   window.localStorage.setItem("notloggedin", "1");
 
   if (id2 !== null) {
     console.log("app.js, 2nd one abc");
     store.dispatch(login(id2));
-  // } else {
-  //   console.log("app.js, 3rd one abc");
-  //   id2 = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
-  //   store.dispatch(login(id2));
-  // }
   } else {
-  console.log("app.js, 3rd one abc");
+    console.log("app.js, 3rd one abc");
 
-  id2 = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
+    id2 = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
 
-  // Do not log in the default user.
-  // Use id2 only to display the default user's public links.
-}
-console.log("app.js, CALLING THE FIRST RENDER")
+    // Do not log in the default user.
+    // Use id2 only to display public links.
+  }
+
+  // Initialize chat notifications for the actual
+  // authenticated user, not the public-links user.
+
+  if (id === null) {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user || !user.uid) return;
+
+      console.log(
+        "CHAT AUTH READY, uid =",
+        user.uid
+      );
+
+      store.dispatch(login(user.uid));
+
+      window.localStorage.setItem("notloggedin", "0");
+
+      Promise.resolve(
+        store.dispatch(startSetChat(user.uid))
+      ).catch((error) => {
+        console.log(
+          "Unable to initialize chat notifications:",
+          error
+        );
+      });
+    });
+  }
+
+  console.log("app.js, CALLING THE FIRST RENDER");
+
   try {
     store
       .dispatch(startSetLinks(id2))
@@ -177,6 +225,7 @@ console.log("app.js, CALLING THE FIRST RENDER")
           .then(() => {
             store
               .dispatch(getThetotalstars2(id2))
+
               .then(() => {
                 store
                   .dispatch(getTheupdatedate2(id2))
@@ -229,58 +278,47 @@ console.log("app.js, CALLING THE FIRST RENDER")
                                                                   ),
                                                                 )
                                                                 .then(() => {
-                                                                   store
-                                                                .dispatch(
-                                                                  startSetIsonline(
-                                                                    id2,
-                                                                  ),
-                                                                )
-                                                                .then(() => {
-                                                                   store
-                                                                .dispatch(
-                                                                  startSetChat(
-                                                                    id2,
-                                                                  ),
-                                                                )
-                                                                .then(() => {
-                                                                   return store
-                                                                .dispatch(
-                                                                  startSetIsInfinitescroll(
-                                                                    id2,
-                                                                  ),
-                                                                )
-                                                                .then(() => {
-                                                                  renderApp(
-                                                                    store,
-                                                                    signup,
-                                                                  );
-                                                                })
-                                                                .catch(
-                                                                  (error) => {
-                                                                    console.log(
-                                                                      "theplan, error",
-                                                                      error,
+                                                                  store
+                                                                    .dispatch(
+                                                                      startSetIsonline(
+                                                                        id2,
+                                                                      ),
+                                                                    )
+                                                                    .then(() => {
+                                                                      // Chat notifications are initialized
+                                                                      // using the authenticated UID.
+                                                                      return Promise.resolve();
+                                                                    })
+                                                                    .then(() => {
+                                                                      return store
+                                                                        .dispatch(
+                                                                          startSetIsInfinitescroll(
+                                                                            id2,
+                                                                          ),
+                                                                        )
+                                                                        .then(() => {
+                                                                          renderApp(
+                                                                            store,
+                                                                            signup,
+                                                                          );
+                                                                        })
+                                                                        .catch(
+                                                                          (error) => {
+                                                                            console.log(
+                                                                              "theplan, error",
+                                                                              error,
+                                                                            );
+                                                                          },
+                                                                        );
+                                                                    })
+                                                                    .catch(
+                                                                      (error) => {
+                                                                        console.log(
+                                                                          "theplan, error",
+                                                                          error,
+                                                                        );
+                                                                      },
                                                                     );
-                                                                  },
-                                                                );
-                                                                })
-                                                                .catch(
-                                                                  (error) => {
-                                                                    console.log(
-                                                                      "theplan, error",
-                                                                      error,
-                                                                    );
-                                                                  },
-                                                                );
-                                                                })
-                                                                .catch(
-                                                                  (error) => {
-                                                                    console.log(
-                                                                      "theplan, error",
-                                                                      error,
-                                                                    );
-                                                                  },
-                                                                );
                                                                 })
                                                                 .catch(
                                                                   (error) => {
@@ -333,7 +371,7 @@ console.log("app.js, CALLING THE FIRST RENDER")
                                           );
                                         });
                                     } else {
-                                      //goes here if shared page was loaded into the browser
+                                      // Shared page loaded into the browser
                                       renderApp(store, signup);
                                     }
                                   })
@@ -346,15 +384,24 @@ console.log("app.js, CALLING THE FIRST RENDER")
                               });
                           })
                           .catch((error) => {
-                            console.log("thehashtagsisopen, error", error);
+                            console.log(
+                              "thehashtagsisopen, error",
+                              error
+                            );
                           });
                       })
                       .catch((error) => {
-                        console.log("thehashtagsisopen, error", error);
+                        console.log(
+                          "thehashtagsisopen, error",
+                          error
+                        );
                       });
                   })
                   .catch((error) => {
-                    console.log("thetotalstars, error", error);
+                    console.log(
+                      "thetotalstars, error",
+                      error
+                    );
                   });
               })
               .catch((error) => {
@@ -371,22 +418,26 @@ console.log("app.js, CALLING THE FIRST RENDER")
   } catch (e) {
     console.log("app.js part 1, error=" + e);
   }
+
 } else {
   console.log("app.js, 4th one abc");
-  // store.dispatch({
-  //   type: "SET_SIGNUP",
-  //   signup: { signup: true },
-  // });
+
   store.dispatch(setSignup({ signup: true }));
 
   try {
     firebase.auth().onAuthStateChanged((user) => {
-      
       console.log("app.js, 5th one abc");
+
       if (user) {
-        console.log("app.js, CALLING THE SECOND RENDER, user.uid="+user.uid)
+        console.log(
+          "app.js, CALLING THE SECOND RENDER, user.uid=" +
+          user.uid
+        );
+
         console.log("app.js, 6th one abc");
-        console.log("logged in user=" + JSON.stringify(user));
+        console.log(
+          "logged in user=" + JSON.stringify(user)
+        );
 
         store.dispatch(login(user.uid));
 
@@ -394,6 +445,7 @@ console.log("app.js, CALLING THE FIRST RENDER")
 
         store
           .dispatch(startSetLinksNew(user.uid))
+
           .then(() => {
             store
               .dispatch(getTheplan(user.uid))
@@ -414,7 +466,6 @@ console.log("app.js, CALLING THE FIRST RENDER")
                                   .dispatch(getTheuserscounti(user.uid))
                                   .then(() => {
                                     store
-                                      //.dispatch(getThesignupcount(theStore.theloggedin.loggedin))
                                       .dispatch(getThesignupcount(z2))
                                       .then(() => {
                                         store
@@ -458,58 +509,42 @@ console.log("app.js, CALLING THE FIRST RENDER")
                                                                     ),
                                                                   )
                                                                   .then(() => {
-                                                                      store
-                                                                .dispatch(
-                                                                  startSetIsonline(
-                                                                    user.uid,
-                                                                  ),
-                                                                )
-                                                                .then(() => {
-                                                                   store
-                                                                .dispatch(
-                                                                  startSetChat(
-                                                                    user.uid,
-                                                                  ),
-                                                                )
-                                                                .then(() => {
-                                                                   return store
-                                                                .dispatch(
-                                                                  startSetIsInfinitescroll(
-                                                                    user.uid,
-                                                                  ),
-                                                                )
-                                                                .then(() => {
-                                                                  renderApp(
-                                                                    store,
-                                                                    signup,
-                                                                  );
-                                                                })
-                                                                .catch(
-                                                                  (error) => {
-                                                                    console.log(
-                                                                      "theplan, error",
-                                                                      error,
-                                                                    );
-                                                                  },
-                                                                );
-                                                                })
-                                                                .catch(
-                                                                  (error) => {
-                                                                    console.log(
-                                                                      "theplan, error",
-                                                                      error,
-                                                                    );
-                                                                  },
-                                                                );
-                                                                })
-                                                                .catch(
-                                                                  (error) => {
-                                                                    console.log(
-                                                                      "theplan, error",
-                                                                      error,
-                                                                    );
-                                                                  },
-                                                                );
+                                                                    store
+                                                                      .dispatch(
+                                                                        startSetIsonline(
+                                                                          user.uid,
+                                                                        ),
+                                                                      )
+                                                                      .then(() => {
+                                                                        return store
+                                                                          .dispatch(
+                                                                            startSetChat(
+                                                                              user.uid,
+                                                                            ),
+                                                                          );
+                                                                      })
+                                                                      .then(() => {
+                                                                        return store
+                                                                          .dispatch(
+                                                                            startSetIsInfinitescroll(
+                                                                              user.uid,
+                                                                            ),
+                                                                          );
+                                                                      })
+                                                                      .then(() => {
+                                                                        renderApp(
+                                                                          store,
+                                                                          signup,
+                                                                        );
+                                                                      })
+                                                                      .catch(
+                                                                        (error) => {
+                                                                          console.log(
+                                                                            "theplan, error",
+                                                                            error,
+                                                                          );
+                                                                        },
+                                                                      );
                                                                   })
                                                                   .catch(
                                                                     (error) => {
@@ -565,15 +600,24 @@ console.log("app.js, CALLING THE FIRST RENDER")
                                           });
                                       })
                                       .catch((error) => {
-                                        console.log("theplan, error", error);
+                                        console.log(
+                                          "theplan, error",
+                                          error
+                                        );
                                       });
                                   })
                                   .catch((error) => {
-                                    console.log("theplan, error", error);
+                                    console.log(
+                                      "theplan, error",
+                                      error
+                                    );
                                   });
                               })
                               .catch((error) => {
-                                console.log("theplan, error", error);
+                                console.log(
+                                  "theplan, error",
+                                  error
+                                );
                               });
                           })
                           .catch((error) => {
@@ -595,18 +639,26 @@ console.log("app.js, CALLING THE FIRST RENDER")
           .catch((error) => {
             console.log("error", error);
           });
+
       } else {
         console.log("logout happened");
+
         store.dispatch(logout());
         renderApp(store, signup);
         history.push("/");
       }
     });
+
   } catch (e) {
     console.log("app.js part 2, error=" + e);
   }
 }
 
 console.log("APP.JS STARTING");
-ReactDOM.render(<LoadingPage />, document.getElementById("app"));
+
+ReactDOM.render(
+  <LoadingPage />,
+  document.getElementById("app")
+);
+
 //ReactDOM.render(<CatFetcher />, document.getElementById("app"));

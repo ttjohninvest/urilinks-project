@@ -51,10 +51,13 @@ const openNewTabWithCustomTitleType = (url, type, customTitle) => {
     
     
     
-    openNewTabWithCustomTitleType(`/chat/${uid2}/${dn2.split("@")[0]}/${uid1}/${dn}/?ni=3&chatsetting=1`, "_blank", "urilinks-chat")
-    //openNewTabWithCustomTitleType(`/chat/${uid2}/${"johmcg64"}/${uid1}/${dn}/?ni=3&chatsetting=1`, "_blank", "urilinks-chat")
-
-   
+    //openNewTabWithCustomTitleType(`/chat/${uid2}/${dn2.split("@")[0]}/${uid1}/${dn}/?ni=3&chatsetting=1`, "_blank", "urilinks-chat")
+    
+   openNewTabWithCustomTitleType(
+  `/chat/${uid2}/${dn2.split("@")[0]}/${uid1}/${dn}/?ni=3&chatsetting=1&signup=signup`,
+  "_blank",
+  "urilinks-chat"
+);
 
 
 
@@ -62,37 +65,70 @@ const openNewTabWithCustomTitleType = (url, type, customTitle) => {
 
   const filteredChats = props.ischat.filter((n) => n.uid1 === props.auth.uid);
 
+  console.log("CHAT auth.uid =", props.auth.uid);
+console.log("CHAT ischat =", JSON.stringify(props.ischat));
+console.log("CHAT filteredChats =", JSON.stringify(filteredChats));
+console.log("CHAT uniqueChats =", JSON.stringify(uniqueChats));
+
+  // useEffect(() => {
+  //   const uniqueChats = filteredChats.filter(
+  //     (chat, index, array) =>
+  //       index === array.findIndex((item) => item.uid2 === chat.uid2),
+  //   );
+  //   setUniqueChats(uniqueChats);
+  // }, []);
+
   useEffect(() => {
-    const uniqueChats = filteredChats.filter(
-      (chat, index, array) =>
-        index === array.findIndex((item) => item.uid2 === chat.uid2),
-    );
-    setUniqueChats(uniqueChats);
-  }, []);
+  const updatedChats = filteredChats.filter(
+    (chat, index, array) =>
+      index === array.findIndex(
+        (item) => item.uid2 === chat.uid2
+      )
+  );
 
-  const removeChatNotification = (uid2, dn2, uid1, dn1) => {
-    const confirmation = window.prompt(
-      "To delete this chat with "+dn2+", type exactly: delete chat",
-    );
+  setUniqueChats(updatedChats);
+}, [props.ischat, props.auth.uid]);
 
-    if (confirmation !== "delete chat") {
-      alert("Chat was not deleted.");
-      return;
-    }
+  
+const removeChatNotification = (uid2, dn2, uid1, dn1) => {
+  const confirmation = window.prompt(
+    "To delete this chat with " + dn2 + ", type exactly: delete chat"
+  );
 
-    // Put your Firebase deletion code here
-    console.log("calling the database to delete the chat from the firebase realtime database");
-    database
-      .ref(`chat/messages/${uid2}/${dn2}/${uid1}/${dn1}`)
-      .remove()
-      .then(() => {
-        alert("The chat with "+dn2+" is removed.")
-        console.log("Chat removed");
-      })
-      .catch((error) => {
-        console.log("Error removing chat:", error);
-      });
+  if (confirmation !== "delete chat") {
+    alert("Chat was not deleted.");
+    return;
+  }
+
+  const chatPath =
+    `chat/messages/${uid2}/${dn2.split("@")[0]}/${uid1}/${dn1}`;
+
+  const deletionPath =
+    `chat/deleted/${uid2}/${dn2.split("@")[0]}/${uid1}/${dn1}`;
+
+  const updates = {};
+
+  // Remove the chat messages.
+  updates[chatPath] = null;
+
+  // Save a separate notice for the other participant.
+  updates[deletionPath] = {
+    deletedBy: dn1,
+    deletedByUid: props.auth.uid,
+    deletedAt: firebase.database.ServerValue.TIMESTAMP,
   };
+
+  // Both changes are sent as one atomic update.
+  database.ref().update(updates)
+    .then(() => {
+      alert("The chat with " + dn2 + " is removed.");
+      console.log("Chat deleted and notice saved.");
+    })
+    .catch((error) => {
+      console.log("Error deleting chat:", error);
+    });
+};
+
 
   return (
     <div className="chat-dropdown margin-left-11">

@@ -86,18 +86,9 @@ function ExpandableArray(props) {
   const rt = params.get("x");
   const id = params.get("id");
 
-  //   const baseUrl =
-  // process.env.NODE_ENV === "development"
-  //   ? "http://localhost:3000"
-  //   : "https://urilinks.com";
+ 
 
-  let baseUrl = "";
-
-  if (Constants.NODE_DEV === "development") {
-    baseUrl = "http://localhost:3000";
-  } else {
-    baseUrl = "https://urilinks.com";
-  }
+  const baseUrl = window.location.origin;
 
   removeDuplicates = (stringArray) => {
     const stringifiedArray = stringArray.join(" ");

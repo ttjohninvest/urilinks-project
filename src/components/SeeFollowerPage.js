@@ -20,18 +20,7 @@ export const SeeFollowerPage = (props) => {
   console.log("SeeFollowingPage(), props.name2="+props.name2)
   //const [nodeRef, setNodeRef] = useState(null);
 
-  // const baseUrl =
-  // process.env.NODE_ENV === "development"
-  //   ? "http://localhost:3000"
-  //   : "https://urilinks.com";
-
-  let baseUrl = ""
-  
-  if(Constants.NODE_DEV === "development") {
-    baseUrl = "http://localhost:3000"
-  } else {
-    baseUrl = "https://urilinks.com"
-  }
+  const baseUrl = window.location.origin;
 
   // console.log("SeeFollowingPage.js, annotatearray(), array1="+JSON.stringify(props.users)) //props.users [{gud:{}}]
   //   console.log("SeeFollowingPage.js, annotatearray(), array2="+JSON.stringify(props.following))

@@ -5,18 +5,7 @@ import { connect } from "react-redux";
 import EditForm from "./EditForm";
 import { startEditLink, startRemoveLink, removeLink } from "../actions/links";
 
-  // const baseUrl =
-  // process.env.NODE_ENV === "development"
-  //   ? "http://localhost:3000"
-  //   : "https://urilinks.com";
-
-  let baseUrl = ""
-  
-  if(Constants.NODE_DEV === "development") {
-    baseUrl = "http://localhost:3000"
-  } else {
-    baseUrl = "https://urilinks.com"
-  }
+  const baseUrl = window.location.origin;
 
 
 
